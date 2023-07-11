@@ -1,0 +1,145 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+li {
+  list-style-type: none; 
+}
+
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  /* min-height: 100vh; */
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root {
+	--Primary1: rgba(36, 137, 255, 1);
+	--Primary2: rgba(13, 203, 134, 1);
+	--Primary3: rgba(255, 193, 73, 1);
+	--Primary4: rgba(255, 85, 95, 1);
+	--Primary5: rgba(24, 190, 212, 1);
+	--Primary6: rgba(255, 255, 255, 1);
+    
+	--Secondary1: rgba(36, 137, 255, 0.15);
+	--Secondary2: rgba(13, 203, 134, 0.15);
+	--Secondary3: rgba(255, 193, 73, 0.15);
+	--Secondary4: rgba(255, 85, 95, 0.15);
+	--Secondary5: rgba(24, 190, 212, 0.15);
+    
+	--Soft1: rgba(36, 137, 255, 0.1);
+	--Soft2: rgba(13, 203, 134, 0.1);
+	--Soft3: rgba(255, 193, 73, 0.1);
+	--Soft4: rgba(255, 85, 95, 0.1);
+	--Soft5: rgba(24, 190, 212, 0.1);
+    
+	--Focus-Primary1: rgba(63, 152, 255, 1);
+	--Focus-Primary2: rgba(15, 215, 143, 1);
+	--Focus-Primary3: rgba(255, 199, 92, 1);
+	--Focus-Primary4: rgba(255, 106, 115, 1);
+	--Focus-Primary5: rgba(28, 205, 229, 1);
+    
+    --Hover-Primary1: rgba(37, 125, 228, 1);
+    --Hover-Primary2: rgba(11, 184, 122, 1);
+    --Hover-Primary3: rgba(227, 173, 69, 1);
+    --Hover-Primary4: rgba(255, 106, 115, 1);
+    --Hover-Primary5: rgba(24, 190, 212, 1);
+    --Hover-Primary6: rgba(255, 255, 255, 1);
+
+    --Active-Primary1: rgba(37, 125, 228, 1);
+    --Active-Primary2: rgba(11, 184, 122, 1);
+    --Active-Primary3: rgba(227, 173, 69, 1);
+    --Active-Primary4: rgba(226, 80, 89, 1);
+    --Active-Primary5: rgba(37, 171, 189, 1);
+    --Active-Primary6: rgba(246, 246, 247, 1);
+
+    --Hover-Secondary1: rgba(36, 137, 255, 0.15);
+    --Hover-Secondary2: rgba(13, 203, 134, 0.15);
+    --Hover-Secondary3: rgba(255, 193, 73, 0.15);
+    --Hover-Secondary4: rgba(255, 85, 95, 0.15);
+    --Hover-Secondary5: rgba(24, 190, 212, 0.15);
+
+    --Disabled-color1: rgba(36, 137, 255, 0.5);
+    --Disabled-color2: rgba(13, 203, 134, 0.5);
+    --Disabled-color3: rgba(255, 193, 73, 0.5);
+    --Disabled-color4: rgba(255, 85, 95, 0.5);
+    --Disabled-color5: rgba(24, 190, 212, 0.5);
+
+    --Text-color-1: rgba(50, 59, 75, 1);
+    --Text-color-2: rgba(66, 78, 101, 1);
+    --Text-color-3: rgba(78, 93, 119, 1);
+    --Text-color-4: rgba(110, 122, 144, 1);
+    --Text-color-5: rgba(110, 122, 144, 1);
+
+    --Background-color-1: rgba(212, 216, 222, 1);
+    --Background-color-2: rgba(232, 232, 236, 1);
+    --Background-color-3: rgba(241, 241, 241, 1);
+    --Background-color-4: rgba(246, 246, 247, 1);
+    --Background-color-5: rgba(255, 255, 255, 1);
+
+    --Shadow-card-small: 0px 1px 2px 0px rgba(138, 148, 166, 0.13);
+    --Shadow-card-medium: 0px 3px 5px -1px rgba(138, 148, 166, 0.13);
+    --Shadow-card-large: 0px 5px 7px -1px rgba(138, 148, 166, 0.13);
+    --Shadow-card-XL: 0px 2px 2px 0px rgba(138, 148, 166, 0.07), 0px 8px 10px 0px rgba(138, 148, 166, 0.13);
+    
+}
