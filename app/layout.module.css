@@ -1,3 +1,30 @@
+.mainWrapper {
+    max-width: 1440px;
+    width: auto;
+    margin: 0 auto;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+.mainGrid {
+    /* grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+    'sidebar header'
+    'sidebar body'; */
+    display: flex;
+    position: relative;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
 .header {
-    background-color: var();
+    grid-area: header;
+    
+}
+
+.body {
+    grid-area: body;
 }

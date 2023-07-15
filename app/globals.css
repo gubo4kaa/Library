@@ -141,5 +141,22 @@ ol[class] {
     --Shadow-card-medium: 0px 3px 5px -1px rgba(138, 148, 166, 0.13);
     --Shadow-card-large: 0px 5px 7px -1px rgba(138, 148, 166, 0.13);
     --Shadow-card-XL: 0px 2px 2px 0px rgba(138, 148, 166, 0.07), 0px 8px 10px 0px rgba(138, 148, 166, 0.13);
+
+    --Shadow-buttons-default: 0px 1px 2px 0px rgba(138, 148, 166, 0.13);
+    --Shadow-buttons-hover: 0px 2px 4px 0px rgba(138, 148, 166, 0.18);
+
+    --Shadow-primary-1: 0px 2px 4px 0px rgba(36, 137, 255, 0.35);
+    --Shadow-primary-2: 0px 2px 4px 0px rgba(13, 203, 134, 0.35);
+    --Shadow-primary-3: 0px 2px 4px 0px rgba(255, 193, 73, 0.35);
+    --Shadow-primary-4: 0px 2px 4px 0px rgba(255, 85, 95, 0.35);
+    --Shadow-primary-5: 0px 2px 4px 0px rgba(24, 190, 212, 0.35);
     
+    --Shadow-input-default: 0px 1px 2px 0px rgba(138, 148, 166, 0.13);
+    --Shadow-input-hover: 0px 1px 3px 0px rgba(146, 196, 255, 0.48);
+    --Shadow-input-active: 0px 2px 5px 0px rgba(36, 137, 255, 0.20);
+    --Shadow-input-error: 0px 2px 5px 0px rgba(255, 85, 95, 0.20);
+    
+    --Shadow-boxes-default: 0px 2px 5px 0px rgba(255, 85, 95, 0.20);
+    --Shadow-boxes-hover: 0px 1px 2px 0px rgba(13, 203, 134, 0.25);
+    --Shadow-boxes-checked: 0px 1px 2px 0px rgba(13, 203, 134, 0.24), 0px 1px 3px 0px rgba(0, 0, 0, 0.11) inset;
 }

@@ -1,0 +1,49 @@
+.button {
+    padding: 10px 18px;
+    border-radius: 12px;
+    gap: 5px;
+
+    max-width: max-content;
+    background-color: aqua;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.extraSmall {
+    padding: 10px 18px;
+}
+.small {
+    padding: 12px 18px;
+}
+.medium {
+    padding: 14px 18px;
+}
+
+.widthFull {
+    width: 100%;
+    max-width: 100%;
+}
+
+.whiteBlue {
+    background-color: var(--Primary6);
+    border: 1px solid var(--Background-color-2);
+    box-shadow: var(--Shadow-buttons-default);
+    color: var(--Primary1);
+}
+
+.whiteBlue:hover {
+    border: 1px solid var(--Background-color-1);
+    box-shadow: var(--Shadow-buttons-hover);
+}
+
+.whiteBlue:active {
+    color: var(--Active-Primary1);
+    background-color: var(--Background-color-4);
+}
+
