@@ -1,14 +1,31 @@
 .wrapper {
     display: flex;
+    min-width: min-content;
+    max-width: max-content;
     flex-direction: column;
-    padding: 23px 16px;
     min-height: 100vh;
     border-right: 1px solid var(--Background-color-2);
+    background-color: var(--Primary6);
+    z-index: 99999999;
+    background-color: var(--Primary6);
 }
 
 .stickyWrapper {
     position: sticky;
-    top: 23px;
+    top: 0;
+}
+
+.scrollWrapper {
+    position: relative;
+    max-height: 100vh;
+    padding: 23px 16px;
+    overflow-y: auto;
+    -ms-overflow-style: none;  /* IE и Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.scrollWrapper::-webkit-scrollbar {
+    display: none;
 }
 
 .linkLogo {
@@ -22,41 +39,6 @@
     font-weight: 500;
     margin-top: 24px;
     margin-bottom: 10px;
-}
-
-.categoriesWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding-bottom: 24px;
-    border-bottom: solid 1px var(--Background-color-2);
-    margin-bottom: 24px;
-}
-
-.category {
-    display: flex;
-    padding: 10px;
-    gap: 8px;
-    align-items: center;
-    cursor: pointer;
-    border-radius: 14px;
-    min-width: 218px;
-}
-
-.category:hover {
-    background-color: var(--Background-color-4);
-}
-
-
-.category a {
-    font-size: 14px;
-    color: var(--Text-color-2)
-}
-
-.arrow {
-    margin-left: auto;
-    margin-right: 20px;
-    opacity: 0;
 }
 
 .category:hover > .arrow{
@@ -90,4 +72,8 @@
     font-weight: 400;
     line-height: 24px;
     color: var(--Text-color-4);
+}
+
+@media screen and (max-width: 375px) {
+    
 }

@@ -1,0 +1,27 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+
+    padding: 12px;
+    border-radius: 14px;
+    box-shadow: var(--Shadow-buttons-default);
+    border:solid 1px var(--Background-color-2);
+    background: var(--Primary6);
+    cursor: pointer;
+}
+
+.wrapper:hover {
+    border:solid 1px var(--Background-color-1);
+    box-shadow: var(--Shadow-buttons-hover);
+}
+
+.wrapper:active {
+    background: var(--Background-color-4);
+    box-shadow: var(--Shadow-buttons-default);
+}
+
+@media screen and (min-width: 1025px) {
+    .wrapper {
+        display: none;
+    }
+}

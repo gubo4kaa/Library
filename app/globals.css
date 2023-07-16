@@ -47,6 +47,7 @@ blockquote,
 dl,
 dd {
   margin: 0;
+  /* word-break: break-all; */
 }
 
 /* Выставляем основные настройки по-умолчанию для body */

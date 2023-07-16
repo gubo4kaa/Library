@@ -1,20 +1,25 @@
 .mainWrapper {
     max-width: 1440px;
-    width: auto;
+    width: 100%;
+    width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
     min-height: 100vh;
 }
 
 .mainGrid {
-    /* grid-template-columns: auto 1fr;
+    display: grid;
+    grid-template-columns: auto 1fr;
     grid-template-rows: auto 1fr;
     grid-template-areas: 
     'sidebar header'
-    'sidebar body'; */
-    display: flex;
-    position: relative;
+    'sidebar mainContent';
 }
+
+/* .contentColumnWrapper {
+    grid-area: mainContent;
+    min-width: 100%;
+} */
 
 .sidebar {
     grid-area: sidebar;
@@ -22,9 +27,21 @@
 
 .header {
     grid-area: header;
-    
 }
 
-.body {
-    grid-area: body;
+.content {
+    grid-area: mainContent;
+}
+
+@media screen and (max-width: 1024px) {
+    .mainGrid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        'header'
+        'mainContent';
+    }
+    .sidebar {
+        display: none !important;
+    }
 }
