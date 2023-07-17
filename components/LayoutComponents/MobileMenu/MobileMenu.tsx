@@ -18,12 +18,11 @@ const variantsMenu = {
 
 const variantsBlur = {
     open: { opacity: 1, x: 0 },
-    closed: { opacity: 0, x: "-400%" },
+    closed: { opacity: 0, x: "-100%" },
 }
 
 export default function MobileMenu({children}:Props) {
     const [menuOpen, setOpenMenu] = useOpenMenuStore((state) => [state.menuOpen, state.setOpenMenu])
-
     return <>
         <motion.div
             initial = {"closed"}
