@@ -22,8 +22,7 @@ const Sidebar = ({categories, className}: Props) => {
       return (
       <div className={cn(styles.wrapper, className)}>
         <div className={styles.stickyWrapper}>
-          <div className={styles.scrollWrapper}>
-            <CloseButton/>  
+          <div className={styles.scrollWrapper}> 
             <Link href={'/'} className={styles.linkLogo}> 
               <Image src={LibraryLogo} alt={''}/>
             </Link>

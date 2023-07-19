@@ -5,6 +5,7 @@ import { useOpenMenuStore } from '@/store/store';
 
 import cn from 'classnames';
 import { motion } from 'framer-motion';
+import CloseButton from '@/components/CloseButton/CloseButton';
 
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
@@ -24,6 +25,7 @@ const variantsBlur = {
 export default function MobileMenu({children}:Props) {
     const [menuOpen, setOpenMenu] = useOpenMenuStore((state) => [state.menuOpen, state.setOpenMenu])
     return <>
+       
         <motion.div
             initial = {"closed"}
             animate={menuOpen ? "open" : "closed"}
@@ -31,6 +33,7 @@ export default function MobileMenu({children}:Props) {
             transition={{type: 'ease-out', duration: 0.3}}
             className={cn(styles.wrapper)}>
             {children}
+            <CloseButton/> 
         </motion.div>
         <motion.div
             initial = {"closed"}
