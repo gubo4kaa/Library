@@ -36,17 +36,21 @@ export default function SearchInput({category}:Props) {
 
 
   const onSubmit = async (data: FormInputs) => {
-    const fetch = await LibraryService.Search(data.searchString)
-      .then((value) => {
-        if(value.data[0].name) {
-          setDataState(value.data)
-        } else {
+    if(data.searchString.length > 0) {
+      const fetch = await LibraryService.Search(data.searchString)
+        .then((value) => {
+          if(value.data[0].name) {
+            setDataState(value.data)
+          } else {
+            setDataState(undefined)
+          }
+        })
+        .catch(() => {
           setDataState(undefined)
-        }
-      })
-      .catch(() => {
-        setDataState(undefined)
-      })
+        })
+    } else {
+      setDataState(undefined)
+    }
   }
 
   // useEffect(() => {
