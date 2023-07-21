@@ -1,0 +1,83 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    position: relative;
+}
+
+.form {
+    position: relative;
+    display: flex;
+    min-width: 100%;
+}
+
+.mainInput {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--Text-color-2);
+    
+    width: 100%;
+    padding: 10px 38px;
+    
+    border-radius: 14px;
+    border: 1px solid var(--Background-color-2);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-shadow: var(--Shadow-buttons-default);
+}
+
+.mainInput:-webkit-autofill,
+.mainInput:-webkit-autofill:hover,
+.mainInput:-webkit-autofill:focus,
+.mainInput:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 10em white inset !important;
+  -webkit-text-fill-color: var(--Text-color-2) !important;
+}
+
+.mainInput:focus {
+    box-shadow: var(--Shadow-input-active);
+    outline: 1px solid var(--Primary1);
+}
+
+.mainInput::placeholder {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--Text-color-5);
+}
+
+.searchLogo {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    cursor: pointer;
+}
+
+.closeLogo {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.closeLogo:active, .searchLogo:active {
+    scale: 0.9;
+}
+
+.dropDownWrapper{
+    position: absolute;
+    top: 48px;
+    left: 0;
+    /* transform: translateY(-34px); */
+    width: 100%;
+    
+    background-color: var(--Background-color-5);
+    box-shadow: var(--Shadow-card-medium);
+    border-radius: 18px;
+    border: 1px solid var(--Background-color-2);
+    padding: 12px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}

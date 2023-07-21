@@ -5,4 +5,5 @@
     background: rgba(255, 255, 255, 0.90);
     align-items: center;
     display: flex;
+    z-index: 2;
 }

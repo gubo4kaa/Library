@@ -7,6 +7,7 @@ import Sidebar from '@/components/LayoutComponents/Sidebar/Sidebar'
 import cn from 'classnames';
 import Header from '@/components/LayoutComponents/Header/Header'
 import MobileMenu from '@/components/LayoutComponents/MobileMenu/MobileMenu'
+import Blur from '@/components/LayoutComponents/Blur/Blur'
 
 const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
     style: ["normal"]
@@ -38,13 +39,14 @@ const category = await getCategory()
       <body className={cn(inter.className)}>
         <div className={styles.mainWrapper}>
           <div className={styles.mainGrid}>
-            <Header className={styles.header}/>
+            <Header category={category} className={styles.header}/>
             <MobileMenu>
               <Sidebar categories={category}/>
             </MobileMenu>
             <Sidebar categories={category} className={styles.sidebar}/>
             <div className={styles.content}>
               {children}
+              <Blur/>
             </div>
           </div>
         </div>
