@@ -69,7 +69,7 @@ export default function SearchInput({category}:Props) {
         onChange={handleSubmit(onSubmit)}
         className={styles.form}
       >
-        <input {...register("searchString")} placeholder="Search" className={styles.mainInput}/>
+        <input autoComplete="off" {...register("searchString")} placeholder="Search" className={styles.mainInput}/>
         {/* {errors.exampleRequired && <p>This field is required</p>} */}
         <input type="submit" hidden ref={submitRef}/>
         <button type="reset" hidden ref={resetRef}/>
