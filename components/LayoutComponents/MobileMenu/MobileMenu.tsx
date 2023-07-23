@@ -25,7 +25,6 @@ const variantsBlur = {
 export default function MobileMenu({children}:Props) {
     const [menuOpen, setOpenMenu] = useOpenMenuStore((state) => [state.menuOpen, state.setOpenMenu])
     return <>
-       
         <motion.div
             initial = {"closed"}
             animate={menuOpen ? "open" : "closed"}

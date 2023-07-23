@@ -81,3 +81,14 @@
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
+
+
+@media screen and (max-width: 1024px) {
+    .dropDownWrapper {
+        grid-template-columns: 1fr;
+        left: -58px;
+        right: 0;
+        min-width: calc(100% + 58px) ;
+    }
+
+}

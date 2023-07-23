@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { env } from 'process';
 import Image from "next/image";
 import ArrowLogo from './Arrow.svg'
+import FeaturedLogo from './Featured.svg'
 import { motion } from 'framer-motion';
 
 
@@ -31,13 +32,20 @@ export default function SearchCard({category,service}:Props) {
                     <p>
                         {service.price}
                     </p>
+                    {
+                        service.featured && (
+                            <>
+                                <span></span>
+                                <Image src={FeaturedLogo} alt={''}/>
+                                <p className={styles.featured}>
+                                    Featured
+                                </p>
+                            </>
+                        )
+                    }
                 </div>
             </div>
             <div
-                // whileHover={{
-                //     scale: 1.2,
-                //     transition: { duration: 1 },
-                // }}
                 className={styles.arrow}>
                 <Image width={24} height={24} src={ArrowLogo} alt={''}/>
             </div>
