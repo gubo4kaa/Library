@@ -38,7 +38,7 @@
 
 .blur {
     background-color: rgba(137, 43, 226, 0.216);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
