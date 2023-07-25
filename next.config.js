@@ -5,13 +5,26 @@ const nextConfig = {}
 module.exports = nextConfig
 
 
+// module.exports = {
+//     images: {
+//       remotePatterns: [
+//         {
+//           protocol: 'http',
+//           hostname: 'localhost',
+//           port: '8000',
+//           pathname: '/**',
+//         },
+//       ],
+//     },
+//   }
+
 module.exports = {
     images: {
       remotePatterns: [
         {
           protocol: 'http',
-          hostname: 'localhost',
-          port: '8000',
+          hostname: 'ovz1.plumstudio.m6x5m.vps.myjino.ru',
+          port: '49171',
           pathname: '/**',
         },
       ],

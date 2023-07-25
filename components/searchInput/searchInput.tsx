@@ -7,7 +7,8 @@ import SearchLogo from './Search.svg'
 import CloseLogo from './Close.svg'
 import LibraryService from '@/services/services';
 import { useBlurStore } from '@/store/storeBlur';
-import SearchCard from './SearchCard/SearchCard';
+import SearchCard from './MiniCard/MiniCard';
+import MiniCard from './MiniCard/MiniCard';
 
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
@@ -81,7 +82,7 @@ export default function SearchInput({category}:Props) {
           <div className={styles.dropDownWrapper}>
             {
               dataState.map((item, key) => (
-                <SearchCard category={category} service={item} key={key}/>
+                <MiniCard category={category} service={item} key={key}/>
               ))
             }
           </div>

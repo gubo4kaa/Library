@@ -7,9 +7,17 @@
     position: relative;
 }
 
+.wrapper.child {
+    padding: 0;
+}
+
 .wrapper:hover {
     background-color: var(--Background-color-4);
     cursor: pointer;
+}
+
+.wrapper.child:hover {
+    background-color: #fff;
 }
 
 .wrapper > img {
@@ -63,6 +71,15 @@
 .wrapper:hover .arrow {
     right: 12px;
     opacity: 1;
+}
+
+.wrapper.child .arrow {
+    right: 24px;
+}
+
+.wrapper.child:hover .arrow {
+    right: 0;
+    opacity: 0;
 }
 
 p.featured {

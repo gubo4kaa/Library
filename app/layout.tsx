@@ -1,13 +1,12 @@
-import LayoutCategoryList from '@/components/LayoutComponents/Sidebar/Sidebar'
-import './globals.css'
-import styles from './layout.module.css'
-import type { Metadata } from 'next'
-import { Plus_Jakarta_Sans } from 'next/font/google'
-import Sidebar from '@/components/LayoutComponents/Sidebar/Sidebar'
-import cn from 'classnames';
+import Blur from '@/components/LayoutComponents/Blur/Blur'
 import Header from '@/components/LayoutComponents/Header/Header'
 import MobileMenu from '@/components/LayoutComponents/MobileMenu/MobileMenu'
-import Blur from '@/components/LayoutComponents/Blur/Blur'
+import Sidebar from '@/components/LayoutComponents/Sidebar/Sidebar'
+import cn from 'classnames'
+import type { Metadata } from 'next'
+import { Plus_Jakarta_Sans } from 'next/font/google'
+import './globals.css'
+import styles from './layout.module.css'
 
 const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
     style: ["normal"]
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
 }
 
 async function getCategory() {
-  const category = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-categories`,{
+  const category = await fetch(`${process.env.NEXT_PUBLIC_LIBRARY_API}library/find-categories`,{
     next:{
       revalidate: 60
     }

@@ -1,0 +1,16 @@
+.wrapper {
+    padding: 24px;
+}
+
+.wrapper h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--Text-color-2);
+    margin-bottom: 24px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+}
