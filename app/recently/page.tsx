@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 }
 
 async function getService() {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_LIBRARY_API}library/find-items`, {
+  const data = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-items`, {
     next:{
       revalidate: 60
     }
@@ -16,7 +16,7 @@ async function getService() {
 }
 
 async function getCategory() {
-  const category = await fetch(`${process.env.NEXT_PUBLIC_LIBRARY_API}library/find-categories`,{
+  const category = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-categories`,{
     next:{
       revalidate: 60
     }
