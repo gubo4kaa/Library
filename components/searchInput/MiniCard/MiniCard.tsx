@@ -23,7 +23,7 @@ export default function MiniCard({child = false,category,service}:Props) {
             [styles.child]: child
         })}>
             {
-                !child && service.avatar != 'default.png' && <Image
+                !child && service.avatar != 'default.png' && <img
                 width={58} 
                 height={58}  
                 src={`${process.env.NEXT_PUBLIC_LIBRARY_API}${service.id}/avatar/${service.avatar}`} 

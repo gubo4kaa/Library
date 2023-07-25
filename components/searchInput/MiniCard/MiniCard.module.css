@@ -16,12 +16,14 @@
     cursor: pointer;
 }
 
-.wrapper.child:hover {
-    background-color: #fff;
+.logo {
+    min-width: 58px;
+    min-height: 58px;
+    margin-right: 14px;
 }
 
-.wrapper > img {
-    margin-right: 14px;
+.wrapper.child:hover {
+    background-color: #fff;
 }
 
 .titleWrapper {
