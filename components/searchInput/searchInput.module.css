@@ -3,6 +3,9 @@
     width: 100%;
     align-items: center;
     position: relative;
+    box-sizing: border-box;
+    max-width: 100%;
+    z-index: 999999;
 }
 
 .form {
@@ -66,19 +69,19 @@
 
 .dropDownWrapper{
     position: absolute;
+    display: flex;
     top: 48px;
     left: 0;
     /* transform: translateY(-34px); */
     width: 100%;
+    max-width: 100%;
     
     background-color: var(--Background-color-5);
     box-shadow: var(--Shadow-card-medium);
     border-radius: 18px;
     border: 1px solid var(--Background-color-2);
-    padding: 12px;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+    flex-direction: column;
     gap: 10px;
 }
 

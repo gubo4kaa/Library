@@ -33,7 +33,7 @@
     grid-area: mainContent;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 900px) {
     .mainGrid {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;

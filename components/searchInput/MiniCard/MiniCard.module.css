@@ -5,10 +5,14 @@
     border-radius: 20px;
     align-items: center;
     position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    max-width: 100%;
 }
 
 .wrapper.child {
     padding: 0;
+    border-radius: 0;
 }
 
 .wrapper:hover {
@@ -16,28 +20,58 @@
     cursor: pointer;
 }
 
-.logo {
-    min-width: 58px;
-    min-height: 58px;
-    margin-right: 14px;
-}
 
 .wrapper.child:hover {
     background-color: #fff;
+}
+
+.imageWrapper{
+    display: flex;
+    position: relative;
+    margin-right: 14px;
+    
+}
+
+.logo {
+    min-width: 58px;
+    min-height: 58px;
+}
+
+.featuredLogo {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    border: solid 3px #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+
 }
 
 .titleWrapper {
     max-height: max-content;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
-.titleWrapper h5 {
+.titleWrapper .title {
     font-size: 18px;
     font-weight: 700;
     color: var(--Text-color-2);
     border-radius: 20px;
     margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    padding-right: 20px;
+
+}
+
+.wrapper.child .titleWrapper .title {
+    padding-right: 5px;
+
 }
 
 .titleWrapper p {

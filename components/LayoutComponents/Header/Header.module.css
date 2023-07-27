@@ -5,5 +5,10 @@
     background: rgba(255, 255, 255, 0.90);
     align-items: center;
     display: flex;
-    z-index: 2;
+    z-index: 21;
+}
+@media screen and (max-width: 900px) {
+    .wrapper {
+        z-index: 20;
+    }
 }

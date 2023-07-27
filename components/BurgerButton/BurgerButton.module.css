@@ -21,7 +21,7 @@
     box-shadow: var(--Shadow-buttons-default);
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 901px) {
     .wrapper {
         display: none;
     }

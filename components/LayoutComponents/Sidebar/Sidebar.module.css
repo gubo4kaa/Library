@@ -6,7 +6,7 @@
     min-height: 100vh;
     border-right: 1px solid var(--Background-color-2);
     background-color: var(--Primary6);
-    z-index: 99999999;
+    z-index: 2;
     background-color: var(--Primary6);
 }
 

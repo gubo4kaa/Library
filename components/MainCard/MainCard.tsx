@@ -15,8 +15,8 @@ export default function MainCard({categories, service}:Props) {
     const code = encodeURIComponent(`${service.name}`)
     return (
         <>
-            <Link href={`/services/${code}`}>
-                <div className={styles.wrapper}>
+            <div className={styles.wrapper}>
+                <Link href={`/services/${code}`}>
                     {
                         service.images[0] != 'default.png' && <Image 
                         alt={'not image'} 
@@ -46,8 +46,8 @@ export default function MainCard({categories, service}:Props) {
                         className={styles.img}/>
                     }
                     <MiniCard child category={categories} service={service}/>
-                </div>
-            </Link>
+                </Link>
+            </div>
         </>
     )
 }

@@ -14,3 +14,19 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 24px;
 }
+
+@media screen and (max-width: 1200px) {
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}

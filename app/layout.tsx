@@ -38,15 +38,15 @@ const category = await getCategory()
       <body className={cn(inter.className)}>
         <div className={styles.mainWrapper}>
           <div className={styles.mainGrid}>
-            <Header category={category} className={styles.header}/>
             <MobileMenu>
               <Sidebar categories={category}/>
             </MobileMenu>
+            <Header category={category} className={styles.header}/>
             <Sidebar categories={category} className={styles.sidebar}/>
             <div className={styles.content}>
               {children}
-              <Blur/>
             </div>
+            <Blur/>
           </div>
         </div>
         </body>
