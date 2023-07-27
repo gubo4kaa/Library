@@ -45,7 +45,10 @@
     border-radius: 50%;
     width: 30px;
     height: 30px;
+}
 
+.wrapper:hover .featuredLogo {
+    border: solid 3px var(--Background-color-4);
 }
 
 .titleWrapper {
