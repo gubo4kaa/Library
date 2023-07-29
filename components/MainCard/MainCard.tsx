@@ -4,6 +4,8 @@ import MiniCard from '../searchInput/MiniCard/MiniCard';
 import styles from './MainCard.module.css';
 import DefaultImage from '../default/default.png';
 import Link from "next/link";
+import ArrowMain from './Arrow.svg';
+
 
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
@@ -46,6 +48,7 @@ export default function MainCard({categories, service}:Props) {
                         className={styles.img}/>
                     }
                     <MiniCard child category={categories} service={service}/>
+                    <Image width={24} className={styles.arrow} height={24} src={ArrowMain} alt={''}/>
                 </Link>
             </div>
         </>

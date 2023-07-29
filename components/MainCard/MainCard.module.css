@@ -10,5 +10,21 @@
     border-radius: 16px;
     box-shadow: var(--Shadow-card-small);
     border: 1px solid var(--Background-color-2);
-    margin-bottom: 15px;
+    margin-bottom: 7px;
+}
+
+.arrow {
+    display: flex;
+    opacity: 0;
+    position: absolute;
+    bottom: 18px;
+    right: 20px;
+    transition: all .1s ease-out;
+    max-height: max-content;
+    max-width: max-content;
+}
+
+.wrapper:hover .arrow {
+    opacity: 1;
+    right: 0px;
 }

@@ -1,7 +1,7 @@
 .wrapper {
     display: flex;
     width: 100%;
-    padding: 12px;
+    padding: 8px;
     border-radius: 20px;
     align-items: center;
     position: relative;
@@ -20,7 +20,6 @@
     cursor: pointer;
 }
 
-
 .wrapper.child:hover {
     background-color: #fff;
 }
@@ -29,26 +28,32 @@
     display: flex;
     position: relative;
     margin-right: 14px;
-    
+    max-width: max-content;
+    max-height: max-content;
+}
+
+.wrapper.child  .imageWrapper {
+    display: none;
 }
 
 .logo {
-    min-width: 58px;
-    min-height: 58px;
+    min-width: 42px;
+    min-height: 42px;
+    border-radius: 12px;
 }
 
 .featuredLogo {
     position: absolute;
-    right: -10px;
-    top: -10px;
-    border: solid 3px #fff;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    right: -5px;
+    top: -2px;
+    border: solid 1px #fff;
+    border-radius: 20px;
+    width: 16px;
+    height: 16px;
 }
 
 .wrapper:hover .featuredLogo {
-    border: solid 3px var(--Background-color-4);
+    border: solid 1px var(--Background-color-4);
 }
 
 .titleWrapper {
@@ -59,28 +64,28 @@
 }
 
 .titleWrapper .title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--Text-color-2);
     border-radius: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
-    padding-right: 20px;
-
+    /* padding-right: 20px; */
+    line-height: normal;
 }
 
 .wrapper.child .titleWrapper .title {
-    padding-right: 5px;
-
+    
 }
 
 .titleWrapper p {
     font-size: 14px;
     font-weight: 500;
     color: var(--Text-color-4);
+    line-height: normal;
 }
 
 .titleWrapper span {
@@ -100,24 +105,25 @@
 }
 
 .arrow {
-    position: absolute;
-    top: 12px;
-    right: 44px;
+    display: flex;
     opacity: 0;
     transition: all .1s ease-out;
+    align-self: center;
+    margin-left: auto;
+    max-height: max-content;
+    max-width: max-content;
+    margin-right: 20px;
 }
 
 .wrapper:hover .arrow {
-    right: 12px;
     opacity: 1;
+    margin-right: 0;
 }
 
 .wrapper.child .arrow {
-    right: 24px;
 }
 
 .wrapper.child:hover .arrow {
-    right: 0;
     opacity: 0;
 }
 

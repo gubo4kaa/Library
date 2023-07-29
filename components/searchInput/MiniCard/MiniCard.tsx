@@ -2,7 +2,7 @@ import cn from 'classnames';
 import Image from "next/image";
 import Link from 'next/link';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
-import ArrowLogo from './Arrow.svg';
+import ArrowSearch from './ArrowSearch.svg';
 import FeaturedLogo from './Featured.svg';
 import FeaturedBadge from './badgeFeatured.svg';
 import styles from './MiniCard.module.css';
@@ -25,21 +25,24 @@ export default function MiniCard({child = false,category,service}:Props) {
         })}>
             <div className={styles.imageWrapper}>
                 {
-                    !child && service.avatar != 'default.png' && <img
-                    width={58} 
-                    height={58}  
-                    src={`${process.env.NEXT_PUBLIC_LIBRARY_API}${service.id}/avatar/${service.avatar}`} 
-                    className={styles.logo} 
-                    alt={''}/>
-                
+                    !child && service.avatar != 'default.png' && (
+                        <img
+                        width={42} 
+                        height={42}  
+                        src={`${process.env.NEXT_PUBLIC_LIBRARY_API}${service.id}/avatar/${service.avatar}`} 
+                        className={styles.logo} 
+                        alt={''}/>
+                    ) 
                 }
                 {
-                    !child && service.avatar == 'default.png' && <Image
-                    width={58} 
-                    height={58}  
-                    src={`/default/defaultAvatar.png`} 
-                    className={styles.logo} 
-                    alt={''}/>
+                    !child && service.avatar == 'default.png' && (
+                        <Image
+                        width={42} 
+                        height={42} 
+                        src={`/default/defaultAvatarr.png`} 
+                        className={styles.logo} 
+                        alt={''}/>
+                    )
                 }
                 {
                     service.featured && !child && (
@@ -72,10 +75,13 @@ export default function MiniCard({child = false,category,service}:Props) {
                     }
                 </div>
             </div>
-            <div
-                className={styles.arrow}>
-                <Image width={24} height={24} src={ArrowLogo} alt={''}/>
-            </div>
+            {
+                !child && <div
+                    className={styles.arrow}>
+                    <Image width={24} height={24} src={ArrowSearch} alt={''}/>
+                </div>
+            }
+            
         </div>
     // </Link>
   )
