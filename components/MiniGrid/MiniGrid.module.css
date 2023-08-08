@@ -1,0 +1,50 @@
+.wrapper {
+    
+}
+
+.headerWrapper {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.headerWrapper h4 {
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: var(--Text-color-2);
+}
+
+.link {
+    align-self: center;
+    display: flex;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: var(--Primary1);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    padding: 24px 0;
+}
+
+@media screen and (max-width: 1200px) {
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+}
+
+@media screen and (max-width: 696px) {
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}

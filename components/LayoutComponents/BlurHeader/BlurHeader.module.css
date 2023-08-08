@@ -5,8 +5,8 @@
     width: 100%;
     height: 100%;
     z-index: 20;
-    background: rgba(50, 59, 75, 0.09);
-    backdrop-filter: blur(2.5px);
+    background: rgba(50, 59, 75, 0.12);
+    /* backdrop-filter: blur(2.5px); */
 }
 
 @media screen and (max-width: 900px) {

@@ -13,6 +13,11 @@ a {
 	box-sizing: border-box;
 }
 
+* {
+  min-height: 0;
+  min-width: 0;
+}
+
 li {
   list-style-type: none; 
 }
