@@ -14,19 +14,18 @@ async function getFeatured() {
 }
 
 async function getAllItems() {
-  const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-limit-items/?limit=30&offset=0&featured=false`,{
+  const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-items`,{
     next:{
-      revalidate: 10
+      revalidate: 1
     }
   })
-  // console.log(services);
   return services.json()
 } 
 
 async function getCategory() {
   const category = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-categories`,{
     next:{
-      revalidate: 60
+      revalidate: 10,
     }
   })
   return category.json()
@@ -37,7 +36,6 @@ export default async function Home() {
   const allService = await getAllItems();
   const allCategory = await getCategory();
   return (
-
     <div className={styles.wrapper}>
       <div>
         <VideoGrid/>

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 async function getCategory() {
   const category = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-categories`,{
     next:{
-      revalidate: 60
+      revalidate: 600
     }
   })
   return category.json()
@@ -31,7 +31,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-
 const category = await getCategory()
   return (
     <html lang="en">

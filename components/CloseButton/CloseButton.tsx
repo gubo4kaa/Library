@@ -22,7 +22,6 @@ export default function CloseButton({}:Props) {
   const [menuOpen, setOpenMenu] = useOpenMenuStore((state) => [state.menuOpen, state.setOpenMenu])
   const searchFunction = async (str: string) => {
     const data = await LibraryService.Search('ui');
-    console.log(data);
   }
   return <motion.div 
     initial = {"closed"}

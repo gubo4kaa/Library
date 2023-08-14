@@ -56,7 +56,7 @@ export default function MiniCard({child = false,category,service}:Props) {
                 </div>
                 <div className={styles.subTitle}>
                     <p>
-                        {findCategory[0].nameCategory}
+                        {findCategory[0] ? findCategory[0].nameCategory : "deleted category"}
                     </p>
                     <span></span>
                     <p>

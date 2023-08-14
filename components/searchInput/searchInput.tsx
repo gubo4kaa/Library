@@ -38,7 +38,6 @@ export default function SearchInput({category}:Props) {
   const onSubmit = async (data: FormInputs) => {
     setDroDownState(true)
     setBlur(true);
-    console.log(data)
     if(data.searchString.length > 0) {
       const fetch = await LibraryService.Search(data.searchString)
       .then((value) => {

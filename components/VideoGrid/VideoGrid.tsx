@@ -35,8 +35,7 @@ export default function VideoGrid({className}:Props) {
               }}
             width={null}
             pagination={{ clickable: true }}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
+            
             className={styles.swiperWrapper}
             breakpoints={
                 {
