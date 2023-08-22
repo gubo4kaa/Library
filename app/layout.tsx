@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 async function getCategory() {
   const category = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-categories`,{
     next:{
-      revalidate: 600
+      revalidate: 60
     }
   })
   return category.json()

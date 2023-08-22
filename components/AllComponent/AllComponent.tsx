@@ -15,7 +15,7 @@ export default function AllComponent({categories, services, namePage}:Props) {
     </h4>
     <div className={styles.grid}>
         {
-            services.map((item) => (
+            services[0] && services.map((item) => (
                 <MainCard categories={categories} key={item.id} service={item}/>
             ))
         }

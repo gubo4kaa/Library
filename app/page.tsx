@@ -7,7 +7,7 @@ import VideoGrid from "@/components/VideoGrid/VideoGrid";
 async function getFeatured() {
   const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-limit-items/?limit=6&offset=0&featured=true`,{
     next: {
-      revalidate: 10
+      revalidate: 60
     }
   })
   return services.json()
@@ -16,7 +16,7 @@ async function getFeatured() {
 async function getAllItems() {
   const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-items`,{
     next:{
-      revalidate: 1
+      revalidate: 60
     }
   })
   return services.json()
@@ -25,7 +25,7 @@ async function getAllItems() {
 async function getCategory() {
   const category = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-categories`,{
     next:{
-      revalidate: 10,
+      revalidate: 60,
     }
   })
   return category.json()
