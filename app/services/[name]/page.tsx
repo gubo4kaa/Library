@@ -25,6 +25,15 @@ async function getService(name: string) {
   return services.json()
 }
 
+async function getCategory() {
+  const category = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-categories`,{
+    next:{
+      revalidate: 60,
+    }
+  })
+  return category.json()
+} 
+
 // export async function generateStaticParams() {
 //   const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-items`).then((res) => res.json())
 //   return services.map((item: IServiceInterface) => ({
@@ -34,8 +43,10 @@ async function getService(name: string) {
 
 export default async function Service({params: {name}}: Props) {
   const service = await getService(name);
+  const categories = await getCategory();
+  const category = categories.find((el: ICategory) => el.id == service.categoryId)
   return <div>
-    <ServicePage service={service}/>
+    <ServicePage service={service} category={category}/>
     {/* {name} */}
   </div>
 }

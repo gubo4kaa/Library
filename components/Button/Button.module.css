@@ -3,8 +3,11 @@
     border-radius: 12px;
     gap: 5px;
 
-    max-width: max-content;
-    background-color: aqua;
+    max-width: 100%;
+    width: 100%;
+    min-width: min-content;
+    /* height: 100%; */
+
     align-items: center;
     display: flex;
     justify-content: center;
@@ -13,6 +16,7 @@
     font-weight: 700;
 
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 .extraSmall {
@@ -30,6 +34,13 @@
     max-width: 100%;
 }
 
+/* .heightFull {
+    min-height: 100%;
+    height: 100%;
+} */
+
+/*-whiteBlue-*/
+
 .whiteBlue {
     background-color: var(--Primary6);
     border: 1px solid var(--Background-color-2);
@@ -45,5 +56,20 @@
 .whiteBlue:active {
     color: var(--Active-Primary1);
     background-color: var(--Background-color-4);
+}
+
+/*-blueWhite-*/
+
+.blueWhite {
+    background-color: var(--Primary1);
+    color: var(--Primary6);
+}
+
+.blueWhite:hover {
+    background-color: var(--Hover-Primary1);
+}
+
+.blueWhite:active {
+    background-color: var(--Active-Primary1);
 }
 

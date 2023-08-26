@@ -35,7 +35,7 @@ const Sidebar = ({categories, className}: Props) => {
                 Kits, 3D Bundles and <br/>
                 Mockups
               </h4>
-              <Button width='full' href={process.env.NEXT_PUBLIC_UISCORE}>
+              <Button width='full' href={process.env.NEXT_PUBLIC_UISCORE} color='whiteBlue'>
                 Visit Uiscore
                 <Image src={ArrowBlue} alt={''}/>
               </Button>

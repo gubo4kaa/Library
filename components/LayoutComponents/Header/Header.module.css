@@ -6,6 +6,7 @@
     align-items: center;
     display: flex;
     z-index: 21;
+    min-height: min-content;
 }
 
 @media screen and (max-width: 900px) {

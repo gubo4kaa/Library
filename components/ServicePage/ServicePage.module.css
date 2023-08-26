@@ -1,0 +1,11 @@
+.wrapper {
+    padding: 16px 24px;
+}
+
+.iframe {
+    margin-top: 30px;
+    width: 100%;
+    height: 560px;
+    border-radius: 20px;
+    border-color: solid 1px var(--Background-color-2);
+}

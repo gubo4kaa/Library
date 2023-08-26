@@ -27,6 +27,9 @@
 
 .header {
     grid-area: header;
+    box-sizing: border-box;
+    min-height: 86px;
+    height: 86px;
 }
 
 .content {
