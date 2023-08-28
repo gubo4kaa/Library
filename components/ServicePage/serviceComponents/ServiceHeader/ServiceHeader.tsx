@@ -14,7 +14,7 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
 
 export default function ServiceHeader({service, category}:Props) {
   return <div className={styles.wrapper}>
-        <Image src={`${process.env.NEXT_PUBLIC_LIBRARY_API}${service.id}/avatar/${service.avatar}`} className={styles.img} height={82} width={82} alt={''}></Image>
+        <Image src={`${process.env.LOCAL_LIBRARY_API}${service.id}/avatar/${service.avatar}`} className={styles.img} height={82} width={82} alt={''}></Image>
         <div className={styles.titleWrapper}>
             <h3>{service.name}</h3>
             <p>{service.description}</p>
