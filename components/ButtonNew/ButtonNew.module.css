@@ -1,0 +1,70 @@
+.button {
+    padding: 10px 18px;
+    border-radius: 12px;
+    gap: 5px;
+
+    max-width: 100%;
+    width: max-content;
+    min-width: max-content;
+    height: 100%;
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    font-size: 14px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: normal;
+
+    cursor: pointer;
+    box-sizing: border-box;
+    white-space: nowrap
+}
+
+.maxWidth {
+    width: 100%;
+}
+
+.iconLeft {
+    padding-right: 20px;
+}
+
+/*-Primary-*/
+
+.primary {
+    background-color: var(--Primary1);
+    color: var(--Primary6);
+}
+
+.primary:hover {
+    background-color: var(--Hover-Primary1);
+}
+
+.primary:active {
+    background-color: var(--Active-Primary1);
+}
+
+
+
+
+/*-LinkGhost-*/
+
+.linkGhost {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--Text-color-4);
+    padding: 0;
+    max-height: max-content;
+    height: max-content;
+}
+
+.linkGhost:hover, .linkGhost:hover svg path {
+    color: var(--Primary1);
+    stroke: var(--Primary1);
+}
+
+.linkGhost:active, .linkGhost:active svg path {
+    color: var(--Active-Primary1);
+    stroke: var(--Active-Primary1);
+}

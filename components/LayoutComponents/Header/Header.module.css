@@ -3,14 +3,35 @@
     top: 0;
     padding: 24px;
     background: rgba(255, 255, 255, 0.90);
-    align-items: center;
+    /* align-items: center; */
     display: flex;
     z-index: 21;
-    min-height: min-content;
+    min-height: max-content;
+    height: min-content;
+    box-sizing: border-box;
+    gap: 10px;
+}
+
+.buttonWrapper {
+    display: flex;
+    width: max-content;
+    min-width: max-content;
+    gap: 24px;
+    align-items: center;
 }
 
 @media screen and (max-width: 900px) {
     .wrapper {
         z-index: 20;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .buttonWrapper {
+        display: none;
+    }
+
+    .wrapper {
+        flex-direction: row-reverse;
     }
 }

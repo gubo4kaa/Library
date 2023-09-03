@@ -22,9 +22,9 @@ module.exports = {
 //     images: {
 //       remotePatterns: [
 //         {
-//           protocol: 'http',
-//           hostname: 'ovz1.plumstudio.m6x5m.vps.myjino.ru',
-//           port: '49171',
+//           protocol: 'https',
+//           hostname: 'dev.api.uiscore.io',
+//           port: '',
 //           pathname: '/**',
 //         },
 //       ],

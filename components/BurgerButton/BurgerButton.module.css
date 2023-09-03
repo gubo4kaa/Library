@@ -2,13 +2,22 @@
     display: flex;
     align-items: center;
 
-    padding: 12px;
+    padding: 9px 12px;
     border-radius: 14px;
-    box-shadow: var(--Shadow-buttons-default);
-    border:solid 1px var(--Background-color-2);
+
     background: var(--Primary6);
+    box-shadow: var(--Shadow-buttons-default);
+    border: solid 1px var(--Background-color-2);
+    
+    box-sizing: border-box;
     cursor: pointer;
-    margin-right: 10px;
+    min-width: min-content;
+    min-height: min-content;
+    height: min-content;
+}
+
+.wrapper svg {
+    box-sizing: border-box;
 }
 
 .wrapper:hover {
