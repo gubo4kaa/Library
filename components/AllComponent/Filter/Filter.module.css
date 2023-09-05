@@ -19,12 +19,23 @@
     color: var(--Text-color-4);
     background-color: var(--Background-color-4);
     border-radius: 8px;
+
+    min-width: max-content;
 }
-
-
 
 .active {
     background-color: var(--Soft1);
     color: var(--Primary1);
     padding-right: 4px;
+}
+
+@media screen and (max-width: 696px) {
+    .wrapper {
+        margin-top: 14px;
+        margin-left: 0;
+        gap: 12px;
+        max-width: 100%;
+        width: 100%;
+        flex-wrap: wrap;
+    }
 }
