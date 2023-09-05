@@ -9,10 +9,9 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
     width?: 'full' | null,
     height?: 'full' | null,
     href?: string,
-    type: 'LinkGhost' | null
 }
 
-export default function Button({color = 'blueWhite', href, size = 'small', width = null, height = null , className, type=null, children}:Props):JSX.Element {
+export default function Button({color = 'blueWhite', href, size = 'small', width = null, height = null , className, children}:Props):JSX.Element {
 
   return <a href={href} className={cn(styles.button, {
     [styles.extraSmall]: size == 'extraSmall',
@@ -22,7 +21,6 @@ export default function Button({color = 'blueWhite', href, size = 'small', width
     [styles.whiteBlue]: color == 'whiteBlue',
     [styles.widthFull]: width == 'full',
     [styles.heightFull]: height == 'full',
-    [styles.linkGhost]: type == 'LinkGhost',
   }, className)}>
     {children}
     </a>

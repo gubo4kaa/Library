@@ -1,0 +1,30 @@
+.wrapper {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+    width: max-content;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    padding: 5px 10px;
+    cursor: pointer;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--Text-color-4);
+    background-color: var(--Background-color-4);
+    border-radius: 8px;
+}
+
+
+
+.active {
+    background-color: var(--Soft1);
+    color: var(--Primary1);
+    padding-right: 4px;
+}

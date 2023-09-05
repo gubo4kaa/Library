@@ -22,7 +22,7 @@ export default function MainCard({categories, service}:Props) {
                     {
                         service.images[0] != 'default.png' && <Image 
                         alt={'not image'} 
-                        src={`${process.env.LOCAL_LIBRARY_API}${service.id}/${service.images[0]}`} 
+                        src={`${process.env.NEXT_PUBLIC_LIBRARY_API}${service.id}/${service.images[0]}`} 
                         width={365} 
                         height={209} 
                         sizes="100vw"

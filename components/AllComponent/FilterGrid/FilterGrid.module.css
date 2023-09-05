@@ -1,0 +1,29 @@
+.wrapper {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+}
+
+.wrapper h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--Text-color-2);
+    margin-bottom: 24px;
+}
+
+@media screen and (max-width: 1200px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+}
+
+@media screen and (max-width: 696px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}

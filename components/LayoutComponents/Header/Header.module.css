@@ -18,6 +18,7 @@
     min-width: max-content;
     gap: 24px;
     align-items: center;
+    margin-left: 14px;
 }
 
 @media screen and (max-width: 900px) {

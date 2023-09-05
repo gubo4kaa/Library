@@ -17,11 +17,6 @@
     min-width: 218px;
 }
 
-.category:hover {
-    background-color: var(--Background-color-4);
-}
-
-
 .category p {
     font-size: 14px;
     font-weight: 500;
@@ -32,5 +27,14 @@
     margin-left: auto;
     margin-right: 20px;
     opacity: 0;
+    transition: all .1s ease-out;
 }
 
+.category:hover .arrow, .active .arrow {
+    opacity: 1;
+    margin-right: 0px;
+}
+
+.active {
+    background-color: var(--Background-color-4);
+}
