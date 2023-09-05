@@ -5,28 +5,28 @@ const nextConfig = {}
 module.exports = nextConfig
 
 
-module.exports = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '8000',
-        pathname: '/**',
-      },
-    ],
-  },
-} /** prod */
-
 // module.exports = {
-//     images: {
-//       remotePatterns: [
-//         {
-//           protocol: 'https',
-//           hostname: 'dev.api.uiscore.io',
-//           port: '',
-//           pathname: '/**',
-//         },
-//       ],
-//     },
-//   }
+//   images: {
+//     remotePatterns: [
+//       {
+//         protocol: 'http',
+//         hostname: 'localhost',
+//         port: '8000',
+//         pathname: '/**',
+//       },
+//     ],
+//   },
+// } /** prod */
+
+module.exports = {
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'dev.api.uiscore.io',
+          port: '',
+          pathname: '/**',
+        },
+      ],
+    },
+  }
