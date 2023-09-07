@@ -1,17 +1,17 @@
 import { create } from 'zustand'
 
 type IFilterService = {
-    filterService: IServiceInterface[];
+    filterService: IServiceInterface[] | null;
 }
   
 type Action = {
-    setFilterService: (state: IServiceInterface[]) => void
+    setFilterService: (state: IServiceInterface[] | null) => void
 }
 
 // Create your store, which includes both state and (optionally) actions
 export const storeFilterService = create<IFilterService & Action>((set) => ({
     filterService: [],
-    setFilterService: (state: IServiceInterface[]) => {
+    setFilterService: (state: IServiceInterface[] | null) => {
         set(() => ({ filterService: state }))
     },
 }))

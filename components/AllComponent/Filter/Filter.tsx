@@ -59,7 +59,12 @@ export default function Filter({services}:Props) {
       return boolean
     })
     console.log(newArr);
-    setFilterService(newArr)
+    if(newArr.length == 0) {
+      setFilterService(null)
+      console.log(filterService);
+    } else {
+      setFilterService(newArr)
+    }
   }
 
   const [stateFilterFeatured, setStateFilterFeatured] = useState<boolean>(false)

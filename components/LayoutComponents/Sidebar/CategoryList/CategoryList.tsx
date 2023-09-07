@@ -22,8 +22,11 @@ export default function CategoryList({category}:Props) {
   useEffect(() => {
     const pathArr = pathname?.split('/')
     const sameArrow = categoryNameArr.filter(i => {
-      if (pathArr?.includes(i)) {
-        return i
+      if(pathArr) {
+        const codePath = encodeURIComponent(i)
+        if (pathArr?.includes(codePath)) {
+          return true
+        }
       }
     })
     if(sameArrow) {
@@ -31,6 +34,7 @@ export default function CategoryList({category}:Props) {
     } else {
       setActive('');
     }
+    
   }, [pathname, router])
 
   return <div className={styles.categoriesWrapper}>

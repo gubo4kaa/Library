@@ -4,6 +4,11 @@
     gap: 24px;
 }
 
+.notfound {
+    grid-template-columns: 1fr;
+    align-items: center;
+}
+
 .wrapper h4 {
     font-size: 22px;
     font-weight: 700;

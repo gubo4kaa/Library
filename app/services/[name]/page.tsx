@@ -34,12 +34,16 @@ async function getCategory() {
   return category.json()
 } 
 
-// export async function generateStaticParams() {
-//   const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-items`).then((res) => res.json())
-//   return services.map((item: IServiceInterface) => ({
-//     slug: item.name,
-//   }))
-// }
+export async function generateStaticParams() {
+  const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-items`, {
+    next:{
+      revalidate: 60,
+    }
+  }).then((res) => res.json())
+  return services.map((item: IServiceInterface) => ({
+    slug: item.name,
+  }))
+}
 
 export default async function Service({params: {name}}: Props) {
   const service = await getService(name);
