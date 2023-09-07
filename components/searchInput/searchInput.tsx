@@ -7,7 +7,7 @@ import SearchLogo from './Search.svg'
 import CloseLogo from './Close.svg'
 import LibraryService from '@/services/services';
 import { useBlurStore } from '@/store/storeBlur';
-import MiniCard from './MiniCard/MiniCard';
+import MiniCard from '../MiniCard/MiniCard';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
   category: ICategory[];
