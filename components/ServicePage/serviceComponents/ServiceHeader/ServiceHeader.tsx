@@ -1,11 +1,10 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react'
-import styles from './ServiceHeader.module.css'
+import ButtonNew from '@/components/ButtonNew/ButtonNew';
 import Image from "next/image";
-import FeaturedLogo from './Featured.svg';
-import ArrowLogo from './Arrow.svg';
-import Button from '@/components/Button/Button';
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import AlertService from '../AlertService/AlertService';
-import Link from 'next/link';
+import CopyUrlButton from '../CopyUrlButton/CopyUrlButton';
+import FeaturedLogo from './Featured.svg';
+import styles from './ServiceHeader.module.css';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
     service: IServiceInterface;
@@ -17,7 +16,6 @@ export default function ServiceHeader({service, category}:Props) {
         <Image src={`${process.env.NEXT_PUBLIC_LIBRARY_API}${service.id}/avatar/${service.avatar}`} className={styles.img} height={82} width={82} alt={''}></Image>
         <div className={styles.titleWrapper}>
             <h3>{service.name}</h3>
-            <p>{service.description}</p>
             <div className={styles.tagList}>
                 {
                     category ? category.nameCategory : "none Category"
@@ -40,11 +38,16 @@ export default function ServiceHeader({service, category}:Props) {
             </div>
         </div>
         <div className={styles.buttonWrapper}>
-            <AlertService/>
-            <Button href={`https://${service.url}`} color='blueWhite'>
+            <div className={styles.buttonWrapperMini}>
+                <AlertService/>
+                <CopyUrlButton urlCopy={`${service.url}`}/>
+            </div>
+            <ButtonNew href={`https://${service.url}`} color='blueWhite' iconPosition={'iconRight'} size='m'>
                 Explore
-                <Image src={ArrowLogo} width={22} height={22} alt=''></Image>
-            </Button>
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.0004 2.75001C4.58418 2.75001 2.75 4.58335 2.75 11C2.75 17.4167 4.65469 19.25 11.0004 19.25C17.3462 19.25 19.25 17.4167 19.25 11M18.3333 3.66668V7.33333M18.3333 3.66668L14.6667 3.66668M18.3333 3.66668L12.8333 9.16668" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+            </ButtonNew>
         </div>
     </div>
 }

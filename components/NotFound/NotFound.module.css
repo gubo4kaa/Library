@@ -22,3 +22,10 @@
     margin-top: 12px;
     text-align: center;
 }
+
+
+@media screen and (max-width: 696px) {
+    .wrapper {
+        margin-top: 100px
+    }
+}

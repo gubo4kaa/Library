@@ -1,10 +1,9 @@
 import Image from "next/image";
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
-import MiniCard from '../searchInput/MiniCard/MiniCard';
-import styles from './MainCard.module.css';
-import DefaultImage from '../default/default.png';
 import Link from "next/link";
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import MiniCard from '../SearchInput/MiniCard/MiniCard';
 import ArrowMain from './Arrow.svg';
+import styles from './MainCard.module.css';
 
 
 

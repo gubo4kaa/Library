@@ -2,7 +2,7 @@ import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 import BurgerButton from "@/components/BurgerButton/BurgerButton";
 import ButtonNew from "@/components/ButtonNew/ButtonNew";
-import SearchInput from "@/components/searchInput/searchInput";
+import SearchInput from "@/components/SearchInput/searchInput";
 import cn from 'classnames';
 import BlurHeader from "../BlurHeader/BlurHeader";
 import styles from './Header.module.css';
@@ -27,12 +27,12 @@ const Header = ({category, className}:Props) => {
                 </svg>
                 Newsletter
             </ButtonNew>
-            <ButtonNew type={'Primary'} icon={'iconLeft'} width='min'>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="Plus">
-                <path id="Vector" d="M4.16602 9.99984H9.99935M9.99935 9.99984L9.99935 15.8332M9.99935 9.99984L9.99935 4.1665M9.99935 9.99984L15.8327 9.99984" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                </g>
-            </svg>
+            <ButtonNew type={'Primary'} size="s" iconPosition={'iconLeft'} width='min'>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="Plus">
+                    <path id="Vector" d="M4.16602 9.99984H9.99935M9.99935 9.99984L9.99935 15.8332M9.99935 9.99984L9.99935 4.1665M9.99935 9.99984L15.8327 9.99984" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                    </g>
+                </svg>
                 Submit Tool
             </ButtonNew>
         </div>

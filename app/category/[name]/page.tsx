@@ -18,7 +18,7 @@ export async function generateMetadata({params: {name}}: Props): Promise<Metadat
 export const revalidate = 10
 
 async function getServices(name: string) {
-  const services = await fetch(`http://localhost:8000/library/search-by-category/?category=${name}`,{
+  const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/search-by-category/?category=${name}`,{
     next: {
       revalidate: 10
     }
