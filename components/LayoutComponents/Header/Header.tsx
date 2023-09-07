@@ -5,7 +5,7 @@ import ButtonNew from "@/components/ButtonNew/ButtonNew";
 import cn from 'classnames';
 import BlurHeader from "../BlurHeader/BlurHeader";
 import styles from './Header.module.css';
-import SearchInput from "@/components/SearchInput/searchInput";
+import SearchInput from "@/components/SearchInput/SearchInput";
 
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
