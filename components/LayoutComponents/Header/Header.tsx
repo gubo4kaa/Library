@@ -2,10 +2,10 @@ import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 import BurgerButton from "@/components/BurgerButton/BurgerButton";
 import ButtonNew from "@/components/ButtonNew/ButtonNew";
-import SearchInput from "@/components/SearchInput/searchInput";
 import cn from 'classnames';
 import BlurHeader from "../BlurHeader/BlurHeader";
 import styles from './Header.module.css';
+import SearchInput from "@/components/SearchInput/searchInput";
 
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
