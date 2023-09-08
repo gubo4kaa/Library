@@ -5,7 +5,7 @@ import ButtonNew from "@/components/ButtonNew/ButtonNew";
 import cn from 'classnames';
 import BlurHeader from "../BlurHeader/BlurHeader";
 import styles from './Header.module.css';
-import SearchInput from "@/components/SearchInput/SearchInput";
+import SearchInput1 from "@/components/SearchInput/SearchInput";
 
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
@@ -16,7 +16,7 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
 const Header = ({category, className}:Props) => {
   return <div className={cn(className, styles.wrapper)}>
         <BurgerButton className={styles.burger}/>
-        <SearchInput category={category}/>
+        <SearchInput1 category={category}/>
         <div className={styles.buttonWrapper}>
             <ButtonNew type={'LinkGhost'}>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

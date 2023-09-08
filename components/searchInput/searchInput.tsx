@@ -17,7 +17,7 @@ type FormInputs = {
   searchString: string
 }
 
-export default function SearchInput({category}:Props) {
+export default function SearchInput1({category}:Props) {
 
   const submitRef = useRef<HTMLInputElement>(null);
   const resetRef = useRef<HTMLButtonElement>(null);
