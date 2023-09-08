@@ -19,7 +19,7 @@ export const revalidate = 10
 async function getService(name: string) {
   const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-item/?name=${name}`,{
     next: {
-      revalidate: 10
+      revalidate: 60
     }
   })
   return services.json()
@@ -34,16 +34,16 @@ async function getCategory() {
   return category.json()
 } 
 
-// export async function generateStaticParams() {
-//   const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-items`, {
-//     next:{
-//       revalidate: 60,
-//     }
-//   }).then((res) => res.json())
-//   return services.map((item: IServiceInterface) => ({
-//     slug: item.name,
-//   }))
-// }
+export async function generateStaticParams() {
+  const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-items`, {
+    next:{
+      revalidate: 60,
+    }
+  }).then((res) => res.json())
+  return services.map((item: IServiceInterface) => ({
+    slug: encodeURIComponent(item.name),
+  }))
+}
 
 export default async function Service({params: {name}}: Props) {
   const service = await getService(name);

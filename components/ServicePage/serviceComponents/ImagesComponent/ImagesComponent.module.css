@@ -1,0 +1,17 @@
+.wrapper {
+    border-radius: 20px;
+    border: solid 1px var(--Background-color-2);
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-top: 20px;
+    max-height: max-content;
+    height: max-content;
+    max-width: 1142px;
+}
+
+.image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
