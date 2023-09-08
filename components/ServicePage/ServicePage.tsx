@@ -15,4 +15,3 @@ export default async function ServicePage( {service, category} :Props) {
     <ImagesComponent service={service}/>
   </div>
 }
-
