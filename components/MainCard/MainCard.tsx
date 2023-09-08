@@ -5,8 +5,6 @@ import ArrowMain from './Arrow.svg';
 import styles from './MainCard.module.css';
 import MiniCard from "../MiniCard/MiniCard";
 
-
-
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
     service: IServiceInterface
     categories: ICategory[]
