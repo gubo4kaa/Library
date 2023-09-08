@@ -1,6 +1,6 @@
 "use client"
 import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState } from 'react'
-import styles from './SearchInput.module.css'
+import styles from './Search.module.css'
 import { useForm } from 'react-hook-form';
 import Image from "next/image";
 import SearchLogo from './Search.svg'
