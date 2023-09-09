@@ -18,8 +18,9 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
 
 export default function MiniCard({child = false,category,service}:Props) {
     const findCategory = category.filter((item) => item.id == service.categoryId)
+    const codeService = encodeURIComponent(service.name);
   return (
-    // <Link href={''}>
+    <Link href={`/services/${codeService}`}>
         <div className={cn(styles.wrapper, {
             [styles.child]: child
         })}>
