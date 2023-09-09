@@ -82,9 +82,8 @@ export default function MiniCard({child = false,category,service}:Props) {
                     <Image width={24} height={24} src={ArrowSearch} alt={''}/>
                 </div>
             }
-            
         </div>
-    // </Link>
+    </Link>
   )
 }
 
