@@ -8,6 +8,7 @@ import CloseLogo from './Close.svg'
 import LibraryService from '@/services/services';
 import { useBlurStore } from '@/store/storeBlur';
 import MiniCard from '../MiniCard/MiniCard';
+import { usePathname } from 'next/navigation';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
   category: ICategory[];
@@ -58,6 +59,11 @@ export default function Search({category}:Props) {
   
   const dorpRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const path = usePathname()
+  useEffect(() => {
+    setDroDownState(false)
+    setBlur(false)
+  }, [path])
 
   useEffect(() => {
     if(!droDownState) return
@@ -106,7 +112,7 @@ export default function Search({category}:Props) {
           <div className={styles.dropDownWrapper} ref={dorpRef}>
             {
               dataState.map((item, key) => (
-                <MiniCard category={category} onClick={() => {setDroDownState(false); setBlur(false)}} service={item} key={key}/>
+                <MiniCard category={category} service={item} key={key}/>
               ))
             }
           </div>
