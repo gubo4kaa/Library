@@ -60,6 +60,7 @@ export default function Search({category}:Props) {
   const dorpRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const path = usePathname()
+
   // useEffect(() => {
   //   setDroDownState(false)
   //   setBlur(false)
@@ -81,10 +82,11 @@ export default function Search({category}:Props) {
         setBlur(false)
       };
     }
-
     document.addEventListener('click', handleClick)
+    document.addEventListener('touchstart', handleClick)
     return () => {
       document.removeEventListener('click', handleClick)
+      document.removeEventListener('touchstart', handleClick)
     }
   }, [droDownState]);
 
