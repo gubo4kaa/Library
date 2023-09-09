@@ -12,9 +12,8 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
 export default function CopyUrlButton({urlCopy}:Props) {
     const [value, copy] = useCopyToClipboard()
     const url = `https://${urlCopy}`
-
     return  (
-        <button onClick={() => copy(url)} className={styles.button}>
+        <button onClick={() => {navigator.clipboard.writeText(url)}} className={styles.button}>
             <ButtonNew width={'max'} size='m' preventDefault iconPosition={'icon'} type='Default Ghost' className={styles.wrapper}>
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="Copy">
