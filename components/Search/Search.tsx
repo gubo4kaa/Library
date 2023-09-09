@@ -40,7 +40,7 @@ export default function Search({category}:Props) {
       const fetch = await LibraryService.Search(data.searchString)
       .then((value) => {
         if(value.data[0].name) {
-          setDataState(value.data)
+          setDataState(value.data.slice(0, 5))
         } else {
           setDataState(undefined)
         }
@@ -80,6 +80,8 @@ export default function Search({category}:Props) {
       document.removeEventListener('click', handleClick)
     }
   }, [droDownState]);
+
+
 
   return (
     <div className={styles.wrapper}>
