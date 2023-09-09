@@ -63,6 +63,7 @@ export default function Search({category}:Props) {
   useEffect(() => {
     setDroDownState(false)
     setBlur(false)
+    setDataState(undefined)
   }, [path])
 
   useEffect(() => {
