@@ -60,11 +60,11 @@ export default function Search({category}:Props) {
   const dorpRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const path = usePathname()
-  useEffect(() => {
-    setDroDownState(false)
-    setBlur(false)
-    setDataState(undefined)
-  }, [path])
+  // useEffect(() => {
+  //   setDroDownState(false)
+  //   setBlur(false)
+  //   setDataState(undefined)
+  // }, [path])
 
   useEffect(() => {
     if(!droDownState) return
@@ -87,8 +87,6 @@ export default function Search({category}:Props) {
       document.removeEventListener('click', handleClick)
     }
   }, [droDownState]);
-
-
 
   return (
     <div className={styles.wrapper}>
@@ -113,13 +111,14 @@ export default function Search({category}:Props) {
           <div className={styles.dropDownWrapper} ref={dorpRef}>
             {
               dataState.map((item, key) => (
-                <MiniCard category={category} service={item} key={key}/>
+                <div key={key} onClick={(i) => {setDroDownState(false); setBlur(false); setDataState(undefined)}}>
+                  <MiniCard category={category} service={item} key={key}/>
+                </div>
               ))
             }
           </div>
         )
       }
-      
     </div>
   );
 }
