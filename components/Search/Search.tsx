@@ -106,7 +106,7 @@ export default function Search({category}:Props) {
           <div className={styles.dropDownWrapper} ref={dorpRef}>
             {
               dataState.map((item, key) => (
-                <MiniCard category={category} service={item} key={key}/>
+                <MiniCard category={category} onClick={() => {setDroDownState(false); setBlur(false)}} service={item} key={key}/>
               ))
             }
           </div>
