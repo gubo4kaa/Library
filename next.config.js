@@ -19,6 +19,9 @@ module.exports = nextConfig
 // } /** prod */
 
 module.exports = {
+    experimental: {
+      serverActions: true,
+    },
     images: {
       remotePatterns: [
         {

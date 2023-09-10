@@ -1,0 +1,116 @@
+.wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    
+    z-index: 18;
+    padding: 22px;
+    margin: 0 5px;
+
+    transform: translateX(-50%);
+    margin-top: -5%;
+    max-width: 461px;
+    width: 100%;
+    background-color: var(--Primary6);
+    border-radius: 24px;
+    border: solid 1px var(--Background-color-2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+}
+
+.form{
+    gap: 22px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
+.form p {
+    background-color: var(--Secondary4);
+    color: var(--Primary4);
+    width: 100%;
+    border-radius: 10px;
+}
+
+.form input {
+    width: 100%;
+}
+
+.form span {
+    width: 100%;
+}
+
+.field {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--Text-color-2);
+        display: flex;
+        flex: 1;
+        
+        width: 100%;
+        padding: 13px 38px;
+        
+        border-radius: 14px;
+        border: 1px solid var(--Background-color-2);
+    
+        overflow: hidden;
+        text-overflow: ellipsis;
+        box-shadow: var(--Shadow-buttons-default);
+}
+
+.field:-webkit-autofill,
+.field:-webkit-autofill:hover,
+.field:-webkit-autofill:focus,
+.field:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 10em white inset !important;
+  -webkit-text-fill-color: var(--Text-color-2) !important;
+}
+
+.field:focus {
+    box-shadow: var(--Shadow-input-active);
+    outline: 1px solid var(--Primary1);
+}
+
+.field::placeholder {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--Text-color-5);
+}
+
+.field.errorField:focus {
+    box-shadow: var(--Shadow-primary-4);
+    outline: 1px solid var(--Primary4);
+}
+
+.submit{
+    display: none;
+}
+
+.wrapper h4 {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--Text-color-2);
+    text-align: left;
+}
+
+.wrapper p {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--Text-color-2);
+    text-align: left;
+    text-align: center;
+}
+
+.searchLogo {
+    position: absolute;
+    top: 11px;
+    left: 10px;
+    cursor: pointer;
+}
+

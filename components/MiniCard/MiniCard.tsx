@@ -1,14 +1,10 @@
 import cn from 'classnames';
 import Image from "next/image";
-import Link from 'next/link';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import ArrowSearch from './ArrowSearch.svg';
 import FeaturedLogo from './Featured.svg';
 import FeaturedBadge from './badgeFeatured.svg';
 import styles from './MiniCard.module.css';
-
-
-
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
     service: IServiceInterface;
@@ -20,7 +16,7 @@ export default function MiniCard({child = false,category,service}:Props) {
     const findCategory = category.filter((item) => item.id == service.categoryId)
     const codeService = encodeURIComponent(service.name);
   return (
-    <Link href={`/services/${codeService}`}>
+    // <Link href={`/services/${codeService}`}>
         <div className={cn(styles.wrapper, {
             [styles.child]: child
         })}>
@@ -83,7 +79,7 @@ export default function MiniCard({child = false,category,service}:Props) {
                 </div>
             }
         </div>
-    </Link>
+    // </Link>
   )
 }
 

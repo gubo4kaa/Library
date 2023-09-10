@@ -1,12 +1,6 @@
 import MiniGrid from "@/components/MiniGrid/MiniGrid";
-import Link from "next/link";
 import styles from './page.module.css'
-import axios from 'axios'
 import VideoGrid from "@/components/VideoGrid/VideoGrid";
-import { storeFilterService } from "@/store/storeFilterService";
-
-
-
 async function getFeatured() {
   const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-limit-items/?limit=6&offset=0&featured=true`,{
     next: {

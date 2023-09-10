@@ -9,6 +9,7 @@ import LibraryService from '@/services/services';
 import { useBlurStore } from '@/store/storeBlur';
 import MiniCard from '../MiniCard/MiniCard';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
   category: ICategory[];
@@ -113,9 +114,9 @@ export default function Search({category}:Props) {
           <div className={styles.dropDownWrapper} ref={dorpRef}>
             {
               dataState.map((item, key) => (
-                <div key={key} onClick={(i) => {setDroDownState(false); setBlur(false); setDataState(undefined)}}>
+                <Link href={`/service/${encodeURIComponent(item.name)}`} key={key} onClick={(i) => {setDroDownState(false); setBlur(false); setDataState(undefined)}}>
                   <MiniCard category={category} service={item} key={key}/>
-                </div>
+                </Link>
               ))
             }
           </div>
