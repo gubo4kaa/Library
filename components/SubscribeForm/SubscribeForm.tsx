@@ -62,7 +62,7 @@ export default function SubscribeForm({}:Props) {
                 setError("email", { type: "focus" });
                 }} type="submit" className={styles.submit} />
                 <ReCAPTCHA
-                    sitekey='6LcEmBMoAAAAADuVAOnRy4izUs4-Hmf-D8eGysjD'
+                    sitekey='6Le-ohQoAAAAACpwGxCOvqbx-HWFctzoLWQmCM2T'
                     ref={recaptchaRef}
                     onChange={handleCaptchaSubmission}
                 />
