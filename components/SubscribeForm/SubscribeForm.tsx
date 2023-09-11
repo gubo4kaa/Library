@@ -60,15 +60,15 @@ export default function SubscribeForm({}:Props) {
                 {/* {errors.email && <p>This email is required</p>} */}
                 <input ref={refButton} onClick={() => {
                 setError("email", { type: "focus" });
-                }} type="submit" className={styles.submit} />
+                }} type="submit" className={styles.submit} disabled={!isVerified} />
                 <ReCAPTCHA
                     sitekey='6Le-ohQoAAAAACpwGxCOvqbx-HWFctzoLWQmCM2T'
                     ref={recaptchaRef}
                     onChange={handleCaptchaSubmission}
                 />
                 <span onClick={focusInput}>
-                    <ButtonNew preventDefault width='max' iconPosition={'iconRight'} type='Primary' size='s'>
-                        Subscribe 
+                    <ButtonNew disable={!isVerified} preventDefault width='max' iconPosition={'iconRight'} type='Primary' size='s'>
+                        Subscribe
                         <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="Arrow Right">
                             <path id="Vector 190" d="M18.8327 11L12.6452 17.4167M18.8327 11L12.6452 4.58337M18.8327 11L4.16602 11" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
@@ -76,7 +76,6 @@ export default function SubscribeForm({}:Props) {
                         </svg>
                     </ButtonNew>
                 </span>
-                
             </form>
             <p>
                 No spam, only updates and releases. 

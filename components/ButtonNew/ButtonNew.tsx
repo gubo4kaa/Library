@@ -7,6 +7,7 @@ import Link from 'next/link';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
     href?: string,
+    disable?: boolean,
     type?: 'LinkGhost' | 'Primary' | 'Default Ghost',
     size?: 'es' | 's' | 'm' ,
     iconPosition?: 'icon' | 'iconLeft' | 'iconRight' | null,
@@ -14,9 +15,9 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
     preventDefault?: false | true
 }
 
-export default function ButtonNew({ type='Primary', iconPosition = null , width = 'min',preventDefault=false, className, href, size='m', children}:Props):JSX.Element {
+export default function ButtonNew({ type='Primary', disable = false, iconPosition = null , width = 'min',preventDefault=false, className, href, size='m', children}:Props):JSX.Element {
 
-  return <a href={href} onClick={i => {if(preventDefault) i.preventDefault()}} className={cn(styles.button, {
+  return <a href={href} onClick={i => {if(!disable) if(preventDefault) i.preventDefault()}} className={cn(styles.button, {
     [styles.sizeEs]: size == 'es',
     [styles.sizeS]: size == 's',
     [styles.sizeM]: size == 'm',
@@ -27,7 +28,8 @@ export default function ButtonNew({ type='Primary', iconPosition = null , width 
     [styles.primary]: type == 'Primary',
     [styles.linkGhost]: type == 'LinkGhost',
     [styles.defaultGhost]: type == 'Default Ghost',
-  }, className)}>
+    [styles.disable]: disable == true,
+    }, className)}>
     {children}
     </a>
 }
