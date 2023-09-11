@@ -1,22 +1,32 @@
 'use client'
-import { DetailedHTMLProps, HTMLAttributes, useRef, useState } from 'react';
+import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState } from 'react';
 import styles from './SubscribeForm.module.css';
 import ReCAPTCHA from "react-google-recaptcha";
 import cn from 'classnames';
 import { useForm } from "react-hook-form";
 import ButtonNew from '../ButtonNew/ButtonNew';
 import { verifyCaptcha } from '../Recap4a/Recap4a';
+import { useBlurStore } from '@/store/storeBlur';
+import { useSubscribeStore } from '@/store/SubscribeStore';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
 
 }
 
 export default function SubscribeForm({}:Props) {
+
+    const [blur, setBlur] = useBlurStore((state) => [state.blur, state.setBlur])
+    const [subscribeState, setSubscribeState] = useSubscribeStore((state) => [state.subscribeState, state.setSubscribeState])
+    
+    useEffect(()=> {
+        if(!blur) {
+            setSubscribeState(false)
+        }
+    }, [blur])
     const { register, handleSubmit, setError, formState: { errors } } = useForm();
         const onSubmit = (data: object) => {
             console.log(data);
     };
-    
     const refButton = useRef<HTMLInputElement>(null)
 
     const focusInput = () => {
@@ -32,9 +42,11 @@ export default function SubscribeForm({}:Props) {
         .then(() => setIsverified(true))
         .catch(() => setIsverified(false))
     }
+
+
     
-    return (
-        <div className={cn(styles.wrapper)}>
+    return ( subscribeState && (
+         <div className={cn(styles.wrapper)}>
             <h4>
                 Subscribe Newsletter
             </h4>
@@ -81,6 +93,8 @@ export default function SubscribeForm({}:Props) {
                 No spam, only updates and releases. 
             </p>
         </div>
+    )
+         
     )
 }
 

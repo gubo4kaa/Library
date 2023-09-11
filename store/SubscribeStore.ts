@@ -1,4 +1,4 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
 
 type SubscribeState = {
     subscribeState: boolean;
@@ -9,7 +9,7 @@ type Action = {
 }
 
 // Create your store, which includes both state and (optionally) actions
-export const SubscribeStore = create<SubscribeState & Action>((set) => ({
+export const useSubscribeStore = create<SubscribeState & Action>((set) => ({
     subscribeState: false,
     setSubscribeState: (state: boolean) => {
         set(() => ({ subscribeState: state }))

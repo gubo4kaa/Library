@@ -10,6 +10,8 @@ import { useBlurStore } from '@/store/storeBlur';
 import MiniCard from '../MiniCard/MiniCard';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { useSubscribeStore } from '@/store/SubscribeStore';
+import cn from 'classnames';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
   category: ICategory[];
@@ -56,6 +58,8 @@ export default function Search({category}:Props) {
   }
   
   const [blur, setBlur] = useBlurStore((state) => [state.blur, state.setBlur])
+  const [subscribeState, setSubscribeState] = useSubscribeStore((state) => [state.subscribeState, state.setSubscribeState])
+
   const [droDownState, setDroDownState] = useState<boolean>(false);
   
   const dorpRef = useRef<HTMLDivElement>(null);
@@ -92,7 +96,9 @@ export default function Search({category}:Props) {
   }, [droDownState]);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={cn(styles.wrapper, {
+      [styles.inactive]: subscribeState
+    })}>
       <form
         onSubmit={handleSubmit(onSubmit)}
         onChange={handleSubmit(onSubmit)}
