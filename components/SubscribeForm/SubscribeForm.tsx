@@ -45,7 +45,7 @@ export default function SubscribeForm({}:Props) {
           }
         } catch (error) {
             setLoadingState(false)
-            alert('Sorry, there was an issue: ' + error.message)
+            alert('Sorry, there was an issue: ' + error)
         }
     };
 
