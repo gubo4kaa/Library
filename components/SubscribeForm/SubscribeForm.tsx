@@ -28,7 +28,7 @@ export default function SubscribeForm({}:Props) {
     const [accessState, setAccessState] = useState<boolean>(false)
     let formUrl = 'https://uiscore.io.lemonsqueezy.com/email-subscribe/external' // Change "my-store" to your store slug
     let redirectUrl = 'https://uiscore.io'
-    const onSubmit = async (data) => {
+    const onSubmit = async (data:any) => {
         setLoadingState(true)
         try {
           let response = await fetch(formUrl, {
