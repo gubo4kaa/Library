@@ -26,14 +26,14 @@ export default function SubscribeForm({}:Props) {
     const { register, handleSubmit, setError, formState: { errors } } = useForm();
     const [loadingState, setLoadingState] = useState<boolean>(false)
     const [accessState, setAccessState] = useState<boolean>(false)
-    let formUrl = 'https://uiscore.lemonsqueezy.com/email-subscribe/external' // Change "my-store" to your store slug
+    let formUrl = 'https://uiscore.io.lemonsqueezy.com/email-subscribe/external' // Change "my-store" to your store slug
     let redirectUrl = 'https://uiscore.io'
-    const onSubmit = async (data: any) => {
+    const onSubmit = async (e: any) => {
         setLoadingState(true)
         try {
           let response = await fetch(formUrl, {
             method: 'POST',
-            body: data,
+            body: new FormData(e.target)
           });
       
           setLoadingState(false)
@@ -66,8 +66,6 @@ export default function SubscribeForm({}:Props) {
         .then(() => setIsverified(true))
         .catch(() => setIsverified(false))
     }
-
-
     
     return ( subscribeState && (
          <div className={cn(styles.wrapper)}>
@@ -78,7 +76,7 @@ export default function SubscribeForm({}:Props) {
                 loadingState && !accessState && <>LOADING</>
             }
             {   !loadingState && !accessState &&
-                <form action="https://my-store.lemonsqueezy.com/email-subscribe/external" method="post" className={styles.form}>
+                <form onSubmit={handleSubmit(onSubmit)} method="post" className={styles.form}>
                     <svg className={styles.searchLogo} width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Inbox">
                         <path id="Square" fillRule="evenodd" clipRule="evenodd" d="M2.29102 11C2.29102 4.58329 4.12435 3.66663 10.9998 3.66663C17.8752 3.66663 19.7077 4.58329 19.7077 11C19.7077 17.4166 17.8752 18.3333 10.9998 18.3333C4.12435 18.3333 2.29102 17.4166 2.29102 11Z" stroke="#6E7A90" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
