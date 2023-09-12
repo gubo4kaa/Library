@@ -33,6 +33,7 @@ export default function SubscribeForm({}:Props) {
         try {
           let response = await fetch(formUrl, {
             method: 'POST',
+            mode: "no-cors",
             body: new FormData(e.target)
           });
           setLoadingState(false)
