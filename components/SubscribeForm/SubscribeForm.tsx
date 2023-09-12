@@ -28,16 +28,14 @@ export default function SubscribeForm({}:Props) {
     const [accessState, setAccessState] = useState<boolean>(false)
     let formUrl = 'https://uiscore.io.lemonsqueezy.com/email-subscribe/external' // Change "my-store" to your store slug
     let redirectUrl = 'https://uiscore.io'
-    const onSubmit = async (data:any) => {
+    const onSubmit = async (e: any) => {
         setLoadingState(true)
         try {
           let response = await fetch(formUrl, {
             method: 'POST',
-            body: data
+            body: new FormData(e.target)
           });
-      
           setLoadingState(false)
-      
           if (response.ok) {
             // Redirect the subscriber
             setAccessState(true)
@@ -45,12 +43,12 @@ export default function SubscribeForm({}:Props) {
             // Something went wrong subscribing the user
             alert('Sorry, we couldn\'t subscribe you.')
           }
-      
         } catch (error) {
             setLoadingState(false)
             alert('Sorry, there was an issue: ' + error)
         }
     };
+
     const refButton = useRef<HTMLInputElement>(null)
 
     const focusInput = () => {
