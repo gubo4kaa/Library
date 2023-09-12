@@ -33,7 +33,7 @@ export default function SubscribeForm({}:Props) {
         try {
           let response = await fetch(formUrl, {
             method: 'POST',
-            body: new FormData(data)
+            body: data
           });
       
           setLoadingState(false)
