@@ -26,7 +26,7 @@ export default function SubscribeForm({}:Props) {
     const { register, handleSubmit, setError, formState: { errors } } = useForm();
     const [loadingState, setLoadingState] = useState<boolean>(false)
     const [accessState, setAccessState] = useState<boolean>(false)
-    let formUrl = 'https://uiscore.io.lemonsqueezy.com/email-subscribe/external' // Change "my-store" to your store slug
+    let formUrl = 'https://uiscore.lemonsqueezy.com/email-subscribe/external' // Change "my-store" to your store slug
     let redirectUrl = 'https://uiscore.io'
     const onSubmit = async (e: any) => {
         setLoadingState(true)
@@ -45,7 +45,7 @@ export default function SubscribeForm({}:Props) {
           }
         } catch (error) {
             setLoadingState(false)
-            alert('Sorry, there was an issue: ' + error)
+            alert('Sorry, there was an issue: ' + error.message)
         }
     };
 
