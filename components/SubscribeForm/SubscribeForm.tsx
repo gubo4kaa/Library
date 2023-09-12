@@ -101,14 +101,14 @@ export default function SubscribeForm({}:Props) {
                     {/* {errors.email && <p>This email is required</p>} */}
                     <input ref={refButton} onClick={() => {
                     setError("email", { type: "focus" });
-                    }} type="submit" className={styles.submit} disabled={false} />
+                    }} type="submit" className={styles.submit} disabled={!isVerified} />
                     <ReCAPTCHA
                         sitekey='6Le-ohQoAAAAACpwGxCOvqbx-HWFctzoLWQmCM2T'
                         ref={recaptchaRef}
                         onChange={handleCaptchaSubmission}
                     />
                     <span onClick={focusInput}>
-                        <ButtonNew disable={false} preventDefault width='max' iconPosition={'iconRight'} type='Primary' size='s'>
+                        <ButtonNew disable={!isVerified} preventDefault width='max' iconPosition={'iconRight'} type='Primary' size='s'>
                             Subscribe
                             <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="Arrow Right">
