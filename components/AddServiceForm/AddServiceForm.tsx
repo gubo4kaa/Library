@@ -68,7 +68,7 @@ export default function AddServiceForm({}:Props) {
                 loadingState && !accessState && <>LOADING</>
             }
             {
-                !loadingState && accessState && <p className={styles.access}>Great! We will check this resource soon!</p>
+                !loadingState && accessState && <p className={styles.access}>Great! Your resource will be added soon</p>
             }
             {   !loadingState && !accessState &&
                 <form onSubmit={handleSubmit(onSubmit)} method="post" className={styles.form}> 

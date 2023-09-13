@@ -127,5 +127,6 @@
     font-weight: 400;
     line-height: 28px;
     color: var(--Primary2)!important;
+    text-align: center;
 }
 
