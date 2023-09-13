@@ -36,7 +36,9 @@ export default function AddServiceForm({}:Props) {
           setAccessState(true);
         } catch (error: any) {
             setLoadingState(false)
-            alert('Sorry, there was an issue: ' + error.message)
+            setError("root.random", {
+                type: "random",
+            })             
         }
     };
 
