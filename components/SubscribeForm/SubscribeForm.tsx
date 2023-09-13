@@ -98,11 +98,13 @@ export default function SubscribeForm({}:Props) {
                     <input ref={refButton} onClick={() => {
                     setError("email", { type: "focus" });
                     }} type="submit" className={styles.submit} disabled={!isVerified} />
-                    <ReCAPTCHA
+                    {
+                        !isVerified && <ReCAPTCHA
                         sitekey='6Le-ohQoAAAAACpwGxCOvqbx-HWFctzoLWQmCM2T'
                         ref={recaptchaRef}
                         onChange={handleCaptchaSubmission}
                     />
+                    }
                     <span onClick={focusInput}>
                         <ButtonNew disable={!isVerified} preventDefault width='max' iconPosition={'iconRight'} type='Primary' size='s'>
                             Subscribe

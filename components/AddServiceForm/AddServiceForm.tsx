@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import ButtonNew from '../ButtonNew/ButtonNew';
 import { verifyCaptcha } from '../Recap4a/Recap4a';
 import styles from './AddServiceForm.module.css';
+import { useTimeout } from 'usehooks-ts';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
     
@@ -24,9 +25,15 @@ export default function AddServiceForm({}:Props) {
             setPopapState(null)
         }
     }, [blur])
+
     const { register, handleSubmit, setError, formState: { errors } } = useForm();
     const [loadingState, setLoadingState] = useState<boolean>(false)
     const [accessState, setAccessState] = useState<boolean>(false)
+
+    const showOff = () => {
+        setTimeout(() => setPopapState(null), 5000)
+    }
+
     const onSubmit = async (data: any) => {
         console.log(data)
         setLoadingState(true)
@@ -34,6 +41,7 @@ export default function AddServiceForm({}:Props) {
           const submit = await LibraryService.OfferService(data);
           setLoadingState(false);
           setAccessState(true);
+          showOff();
         } catch (error: any) {
             setLoadingState(false)
             setError("root.random", {
@@ -41,7 +49,8 @@ export default function AddServiceForm({}:Props) {
             })             
         }
     };
-
+    
+   
     const refButton = useRef<HTMLInputElement>(null)
 
     const focusInput = () => {
