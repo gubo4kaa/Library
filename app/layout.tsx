@@ -8,6 +8,7 @@ import { Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import styles from './layout.module.css'
 import SubscribeForm from '@/components/SubscribeForm/SubscribeForm'
+import AddServiceForm from '@/components/AddServiceForm/AddServiceForm'
 
 const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
     style: ["normal"]
@@ -50,6 +51,7 @@ const category = await getCategory()
             </div>
             <Blur/>
             <SubscribeForm/>
+            <AddServiceForm/>
           </div>
         </div>
         </body>

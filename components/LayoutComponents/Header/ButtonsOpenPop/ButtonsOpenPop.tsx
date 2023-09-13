@@ -1,9 +1,9 @@
 'use client'
+import ButtonNew from '@/components/ButtonNew/ButtonNew'
+import { useSubscribeStore } from '@/store/SubscribeStore'
+import { useBlurStore } from '@/store/storeBlur'
 import { DetailedHTMLProps, HTMLAttributes } from 'react'
 import styles from './ButtonsOpenPop.module.css'
-import ButtonNew from '@/components/ButtonNew/ButtonNew'
-import { useBlurStore } from '@/store/storeBlur'
-import { useSubscribeStore } from '@/store/SubscribeStore'
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
 
@@ -11,10 +11,10 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
 
 export default function ButtonsOpenPop({}:Props) {
     const [blur, setBlur] = useBlurStore((state) => [state.blur, state.setBlur])
-    const [subscribeState, setSubscribeState] = useSubscribeStore((state) => [state.subscribeState, state.setSubscribeState])
+    const [popapState, setPopapState] = useSubscribeStore((state) => [state.popapState, state.setPopapState])
 
   return <div className={styles.wrapper}>
-    <span onClick={(i) => {setBlur(true); setSubscribeState(true)}}>
+    <span onClick={(i) => {setBlur(true); setPopapState('subscribe')}}>
         <ButtonNew type={'LinkGhost'}>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="Inbox">
@@ -25,7 +25,7 @@ export default function ButtonsOpenPop({}:Props) {
             Newsletter
         </ButtonNew>
     </span>
-    <span>
+    <span onClick={(i) => {setBlur(true); setPopapState('addForm')}}>
         <ButtonNew type={'Primary'} size="s" iconPosition={'iconLeft'} width='min'>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="Plus">

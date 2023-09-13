@@ -1,4 +1,5 @@
 'use client'
+import LibraryService from '@/services/services';
 import { useSubscribeStore } from '@/store/SubscribeStore';
 import { useBlurStore } from '@/store/storeBlur';
 import cn from 'classnames';
@@ -7,13 +8,13 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 import ButtonNew from '../ButtonNew/ButtonNew';
 import { verifyCaptcha } from '../Recap4a/Recap4a';
-import styles from './SubscribeForm.module.css';
+import styles from './AddServiceForm.module.css';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
-
+    
 }
 
-export default function SubscribeForm({}:Props) {
+export default function AddServiceForm({}:Props) {
 
     const [blur, setBlur] = useBlurStore((state) => [state.blur, state.setBlur])
     const [popapState, setPopapState] = useSubscribeStore((state) => [state.popapState, state.setPopapState])
@@ -26,27 +27,16 @@ export default function SubscribeForm({}:Props) {
     const { register, handleSubmit, setError, formState: { errors } } = useForm();
     const [loadingState, setLoadingState] = useState<boolean>(false)
     const [accessState, setAccessState] = useState<boolean>(false)
-    let formUrl = 'https://uiscore.lemonsqueezy.com/email-subscribe/external' // Change "my-store" to your store slug
-    let redirectUrl = 'https://dev.uiscore.io'
-    const onSubmit = async (e: any) => {
+    const onSubmit = async (data: any) => {
+        console.log(data)
         setLoadingState(true)
         try {
-          let response = await fetch(formUrl, {
-            method: 'POST',
-            mode: "no-cors",
-            body: new FormData(e.target)
-          });
-          setLoadingState(false)
-          if (response.ok) {
-            // Redirect the subscriber
-            setAccessState(true)
-          } else {
-            // Something went wrong subscribing the user
-            alert('Sorry, we couldn\'t subscribe you.')
-          }
-        } catch (error) {
+          const submit = await LibraryService.OfferService(data);
+          setLoadingState(false);
+          setAccessState(true);
+        } catch (error: any) {
             setLoadingState(false)
-            alert('Sorry, there was an issue: ' + error)
+            alert('Sorry, there was an issue: ' + error.message)
         }
     };
 
@@ -66,27 +56,30 @@ export default function SubscribeForm({}:Props) {
         .catch(() => setIsverified(false))
     }
     
-    return ( popapState == 'subscribe' && (
+    return ( popapState == 'addForm' && (
          <div className={cn(styles.wrapper)}>
             <h4>
-                Subscribe Newsletter
+            Submit Resource
             </h4>
+            <p>
+                Send us a link to a resource if you would like <br /> to see it in our library. 
+            </p>
             {
                 loadingState && !accessState && <>LOADING</>
             }
+            {
+                !loadingState && accessState && <p className={styles.access}>Great! We will check this resource soon!</p>
+            }
             {   !loadingState && !accessState &&
-                <form onSubmit={handleSubmit(onSubmit)} method="post" className={styles.form}>
-                    <svg className={styles.searchLogo} width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g id="Inbox">
-                        <path id="Square" fillRule="evenodd" clipRule="evenodd" d="M2.29102 11C2.29102 4.58329 4.12435 3.66663 10.9998 3.66663C17.8752 3.66663 19.7077 4.58329 19.7077 11C19.7077 17.4166 17.8752 18.3333 10.9998 18.3333C4.12435 18.3333 2.29102 17.4166 2.29102 11Z" stroke="#6E7A90" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path id="Stroke 1" d="M16.5 7.78785C16.5 7.78785 12.8333 11 11 11C9.16667 11 5.5 7.79167 5.5 7.79167" stroke="#6E7A90" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                        </g>
+                <form onSubmit={handleSubmit(onSubmit)} method="post" className={styles.form}> 
+                   <svg className={styles.searchLogo} xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                    <path d="M12.6639 6.45101L7.69943 11.4155C6.72021 12.3947 6.72021 13.9823 7.69943 14.9615C8.67864 15.9407 10.2663 15.9407 11.2455 14.9615L16.2099 9.99706C17.9725 8.23447 17.9725 5.37676 16.2099 3.61417C14.4474 1.85159 11.5896 1.85159 9.82705 3.61417L4.86259 8.57864C2.31664 11.1246 2.31664 15.2524 4.86259 17.7984C7.40855 20.3443 11.5364 20.3443 14.0823 17.7984L19.0468 12.8339" stroke="#6E7A90" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                    <input type="email" placeholder="email"
+                    <input type="text" placeholder="https://uiscore.io"
                     {...register(
-                            "email", 
+                            "url", 
                             { 
-                                pattern: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i, 
+                                // pattern: /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/,
                                 required: true 
                             }
                         )
@@ -96,15 +89,25 @@ export default function SubscribeForm({}:Props) {
                     })}/>
                     {/* {errors.email && <p>This email is required</p>} */}
                     <input ref={refButton} onClick={() => {
-                    setError("email", { type: "focus" });
-                    }} type="submit" className={styles.submit} disabled={!isVerified} />
-                    <ReCAPTCHA
-                        sitekey='6Le-ohQoAAAAACpwGxCOvqbx-HWFctzoLWQmCM2T'
-                        ref={recaptchaRef}
-                        onChange={handleCaptchaSubmission}
+                    setError("url", { type: "focus" });
+                    }} 
+                    type="submit" 
+                    className={styles.submit} 
+                    // disabled={false} 
+                    disabled={!isVerified} 
                     />
+                    {
+                        !isVerified && <ReCAPTCHA
+                            sitekey='6Le-ohQoAAAAACpwGxCOvqbx-HWFctzoLWQmCM2T'
+                            ref={recaptchaRef}
+                            onChange={handleCaptchaSubmission}
+                        />
+                    }
                     <span onClick={focusInput}>
-                        <ButtonNew disable={!isVerified} preventDefault width='max' iconPosition={'iconRight'} type='Primary' size='s'>
+                        <ButtonNew 
+                        disable={!isVerified} 
+                        // disable={false} 
+                        preventDefault width='max' iconPosition={'iconRight'} type='Primary' size='s'>
                             Subscribe
                             <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="Arrow Right">
@@ -115,12 +118,6 @@ export default function SubscribeForm({}:Props) {
                     </span>
                 </form>
             }
-            {
-                accessState && <p>Отправлено</p>
-            }
-            <p>
-                No spam, only updates and releases. 
-            </p>
         </div>
     )
          

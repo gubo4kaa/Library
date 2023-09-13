@@ -1,17 +1,17 @@
 "use client"
-import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState } from 'react'
-import styles from './Search.module.css'
-import { useForm } from 'react-hook-form';
-import Image from "next/image";
-import SearchLogo from './Search.svg'
-import CloseLogo from './Close.svg'
 import LibraryService from '@/services/services';
-import { useBlurStore } from '@/store/storeBlur';
-import MiniCard from '../MiniCard/MiniCard';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 import { useSubscribeStore } from '@/store/SubscribeStore';
+import { useBlurStore } from '@/store/storeBlur';
 import cn from 'classnames';
+import Image from "next/image";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import MiniCard from '../MiniCard/MiniCard';
+import CloseLogo from './Close.svg';
+import styles from './Search.module.css';
+import SearchLogo from './Search.svg';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
   category: ICategory[];
@@ -58,7 +58,7 @@ export default function Search({category}:Props) {
   }
   
   const [blur, setBlur] = useBlurStore((state) => [state.blur, state.setBlur])
-  const [subscribeState, setSubscribeState] = useSubscribeStore((state) => [state.subscribeState, state.setSubscribeState])
+  const [popapState, setPopapState] = useSubscribeStore((state) => [state.popapState, state.setPopapState])
 
   const [droDownState, setDroDownState] = useState<boolean>(false);
   
@@ -97,7 +97,7 @@ export default function Search({category}:Props) {
 
   return (
     <div className={cn(styles.wrapper, {
-      [styles.inactive]: subscribeState
+      [styles.inactive]: popapState
     })}>
       <form
         onSubmit={handleSubmit(onSubmit)}

@@ -1,18 +1,18 @@
 import { create } from 'zustand';
 
-type SubscribeState = {
-    subscribeState: boolean;
+type popapState = {
+    popapState: null | 'subscribe' | 'addForm'
 }
   
 type Action = {
-    setSubscribeState: (state: boolean) => void
+    setPopapState: (state: null | 'subscribe' | 'addForm') => void
 }
 
 // Create your store, which includes both state and (optionally) actions
-export const useSubscribeStore = create<SubscribeState & Action>((set) => ({
-    subscribeState: false,
-    setSubscribeState: (state: boolean) => {
-        set(() => ({ subscribeState: state }))
+export const useSubscribeStore = create<popapState & Action>((set) => ({
+    popapState: null,
+    setPopapState: (state: null | 'subscribe' | 'addForm') => {
+        set(() => ({ popapState: state }))
     },
 }))
 
