@@ -8,6 +8,8 @@ import { useForm } from "react-hook-form";
 import ButtonNew from '../ButtonNew/ButtonNew';
 import { verifyCaptcha } from '../Recap4a/Recap4a';
 import styles from './SubscribeForm.module.css';
+import Preloader from '../Preloader/Preloader';
+import LibraryService from '@/services/services';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
 
@@ -28,25 +30,24 @@ export default function SubscribeForm({}:Props) {
     const [accessState, setAccessState] = useState<boolean>(false)
     let formUrl = 'https://uiscore.lemonsqueezy.com/email-subscribe/external' // Change "my-store" to your store slug
     let redirectUrl = 'https://dev.uiscore.io'
-    const onSubmit = async (e: any) => {
+
+    const showOff = () => {
+        setTimeout(() => {setPopapState(null); setBlur(false)}, 2000)
+    }
+
+    const onSubmit = async (data: object) => {
+        console.log(data)
         setLoadingState(true)
         try {
-          let response = await fetch(formUrl, {
-            method: 'POST',
-            mode: "no-cors",
-            body: new FormData(e.target)
-          });
-          setLoadingState(false)
-          if (response.ok) {
-            // Redirect the subscriber
-            setAccessState(true)
-          } else {
-            // Something went wrong subscribing the user
-            alert('Sorry, we couldn\'t subscribe you.')
-          }
-        } catch (error) {
+          await LibraryService.EmailService(data);
+          setLoadingState(false);
+          setAccessState(true);
+          showOff();
+        } catch (error: any) {
             setLoadingState(false)
-            alert('Sorry, there was an issue: ' + error)
+            setError("root.random", {
+                type: "random",
+            })             
         }
     };
 
@@ -72,7 +73,10 @@ export default function SubscribeForm({}:Props) {
                 Subscribe Newsletter
             </h4>
             {
-                loadingState && !accessState && <>LOADING</>
+                loadingState && !accessState && <Preloader/>
+            }
+            {
+                !loadingState && accessState && <p className={styles.access}>Great! Your resource will be added soon</p>
             }
             {   !loadingState && !accessState &&
                 <form onSubmit={handleSubmit(onSubmit)} method="post" className={styles.form}>
@@ -97,16 +101,22 @@ export default function SubscribeForm({}:Props) {
                     {/* {errors.email && <p>This email is required</p>} */}
                     <input ref={refButton} onClick={() => {
                     setError("email", { type: "focus" });
-                    }} type="submit" className={styles.submit} disabled={!isVerified} />
+                    }} type="submit" className={styles.submit} 
+                    // disabled={!isVerified} 
+                    disabled={false}
+                    />
                     {
                         !isVerified && <ReCAPTCHA
                         sitekey='6Le-ohQoAAAAACpwGxCOvqbx-HWFctzoLWQmCM2T'
                         ref={recaptchaRef}
                         onChange={handleCaptchaSubmission}
-                    />
+                        />
                     }
                     <span onClick={focusInput}>
-                        <ButtonNew disable={!isVerified} preventDefault width='max' iconPosition={'iconRight'} type='Primary' size='s'>
+                        <ButtonNew 
+                        // disable={!isVerified}
+                        disable={false} 
+                        preventDefault width='max' iconPosition={'iconRight'} type='Primary' size='s'>
                             Subscribe
                             <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="Arrow Right">
@@ -116,9 +126,6 @@ export default function SubscribeForm({}:Props) {
                         </ButtonNew>
                     </span>
                 </form>
-            }
-            {
-                accessState && <p>Отправлено</p>
             }
             <p>
                 No spam, only updates and releases. 

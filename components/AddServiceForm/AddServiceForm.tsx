@@ -10,6 +10,7 @@ import ButtonNew from '../ButtonNew/ButtonNew';
 import { verifyCaptcha } from '../Recap4a/Recap4a';
 import styles from './AddServiceForm.module.css';
 import { useTimeout } from 'usehooks-ts';
+import Preloader from '../Preloader/Preloader';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
     
@@ -31,7 +32,7 @@ export default function AddServiceForm({}:Props) {
     const [accessState, setAccessState] = useState<boolean>(false)
 
     const showOff = () => {
-        setTimeout(() => setPopapState(null), 5000)
+        setTimeout(() => {setPopapState(null); setBlur(false)}, 2000)
     }
 
     const onSubmit = async (data: any) => {
@@ -76,7 +77,7 @@ export default function AddServiceForm({}:Props) {
                 Send us a link to a resource if you would like <br /> to see it in our library. 
             </p>
             {
-                loadingState && !accessState && <>LOADING</>
+                loadingState && !accessState && <Preloader/>
             }
             {
                 !loadingState && accessState && <p className={styles.access}>Great! Your resource will be added soon</p>
@@ -104,8 +105,8 @@ export default function AddServiceForm({}:Props) {
                     }} 
                     type="submit" 
                     className={styles.submit} 
-                    // disabled={false} 
-                    disabled={!isVerified} 
+                    disabled={false} 
+                    // disabled={!isVerified} 
                     />
                     {
                         !isVerified && <ReCAPTCHA
@@ -116,8 +117,8 @@ export default function AddServiceForm({}:Props) {
                     }
                     <span onClick={focusInput}>
                         <ButtonNew 
-                        disable={!isVerified} 
-                        // disable={false} 
+                        // disable={!isVerified} 
+                        disable={false} 
                         preventDefault width='max' iconPosition={'iconRight'} type='Primary' size='s'>
                             Subscribe
                             <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">

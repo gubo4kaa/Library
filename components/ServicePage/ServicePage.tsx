@@ -13,5 +13,15 @@ export default async function ServicePage( {service, category} :Props) {
     <ServiceHeader service={service} category={category}/>
     {/* <iframe src={`https://${service.url}`} className={styles.iframe}></iframe> */}
     <ImagesComponent service={service}/>
+    <div className={styles.overview}>
+      <h4>
+        Overview
+      </h4>
+      <p>
+        {
+          service.description
+        }
+      </p>
+    </div>
   </div>
 }

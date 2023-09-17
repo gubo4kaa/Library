@@ -13,8 +13,8 @@ export default function ImagesComponent({service}:Props) {
         <Image 
             alt={'not image'} 
             src={`${process.env.NEXT_PUBLIC_LIBRARY_API}${service.id}/${service.images[1]}`} 
-            width={365} 
-            height={209} 
+            width={1142} 
+            height={736} 
             sizes="100vw"
             style={{
                 width: '100%',

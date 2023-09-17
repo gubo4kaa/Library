@@ -17,4 +17,8 @@ export default class LibraryService {
     static async OfferService(body: object): Promise<AxiosResponse<IServiceInterface[]>> {
         return $api.post<IServiceInterface[]>(`library/offer-item`,body )
     }
+
+    static async EmailService(body: object): Promise<AxiosResponse<IServiceInterface[]>> {
+        return $api.post<IServiceInterface[]>(`library/subscribe`,body)
+    }
 }

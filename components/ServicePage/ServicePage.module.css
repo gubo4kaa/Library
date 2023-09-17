@@ -9,3 +9,24 @@
     border-radius: 20px;
     border-color: solid 1px var(--Background-color-2);
 }
+
+.overview {
+    margin-top: 30px;
+    padding-bottom: 31px;
+    border-bottom: solid 1px var(--Background-color-2);
+}
+
+.overview p {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; 
+    color: var(--Text-color-4);
+}
+
+.overview h4 {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--Text-color-2);
+}
