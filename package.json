@@ -23,6 +23,7 @@
     "react-dom": "18.2.0",
     "react-google-recaptcha": "^3.1.0",
     "react-hook-form": "^7.45.2",
+    "sharp": "^0.32.6",
     "svg-parser": "^2.0.4",
     "swiper": "^10.1.0",
     "typescript": "5.1.6",
