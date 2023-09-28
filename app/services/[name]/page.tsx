@@ -25,6 +25,15 @@ async function getService(name: string) {
   return services.json()
 }
 
+async function getFindLastService(categoryName: string) {
+  const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/search-by-category/?category=${encodeURIComponent(categoryName)}&amount=4`,{
+    next: {
+      revalidate: 60
+    }
+  })
+  return services.json()
+}
+
 async function getCategory() {
   const category = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-categories`,{
     next:{
@@ -45,12 +54,38 @@ export async function generateStaticParams() {
   }))
 }
 
+function findCategory(categories: ICategory[], categoryId: number) {
+  return categories.filter((e: ICategory) => (
+    e.id == categoryId
+  )
+  )
+}
+
+function deleteService (services: IServiceInterface[], deleteName: string): IServiceInterface[] {
+  const freeServices: IServiceInterface[] = [];
+  services.map((e) => {
+      if (e.name != deleteName) {
+        freeServices.push(e);
+      }
+    }
+  )
+
+  if (freeServices.length>3) {
+    freeServices.pop()
+  }
+
+  return freeServices
+}
+
 export default async function Service({params: {name}}: Props) {
   const service = await getService(name);
   const categories = await getCategory();
+  const categoryName = findCategory(categories, service.categoryId)
+  const lastService = await getFindLastService(categoryName[0].nameCategory)
   const category = categories.find((el: ICategory) => el.id == service.categoryId)
+  const finishLastService = deleteService(lastService, name)
   return <div>
-    <ServicePage service={service} category={category}/>
+    <ServicePage service={service} categories={categories} lastService={finishLastService} category={category}/>
     {/* {name} */}
   </div>
 }

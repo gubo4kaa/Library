@@ -37,7 +37,6 @@ async function getCategory() {
 
 export default async function Category({params: {name}}: Props) {
     const categoryName = decodeURIComponent(name); 
-    // console.log(name + ' name Category');
     const services = await getServices(name);
     const categories = await getCategory();
     return <div>

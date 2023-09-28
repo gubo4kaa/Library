@@ -35,11 +35,11 @@
     padding: 10px 38px;
     
     border-radius: 14px;
-    border: 1px solid var(--Background-color-2);
+    border: none;
 
     overflow: hidden;
     text-overflow: ellipsis;
-    box-shadow: var(--Shadow-buttons-default);
+    background-color: var(--Background-color-4);
 }
 
 .mainInput:-webkit-autofill,
@@ -48,6 +48,8 @@
 .mainInput:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0px 10em white inset !important;
   -webkit-text-fill-color: var(--Text-color-2) !important;
+  box-shadow: var(--Shadow-buttons-default);
+  border: 1px solid var(--Background-color-2);
 }
 
 .mainInput:focus {
@@ -70,7 +72,7 @@
 
 .closeLogo {
     position: absolute;
-    top: 9px;
+    top: 10px;
     right: 10px;
     cursor: pointer;
 }

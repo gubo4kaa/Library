@@ -136,3 +136,17 @@
 .defaultGhost:active, .defaultGhost:active svg path {
    background-color: var(--Background-color-4);
 }
+
+/*-defaultPrimary-*/
+
+.defaultPrimary {
+    border: 1px solid var(--Background-color-2);
+    box-shadow: var(--Shadow-buttons-default);
+    color: var(--Primary1);
+    
+}
+
+.defaultPrimary:hover {
+    border-color: var(--Background-color-1);
+    box-shadow: var(--Shadow-buttons-hover);
+}

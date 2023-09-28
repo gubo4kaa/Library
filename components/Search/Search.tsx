@@ -3,15 +3,12 @@ import LibraryService from '@/services/services';
 import { useSubscribeStore } from '@/store/SubscribeStore';
 import { useBlurStore } from '@/store/storeBlur';
 import cn from 'classnames';
-import Image from "next/image";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import MiniCard from '../MiniCard/MiniCard';
-import CloseLogo from './Close.svg';
 import styles from './Search.module.css';
-import SearchLogo from './Search.svg';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
   category: ICategory[];
@@ -112,8 +109,15 @@ export default function Search({category}:Props) {
         {/* {errors.exampleRequired && <p>This field is required</p>} */}
         <input type="submit" hidden ref={submitRef}/>
         <button type="reset" hidden ref={resetRef} onClick={() => {setDroDownState(false); setBlur(false)}}/>
-        <Image src={SearchLogo} onClick={(e) => { submitRef.current?.click(); } } className={styles.searchLogo} alt={''}/>
-        <Image src={CloseLogo} onClick={(e) => { resetRef.current?.click(); setDataState(undefined); } } alt={''} className={styles.closeLogo}/>
+        <svg onClick={(e) => { submitRef.current?.click(); } } className={styles.searchLogo} width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="Search">
+        <path id="Square" fillRule="evenodd" clipRule="evenodd" d="M2.75 9.625C2.75 5.82794 5.8283 2.74981 9.62535 2.75C13.4222 2.75019 16.5 5.82814 16.5 9.625C16.5 13.4219 13.4222 16.4998 9.62535 16.5C5.8283 16.5002 2.75 13.4221 2.75 9.625Z" stroke="#6E7A90" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        <path id="Vector 15" d="M17.9082 17.9077L14.6673 14.6668" stroke="#6E7A90" strokeWidth="1.46667" strokeLinecap="round"/>
+        </g>
+        </svg>
+        <svg onClick={(e) => { resetRef.current?.click(); setDataState(undefined); } } className={styles.closeLogo} width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.4165 6.41675L10.9998 11.0001M10.9998 11.0001L6.4165 15.5834M10.9998 11.0001L15.5832 6.41675M10.9998 11.0001L15.5832 15.5834" stroke="#909DB3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
       </form>
       {
         droDownState && dataState && (

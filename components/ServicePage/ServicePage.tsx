@@ -2,16 +2,18 @@ import { DetailedHTMLProps, HTMLAttributes } from 'react'
 import styles from './ServicePage.module.css'
 import ServiceHeader from './serviceComponents/ServiceHeader/ServiceHeader';
 import ImagesComponent from './serviceComponents/ImagesComponent/ImagesComponent';
+import Suggested from './serviceComponents/Suggested/Suggested';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
   service: IServiceInterface;
   category: ICategory;
+  categories: ICategory[];
+  lastService?: IServiceInterface[];
 }
 
-export default async function ServicePage( {service, category} :Props) {
+export default async function ServicePage( {service, category, categories, lastService} :Props) {
   return <div className={styles.wrapper}>
     <ServiceHeader service={service} category={category}/>
-    {/* <iframe src={`https://${service.url}`} className={styles.iframe}></iframe> */}
     <ImagesComponent service={service}/>
     <div className={styles.overview}>
       <h4>
@@ -22,6 +24,11 @@ export default async function ServicePage( {service, category} :Props) {
           service.description
         }
       </p>
+    </div>
+    {
+      lastService && <Suggested categories={categories} services={lastService}/>
+    }
+    <div>
     </div>
   </div>
 }
