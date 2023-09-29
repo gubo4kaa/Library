@@ -12,7 +12,8 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
 export default function VideoCard({src, title, p, className}:Props) {
     return (
         <div className={cn(styles.wrapper, className)}>
-            <video width="100%" loop autoPlay muted className={styles.video}  >
+            {/* <video width="100%" loop autoPlay muted className={styles.video}  > */}
+            <video width="100%" autoPlay loop muted playsInline className={styles.video}  >
                 <source src={src} type="video/mp4"/>
             </video>
             <div className={styles.titleWrapper}>
