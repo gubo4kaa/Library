@@ -9,6 +9,7 @@ import './globals.css'
 import styles from './layout.module.css'
 import SubscribeForm from '@/components/SubscribeForm/SubscribeForm'
 import AddServiceForm from '@/components/AddServiceForm/AddServiceForm'
+import { YMInitializer } from 'react-yandex-metrika'
 
 const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
     style: ["normal"]
@@ -38,6 +39,7 @@ const category = await getCategory()
   return (
     <html lang="en">
       <body className={cn(inter.className)}>
+        <YMInitializer accounts={[95109351]} />
         <div className={styles.mainWrapper}>
           <div className={styles.mainGrid}>
             <MobileMenu>
