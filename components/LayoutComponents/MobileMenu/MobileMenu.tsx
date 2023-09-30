@@ -6,6 +6,7 @@ import { useOpenMenuStore } from '@/store/store';
 import cn from 'classnames';
 import { motion } from 'framer-motion';
 import CloseButton from '@/components/CloseButton/CloseButton';
+import ym from 'react-yandex-metrika';
 
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
@@ -24,6 +25,12 @@ const variantsBlur = {
 
 export default function MobileMenu({children}:Props) {
     const [menuOpen, setOpenMenu] = useOpenMenuStore((state) => [state.menuOpen, state.setOpenMenu])
+    ym('95109351', 'init', {
+        defer: true,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+    })
     return <>
         <motion.div
             initial = {"closed"}
