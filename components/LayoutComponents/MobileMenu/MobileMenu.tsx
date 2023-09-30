@@ -25,13 +25,16 @@ const variantsBlur = {
 
 export default function MobileMenu({children}:Props) {
     const [menuOpen, setOpenMenu] = useOpenMenuStore((state) => [state.menuOpen, state.setOpenMenu])
-    ym('95109351', 'init', {
-        defer: true,
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-    })
+    
     return <>
+        {
+            ym('95109351', 'init', {
+                defer: true,
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true
+            })
+        }
         <motion.div
             initial = {"closed"}
             animate={menuOpen ? "open" : "closed"}
