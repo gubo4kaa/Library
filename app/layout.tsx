@@ -9,7 +9,9 @@ import './globals.css'
 import styles from './layout.module.css'
 import SubscribeForm from '@/components/SubscribeForm/SubscribeForm'
 import AddServiceForm from '@/components/AddServiceForm/AddServiceForm'
-import { YMInitializer } from 'react-yandex-metrika'
+import ym, { YMInitializer } from 'react-yandex-metrika';
+import { Router } from 'next/router'
+
 
 const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
     style: ["normal"]
@@ -43,10 +45,21 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
 
-const category = await getCategory()
+const category = await getCategory()  
+Router.events.on('routeChangeComplete',(url: string) => {
+  if(typeof window !== undefined) {
+    ym('hit', url)
+  }
+})
   return (
     <html lang="en">
       <body className={cn(inter.className)}>
+     
+          <YMInitializer
+          accounts={[95109351]}
+          options={{webvisor: true,defer: true}}
+          version='2'
+        />
         <div className={styles.mainWrapper}>
           <div className={styles.mainGrid}>
             <MobileMenu>
