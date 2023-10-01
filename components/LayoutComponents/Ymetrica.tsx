@@ -15,14 +15,13 @@ export default function Ymetrica({}:Props) {
       ym('hit', url)
     }
   })
-  return <div className='display: none'>
+  return <div>
        {
         <YMInitializer
         accounts={[95109351]}
         options={{webvisor: true,defer: true}}
         version='2'
       />
-        
        }
     </div>
 }
