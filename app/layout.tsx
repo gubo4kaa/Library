@@ -51,8 +51,7 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
     <html lang="en">
       <body className={cn(inter.className)}>
         <div className={styles.mainWrapper}>
-          <div className={styles.mainGrid}>
-            <Ymetrica/>
+          <div className={styles.mainGrid}></div>
             <MobileMenu>
               <Sidebar categories={category}/>
             </MobileMenu>
