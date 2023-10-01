@@ -51,7 +51,7 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
     <html lang="en">
       <body className={cn(inter.className)}>
         <div className={styles.mainWrapper}>
-          <div className={styles.mainGrid}></div>
+          <div className={styles.mainGrid}>
             <MobileMenu>
               <Sidebar categories={category}/>
             </MobileMenu>
