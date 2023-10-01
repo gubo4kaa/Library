@@ -48,9 +48,6 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
   const category = await getCategory()  
   return (
     <html lang="en">
-      <head>
-      
-      </head>
       <body className={cn(inter.className)}>
         <div className={styles.mainWrapper}>
           <div className={styles.mainGrid}>
