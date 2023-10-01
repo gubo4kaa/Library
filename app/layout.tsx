@@ -13,7 +13,6 @@ import ym, { YMInitializer } from 'react-yandex-metrika';
 import { Router } from 'next/router'
 import Ymetrica from '@/components/LayoutComponents/Ymetrica'
 
-
 const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
     style: ["normal"]
 })
@@ -52,6 +51,7 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
       <body className={cn(inter.className)}>
         <div className={styles.mainWrapper}>
           <div className={styles.mainGrid}>
+            <Ymetrica/>
             <MobileMenu>
               <Sidebar categories={category}/>
             </MobileMenu>
