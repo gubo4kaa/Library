@@ -11,6 +11,7 @@ import SubscribeForm from '@/components/SubscribeForm/SubscribeForm'
 import AddServiceForm from '@/components/AddServiceForm/AddServiceForm'
 import ym, { YMInitializer } from 'react-yandex-metrika';
 import { Router } from 'next/router'
+import Ymetrica from '@/components/LayoutComponents/Ymetrica'
 
 
 const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
@@ -46,12 +47,12 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
   }) {
   
   const category = await getCategory()  
- 
   return (
     <html lang="en">
       <body className={cn(inter.className)}>
         <div className={styles.mainWrapper}>
           <div className={styles.mainGrid}>
+            <Ymetrica/>
             <MobileMenu>
               <Sidebar categories={category}/>
             </MobileMenu>
