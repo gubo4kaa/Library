@@ -9,9 +9,8 @@ import './globals.css'
 import styles from './layout.module.css'
 import SubscribeForm from '@/components/SubscribeForm/SubscribeForm'
 import AddServiceForm from '@/components/AddServiceForm/AddServiceForm'
-import ym, { YMInitializer } from 'react-yandex-metrika';
-import { Router } from 'next/router'
 import Ymetrica from '@/components/LayoutComponents/Ymetrica'
+import { YMInitializer } from 'react-yandex-metrika'
 
 const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
     style: ["normal"]
@@ -49,9 +48,9 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
   return (
     <html lang="en">
       <body className={cn(inter.className)}>
+        <Ymetrica/>
         <div className={styles.mainWrapper}>
           <div className={styles.mainGrid}>
-            <Ymetrica/>
             <MobileMenu>
               <Sidebar categories={category}/>
             </MobileMenu>
@@ -65,7 +64,7 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
             <AddServiceForm/>
           </div>
         </div>
-        </body>
+      </body>
     </html>
   )
 }
