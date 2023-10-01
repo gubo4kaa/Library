@@ -10,14 +10,15 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
 }
 
 export default function Ymetrica({}:Props) {
-  ym("95109351", 'init', {
-    defer: true,
-    clickmap:true,
-    trackLinks:true,
-    accurateTrackBounce:true
-})
+  Router.events.on('routeChangeComplete',(url: string) => {
+    if(typeof window !== undefined) {
+      ym('hit', url)
+    }
+  })
   return <div>
-       
+       {
+        
+       }
     </div>
 }
 
