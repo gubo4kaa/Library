@@ -16,9 +16,13 @@ export default function Ymetrica({}:Props) {
     }
   })
   return <div>
-       {
-        
-       }
+      {
+        <YMInitializer
+          accounts={[95109351]}
+          options={{webvisor: true,defer: true}}
+          version='2'
+        />
+      }
     </div>
 }
 
