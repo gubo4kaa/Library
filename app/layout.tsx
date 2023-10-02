@@ -13,6 +13,7 @@ import Ymetrica from '@/components/LayoutComponents/Ymetrica'
 import ym, { YMInitializer } from 'react-yandex-metrika'
 import { Html } from 'next/document'
 import { Router } from 'next/router'
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
     style: ["normal"]
@@ -51,6 +52,7 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
       <body className={cn(inter.className)}>
         <div className={styles.mainWrapper}>
           <div className={styles.mainGrid}>
+            <Analytics/>
             <Ymetrica/>
             <MobileMenu>
               <Sidebar categories={category}/>

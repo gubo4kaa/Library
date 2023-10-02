@@ -3,6 +3,7 @@ import { DetailedHTMLProps, HTMLAttributes } from 'react'
 import styles from './ym.module.css'
 import ym, { YMInitializer } from 'react-yandex-metrika';
 import { Router } from 'next/router';
+import { Analytics } from '@vercel/analytics/react';
 
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
@@ -16,13 +17,12 @@ export default function Ymetrica({}:Props) {
     }
   })
   return <div>
-      {
-        <YMInitializer
-          accounts={[95109351]}
-          options={{webvisor: true,defer: true}}
-          version='2'
-        />
-      }
+    <Analytics/>
+    <YMInitializer
+      accounts={[95109351]}
+      options={{webvisor: true,defer: true}}
+      version='2'
+    />
     </div>
 }
 
