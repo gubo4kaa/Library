@@ -14,13 +14,13 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
 
 export default function Ymetrica({}:Props) {
 
-  // useEffect(() => {
-  //   Router.events.on('routeChangeComplete',(url: string) => {
-  //     if(typeof window !== undefined) {
-  //       ym('hit', url)
-  //     }
-  //   })
-  // },[])
+  useEffect(() => {
+    Router.events.on('routeChangeComplete',(url: string) => {
+      if(typeof window !== undefined) {
+        ym('hit', url)
+      }
+    })
+  },[])
 
   return <div>
     {
@@ -43,7 +43,7 @@ export default function Ymetrica({}:Props) {
       `
       )
     }
-    {/* <Analytics/>
+    {/*
     <YMInitializer
       accounts={[95109351]}
       options={{webvisor: true,defer: true}}
