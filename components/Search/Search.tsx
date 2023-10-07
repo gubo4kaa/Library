@@ -76,10 +76,10 @@ export default function Search({category}:Props) {
       if(!dorpRef.current) return;
       if(!inputRef.current) return;
       if(!dorpRef.current.contains(e.target) && inputRef.current != e.target) {
-        console.log(inputRef.current)
-        console.log(dorpRef.current)
-        console.log(e.target)
-        console.log('cсработал хендлер')
+        // console.log(inputRef.current)
+        // console.log(dorpRef.current)
+        // console.log(e.target)
+        // console.log('cсработал хендлер')
         setDroDownState(false);
         setBlur(false)
       };

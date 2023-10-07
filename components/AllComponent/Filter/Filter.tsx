@@ -1,11 +1,10 @@
 'use client'
-import { DetailedHTMLProps, HTMLAttributes, useEffect, useState } from 'react'
-import styles from './Filter.module.css'
 import { storeFilterService } from '@/store/storeFilterService'
-import LibraryService from '@/services/services'
-import Image from "next/image";
+import cn from 'classnames'
+import Image from "next/image"
+import { DetailedHTMLProps, HTMLAttributes, useEffect, useState } from 'react'
 import CloseLogo from './Close.svg'
-import cn from 'classnames';
+import styles from './Filter.module.css'
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
   services: IServiceInterface[] | null
@@ -15,7 +14,7 @@ export default function Filter({services}:Props) {
   const [filterService, setFilterService] = storeFilterService((state) => [state.filterService, state.setFilterService])
 
   function filter(featuredFilter: boolean, priceFilter: string, servicesInFilter: IServiceInterface[]) {
-    console.log(servicesInFilter);
+    // // console.log(servicesInFilter);
     
     const newArr: IServiceInterface[] = servicesInFilter.filter((i) => {
       let boolean = true
@@ -58,10 +57,10 @@ export default function Filter({services}:Props) {
       }
       return boolean
     })
-    console.log(newArr);
+    
     if(newArr.length == 0) {
       setFilterService(null)
-      console.log(filterService);
+      // console.log(filterService);
     } else {
       setFilterService(newArr)
     }
@@ -71,8 +70,8 @@ export default function Filter({services}:Props) {
   const [statePrise, setStatePrise] = useState('')
 
   useEffect(() => {
-    console.log(statePrise);
-    console.log(stateFilterFeatured);
+    // console.log(statePrise);
+    // console.log(stateFilterFeatured);
     if(services) {
       filter(stateFilterFeatured, statePrise, services)
     }

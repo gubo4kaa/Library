@@ -1,10 +1,10 @@
 'use client'
-import { DetailedHTMLProps, HTMLAttributes, use, useEffect } from 'react'
-import styles from './FilterGrid.module.css'
-import { storeFilterService } from '@/store/storeFilterService'
 import MainCard from '@/components/MainCard/MainCard'
 import NotFound from '@/components/NotFound/NotFound'
+import { storeFilterService } from '@/store/storeFilterService'
 import cn from 'classnames'
+import { DetailedHTMLProps, HTMLAttributes, useEffect } from 'react'
+import styles from './FilterGrid.module.css'
 
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
@@ -19,7 +19,7 @@ export default function FilterGrid({categories, services}:Props) {
     }, [services])
 
     useEffect(() => {
-        console.log(filterService);
+        // console.log(filterService);
     }, [filterService])
 
     return (

@@ -6,33 +6,31 @@ import { Router } from 'next/router';
 import { Analytics } from '@vercel/analytics/react';
 import parse from 'html-react-parser';
 
-
-
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
 
 }
 
 export default function Ymetrica({}:Props) {
 
-  // useEffect(() => {
-  //   Router.events.on('routeChangeComplete',(url: string) => {
-  //     if(typeof window !== undefined) {
-  //       ym('hit', url)
-  //     }
-  //   })
-  // },[])
+  useEffect(() => {
+    Router.events.on('routeChangeComplete',(url: string) => {
+      if(typeof window !== undefined) {
+        ym('hit', url)
+      }
+    })
+  },[])
 
-  Router.events.on('routeChangeComplete',(url: string) => {
-    if(typeof window !== undefined) {
-      ym('hit', url)
-    }
-  })
+  // Router.events.on('routeChangeComplete',(url: string) => {
+  //   if(typeof window !== undefined) {
+  //     ym('hit', url)
+  //   }
+  // })
 
   return <div>
-    {
+    {/* {
       parse(
         `
-          <script type="text/javascript" >
+          <script type="text/javascript">
           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
           m[i].l=1*new Date();
           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
@@ -47,13 +45,13 @@ export default function Ymetrica({}:Props) {
           </script>
       `
       )
-    }
-    {/*
+    } */}
+    
     <YMInitializer
       accounts={[95109351]}
       options={{webvisor: true,defer: true}}
       version='2'
-    /> */}
+    />
     </div>
 }
 

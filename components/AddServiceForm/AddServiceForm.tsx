@@ -7,10 +7,9 @@ import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState } from '
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 import ButtonNew from '../ButtonNew/ButtonNew';
+import Preloader from '../Preloader/Preloader';
 import { verifyCaptcha } from '../Recap4a/Recap4a';
 import styles from './AddServiceForm.module.css';
-import { useTimeout } from 'usehooks-ts';
-import Preloader from '../Preloader/Preloader';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
     
@@ -36,7 +35,7 @@ export default function AddServiceForm({}:Props) {
     }
 
     const onSubmit = async (data: any) => {
-        console.log(data)
+        // // console.log(data)
         setLoadingState(true)
         try {
           const submit = await LibraryService.OfferService(data);
