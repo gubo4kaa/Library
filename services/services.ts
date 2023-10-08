@@ -19,6 +19,6 @@ export default class LibraryService {
     }
 
     static async EmailService(body: object): Promise<AxiosResponse<IServiceInterface[]>> {
-        return $api.post<IServiceInterface[]>(`library/subscribe`,body)
+        return $api.post<IServiceInterface[]>(`library/save-new-mail`,body)
     }
 }
