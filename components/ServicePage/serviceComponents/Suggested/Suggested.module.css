@@ -19,6 +19,7 @@
     font-style: normal;
     font-weight: 700;
     white-space: nowrap;
+    color: var(--Text-color-2);
 }
 
 .link {
