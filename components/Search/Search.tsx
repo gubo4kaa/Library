@@ -124,7 +124,7 @@ export default function Search({category}:Props) {
           <div className={styles.dropDownWrapper} ref={dorpRef}>
             {
               dataState.map((item, key) => (
-                <Link href={`/service/${encodeURIComponent(item.name)}`} key={key} onClick={(i) => {setDroDownState(false); setBlur(false); setDataState(undefined)}}>
+                <Link href={`/services/${encodeURIComponent(item.name)}`} key={key} onClick={(i) => {setDroDownState(false); setBlur(false); setDataState(undefined)}}>
                   <MiniCard category={category} service={item} key={key}/>
                 </Link>
               ))

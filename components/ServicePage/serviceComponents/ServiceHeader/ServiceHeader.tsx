@@ -42,7 +42,7 @@ export default function ServiceHeader({service, category}:Props) {
                 <AlertService/>
                 <CopyUrlButton urlCopy={`${service.url}`}/>
             </div>
-            <ButtonNew href={`https://${service.url}`} color='blueWhite' iconPosition={'iconRight'} size='m'>
+            <ButtonNew target href={`https://${service.url}`} color='blueWhite' iconPosition={'iconRight'} size='m'>
                 Explore
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.0004 2.75001C4.58418 2.75001 2.75 4.58335 2.75 11C2.75 17.4167 4.65469 19.25 11.0004 19.25C17.3462 19.25 19.25 17.4167 19.25 11M18.3333 3.66668V7.33333M18.3333 3.66668L14.6667 3.66668M18.3333 3.66668L12.8333 9.16668" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>

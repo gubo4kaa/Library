@@ -12,10 +12,11 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
     size?: 'es' | 's' | 'm' ,
     iconPosition?: 'icon' | 'iconLeft' | 'iconRight' | null,
     width?: 'max' | 'min',
-    preventDefault?: false | true
+    preventDefault?: false | true,
+    target?: boolean
 }
 
-export default function ButtonNew({ type='Primary', disable = false, iconPosition = null , width = 'min',preventDefault=false, className, href, size='m', children}:Props):JSX.Element {
+export default function ButtonNew({ type='Primary', disable = false, iconPosition = null , width = 'min',preventDefault=false, className, href, size='m', target, children}:Props):JSX.Element {
 
   return <a href={href} onClick={i => {if(!disable) if(preventDefault) i.preventDefault()}} className={cn(styles.button, {
     [styles.sizeEs]: size == 'es',
@@ -30,7 +31,7 @@ export default function ButtonNew({ type='Primary', disable = false, iconPositio
     [styles.defaultGhost]: type == 'Default Ghost',
     [styles.defaultPrimary]: type == 'Default Primary',
     [styles.disable]: disable == true,
-    }, className)}>
+    }, className)} target={target? '_blank': ''}>
     {children}
     </a>
 }
