@@ -1,7 +1,5 @@
 .wrapper {
     display: flex;
-    padding-bottom: 30px;
-    border-bottom: solid 1px var( --Background-color-2);
     align-items: center;
 }
 
