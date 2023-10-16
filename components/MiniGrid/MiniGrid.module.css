@@ -1,5 +1,6 @@
 .wrapper {
-    
+    padding-top: 30px;
+    border-top: solid 1px var(--Background-color-2);
 }
 
 .headerWrapper {

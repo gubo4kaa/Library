@@ -77,8 +77,12 @@
     line-height: normal;
 }
 
+.wrapper.child {
+
+}
+
 .wrapper.child .titleWrapper .title {
-    
+     border-radius: 0;
 }
 
 .titleWrapper p {

@@ -3,8 +3,6 @@
     flex-direction: column;
     box-sizing: border-box;
     overflow: hidden;
-    border-bottom: 1px solid var(--Background-color-2);
-    margin-bottom: 30px;
     padding-bottom: 16px;
 }
 .grid {
