@@ -61,7 +61,7 @@
 .mainInput::-moz-placeholder,
 .mainInput:-ms-input-placeholder,
 .mainInput:-moz-placeholder {
-
+    
 }
 
 .mainInput::placeholder {
