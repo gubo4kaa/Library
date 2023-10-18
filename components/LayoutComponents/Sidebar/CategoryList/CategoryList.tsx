@@ -50,7 +50,11 @@ export default function CategoryList({category}:Props) {
         </g>
         </svg>
         <p>All Resources</p>
-      <Image src={ArrowLogo} alt={''} className={styles.arrow}/>
+        <svg className={styles.arrow} width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="Arrow Right">
+        <path id="Vector 190" d="M18.3327 11.1911L12.1452 17.6077M18.3327 11.1911L12.1452 4.77441M18.3327 11.1911L3.66602 11.1911" stroke="#909DB3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+        </svg>
       </Link>
   {
     category.map((category: ICategory) => (
@@ -62,7 +66,11 @@ export default function CategoryList({category}:Props) {
           parse(`${category.logo}`)
         }
         <p>{category.nameCategory}</p>
-      <Image src={ArrowLogo} alt={''} className={styles.arrow}/>
+      <svg className={styles.arrow} width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="Arrow Right">
+        <path id="Vector 190" d="M18.3327 11.1911L12.1452 17.6077M18.3327 11.1911L12.1452 4.77441M18.3327 11.1911L3.66602 11.1911" stroke="#909DB3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+        </svg>
       </Link>
     ))
   }

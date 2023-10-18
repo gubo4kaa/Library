@@ -75,7 +75,11 @@ export default function MiniCard({child = false,category,service}:Props) {
             {
                 !child && <div
                     className={styles.arrow}>
-                    <Image width={24} height={24} src={ArrowSearch} alt={''}/>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Arrow Right">
+                        <path id="Vector 190" d="M20 12L13.25 19M20 12L13.25 5M20 12L4 12" stroke="#909DB3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                        </g>
+                    </svg>
                 </div>
             }
         </div>

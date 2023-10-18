@@ -7,6 +7,7 @@
     min-width: min-content;
     border-radius: 20px;
     border: solid 1px var( --Background-color-2);
+    box-shadow: 0px 1.28125px 2.5625px 0px rgba(138, 148, 166, 0.13);
 }
 
 .titleWrapper {

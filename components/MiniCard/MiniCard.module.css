@@ -64,11 +64,10 @@
 }
 
 .titleWrapper .title {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--Text-color-2);
-    border-radius: 20px;
-    margin-bottom: 2px;
+    margin-bottom: 8px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -88,7 +87,7 @@
 .titleWrapper p {
     font-size: 14px;
     font-weight: 500;
-    color: var(--Text-color-4);
+    color: var(--Text-color-3);
     line-height: normal;
 }
 

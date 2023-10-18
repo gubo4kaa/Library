@@ -54,15 +54,25 @@
     box-shadow: var(--Shadow-card-small);
     border-radius: 20px;
     border: solid 1px var(--Background-color-2);
+    box-shadow: 0px 2px 2px -1px rgba(138, 148, 166, 0.13);
 }
 
 .cardWrapper h4 {
-    margin: 12px 0;
-    max-width: 100%;
-    font-size: 16px;
+    margin-top: 12px;
+    font-size: 18px;
+    font-style: normal;
     font-weight: 700;
-    line-height: 24px;
+    line-height: normal;
     word-wrap: break-word;
+    color: var(--Text-color-2);
+}
+
+.cardWrapper p {
+    margin: 2px 0 12px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px; 
     color: var(--Text-color-2);
 }
 

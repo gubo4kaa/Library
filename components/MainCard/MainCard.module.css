@@ -8,8 +8,6 @@
 
 .img {
     border-radius: 16px;
-    box-shadow: var(--Shadow-card-small);
-    border: 1px solid var(--Background-color-2);
     margin-bottom: 7px;
 }
 

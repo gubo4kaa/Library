@@ -57,10 +57,17 @@
     outline: 1px solid var(--Primary1);
 }
 
+.mainInput::-webkit-input-placeholder,
+.mainInput::-moz-placeholder,
+.mainInput:-ms-input-placeholder,
+.mainInput:-moz-placeholder {
+
+}
+
 .mainInput::placeholder {
     font-size: 14px;
     font-weight: 400;
-    color: var(--Text-color-5);
+    color: var(--Text-color-4);
 }
 
 .searchLogo {
