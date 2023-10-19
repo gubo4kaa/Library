@@ -27,7 +27,7 @@ export default function MainCard({categories, service}:Props) {
                             width: '100%',
                             height: 'auto',
                         }}
-                        priority={true}
+                        priority={false}
                         className={styles.img}/>
                     }
                     {
@@ -41,7 +41,7 @@ export default function MainCard({categories, service}:Props) {
                             width: '100%',
                             height: 'auto',
                         }}
-                        priority
+                        priority={false}
                         className={styles.img}/>
                     }
                     <MiniCard child category={categories} service={service}/>
