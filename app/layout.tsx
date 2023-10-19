@@ -52,10 +52,10 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
       type: 'website',
     },
     robots: {
-      index: true,
+      index: false,
       follow: true,
       googleBot: {
-        index: true,
+        index: false,
         follow: false,
         noimageindex: true,
         'max-video-preview': -1,
