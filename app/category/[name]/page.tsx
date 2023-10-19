@@ -11,7 +11,6 @@ type Props = {
 export async function generateMetadata({params: {name}}: Props): Promise<Metadata> {
   return {
     title: decodeURIComponent(name),
-    description: 'The library offers useful services for designers, developers and all Internet users. On our resource you will find a wide selection of tools, resources and programs that will help you improve your skills, increase your work efficiency and create high-quality projects. We offer services for design, programming, data analysis, project management and many other areas.'
   }
 }
 
