@@ -13,6 +13,7 @@
 .wrapper.child {
     padding: 0;
     border-radius: 0;
+    margin: 0;
 }
 
 .wrapper:hover {
@@ -81,7 +82,7 @@
 }
 
 .wrapper.child .titleWrapper .title {
-     border-radius: 0;
+    border-radius: 0;
 }
 
 .titleWrapper p {
@@ -124,6 +125,7 @@
 }
 
 .wrapper.child .arrow {
+
 }
 
 .wrapper.child:hover .arrow {

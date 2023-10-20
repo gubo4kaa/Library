@@ -34,7 +34,7 @@ export default function MainCard({categories, service}:Props) {
                         service.images[0] == 'default.png' && <Image 
                         alt={'not image'} 
                         src={'/default/default.png'} 
-                        width={365} 
+                        width={364} 
                         height={209} 
                         sizes="100vw"
                         style={{
