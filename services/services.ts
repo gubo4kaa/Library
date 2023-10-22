@@ -1,4 +1,4 @@
-import { $api } from "@/http/axios";
+import { $api, $apiLemonsqueezy } from "@/http/axios";
 import { AxiosResponse } from "axios";
 
 const configLemonsqueezy = {
@@ -57,6 +57,6 @@ export default class LibraryService {
     }
 
     static async EmailServiceLemonsqueezy(body: object): Promise<AxiosResponse<IServiceInterface[]>> {
-        return $api.post<IServiceInterface[]>(`library/save-new-mail`, testSubscriber, configLemonsqueezy)
+        return $apiLemonsqueezy.post<IServiceInterface[]>(`/`, testSubscriber, configLemonsqueezy)
     }
 }

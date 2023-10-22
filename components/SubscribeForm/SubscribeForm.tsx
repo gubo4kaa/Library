@@ -38,6 +38,7 @@ export default function SubscribeForm({}:Props) {
         setLoadingState(true)
         try { //TEST
           await LibraryService.EmailServiceLemonsqueezy(data);
+          console.log('done!')
           setLoadingState(false);
           setAccessState(true);
           showOff();
