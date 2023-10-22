@@ -6,6 +6,5 @@ export const $api = axios.create({
 })
 
 export const $apiLemonsqueezy = axios.create({
-    withCredentials: true,
     baseURL: process.env.NEXT_PUBLIC_LEMONSQUEEZY_URL,
 })
