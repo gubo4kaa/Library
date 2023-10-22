@@ -5,7 +5,7 @@ import cn from 'classnames';
 import Link from 'next/link';
 
 
-interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
+interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLAnchorElement>,HTMLAnchorElement> {
     href?: string,
     disable?: boolean,
     type?: 'LinkGhost' | 'Primary' | 'Default Ghost' | 'Default Primary',
@@ -16,7 +16,7 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
     target?: boolean
 }
 
-export default function ButtonNew({ type='Primary', disable = false, iconPosition = null , width = 'min',preventDefault=false, className, href, size='m', target, children}:Props):JSX.Element {
+export default function ButtonNew({ type='Primary', disable = false, iconPosition = null , width = 'min',preventDefault=false, className, href, size='m', target, children, ...props}:Props):JSX.Element {
 
   return <a href={href} onClick={i => {if(!disable) if(preventDefault) i.preventDefault()}} className={cn(styles.button, {
     [styles.sizeEs]: size == 'es',
@@ -31,7 +31,7 @@ export default function ButtonNew({ type='Primary', disable = false, iconPositio
     [styles.defaultGhost]: type == 'Default Ghost',
     [styles.defaultPrimary]: type == 'Default Primary',
     [styles.disable]: disable == true,
-    }, className)} target={target? '_blank': ''}>
+    }, className)} target={target? '_blank': ''} {...props}>
     {children}
     </a>
 }

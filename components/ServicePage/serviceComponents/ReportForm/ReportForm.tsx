@@ -6,38 +6,44 @@ import cn from 'classnames';
 import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
-import ButtonNew from '../ButtonNew/ButtonNew';
-import Preloader from '../Preloader/Preloader';
-import { verifyCaptcha } from '../Recap4a/Recap4a';
-import styles from './SubscribeForm.module.css';
+import styles from './ReportForm.module.css';
+import { verifyCaptcha } from '@/components/Recap4a/Recap4a';
+import Preloader from '@/components/Preloader/Preloader';
+import ButtonNew from '@/components/ButtonNew/ButtonNew';
+import { useReportStore } from '@/store/idServiceStore';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
-
+    idService: number
 }
 
-export default function SubscribeForm({}:Props) {
-
+export default function ReportForm({idService}:Props) {
+    console.log(idService);
     const [blur, setBlur] = useBlurStore((state) => [state.blur, state.setBlur])
-    const [popapState, setPopapState] = useSubscribeStore((state) => [state.popapState, state.setPopapState])
+    const [reportPopapState, setReportPopapState] = useReportStore((state) => [state.reportPopapState, state.setReportPopapState])
     
     useEffect(()=> {
         if(!blur) {
-            setPopapState(null)
+            setReportPopapState(false)
         }
     }, [blur])
+
+    useEffect(()=> {
+        console.log(reportPopapState)
+    }, [reportPopapState])
+
     const { register, handleSubmit, setError, formState: { errors } } = useForm();
     const [loadingState, setLoadingState] = useState<boolean>(false)
     const [accessState, setAccessState] = useState<boolean>(false)
 
     const showOff = () => {
-        setTimeout(() => {setPopapState(null); setBlur(false)}, 2000)
+        setTimeout(() => {setReportPopapState(false); setBlur(false)}, 2000)
     }
 
     const onSubmit = async (data: object) => {
         // console.log(data)
         setLoadingState(true)
-        try { //TEST
-          await LibraryService.EmailServiceLemonsqueezy(data);
+        try {
+          await LibraryService.EmailService(data);
           setLoadingState(false);
           setAccessState(true);
           showOff();
@@ -47,17 +53,6 @@ export default function SubscribeForm({}:Props) {
                 type: "random",
             })             
         }
-        // try { // Прод!!!
-        //   await LibraryService.EmailService(data);
-        //   setLoadingState(false);
-        //   setAccessState(true);
-        //   showOff();
-        // } catch (error: any) {
-        //     setLoadingState(false)
-        //     setError("root.random", {
-        //         type: "random",
-        //     })             
-        // }
     };
 
     const refButton = useRef<HTMLInputElement>(null)
@@ -76,10 +71,10 @@ export default function SubscribeForm({}:Props) {
         .catch(() => setIsverified(false))
     }
     
-    return ( popapState == 'subscribe' && (
+    return ( reportPopapState == true && (
          <div className={cn(styles.wrapper)}>
             <h4>
-                Subscribe Newsletter
+                Report a problem
             </h4>
             {
                 loadingState && !accessState && <Preloader/>
@@ -95,15 +90,8 @@ export default function SubscribeForm({}:Props) {
                         <path id="Stroke 1" d="M16.5 7.78785C16.5 7.78785 12.8333 11 11 11C9.16667 11 5.5 7.79167 5.5 7.79167" stroke="#6E7A90" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                         </g>
                     </svg>
-                    <input type="email" placeholder="email"
-                    {...register(
-                            "email", 
-                            { 
-                                pattern: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i, 
-                                required: true 
-                            }
-                        )
-                    }
+                    <input type="email"
+                        {...register}
                     className={cn(styles.field, {
                         [styles.errorField]: errors.email
                     })}/>
