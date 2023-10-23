@@ -5,7 +5,7 @@ const configLemonsqueezy = {
     headers:{
         'Accept': 'application/vnd.api+json',
         'Content-Type': 'application/vnd.api+json',
-        'Access-Control-Allow-Origin.': "*",
+        'Access-Control-Allow-Origin': "*",
         'Authorization': `Bearer ${process.env.NEXT_PUBLIC_LEMONSQUEEZY_KEY}`
     }
   };
@@ -58,6 +58,6 @@ export default class LibraryService {
     }
 
     static async EmailServiceLemonsqueezy(body: object): Promise<AxiosResponse<IServiceInterface[]>> {
-        return $apiLemonsqueezy.post<any>(`/`, testSubscriber)
+        return $apiLemonsqueezy.post<any>(`/`, testSubscriber, configLemonsqueezy)
     }
 }
