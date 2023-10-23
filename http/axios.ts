@@ -6,17 +6,13 @@ export const $api = axios.create({
 })
 
 export const $apiLemonsqueezy = axios.create({
-    headers:{
-        'Accept': 'application/vnd.api+json',
-        'Content-Type': 'application/vnd.api+json',
-        'Access-Control-Allow-Origin': "*",
-        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_LEMONSQUEEZY_KEY}`
-    },
     withCredentials: true,
     baseURL: process.env.NEXT_PUBLIC_LEMONSQUEEZY_URL,
 })
 
 $apiLemonsqueezy.interceptors.request.use((config) => {
     config.headers.Authorization = `Bearer ${process.env.NEXT_PUBLIC_LEMONSQUEEZY_KEY}`;
+    config.headers.Accept = 'application/vnd.api+json';
+    config.headers['Content-Type'] = 'application/vnd.api+json';
     return config;
 })
