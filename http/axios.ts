@@ -15,3 +15,8 @@ export const $apiLemonsqueezy = axios.create({
     withCredentials: true,
     baseURL: process.env.NEXT_PUBLIC_LEMONSQUEEZY_URL,
 })
+
+$apiLemonsqueezy.interceptors.request.use((config) => {
+    config.headers.Authorization = `Bearer ${process.env.NEXT_PUBLIC_LEMONSQUEEZY_KEY}`;
+    return config;
+})
