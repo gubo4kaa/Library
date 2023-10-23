@@ -58,6 +58,8 @@ export default class LibraryService {
     }
 
     static async EmailServiceLemonsqueezy(body: object): Promise<AxiosResponse<IServiceInterface[]>> {
-        return $apiLemonsqueezy.post<any>(`/`, testSubscriber, configLemonsqueezy)
+        console.log(configLemonsqueezy);
+        console.log(testSubscriber);
+        return $apiLemonsqueezy.post<any>(`/`, testSubscriber)
     }
 }
