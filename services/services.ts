@@ -5,6 +5,7 @@ const configLemonsqueezy = {
     headers:{
         'Accept': 'application/vnd.api+json',
         'Content-Type': 'application/vnd.api+json',
+        'Access-Control-Allow-Origin.': "*",
         'Authorization': `Bearer ${process.env.NEXT_PUBLIC_LEMONSQUEEZY_KEY}`
     }
   };
