@@ -12,5 +12,6 @@ export const $apiLemonsqueezy = axios.create({
         'Access-Control-Allow-Origin': "*",
         'Authorization': `Bearer ${process.env.NEXT_PUBLIC_LEMONSQUEEZY_KEY}`
     },
+    withCredentials: true,
     baseURL: process.env.NEXT_PUBLIC_LEMONSQUEEZY_URL,
 })
