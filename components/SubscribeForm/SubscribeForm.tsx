@@ -36,9 +36,8 @@ export default function SubscribeForm({}:Props) {
     const onSubmit = async (data: object) => {
         // console.log(data)
         setLoadingState(true)
-        try { //TEST
-          await LibraryService.EmailServiceLemonsqueezy(data);
-          console.log('done!')
+        try {
+          await LibraryService.EmailService(data);
           setLoadingState(false);
           setAccessState(true);
           showOff();
@@ -48,17 +47,6 @@ export default function SubscribeForm({}:Props) {
                 type: "random",
             })             
         }
-        // try { // Прод!!!
-        //   await LibraryService.EmailService(data);
-        //   setLoadingState(false);
-        //   setAccessState(true);
-        //   showOff();
-        // } catch (error: any) {
-        //     setLoadingState(false)
-        //     setError("root.random", {
-        //         type: "random",
-        //     })             
-        // }
     };
 
     const refButton = useRef<HTMLInputElement>(null)
@@ -112,8 +100,8 @@ export default function SubscribeForm({}:Props) {
                     <input ref={refButton} onClick={() => {
                     setError("email", { type: "focus" });
                     }} type="submit" className={styles.submit} 
-                    // disabled={!isVerified} 
-                    disabled={false}
+                    disabled={!isVerified} 
+                    // disabled={false}
                     />
                     {
                         !isVerified && <ReCAPTCHA
@@ -124,8 +112,8 @@ export default function SubscribeForm({}:Props) {
                     }
                     <span onClick={focusInput}>
                         <ButtonNew 
-                        // disable={!isVerified}
-                        disable={false} 
+                        disable={!isVerified}
+                        // disable={false} 
                         preventDefault width='max' iconPosition={'iconRight'} type='Primary' size='s'>
                             Subscribe
                             <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
