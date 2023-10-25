@@ -15,7 +15,7 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
 export default async function ServicePage( {service, category, categories, lastService} :Props) {
   return <div className={styles.wrapper}>
     {/* <ReportForm idService={service.id}/> */}
-    <ReportForm idService={service.id}/>
+    {/* <ReportForm idService={service.id}/> */}
     <ServiceHeader service={service} category={category}/>
     <ImagesComponent service={service}/>
     <div className={styles.overview}>
