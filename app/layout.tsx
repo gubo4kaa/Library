@@ -12,6 +12,10 @@ import AddServiceForm from '@/components/AddServiceForm/AddServiceForm'
 import Ymetrica from '@/components/LayoutComponents/Ymetrica'
 import { Analytics } from '@vercel/analytics/react';
 
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { YMInitializer } from "react-yandex-metrika";
+
 const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
     style: ['normal']
 })
@@ -80,12 +84,46 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
     children: React.ReactNode
   }) {
   const category = await getCategory()  
+
+
+
+  const router = useRouter();
+
+  const metrikaCounterId = process.env.NEXT_PUBLIC_METRIKA_ID ? 123: Number(process.env.NEXT_PUBLIC_METRIKA_ID);
+  useEffect(() => {
+
+    const trackedRoutes = ["/", "/about", "/contact"];
+
+    const shouldTrackPageView = trackedRoutes.includes(router.pathname);
+
+    if (shouldTrackPageView) {
+      const script = document.createElement("script");
+      script.src = `https://mc.yandex.ru/metrika/tag.js`;
+      script.async = true;
+      script.onload = () => {
+        // @ts-ignore
+        window[`yaCounter${metrikaCounterId}`] = new window[`YaCounter${metrikaCounterId}`]();
+        // @ts-ignore
+        window[`yaCounter${metrikaCounterId}`].hit(router.asPath);
+      };
+      document.body.appendChild(script);
+    }
+
+    return () => {
+      if (shouldTrackPageView) {
+        // @ts-ignore
+        delete window[`yaCounter${metrikaCounterId}`];
+      }
+    };
+  }, [router.pathname]);
+
   return (
     <html lang="en">
       <body className={cn(inter.className)}>
         <div className={styles.mainWrapper}>
           <div className={styles.mainGrid}>
             <Analytics/>
+            <YMInitializer accounts={[metrikaCounterId]} version="2" />
             <MobileMenu>
               <Sidebar categories={category}/>
             </MobileMenu>

@@ -39,7 +39,7 @@ export default function ServiceHeader({service, category}:Props) {
         </div>
         <div className={styles.buttonWrapper}>
             <div className={styles.buttonWrapperMini}>
-                {/* <AlertService/> */}
+                <AlertService/>
                 <CopyUrlButton urlCopy={`${service.url}`}/>
             </div>
             <ButtonNew target href={`https://${service.url}`} color='blueWhite' iconPosition={'iconRight'} size='m'>
