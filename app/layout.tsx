@@ -87,35 +87,35 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
 
 
 
-  const router = useRouter();
+  // const router = useRouter();
 
-  const metrikaCounterId = process.env.NEXT_PUBLIC_METRIKA_ID ? 123: Number(process.env.NEXT_PUBLIC_METRIKA_ID);
-  useEffect(() => {
+  // const metrikaCounterId = process.env.NEXT_PUBLIC_METRIKA_ID ? 123: Number(process.env.NEXT_PUBLIC_METRIKA_ID);
+  // useEffect(() => {
 
-    const trackedRoutes = ["/", "/about", "/contact"];
+  //   const trackedRoutes = ["/", "/about", "/contact"];
 
-    const shouldTrackPageView = trackedRoutes.includes(router.pathname);
+  //   const shouldTrackPageView = trackedRoutes.includes(router.pathname);
 
-    if (shouldTrackPageView) {
-      const script = document.createElement("script");
-      script.src = `https://mc.yandex.ru/metrika/tag.js`;
-      script.async = true;
-      script.onload = () => {
-        // @ts-ignore
-        window[`yaCounter${metrikaCounterId}`] = new window[`YaCounter${metrikaCounterId}`]();
-        // @ts-ignore
-        window[`yaCounter${metrikaCounterId}`].hit(router.asPath);
-      };
-      document.body.appendChild(script);
-    }
+  //   if (shouldTrackPageView) {
+  //     const script = document.createElement("script");
+  //     script.src = `https://mc.yandex.ru/metrika/tag.js`;
+  //     script.async = true;
+  //     script.onload = () => {
+  //       // @ts-ignore
+  //       window[`yaCounter${metrikaCounterId}`] = new window[`YaCounter${metrikaCounterId}`]();
+  //       // @ts-ignore
+  //       window[`yaCounter${metrikaCounterId}`].hit(router.asPath);
+  //     };
+  //     document.body.appendChild(script);
+  //   }
 
-    return () => {
-      if (shouldTrackPageView) {
-        // @ts-ignore
-        delete window[`yaCounter${metrikaCounterId}`];
-      }
-    };
-  }, [router.pathname]);
+  //   return () => {
+  //     if (shouldTrackPageView) {
+  //       // @ts-ignore
+  //       delete window[`yaCounter${metrikaCounterId}`];
+  //     }
+  //   };
+  // }, [router.pathname]);
 
   return (
     <html lang="en">
@@ -123,7 +123,7 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
         <div className={styles.mainWrapper}>
           <div className={styles.mainGrid}>
             <Analytics/>
-            <YMInitializer accounts={[metrikaCounterId]} version="2" />
+            {/* <YMInitializer accounts={[metrikaCounterId]} version="2" /> */}
             <MobileMenu>
               <Sidebar categories={category}/>
             </MobileMenu>
