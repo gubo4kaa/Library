@@ -59,13 +59,6 @@
 
 }
 
-.mainInput::-webkit-input-placeholder,
-.mainInput::-moz-placeholder,
-.mainInput:-ms-input-placeholder,
-.mainInput:-moz-placeholder {
-    
-}
-
 .mainInput::placeholder {
     font-size: 14px;
     font-weight: 400;
