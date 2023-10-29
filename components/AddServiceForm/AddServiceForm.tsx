@@ -104,8 +104,8 @@ export default function AddServiceForm({}:Props) {
                     }} 
                     type="submit" 
                     className={styles.submit} 
-                    disabled={false} 
-                    // disabled={!isVerified} 
+                    // disabled={false} 
+                    disabled={!isVerified} 
                     />
                     {
                         !isVerified && <ReCAPTCHA
@@ -116,8 +116,8 @@ export default function AddServiceForm({}:Props) {
                     }
                     <span onClick={focusInput}>
                         <ButtonNew 
-                        // disable={!isVerified} 
-                        disable={false} 
+                        disable={!isVerified} 
+                        // disable={false} 
                         preventDefault width='max' iconPosition={'iconRight'} type='Primary' size='s'>
                             Subscribe
                             <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">

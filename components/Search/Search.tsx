@@ -9,6 +9,9 @@ import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState } from '
 import { useForm } from 'react-hook-form';
 import MiniCard from '../MiniCard/MiniCard';
 import styles from './Search.module.css';
+import Image from "next/image";
+
+
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
   category: ICategory[];
@@ -23,6 +26,8 @@ export default function Search({category}:Props) {
   const submitRef = useRef<HTMLInputElement>(null);
   const resetRef = useRef<HTMLButtonElement>(null);
   const [loadingState, setLoadingState] = useState(false);
+  const [lengthSearch, setLengthSearch] = useState<boolean>(false);
+
   const [dataState, setDataState] = useState<IServiceInterface[] | undefined>(undefined);
   
   const {
@@ -35,6 +40,11 @@ export default function Search({category}:Props) {
   const { ref, ...rest } = register("searchString")
 
   const onSubmit = async (data: FormInputs) => {
+    if(data.searchString.length > 1) {
+      setLengthSearch(true);
+    } else {
+      setLengthSearch(false);
+    }
     setDroDownState(true)
     setBlur(true);
     if(data.searchString.length > 0) {
@@ -129,6 +139,21 @@ export default function Search({category}:Props) {
                 </Link>
               ))
             }
+          </div>
+        )
+      }
+      {
+        droDownState && !dataState && lengthSearch && (
+          <div className={cn(styles.dropDownWrapper, styles.notFoundDataWrapper)} ref={dorpRef}>
+            <Image src={'/notFoundSearch.png'} width={144} height={144} alt=''/>
+            <div>
+              <h4>
+                Nothing Found
+              </h4>
+              <p>
+                Perhaps you made a mistake when typing or this <br /> resource has not yet been added.
+              </p>
+            </div>
           </div>
         )
       }

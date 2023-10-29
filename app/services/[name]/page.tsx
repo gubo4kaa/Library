@@ -64,7 +64,7 @@ function findCategory(categories: ICategory[], categoryId: number) {
 function deleteService (services: IServiceInterface[], deleteName: string): IServiceInterface[] {
   const freeServices: IServiceInterface[] = [];
   services.map((e) => {
-      if (e.name != deleteName) {
+      if (encodeURIComponent(e.name) != deleteName) {
         freeServices.push(e);
       }
     }

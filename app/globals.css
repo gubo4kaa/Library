@@ -124,6 +124,8 @@ ol[class] {
     --Active-Primary5: rgba(37, 171, 189, 1);
     --Active-Primary6: rgba(246, 246, 247, 1);
 
+    --border-primary-border-primary-1: rgba(33, 113, 207, 1); 
+
     --Hover-Secondary1: rgba(36, 137, 255, 0.15);
     --Hover-Secondary2: rgba(13, 203, 134, 0.15);
     --Hover-Secondary3: rgba(255, 193, 73, 0.15);

@@ -2,15 +2,10 @@ import Link from 'next/link'
 import styles from './Sidebar.module.css'
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import cn from 'classnames';
-import LibraryLogo from './icons/logo.svg'
-import ArrowLogo from './icons/Arrow.svg'
-import ArrowBlue from './icons/ArrowBlue.svg'
-import UiLogo from './icons/LogoUi.svg'
 import Image from "next/image";
 import { motion } from 'framer-motion';
 import Button from '@/components/Button/Button';
 import CategoryList from './CategoryList/CategoryList';
-import CloseButton from '@/components/CloseButton/CloseButton';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
   categories: ICategory[]
@@ -23,7 +18,7 @@ const Sidebar = ({categories, className}: Props) => {
         <div className={styles.stickyWrapper}>
           <div className={styles.scrollWrapper}> 
             <Link href={'/'} className={styles.linkLogo}> 
-              <Image src={LibraryLogo} alt={''}/>
+              <Image src={'/libraryLogoFull.png'} width={218} height={44} alt={''}/>
             </Link>
             <p className={styles.subtitle}>Categories</p>
             <CategoryList category={categories}/>
