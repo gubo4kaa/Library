@@ -43,7 +43,6 @@ export default function Search({category}:Props) {
     setDroDownState(true)
     setBlur(true);
     if(data.searchString.length > 0) {
-      setLengthSearch(true);
       const fetch = await LibraryService.Search(data.searchString)
       .then((value) => {
         if(value.data[0].name) {
@@ -53,6 +52,7 @@ export default function Search({category}:Props) {
         }
       })
       .catch(() => {
+        setLengthSearch(true);
         setDataState(undefined)
       })
     } else {
