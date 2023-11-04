@@ -12,6 +12,7 @@
     font-weight: 700;
     color: var(--Text-color-2);
     margin-top: 6px;
+    margin-bottom: 12px !important;
 }
 
 .wrapper p {
@@ -19,10 +20,16 @@
     font-style: normal;
     font-weight: 400;
     color: var(--Text-color-3);
-    margin-top: 12px;
+    margin-top: 2px;
     text-align: center;
 }
 
+
+@media screen and (max-width: 1200px) {
+    .wrapper {
+        margin-right: -50%;
+    }
+}
 
 @media screen and (max-width: 696px) {
     .wrapper {

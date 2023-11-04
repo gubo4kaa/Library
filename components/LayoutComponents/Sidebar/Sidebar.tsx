@@ -18,7 +18,7 @@ const Sidebar = ({categories, className}: Props) => {
         <div className={styles.stickyWrapper}>
           <div className={styles.scrollWrapper}> 
             <Link href={'/'} className={styles.linkLogo}> 
-              <Image src={'/libraryLogoFull.png'} width={218} height={44} alt={''}/>
+              <Image src={'/libraryLogoFull.png'} priority={true} quality={100} width={218} height={44} alt={''}/>
             </Link>
             <p className={styles.subtitle}>Categories</p>
             <CategoryList category={categories}/>

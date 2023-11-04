@@ -34,12 +34,12 @@ export default function Suggested({services, categories}:Props) {
         }
       </div>
       <ButtonNew href='/recently' className={styles.button} size='s' iconPosition={'iconRight'} type={'Default Primary'} width='max'>
-          View More
-          <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g id="Arrow Right">
-          <path id="Vector 190" d="M18.3333 11.9023L12.1458 18.3189M18.3333 11.9023L12.1458 5.4856M18.3333 11.9023L3.66663 11.9023" stroke="#2489FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-          </g>
-          </svg>
+        View More
+        <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="Arrow Right">
+        <path id="Vector 190" d="M18.3333 11.9023L12.1458 18.3189M18.3333 11.9023L12.1458 5.4856M18.3333 11.9023L3.66663 11.9023" stroke="#2489FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+        </svg>
       </ButtonNew>
     </div>
   )
