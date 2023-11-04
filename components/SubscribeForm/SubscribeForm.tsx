@@ -65,13 +65,16 @@ export default function SubscribeForm({}:Props) {
         .then(() => setIsverified(true))
         .catch(() => setIsverified(false))
     }
+
+    const formUrl = 'https://uiscore.lemonsqueezy.com/email-subscribe/external'
+  const redirectUrl = 'http://localhost:3000'
     
     return ( popapState == 'subscribe' && (
          <div className={cn(styles.wrapper)}>
             <h4>
                 Subscribe Newsletter
             </h4>
-            <SignupForm />
+            {/* <SignupForm /> */}
             {
                 loadingState && !accessState && <Preloader/>
             }

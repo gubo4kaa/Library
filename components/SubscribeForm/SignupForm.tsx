@@ -34,10 +34,6 @@ const SignupForm: React.FC = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="name">Name</label><br />
-        <input type="text" name="name" id="name" required />
-      </div>
-      <div>
         <label htmlFor="email">Email</label><br />
         <input type="email" name="email" id="email" required />
       </div>

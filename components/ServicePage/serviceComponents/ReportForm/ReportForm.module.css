@@ -1,6 +1,6 @@
 .wrapper {
     position: fixed;
-    top: 50%;
+    top: 40%;
     left: 50%;
     
     z-index: 20;
@@ -20,73 +20,79 @@
     gap: 22px;
 }
 
-.form{
-    gap: 22px;
+.wrapperChecked {
+    display: flex;
+    width: 100%;
+    position: relative;
     display: flex;
     align-items: center;
-    flex-direction: column;
-    position: relative;
+    gap: 8px;
+    padding: 12px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    color: var(--Text-color-2);
+    border-radius: 14px;
+    border: 1px solid var(--Background-color-2);
+    box-shadow: 0px 1px 2px 0px rgba(138, 148, 166, 0.13);
+
+    cursor: pointer;
+}
+
+
+.textareaWrapper {
+    display: flex;
     width: 100%;
 }
 
-.form p {
-    background-color: var(--Secondary4);
-    color: var(--Primary4);
-    width: 100%;
-    border-radius: 10px;
-}
 
-.form input {
-    width: 100%;
-}
-
-.form span {
-    width: 100%;
-}
-
-.field {
-        font-size: 14px;
-        font-weight: 400;
-        color: var(--Text-color-2);
-        display: flex;
-        flex: 1;
-        
-        width: 100%;
-        padding: 13px 38px;
-        
-        border-radius: 14px;
-        border: 1px solid var(--Background-color-2);
+.textareaWrapper textarea {
+    border-radius: 14px;
+    border: 1px solid var(--Background-color-2);
+    background: var(--Background-color-5, #FFF);
+    /* Form Styles/Form Default */
+    box-shadow: 0px 1px 2px 0px rgba(138, 148, 166, 0.13);
     
-        overflow: hidden;
-        text-overflow: ellipsis;
-        box-shadow: var(--Shadow-buttons-default);
+    padding: 13px 14px;
+    min-width: 100%;
+    resize: none;
+    outline: none;
 }
-
-.field:-webkit-autofill,
-.field:-webkit-autofill:hover,
-.field:-webkit-autofill:focus,
-.field:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 10em white inset !important;
-  -webkit-text-fill-color: var(--Text-color-2) !important;
-}
-
-.field:focus {
-    box-shadow: var(--Shadow-input-active);
-    outline: 1px solid var(--Primary1);
-}
-
-.field::placeholder {
-    font-size: 14px;
+.textareaWrapper textarea::placeholder {
+    font-size: 16px;
+    font-style: normal;
     font-weight: 400;
-    color: var(--Text-color-5);
+    color: var(--Text-color-4)
 }
 
-.field.errorField:focus {
-    box-shadow: var(--Shadow-primary-4);
-    outline: 1px solid var(--Primary4);
+.textareaWrapper textarea:focus {
+    border: 1px solid var(--disabled-color-button-disabled-1, rgba(36, 137, 255, 0.50));
+    background: var(--background-colors-background-5, #FFF);
+    box-shadow: 0px 4px 10px 0px rgba(36, 137, 255, 0.40), 0px 0px 0px 3px rgba(36, 137, 255, 0.25);
+    /* Form Styles/Form Active */
 }
 
-.submit{
+.wrapperChecked svg {
+    max-width: 20px;
+    max-height: 20px;
+}
+
+.activeReport {
+    border: 1px solid var(--disabled-color-button-disabled-1, rgba(36, 137, 255, 0.50));
+    background: var(--background-colors-background-5, #FFF);
+    /* Form Styles/Form Active */
+    box-shadow: 0px 4px 10px 0px rgba(36, 137, 255, 0.40), 0px 0px 0px 3px rgba(36, 137, 255, 0.25);
+}
+
+.checkedCircle {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--Background-color-2);
+}
+
+.wrapperChecked input, .none{
     display: none;
 }
 
@@ -95,37 +101,4 @@
     font-style: normal;
     font-weight: 700;
     color: var(--Text-color-2);
-    text-align: left;
-}
-
-.wrapper p {
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    color: var(--Text-color-2);
-    text-align: left;
-    text-align: center;
-}
-
-.searchLogo {
-    position: absolute;
-    top: 11px;
-    left: 10px;
-    cursor: pointer;
-}
-
-.access {
-    display: flex;
-    width: 100%;
-    background-color: var(--Secondary2);
-    padding: 10px 14px;
-    border-radius: 16px;
-    
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 28px;
-    color: var(--Primary2)!important;
-    text-align: center;
-    margin: 0!important
 }

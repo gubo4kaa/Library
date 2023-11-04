@@ -8,8 +8,10 @@
     min-width: min-content;
     width: 100%;
     max-width: 100%;
+    cursor: copy;
 }
 
-.button > div {
+.button > {
     width: 100%;
+    cursor: copy;
 }

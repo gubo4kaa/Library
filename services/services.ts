@@ -62,4 +62,10 @@ export default class LibraryService {
         console.log(testSubscriber);
         return $apiLemonsqueezy.post<any>(`/`, testSubscriber)
     }
+
+    static async Report(body: any): Promise<AxiosResponse<object>> {
+        console.log(body);
+       
+        return $api.post<any>(`/library/report`, body)
+    }
 }
