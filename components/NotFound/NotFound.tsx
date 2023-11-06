@@ -10,7 +10,7 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
 export default function NotFound({}:Props) {
   return (
     <div className={styles.wrapper}>
-        <Image src='/notfound.png' loading="lazy" quality={100} width={220} height={200} alt=''></Image>
+        <Image src='/notfound.png' priority quality={100} width={220} height={200} alt=''></Image>
         <h4>Nothing Found</h4>
         <p>Perhaps these resources are not in this category,<br /> try choosing another.</p>
     </div>
