@@ -9,6 +9,7 @@ import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState } from "
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 import styles from './ReportForm.module.css';
+import Preloader from "@/components/Preloader/Preloader";
 
 interface Checkbox {
   id: number;
@@ -34,7 +35,6 @@ const ReportForm = ({idService}:Props) => {
     .then(() => setIsVerified(true))
     .catch(() => setIsVerified(false))
     }
-    
     
     const [checkboxes, setCheckboxes] = useState<Checkbox[]>([
         { id: 1, label: "Information out of date", checked: false },
@@ -62,22 +62,33 @@ const ReportForm = ({idService}:Props) => {
         "idLibraryItemModel": idService,
         "reportText": data.textarea && checkboxes[3].checked ? data.textarea : checkboxes.filter((e) => e.checked)[0].label
       }
+      setLoadingState(true)
       try {
         await LibraryService.Report(dataNew)
+        setLoadingState(false)
+        setAccessState(true)
       } catch (error) {
         console.log(error)
+        setLoadingState(false)
+        setErrorState(true)
       }
     };
 
     const [loadingState, setLoadingState] = useState<boolean>(false)
     const [accessState, setAccessState] = useState<boolean>(false)
+    const [errorState, setErrorState] = useState<boolean>(false)
 
     const [popapState, setPopapState] = useSubscribeStore((state) => [state.popapState, state.setPopapState])
     return (
         popapState == 'report' && (
-        <>
-        
-          {  !loadingState && !accessState && <form onSubmit={handleSubmit(onSubmit)} className={styles.wrapper}>
+        <div className={styles.wrapper}>
+            {
+                loadingState && !accessState && <Preloader/>
+            }
+            {
+                !loadingState && accessState && <p className={styles.access}>Great! Your resource will be added soon</p>
+            }
+          {  !loadingState && !accessState && <form onSubmit={handleSubmit(onSubmit)}>
               <h4>
                 Report a problem
               </h4>
@@ -153,7 +164,7 @@ const ReportForm = ({idService}:Props) => {
             <ButtonNew disable={!isVerified} width="max" onClick={() => buttonRef.current?.click()}>Send a Message</ButtonNew>
           </form>
           }
-        </>
+        </div>
         )
     );
   };
