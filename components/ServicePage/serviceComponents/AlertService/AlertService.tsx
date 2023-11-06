@@ -26,6 +26,9 @@ export default function AlertService({}:Props) {
           <path id="Vector 14" d="M11 15.5835V15.5825" stroke="#5A6C8A" strokeWidth="1.6" strokeLinecap="round"/>
           </g>
           </svg>
+          <p>
+            Report
+          </p>
       </ButtonNew>
   )
 }

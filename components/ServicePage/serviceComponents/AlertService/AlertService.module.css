@@ -2,3 +2,15 @@
     padding: 13px;
 }
 
+.button p {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--Text-color-3);
+}
+
+@media screen and (min-width: 696px) {
+    .button p {
+        display: none;
+    }
+}

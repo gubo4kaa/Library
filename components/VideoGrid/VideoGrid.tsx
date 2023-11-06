@@ -19,7 +19,7 @@ export default function VideoGrid({className}:Props) {
     <div className={styles.wrapper}>
         <h4>New experience and features</h4>
         <div className={styles.grid}>
-            <VideoCard className={styles.mainVideo} src='/video/main.mp4' title='Live Preview' p='Browse resource websites without leaving the library, it`s fast and secure.'></VideoCard>
+            <VideoCard className={styles.mainVideo} src='/video/main.mp4' title='Resorce Overview' p='Now each resource has its own separate page with brief information.'></VideoCard>
             <VideoCard className={styles.submitVideo} src='/video/submit.mp4' title='Share your resource' p='Want to share your creation with the world? Feel free to send it to us!'></VideoCard>
             <VideoCard className={styles.sliderVideo} src='/video/slider.mp4' title='Weekly collection updates' p='We replenish our collection with new resources every week.'></VideoCard>
             <VideoCard className={styles.categoryVideo} src='/video/category.mp4' title='New categories' p='We have updated the categories and made them more valuable and full.'></VideoCard>

@@ -40,9 +40,8 @@ export default function Search({category}:Props) {
   const { ref, ...rest } = register("searchString")
 
   const onSubmit = async (data: FormInputs) => {
-    setDroDownState(true)
     setBlur(true);
-    if(data.searchString.length > 0) {
+    if(data.searchString.length > 1) {
       const fetch = await LibraryService.Search(data.searchString)
       .then((value) => {
         if(value.data[0].name) {
@@ -70,11 +69,11 @@ export default function Search({category}:Props) {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const path = usePathname()
 
-  // useEffect(() => {
-  //   setDroDownState(false)
-  //   setBlur(false)
-  //   setDataState(undefined)
-  // }, [path])
+  useEffect(() => {
+    setDroDownState(false)
+    setBlur(false)
+    setDataState(undefined)
+  }, [path])
 
   useEffect(() => {
     if(!droDownState) return

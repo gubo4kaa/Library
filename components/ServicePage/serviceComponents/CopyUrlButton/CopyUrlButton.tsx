@@ -21,6 +21,9 @@ export default function CopyUrlButton({urlCopy}:Props) {
                     <path id="Vector_2" d="M3.39403 8.25C2.93282 9.26695 2.75 10.6453 2.75 12.4808C2.75 17.7457 4.31213 19.25 9.51888 19.25C11.3496 19.25 12.7298 19.064 13.75 18.594" stroke="#6E7A90" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                 </g>
             </svg>
+            <p>
+                Copy Link
+            </p>
             </ButtonNew>
         </button>
     )

@@ -67,7 +67,7 @@ export default function SubscribeForm({}:Props) {
     }
 
     const formUrl = 'https://uiscore.lemonsqueezy.com/email-subscribe/external'
-  const redirectUrl = 'http://localhost:3000'
+    const redirectUrl = 'http://localhost:3000'
     
     return ( popapState == 'subscribe' && (
          <div className={cn(styles.wrapper)}>
@@ -110,7 +110,7 @@ export default function SubscribeForm({}:Props) {
                     />
                     {
                         !isVerified && <ReCAPTCHA
-                        sitekey='6Le-ohQoAAAAACpwGxCOvqbx-HWFctzoLWQmCM2T'
+                        sitekey={`${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
                         ref={recaptchaRef}
                         onChange={handleCaptchaSubmission}
                         />

@@ -53,10 +53,9 @@
 }
 
 .mainInput:focus {
-    box-shadow: var(--Shadow-input-active);
-    outline: 1px solid var(--Primary1);
+    box-shadow: 0px 4px 10px 0px rgba(36, 137, 255, 0.40), 0px 0px 0px 3px rgba(36, 137, 255, 0.25);
+    outline: 1px solid var(--disabled-color-button-disabled-1, rgba(36, 137, 255, 0.50));
     background-color: var(--Background-color-5);
-
 }
 
 .mainInput::placeholder {

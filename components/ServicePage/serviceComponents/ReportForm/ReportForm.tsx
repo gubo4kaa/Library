@@ -7,6 +7,8 @@ import { useForm } from "react-hook-form";
 import styles from './ReportForm.module.css';
 import ButtonNew from "@/components/ButtonNew/ButtonNew";
 import LibraryService from "@/services/services";
+import ReCAPTCHA from "react-google-recaptcha";
+import { verifyCaptcha } from "@/components/Recap4a/Recap4a";
 
 interface Checkbox {
   id: number;
@@ -15,16 +17,25 @@ interface Checkbox {
 }
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
-    idService: number;
+  idService: number;
 }
 
 
 const ReportForm = ({idService}:Props) => {
-    const { register, handleSubmit } = useForm();
-
-    const [loading, setLoading] = useState<boolean>(false)
-    const [sent, setSent] = useState<boolean>(false)
-
+  const { register, handleSubmit } = useForm();
+  
+  const [loading, setLoading] = useState<boolean>(false)
+  const [sent, setSent] = useState<boolean>(false)
+  const [isVerified, setIsVerified] = useState(false);
+  const recaptchaRef = useRef<ReCAPTCHA>(null)
+  async function handleCaptchaSubmission(token: string | null) {
+    // Server function to verify captcha
+    await verifyCaptcha(token)
+    .then(() => setIsVerified(true))
+    .catch(() => setIsVerified(false))
+    }
+    
+    
     const [checkboxes, setCheckboxes] = useState<Checkbox[]>([
         { id: 1, label: "Information out of date", checked: false },
         { id: 2, label: "Information does not match the resource", checked: false },
@@ -58,11 +69,15 @@ const ReportForm = ({idService}:Props) => {
       }
     };
 
-    const [popapState, setPopapState] = useSubscribeStore((state) => [state.popapState, state.setPopapState])
+    const [loadingState, setLoadingState] = useState<boolean>(false)
+    const [accessState, setAccessState] = useState<boolean>(false)
 
+    const [popapState, setPopapState] = useSubscribeStore((state) => [state.popapState, state.setPopapState])
     return (
         popapState == 'report' && (
-          <form onSubmit={handleSubmit(onSubmit)} className={styles.wrapper}>
+        <>
+        
+          {  !loadingState && !accessState && <form onSubmit={handleSubmit(onSubmit)} className={styles.wrapper}>
               <h4>
                 Report a problem
               </h4>
@@ -128,8 +143,17 @@ const ReportForm = ({idService}:Props) => {
             <div className={styles.none}>
               <button type="submit" ref={buttonRef}>Отправить</button>
             </div>
-            <ButtonNew width="max" onClick={() => buttonRef.current?.click()}>Send a Message</ButtonNew>
+            {
+              !isVerified && <ReCAPTCHA
+              sitekey={`${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+              ref={recaptchaRef}
+              onChange={handleCaptchaSubmission}
+              />
+            }    
+            <ButtonNew disable={!isVerified} width="max" onClick={() => buttonRef.current?.click()}>Send a Message</ButtonNew>
           </form>
+          }
+        </>
         )
     );
   };
