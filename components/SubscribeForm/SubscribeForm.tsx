@@ -10,7 +10,6 @@ import ButtonNew from '../ButtonNew/ButtonNew';
 import Preloader from '../Preloader/Preloader';
 import { verifyCaptcha } from '../Recap4a/Recap4a';
 import styles from './SubscribeForm.module.css';
-import SignupForm from './SignupForm';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
 
