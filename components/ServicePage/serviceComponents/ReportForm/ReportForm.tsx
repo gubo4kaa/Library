@@ -88,7 +88,7 @@ const ReportForm = ({idService}:Props) => {
             {
                 !loadingState && accessState && <p className={styles.access}>Great! Your resource will be added soon</p>
             }
-          {  !loadingState && !accessState && <form onSubmit={handleSubmit(onSubmit)}>
+          {  !loadingState && !accessState && <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
               <h4>
                 Report a problem
               </h4>
