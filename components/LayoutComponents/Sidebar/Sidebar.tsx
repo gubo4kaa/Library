@@ -1,11 +1,10 @@
-import Link from 'next/link'
-import styles from './Sidebar.module.css'
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import ButtonNew from '@/components/ButtonNew/ButtonNew';
 import cn from 'classnames';
 import Image from "next/image";
-import { motion } from 'framer-motion';
-import Button from '@/components/Button/Button';
+import Link from 'next/link';
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import CategoryList from './CategoryList/CategoryList';
+import styles from './Sidebar.module.css';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
   categories: ICategory[]
@@ -18,12 +17,12 @@ const Sidebar = ({categories, className}: Props) => {
         <div className={styles.stickyWrapper}>
           <div className={styles.scrollWrapper}> 
             <Link href={'/'} className={styles.linkLogo}> 
-              <Image src={'/libraryLogoFull.png'} priority={true} quality={100} width={218} height={44} alt={''}/>
+              <Image src={'/main-logo-svg.svg'} priority={true} quality={100} width={165} height={44} alt={''}/>
             </Link>
             <p className={styles.subtitle}>Categories</p>
             <CategoryList category={categories}/>
             <div className={styles.cardWrapper}>
-              <Image src='/uiscoreLogo.png' width={48} height={48} alt={''}/>
+              <Image src='/uiscoreLogo.svg' width={48} height={48} alt={''}/>
               <h4>
                 Uiscore 
               </h4>
@@ -31,14 +30,14 @@ const Sidebar = ({categories, className}: Props) => {
               Explore our superb UI Kits, <br/>
               3D Bundles and Mockups
               </p>
-              <Button width='full' href={process.env.NEXT_PUBLIC_UISCORE} color='whiteBlue'>
+              <ButtonNew width='max' href={process.env.NEXT_PUBLIC_UISCORE} type='Default Primary' size='s'>
                 Visit Uiscore
                 <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="Arrow Right">
                   <path id="Vector 190" d="M16.6673 10.1917L11.0423 16.0251M16.6673 10.1917L11.0423 4.3584M16.6673 10.1917L3.33398 10.1917" stroke="#2489FF" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                   </g>
                 </svg>
-              </Button>
+              </ButtonNew>
             </div>
             <footer className={styles.footer}>
               <p>

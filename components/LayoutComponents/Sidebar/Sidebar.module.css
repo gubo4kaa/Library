@@ -29,8 +29,7 @@
 }
 
 .linkLogo {
-    max-width: max-content;
-    max-height: max-content;
+    width: auto;
 }
 
 .subtitle {

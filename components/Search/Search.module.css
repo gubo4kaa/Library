@@ -85,7 +85,7 @@
 .dropDownWrapper{
     position: absolute;
     display: flex;
-    top: 48px;
+    top: 52px;
     left: 0;
     /* transform: translateY(-34px); */
     width: 100%;
