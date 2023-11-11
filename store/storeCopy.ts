@@ -10,7 +10,7 @@ type Action = {
 
 // Create your store, which includes both state and (optionally) actions
 export const useStateCopy = create<StateCopy & Action>((set) => ({
-    copyState: true,
+    copyState: false,
     setCopyState: (state: boolean) => {
         set(() => ({ copyState: state }))
     },
