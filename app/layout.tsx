@@ -15,6 +15,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { YMInitializer } from "react-yandex-metrika";
+import CopyPopap from '@/components/CopyPopap/CopyPopap'
 
 const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
     style: ['normal']
@@ -137,6 +138,7 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
             <Blur/>
             <SubscribeForm/>
             <AddServiceForm/>
+            <CopyPopap/>
           </div>
         </div>
       </body>

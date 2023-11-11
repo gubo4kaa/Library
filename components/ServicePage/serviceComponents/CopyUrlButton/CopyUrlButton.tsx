@@ -1,19 +1,21 @@
 'use client'
 import ButtonNew from '@/components/ButtonNew/ButtonNew'
 import styles from './CopyUrlButton.module.css'
-import { DetailedHTMLProps, HTMLAttributes, useCallback, useRef } from 'react'
+import { DetailedHTMLProps, HTMLAttributes, useCallback, useEffect, useRef } from 'react'
 import { useClipboard } from 'use-clipboard-copy';
 import { useCopyToClipboard } from 'usehooks-ts'
+import { useStateCopy } from '@/store/storeCopy';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
     urlCopy: string
 }
 
 export default function CopyUrlButton({urlCopy}:Props) {
-    const [value, copy] = useCopyToClipboard()
     const url = `https://${urlCopy}`
+    const [copyState, setCopyState] = useStateCopy((state) => [state.copyState, state.setCopyState])
+    
     return  (
-        <button onClick={() => {navigator.clipboard.writeText(url)}} className={styles.button}>
+        <button onClick={() => {navigator.clipboard.writeText(url); setCopyState(true)}} className={styles.button}>
             <ButtonNew width={'max'} size='m' preventDefault iconPosition={'icon'} type='Default Ghost' className={styles.wrapper}>
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="Copy">

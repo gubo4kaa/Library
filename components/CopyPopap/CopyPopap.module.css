@@ -1,0 +1,23 @@
+.wrapper {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    width: min-content;
+    z-index: 10000000;
+    background-color: var(--Background-color-5);
+    padding: 14px 18px;
+    border: 1px solid var(--Background-color-1);
+    gap: 10px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--Text-color-2);
+    cursor: pointer;
+}
+
+.wrapper p {
+    white-space: nowrap;
+}
