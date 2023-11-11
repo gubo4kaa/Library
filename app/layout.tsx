@@ -123,7 +123,9 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
         <div className={styles.mainWrapper}>
           <div className={styles.mainGrid}>
             <Analytics/>
+            {/* <YMInitializer accounts={[95109351]} /> */}
             {/* <YMInitializer accounts={[metrikaCounterId]} version="2" /> */}
+            <Ymetrica/>
             <MobileMenu>
               <Sidebar categories={category}/>
             </MobileMenu>

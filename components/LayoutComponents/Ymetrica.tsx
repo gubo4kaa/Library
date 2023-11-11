@@ -27,7 +27,7 @@ export default function Ymetrica({}:Props) {
   })
 
   return <div>
-    {
+    {/* {
       parse(
         `
           <script type="text/javascript">
@@ -46,12 +46,13 @@ export default function Ymetrica({}:Props) {
       `
       )
     }
-    
+     */}
     {/* <YMInitializer
       accounts={[95109351]}
       options={{webvisor: true,defer: true}}
       version='2'
     /> */}
+      <YMInitializer accounts={[95109351]} />
     </div>
 }
 
