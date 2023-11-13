@@ -26,11 +26,11 @@ export default function SubscribeForm({}:Props) {
         }
     }, [blur])
 
-    useEffect(()=> {
-        setLoadingState(false);
-        setPopapState(null); 
-        setBlur(false);
-    }, [])
+    // useEffect(()=> {
+    //     setLoadingState(false);
+    //     setPopapState(null); 
+    //     setBlur(false);
+    // }, [])
 
     const { register, handleSubmit, setError, formState: { errors } } = useForm();
     const [loadingState, setLoadingState] = useState<boolean>(false)
@@ -61,11 +61,11 @@ export default function SubscribeForm({}:Props) {
         setLoadingState(true)
         try {
           await LibraryService.EmailService(data);
-        //   setLoadingState(false);
-        //   setAccessState(true);
-        //   showOff();
+          setLoadingState(false);
+          setAccessState(true);
+          showOff();
         } catch (error: any) {
-            // setLoadingState(false)
+            setLoadingState(false)
             setError("root.random", {
                 type: "random",
             })             
