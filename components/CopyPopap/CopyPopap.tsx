@@ -12,10 +12,10 @@ export default function CopyPopap({}:Props) {
     const [copyState, setCopyState] = useStateCopy((state) => [state.copyState, state.setCopyState])
     useEffect(()=> {
         if(copyState) {
-            setTimeout(() => setCopyState(false), 2000)
+            setTimeout(() => setCopyState(false), 1000)
         }
     }, [copyState])
-  return( 
+    return( 
         copyState && <div className={styles.wrapper} onClick={() => setCopyState(false)}>
         <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="34.1053" height="34.1053" rx="17.0527" fill="#2489FF" fill-opacity="0.15"/>

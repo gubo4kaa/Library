@@ -56,16 +56,18 @@
 
 
 .textareaWrapper textarea {
+    font-family: 'Plus Jakarta Sans', sans-serif;
     border-radius: 14px;
     border: 1px solid var(--Background-color-2);
     background: var(--Background-color-5, #FFF);
-    /* Form Styles/Form Default */
+    
     box-shadow: 0px 1px 2px 0px rgba(138, 148, 166, 0.13);
     
     padding: 13px 14px;
     min-width: 100%;
     resize: none;
     outline: none;
+    color: var(--Text-color-2)
 }
 .textareaWrapper textarea::placeholder {
     font-size: 16px;

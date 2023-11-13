@@ -50,10 +50,11 @@ export default class LibraryService {
     }
 
     static async OfferService(body: object): Promise<AxiosResponse<IServiceInterface[]>> {
-        return $api.post<IServiceInterface[]>(`library/offer-item`,body )
+        return $api.post<IServiceInterface[]>(`library/offer-item`,body)
     }
 
     static async EmailService(body: object): Promise<AxiosResponse<IServiceInterface[]>> {
+        console.log(body);
         return $api.post<IServiceInterface[]>(`library/save-new-mail`,body)
     }
 
@@ -65,7 +66,6 @@ export default class LibraryService {
 
     static async Report(body: any): Promise<AxiosResponse<object>> {
         console.log(body);
-       
         return $api.post<any>(`/library/report`, body)
     }
 }

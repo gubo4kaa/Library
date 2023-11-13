@@ -1,7 +1,8 @@
 .wrapper {
-    position: absolute;
+    position: sticky;
     bottom: 10px;
-    left: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     width: min-content;
@@ -20,4 +21,15 @@
 
 .wrapper p {
     white-space: nowrap;
+}
+
+@media screen and (max-width: 400px) {
+    .wrapper {
+        left: 0;
+        max-width: 90%;
+        width: 100%;
+        transform: translateX(0);
+        /* margin-left: calc(50% - 50vw); */
+        margin-left: calc(100vw - 95vw);
+    }
 }
