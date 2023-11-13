@@ -45,21 +45,21 @@
 }
 
 .field {
-        font-size: 14px;
-        font-weight: 400;
-        color: var(--Text-color-2);
-        display: flex;
-        flex: 1;
-        
-        width: 100%;
-        padding: 13px 38px;
-        
-        border-radius: 14px;
-        border: 1px solid var(--Background-color-2);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--Text-color-2);
+    display: flex;
+    flex: 1;
     
-        overflow: hidden;
-        text-overflow: ellipsis;
-        box-shadow: var(--Shadow-buttons-default);
+    width: 100%;
+    padding: 13px 38px;
+    
+    border-radius: 14px;
+    border: 1px solid var(--Background-color-2);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-shadow: var(--Shadow-buttons-default);
 }
 
 .field:-webkit-autofill,
@@ -71,8 +71,10 @@
 }
 
 .field:focus {
-    box-shadow: var(--Shadow-input-active);
-    outline: 1px solid var(--Primary1);
+    outline: none;
+    border: 1px solid var(--disabled-color-button-disabled-1, rgba(36, 137, 255, 0.50));
+    background: var(--background-colors-background-5, #FFF);
+    box-shadow: 0px 4px 10px 0px rgba(36, 137, 255, 0.40), 0px 0px 0px 3px rgba(36, 137, 255, 0.25);
 }
 
 .field::placeholder {
