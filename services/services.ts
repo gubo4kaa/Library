@@ -59,23 +59,24 @@ export default class LibraryService {
         const formUrl = 'https://uiscore.lemonsqueezy.com/email-subscribe/external'
         const redirectUrl = 'https://uiscore.io/done/'
         const value = new FormData();
-        value.append('email', body.email);
-        try {
-            const response = await fetch(formUrl, {
-              method: 'POST',
-              body: value,
-            });
-      
-            if (response.ok) {
-              window.location.href = redirectUrl;
-            } else {
-              // Something went wrong subscribing the user
-              alert('Sorry, we couldn\'t subscribe you.');
-            }
-          } catch (error) {
-            alert('Sorry, there was an issue: ' + error);
-          }
-        return $api.post<IServiceInterface[]>(`library/save-new-mail`, body)
+        const sendApiLibrary = await $api.post<IServiceInterface[]>(`library/save-new-mail`, body)
+        console.log(sendApiLibrary);
+        // value.append('email', body.email);
+        // try {
+        //     const response = await fetch(formUrl, {
+        //       method: 'POST',
+        //       body: value,
+        //     });
+        //     if (response.ok) {
+        //       window.location.href = redirectUrl;
+        //     } else {
+        //       // Something went wrong subscribing the user
+        //       alert('Sorry, we couldn\'t subscribe you.');
+        //     }
+        //   } catch (error) {
+        //     alert('Sorry, there was an issue: ' + error);
+        //   }
+        return sendApiLibrary
     }
 
     static async EmailServiceLemonsqueezy(body: object): Promise<AxiosResponse<IServiceInterface[]>> {
