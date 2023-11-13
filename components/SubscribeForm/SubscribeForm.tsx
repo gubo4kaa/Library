@@ -26,6 +26,12 @@ export default function SubscribeForm({}:Props) {
         }
     }, [blur])
 
+    useEffect(()=> {
+        setLoadingState(false);
+        setPopapState(null); 
+        setBlur(false);
+    }, [])
+
     const { register, handleSubmit, setError, formState: { errors } } = useForm();
     const [loadingState, setLoadingState] = useState<boolean>(false)
     const [accessState, setAccessState] = useState<boolean>(false)
@@ -34,22 +40,6 @@ export default function SubscribeForm({}:Props) {
         setTimeout(() => {setPopapState(null); setBlur(false)}, 2000)
     }
 
-    const onSubmit = async (data: object) => {
-        // console.log(data)
-        setLoadingState(true)
-        try {
-          await LibraryService.EmailService(data);
-          setLoadingState(false);
-          setAccessState(true);
-          showOff();
-        } catch (error: any) {
-            setLoadingState(false)
-            setError("root.random", {
-                type: "random",
-            })             
-        }
-    };
-
     const refButton = useRef<HTMLInputElement>(null)
 
     const focusInput = () => {
@@ -57,7 +47,7 @@ export default function SubscribeForm({}:Props) {
     };
     
     const recaptchaRef = useRef<ReCAPTCHA>(null)
-    const [isVerified, setIsverified] = useState<boolean>(true)
+    const [isVerified, setIsverified] = useState<boolean>(false)
 
     async function handleCaptchaSubmission(token: string | null) {
         // Server function to verify captcha
@@ -66,33 +56,20 @@ export default function SubscribeForm({}:Props) {
         .catch(() => setIsverified(false))
     }
 
-    const [loading, setLoading] = useState(false);
-    const formUrl = 'https://uiscore.lemonsqueezy.com/email-subscribe/external'
-    const redirectUrl = 'https://library.uiscore.io/successfully'
-  
-    const handleSubmitLemon = async (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      setLoading(true);
-  
-      try {
-        const response = await fetch(formUrl, {
-          method: 'POST',
-          body: new FormData(e.currentTarget),
-        });
-        await LibraryService.EmailService(e.currentTarget);
-        setLoading(false);
-
-        if (response.ok) {
-          // Redirect the subscriber
-          window.location.href = redirectUrl;
-        } else {
-          // Something went wrong subscribing the user
-          alert('Sorry, we couldn\'t subscribe you.');
+    const onSubmit = async (data: object) => {
+        // console.log(data)
+        setLoadingState(true)
+        try {
+          await LibraryService.EmailService(data);
+        //   setLoadingState(false);
+        //   setAccessState(true);
+        //   showOff();
+        } catch (error: any) {
+            // setLoadingState(false)
+            setError("root.random", {
+                type: "random",
+            })             
         }
-      } catch (error) {
-        setLoading(false);
-        alert('Sorry, there was an issue: ' + error);
-      }
     };
     
     return ( popapState == 'subscribe' && (
@@ -108,7 +85,7 @@ export default function SubscribeForm({}:Props) {
                 !loadingState && accessState && <p className={styles.access}>Great! Your resource will be added soon</p>
             }
             {   !loadingState && !accessState &&
-                <form onSubmit={handleSubmitLemon} method="post" className={styles.form}>
+                <form onSubmit={handleSubmit(onSubmit)} method="post" className={styles.form}>
                     <svg className={styles.searchLogo} width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Inbox">
                         <path id="Square" fillRule="evenodd" clipRule="evenodd" d="M2.29102 11C2.29102 4.58329 4.12435 3.66663 10.9998 3.66663C17.8752 3.66663 19.7077 4.58329 19.7077 11C19.7077 17.4166 17.8752 18.3333 10.9998 18.3333C4.12435 18.3333 2.29102 17.4166 2.29102 11Z" stroke="#6E7A90" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>

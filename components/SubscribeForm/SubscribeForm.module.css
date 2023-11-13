@@ -86,6 +86,7 @@
 .field.errorField:focus {
     box-shadow: var(--Shadow-primary-4);
     outline: 1px solid var(--Primary4);
+    border: none;
 }
 
 .submit{

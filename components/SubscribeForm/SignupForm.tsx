@@ -16,17 +16,13 @@ const SignupForm: React.FC = () => {
         body: new FormData(e.currentTarget),
       });
 
-      setLoading(false);
-
       if (response.ok) {
-        // Redirect the subscriber
         window.location.href = redirectUrl;
       } else {
         // Something went wrong subscribing the user
         alert('Sorry, we couldn\'t subscribe you.');
       }
     } catch (error) {
-      setLoading(false);
       alert('Sorry, there was an issue: ' + error);
     }
   };

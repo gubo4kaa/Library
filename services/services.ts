@@ -53,9 +53,29 @@ export default class LibraryService {
         return $api.post<IServiceInterface[]>(`library/offer-item`,body)
     }
 
-    static async EmailService(body: object): Promise<AxiosResponse<IServiceInterface[]>> {
+    static async EmailService(body: any): Promise<AxiosResponse<IServiceInterface[]>> {
         console.log(body);
-        return $api.post<IServiceInterface[]>(`library/save-new-mail`,body)
+        console.log(body.email);
+        const formUrl = 'https://uiscore.lemonsqueezy.com/email-subscribe/external'
+        const redirectUrl = 'http://localhost:3000'
+        const value = new FormData();
+        value.append('email', body.email);
+        try {
+            const response = await fetch(formUrl, {
+              method: 'POST',
+              body: value,
+            });
+      
+            if (response.ok) {
+              window.location.href = redirectUrl;
+            } else {
+              // Something went wrong subscribing the user
+              alert('Sorry, we couldn\'t subscribe you.');
+            }
+          } catch (error) {
+            alert('Sorry, there was an issue: ' + error);
+          }
+        return $api.post<IServiceInterface[]>(`library/save-new-mail`, body)
     }
 
     static async EmailServiceLemonsqueezy(body: object): Promise<AxiosResponse<IServiceInterface[]>> {
