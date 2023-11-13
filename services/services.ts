@@ -57,7 +57,7 @@ export default class LibraryService {
         console.log(body);
         console.log(body.email);
         const formUrl = 'https://uiscore.lemonsqueezy.com/email-subscribe/external'
-        const redirectUrl = 'http://localhost:3000'
+        const redirectUrl = 'https://uiscore.io/done/'
         const value = new FormData();
         value.append('email', body.email);
         try {
