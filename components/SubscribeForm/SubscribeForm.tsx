@@ -75,7 +75,7 @@ export default function SubscribeForm({}:Props) {
                     message: e.message
                 }) 
                 console.log('catchTry')
-                console.log(e)
+                console.log(e.response.status)
           });
         } catch (error: any) {
             setLoadingState(false)
