@@ -10,6 +10,8 @@ import ButtonNew from '../ButtonNew/ButtonNew';
 import Preloader from '../Preloader/Preloader';
 import { verifyCaptcha } from '../Recap4a/Recap4a';
 import styles from './SubscribeForm.module.css';
+import Error from 'next/error';
+import { Axios } from 'axios';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
     
@@ -47,7 +49,7 @@ export default function SubscribeForm({}:Props) {
     };
     
     const recaptchaRef = useRef<ReCAPTCHA>(null)
-    const [isVerified, setIsverified] = useState<boolean>(false)
+    const [isVerified, setIsverified] = useState<boolean>(true)
 
     async function handleCaptchaSubmission(token: string | null) {
         // Server function to verify captcha
@@ -61,18 +63,25 @@ export default function SubscribeForm({}:Props) {
         setLoadingState(true)
         try {
           await LibraryService.EmailService(data)
-            .catch(() => {
-            setError("root.random", {
-                type: "random",
-            }) 
+          .then(() => {
+            setLoadingState(false);
+            setAccessState(true);
+            showOff();
+          })
+            .catch((e) => {
+                setLoadingState(false);
+                setError("email", {
+                    type: "random",
+                    message: e.message
+                }) 
+                console.log('catchTry')
+                console.log(e)
           });
-          setLoadingState(false);
-          setAccessState(true);
-          showOff();
         } catch (error: any) {
             setLoadingState(false)
-            setError("root.random", {
+            setError("email", {
                 type: "random",
+                message: error.message
             })             
         }
     };
@@ -112,7 +121,7 @@ export default function SubscribeForm({}:Props) {
                     {/* {errors.email && <p>This email is required</p>} */}
                     <input ref={refButton} onClick={() => {
                     setError("email", { type: "focus" });
-                    }} type="submit" className={styles.submit} 
+                    }} type="submit" className={cn(styles.submit)} 
                     disabled={!isVerified} 
                     // disabled={false}
                     />
