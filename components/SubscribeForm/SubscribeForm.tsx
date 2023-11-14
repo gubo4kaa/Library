@@ -49,7 +49,7 @@ export default function SubscribeForm({}:Props) {
     };
     
     const recaptchaRef = useRef<ReCAPTCHA>(null)
-    const [isVerified, setIsverified] = useState<boolean>(true)
+    const [isVerified, setIsverified] = useState<boolean>(false)
 
     async function handleCaptchaSubmission(token: string | null) {
         // Server function to verify captcha
@@ -72,11 +72,8 @@ export default function SubscribeForm({}:Props) {
                 setLoadingState(false);
                 setError("email", {
                     type: "random",
-                    message: e.message
-                }) 
-                console.log('catchTry')
-                console.log(e.response.status)
-                console.log(e.response.data.err)
+                    message: e.response.data.err
+                });
           });
         } catch (error: any) {
             setLoadingState(false)
@@ -119,6 +116,11 @@ export default function SubscribeForm({}:Props) {
                     className={cn(styles.field, {
                         [styles.errorField]: errors.email
                     })}/>
+                    {
+                        errors.email && <p className={styles.errorText}>
+                            Error email
+                        </p>
+                    }
                     {/* {errors.email && <p>This email is required</p>} */}
                     <input ref={refButton} onClick={() => {
                     setError("email", { type: "focus" });
@@ -127,11 +129,14 @@ export default function SubscribeForm({}:Props) {
                     // disabled={false}
                     />
                     {
-                        !isVerified && <ReCAPTCHA
-                        sitekey={`${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-                        ref={recaptchaRef}
-                        onChange={handleCaptchaSubmission}
-                        />
+                        !isVerified &&
+                            <span className={styles.recaptcha}>
+                                <ReCAPTCHA
+                                    sitekey={`${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+                                    ref={recaptchaRef}
+                                    onChange={handleCaptchaSubmission}
+                                />
+                            </span> 
                     }
                     <span onClick={focusInput}>
                         <ButtonNew 
