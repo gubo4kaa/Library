@@ -59,8 +59,7 @@ export default class LibraryService {
         const formUrl = 'https://uiscore.lemonsqueezy.com/email-subscribe/external'
         const redirectUrl = 'https://uiscore.io/done/'
         const value = new FormData();
-        const sendApiLibrary = await $api.post<IServiceInterface[]>(`library/save-new-mail`, body)
-        console.log(sendApiLibrary);
+        return await $api.post<IServiceInterface[]>(`library/save-new-mail`, body)
         // value.append('email', body.email);
         // try {
         //     const response = await fetch(formUrl, {
@@ -76,7 +75,6 @@ export default class LibraryService {
         //   } catch (error) {
         //     alert('Sorry, there was an issue: ' + error);
         //   }
-        return sendApiLibrary
     }
 
     static async EmailServiceLemonsqueezy(body: object): Promise<AxiosResponse<IServiceInterface[]>> {
