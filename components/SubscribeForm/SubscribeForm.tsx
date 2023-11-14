@@ -37,7 +37,7 @@ export default function SubscribeForm({}:Props) {
     const [accessState, setAccessState] = useState<boolean>(false)
 
     const showOff = () => {
-        setTimeout(() => {setPopapState(null); setBlur(false)}, 2000)
+        setTimeout(() => {setPopapState(null); setBlur(false); setAccessState(false)}, 2000)
     }
 
     const refButton = useRef<HTMLInputElement>(null)
@@ -60,7 +60,12 @@ export default function SubscribeForm({}:Props) {
         // console.log(data)
         setLoadingState(true)
         try {
-          await LibraryService.EmailService(data);
+          await LibraryService.EmailService(data)
+            .catch(() => {
+            setError("root.random", {
+                type: "random",
+            }) 
+          });
           setLoadingState(false);
           setAccessState(true);
           showOff();

@@ -21,7 +21,6 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
   idService: number;
 }
 
-
 const ReportForm = ({idService}:Props) => {
   const { register, handleSubmit } = useForm();
   
@@ -29,6 +28,7 @@ const ReportForm = ({idService}:Props) => {
   const [sent, setSent] = useState<boolean>(false)
   const [isVerified, setIsVerified] = useState(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null)
+  
   async function handleCaptchaSubmission(token: string | null) {
     // Server function to verify captcha
     await verifyCaptcha(token)
@@ -67,6 +67,7 @@ const ReportForm = ({idService}:Props) => {
         await LibraryService.Report(dataNew)
         setLoadingState(false)
         setAccessState(true)
+        
       } catch (error) {
         console.log(error)
         setLoadingState(false)
