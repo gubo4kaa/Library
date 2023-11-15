@@ -12,6 +12,7 @@ import { verifyCaptcha } from '../Recap4a/Recap4a';
 import styles from './SubscribeForm.module.css';
 import Error from 'next/error';
 import { Axios } from 'axios';
+import SignupForm from './SignupForm';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
     
@@ -58,7 +59,7 @@ export default function SubscribeForm({}:Props) {
         .catch(() => setIsverified(false))
     }
 
-    const onSubmit = async (data: object) => {
+    const onSubmit = async (data: any) => {
         // console.log(data)
         setLoadingState(true)
         try {

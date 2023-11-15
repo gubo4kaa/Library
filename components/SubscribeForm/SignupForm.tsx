@@ -15,9 +15,10 @@ const SignupForm: React.FC = () => {
         method: 'POST',
         body: new FormData(e.currentTarget),
       });
-
       if (response.ok) {
-        window.location.href = redirectUrl;
+        console.log(response)
+        // window.location.href = redirectUrl;
+        setLoading(false)
       } else {
         // Something went wrong subscribing the user
         alert('Sorry, we couldn\'t subscribe you.');
