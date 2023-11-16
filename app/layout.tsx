@@ -120,6 +120,21 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
 
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link
+          rel="apple-touch-icon"
+          href="/favicon.ico"
+          type="image/<generated>"
+          sizes="any"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/favicon.png"
+          type="image/<generated>"
+          sizes="any"
+        />
+      </head>
       <body className={cn(inter.className)}>
         <div className={styles.mainWrapper}>
           <div className={styles.mainGrid}>
