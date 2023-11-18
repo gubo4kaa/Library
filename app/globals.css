@@ -75,8 +75,8 @@ ol[class] {
 }
 
 /* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
-/* @media (prefers-reduced-motion: reduce) {
-  * {
+/*  (prefers-reduced-motion: reduce) {
+  * @media{
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -156,7 +156,8 @@ ol[class] {
     --Shadow-card-XL: 0px 2px 2px 0px rgba(138, 148, 166, 0.07), 0px 8px 10px 0px rgba(138, 148, 166, 0.13);
 
     --Shadow-buttons-default: 0px 1px 2px 0px rgba(138, 148, 166, 0.13);
-    --Shadow-buttons-hover: 0px 2px 4px 0px rgba(138, 148, 166, 0.18);
+    --Shadow-buttons-hover: 0px 2px 4px 0px rgba(138, 148, 166, 0.25);
+    --Shadow-buttons-active: 0px 0px 0px 4px rgba(138, 148, 166, 0.12), 0px 1px 2px 0px rgba(138, 148, 166, 0.25);
 
     --Shadow-primary-1: 0px 2px 4px 0px rgba(36, 137, 255, 0.35);
     --Shadow-primary-2: 0px 2px 4px 0px rgba(13, 203, 134, 0.35);

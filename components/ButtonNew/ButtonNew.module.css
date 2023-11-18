@@ -90,7 +90,7 @@
     border: 1px solid var(--Active-Primary1, #257DE4);
     background: var(--Primary1);
     /* Button Styles/Button Primary 1/Button Primary Default */
-    box-shadow: 0px 2px 0px 0px rgba(255, 255, 255, 0.25) inset;
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset;
     color: var(--Primary6);
 }
 
@@ -143,7 +143,7 @@
 }
 
 .defaultGhost:active, .defaultGhost:active svg path {
-    background-color: var(--Background-color-4);
+    box-shadow: var(--Shadow-buttons-active);
 }
 
 /*-secondaryGhost-*/
@@ -166,10 +166,20 @@
     border: 1px solid var(--Background-color-2);
     box-shadow: var(--Shadow-buttons-default);
     color: var(--Primary1);
-    
 }
 
 .defaultPrimary:hover {
     border-color: var(--Background-color-1);
     box-shadow: var(--Shadow-buttons-hover);
+}
+
+.defaultPrimary:active, .defaultPrimary:active svg path  {
+    box-shadow: var(--Shadow-buttons-active);
+    color: var(--Active-Primary1);
+    stroke: var(--Active-Primary1);
+}
+
+.defaultPrimary:disabled {
+    border: 1px solid var(--Background-color-2);
+    color: var( --Disabled-color1);
 }

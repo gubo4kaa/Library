@@ -86,38 +86,6 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
   }) {
   const category = await getCategory()  
 
-
-
-  // const router = useRouter();
-
-  // const metrikaCounterId = process.env.NEXT_PUBLIC_METRIKA_ID ? 123: Number(process.env.NEXT_PUBLIC_METRIKA_ID);
-  // useEffect(() => {
-
-  //   const trackedRoutes = ["/", "/about", "/contact"];
-
-  //   const shouldTrackPageView = trackedRoutes.includes(router.pathname);
-
-  //   if (shouldTrackPageView) {
-  //     const script = document.createElement("script");
-  //     script.src = `https://mc.yandex.ru/metrika/tag.js`;
-  //     script.async = true;
-  //     script.onload = () => {
-  //       // @ts-ignore
-  //       window[`yaCounter${metrikaCounterId}`] = new window[`YaCounter${metrikaCounterId}`]();
-  //       // @ts-ignore
-  //       window[`yaCounter${metrikaCounterId}`].hit(router.asPath);
-  //     };
-  //     document.body.appendChild(script);
-  //   }
-
-  //   return () => {
-  //     if (shouldTrackPageView) {
-  //       // @ts-ignore
-  //       delete window[`yaCounter${metrikaCounterId}`];
-  //     }
-  //   };
-  // }, [router.pathname]);
-
   return (
     <html lang="en">
       <head>
@@ -134,6 +102,7 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
           type="image/<generated>"
           sizes="any"
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
       </head>
       <body className={cn(inter.className)}>
         <div className={styles.mainWrapper}>
