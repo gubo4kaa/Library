@@ -18,7 +18,8 @@
 
     cursor: pointer;
     box-sizing: border-box;
-    white-space: nowrap
+    white-space: nowrap;
+    transition: all ease-in-out .1s;
 }
 
 .maxWidth {

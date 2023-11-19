@@ -41,8 +41,12 @@ export default function Search({category}:Props) {
 
   const onSubmit = async (data: FormInputs) => {
     setBlur(true);
-    if(data.searchString.length > 1) {
+    if(data.searchString.length > 0) {
       setLengthSearch(true);
+    } else {
+      setLengthSearch(false);
+    }
+    if(data.searchString.length > 1) {
       await LibraryService.Search(data.searchString)
       .then((value) => {
         if(value.data[0].name) {
@@ -52,11 +56,9 @@ export default function Search({category}:Props) {
         }
       })
       .catch(() => {
-        setLengthSearch(true);
         setDataState(undefined)
       })
     } else {
-      setLengthSearch(false);
       setDataState(undefined)
     }
   }
