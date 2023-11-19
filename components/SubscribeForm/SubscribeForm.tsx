@@ -10,9 +10,6 @@ import ButtonNew from '../ButtonNew/ButtonNew';
 import Preloader from '../Preloader/Preloader';
 import { verifyCaptcha } from '../Recap4a/Recap4a';
 import styles from './SubscribeForm.module.css';
-import Error from 'next/error';
-import { Axios } from 'axios';
-import SignupForm from './SignupForm';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
     
@@ -90,7 +87,6 @@ export default function SubscribeForm({}:Props) {
             <h4>
                 Subscribe Newsletter
             </h4>
-            {/* <SignupForm /> */}
             {
                 loadingState && !accessState && <Preloader/>
             }
@@ -105,6 +101,7 @@ export default function SubscribeForm({}:Props) {
                         <path id="Stroke 1" d="M16.5 7.78785C16.5 7.78785 12.8333 11 11 11C9.16667 11 5.5 7.79167 5.5 7.79167" stroke="#6E7A90" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                         </g>
                     </svg>
+                    
                     <input type="email" placeholder="email"
                     {...register(
                             "email", 
@@ -152,11 +149,13 @@ export default function SubscribeForm({}:Props) {
                             </svg>
                         </ButtonNew>
                     </span>
+                    
                 </form>
             }
             <p>
                 No spam, only updates and releases. 
             </p>
+            {/* <Preloader/> */}
         </div>
         )
     )

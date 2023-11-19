@@ -42,7 +42,8 @@ export default function Search({category}:Props) {
   const onSubmit = async (data: FormInputs) => {
     setBlur(true);
     if(data.searchString.length > 1) {
-      const fetch = await LibraryService.Search(data.searchString)
+      setLengthSearch(true);
+      await LibraryService.Search(data.searchString)
       .then((value) => {
         if(value.data[0].name) {
           setDataState(value.data.slice(0, 5))
@@ -123,7 +124,7 @@ export default function Search({category}:Props) {
         </svg>
         {
           lengthSearch && (
-            <svg onClick={(e) => { resetRef.current?.click(); setDataState(undefined); } } className={styles.closeLogo} width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg onClick={(e) => { resetRef.current?.click(); setDataState(undefined); setLengthSearch(false) } } className={styles.closeLogo} width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6.4165 6.41675L10.9998 11.0001M10.9998 11.0001L6.4165 15.5834M10.9998 11.0001L15.5832 6.41675M10.9998 11.0001L15.5832 15.5834" stroke="#909DB3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           )

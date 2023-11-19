@@ -19,7 +19,7 @@
 
 .category:hover {
     background-color: var(--Background-color-4);
-}
+}   
 
 .category p {
     font-size: 14px;
@@ -40,5 +40,9 @@
 }
 
 .active {
+    background-color: var(--Background-color-3);
+}
+
+.active:hover {
     background-color: var(--Background-color-3);
 }

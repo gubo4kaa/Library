@@ -1,4 +1,3 @@
-
 'use client'
 import ButtonNew from "@/components/ButtonNew/ButtonNew";
 import { verifyCaptcha } from "@/components/Recap4a/Recap4a";
@@ -83,16 +82,16 @@ const ReportForm = ({idService}:Props) => {
     return (
         popapState == 'report' && (
         <div className={styles.wrapper}>
+              <h4>
+                Report a problem
+              </h4>
             {
                 loadingState && !accessState && <Preloader/>
             }
             {
                 !loadingState && accessState && <p className={styles.access}>Great! We will check this resource soon!</p>
             }
-          {  !loadingState && !accessState && <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-              <h4>
-                Report a problem
-              </h4>
+            {  !loadingState && !accessState && <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
               {checkboxes.map((checkbox) => (
                 <label key={checkbox.id} onClick={() => handleCheckboxChange(checkbox.id)}className={cn(styles.wrapperChecked, {
                   [styles.activeReport]:  checkbox.checked
