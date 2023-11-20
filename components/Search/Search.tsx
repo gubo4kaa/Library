@@ -40,6 +40,7 @@ export default function Search({category}:Props) {
   const { ref, ...rest } = register("searchString")
 
   const onSubmit = async (data: FormInputs) => {
+    console.log(droDownState);
     setBlur(true);
     if(data.searchString.length > 0) {
       setLengthSearch(true);
@@ -47,6 +48,7 @@ export default function Search({category}:Props) {
       setLengthSearch(false);
     }
     if(data.searchString.length > 1) {
+      setDroDownState(true)
       await LibraryService.Search(data.searchString)
       .then((value) => {
         if(value.data[0].name) {
@@ -59,6 +61,7 @@ export default function Search({category}:Props) {
         setDataState(undefined)
       })
     } else {
+      setDroDownState(false)
       setDataState(undefined)
     }
   }
@@ -79,26 +82,29 @@ export default function Search({category}:Props) {
   }, [path])
 
   useEffect(() => {
-    if(!droDownState) return
-
-    const handleClick = (e:any) => {
-      if(!dorpRef.current) return;
-      if(!inputRef.current) return;
-      if(!dorpRef.current.contains(e.target) && inputRef.current != e.target) {
-        // console.log(inputRef.current)
-        // console.log(dorpRef.current)
-        // console.log(e.target)
-        // console.log('cсработал хендлер')
-        setDroDownState(false);
-        setBlur(false)
-      };
+    if(!droDownState) {
+      return
+    } else {
+      const handleClick = (e:any) => {
+        if(!dorpRef.current) return;
+        if(!inputRef.current) return;
+        if(!dorpRef.current.contains(e.target) && inputRef.current != e.target) {
+          // console.log(inputRef.current)
+          // console.log(dorpRef.current)
+          // console.log(e.target)
+          // console.log('cсработал хендлер')
+          setDroDownState(false);
+          setBlur(false)
+        };
+      }
+      document.addEventListener('click', handleClick)
+      document.addEventListener('touchstart', handleClick)
+      return () => {
+        document.removeEventListener('click', handleClick)
+        document.removeEventListener('touchstart', handleClick)
+      }
     }
-    document.addEventListener('click', handleClick)
-    document.addEventListener('touchstart', handleClick)
-    return () => {
-      document.removeEventListener('click', handleClick)
-      document.removeEventListener('touchstart', handleClick)
-    }
+    
   }, [droDownState]);
 
   return (
@@ -108,7 +114,7 @@ export default function Search({category}:Props) {
       <form
         onSubmit={handleSubmit(onSubmit)}
         onChange={handleSubmit(onSubmit)}
-        onFocus={() => {setDroDownState(true);setBlur(true)}}
+        onFocus={() => {setBlur(true)}}
         className={styles.form}
       >
         <input autoComplete="off" {...register("searchString")} placeholder="Search" className={styles.mainInput} ref={(e) => {
