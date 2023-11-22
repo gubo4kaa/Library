@@ -21,7 +21,7 @@
     gap: 22px;
 }
 
-.form{
+.form {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -131,7 +131,7 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    color: var(--Text-color-2);
+    color: var(--Text-color-3);
     text-align: left;
 }
 

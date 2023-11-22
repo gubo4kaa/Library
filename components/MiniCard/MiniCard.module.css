@@ -8,6 +8,7 @@
     box-sizing: border-box;
     overflow: hidden;
     max-width: 100%;
+    transition: all ease-in-out .1s;
 }
 
 .wrapper.child {

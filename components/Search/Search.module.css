@@ -40,6 +40,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     background-color: var(--Background-color-4);
+    transition: all ease-in-out .1s;
 }
 
 .mainInput:-webkit-autofill,

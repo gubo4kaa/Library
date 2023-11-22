@@ -15,6 +15,7 @@
     cursor: pointer;
     border-radius: 14px;
     min-width: 218px;
+    transition: all ease-in-out .1s;
 }
 
 .category:hover {
