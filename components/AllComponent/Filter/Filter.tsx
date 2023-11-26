@@ -83,41 +83,46 @@ export default function Filter({services}:Props) {
         [styles.active]: stateFilterFeatured == true
         })} onClick={() => {stateFilterFeatured ? setStateFilterFeatured(false): setStateFilterFeatured(true)}}>
         Featured
-        {
-          stateFilterFeatured == true && <Image src={CloseLogo} width={20} height={20} alt=''></Image>
-        }
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.83334 1.8335L6.00001 6.00016M6.00001 6.00016L1.83334 10.1668M6.00001 6.00016L10.1667 1.8335M6.00001 6.00016L10.1667 10.1668" stroke="#2489FF" strokeWidth
+="1.92" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
       </span>
       <span className={cn(styles.button, {
         [styles.active]: statePrise == 'Free'
         })} onClick={() => {statePrise ? statePrise == 'Free' ?  setStatePrise(''): setStatePrise('Free') : setStatePrise('Free')}}>
         Free
-        {
-          statePrise == 'Free' && <Image src={CloseLogo} width={20} height={20} alt=''></Image>
-        }
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.83334 1.8335L6.00001 6.00016M6.00001 6.00016L1.83334 10.1668M6.00001 6.00016L10.1667 1.8335M6.00001 6.00016L10.1667 10.1668" stroke="#2489FF" strokeWidth
+="1.92" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
       </span>
       <span className={cn(styles.button, {
         [styles.active]: statePrise == 'Paid'
         })} onClick={() => {statePrise ? statePrise == 'Paid' ?  setStatePrise(''): setStatePrise('Paid'): setStatePrise('Paid')}}>
         Paid
-        {
-          statePrise == 'Paid' && <Image src={CloseLogo} width={20} height={20} alt=''></Image>
-        }
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.83334 1.8335L6.00001 6.00016M6.00001 6.00016L1.83334 10.1668M6.00001 6.00016L10.1667 1.8335M6.00001 6.00016L10.1667 10.1668" stroke="#2489FF" strokeWidth
+  ="1.92" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
       </span>
       <span className={cn(styles.button, {
         [styles.active]: statePrise == 'Trial'
         })} onClick={() => {statePrise ? statePrise == 'Trial' ?  setStatePrise(''): setStatePrise('Trial'): setStatePrise('Trial')}}>
         Trial
-        {
-          statePrise == 'Trial' && <Image src={CloseLogo} width={20} height={20} alt=''></Image>
-        }
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.83334 1.8335L6.00001 6.00016M6.00001 6.00016L1.83334 10.1668M6.00001 6.00016L10.1667 1.8335M6.00001 6.00016L10.1667 10.1668" stroke="#2489FF" strokeWidth
+="1.92" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
       </span>
       <span className={cn(styles.button, {
         [styles.active]: statePrise == 'Freemium'
         })} onClick={() => {statePrise ? statePrise == 'Freemium' ?  setStatePrise(''): setStatePrise('Freemium'): setStatePrise('Freemium')}}>
         Freemium
-        {
-          statePrise == 'Freemium' && <Image src={CloseLogo} width={20} height={20} alt=''></Image>
-        }
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.83334 1.8335L6.00001 6.00016M6.00001 6.00016L1.83334 10.1668M6.00001 6.00016L10.1667 1.8335M6.00001 6.00016L10.1667 10.1668" stroke="#2489FF" strokeWidth
+="1.92" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
       </span>
     </div>
   )

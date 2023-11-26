@@ -109,7 +109,7 @@
 .primary:active {
     border: 1px solid var(--border-primary-border-primary-1, #257DE4);
     background-color: var(--Active-Primary1);
-    box-shadow: 0px 2px 0px 0px rgba(255, 255, 255, 0.25) inset, 0px 0px 0px 3px rgba(36, 137, 255, 0.25);
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset, 0px 0px 0px 3px rgba(36, 137, 255, 0.25);
 }
 
 /*-LinkGhost-*/

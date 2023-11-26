@@ -119,7 +119,7 @@ export default function AddServiceForm({}:Props) {
                         disable={!isVerified} 
                         // disable={false} 
                         preventDefault width='max' iconPosition={'iconRight'} type='Primary' size='s'>
-                            Subscribe
+                            Submit Resource
                             <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="Arrow Right">
                                 <path id="Vector 190" d="M18.8327 11L12.6452 17.4167M18.8327 11L12.6452 4.58337M18.8327 11L4.16602 11" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>

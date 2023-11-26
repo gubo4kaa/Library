@@ -3,12 +3,13 @@
     gap: 10px;
     margin-left: auto;
     width: max-content;
+    
 }
 
 .button {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
 
     padding: 5px 10px;
     cursor: pointer;
@@ -21,12 +22,27 @@
     border-radius: 8px;
 
     min-width: max-content;
+    transition: all ease-in .1s;
+    overflow: hidden;
+}
+
+.button svg {
+    transform: translateX(25px);
+    margin-left: -18px;
+    opacity: 0;
+    transition: all ease-in .1s;
+}
+
+.active svg {
+    transform: translateX(0);
+    margin-left: 0;
+    opacity: 1;
+    transition: all ease-in .1s;
 }
 
 .active {
     background-color: var(--Soft1);
     color: var(--Primary1);
-    padding-right: 4px;
 }
 
 @media screen and (max-width: 696px) {

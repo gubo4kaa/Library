@@ -60,6 +60,7 @@
     text-overflow: ellipsis;
     box-shadow: var(--Shadow-buttons-default);
     margin-bottom: 15px;
+    transition: all ease-in-out .1s;
 }
 
 .field:-webkit-autofill,

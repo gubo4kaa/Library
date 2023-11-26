@@ -53,7 +53,7 @@
     box-shadow: var(--Shadow-card-small);
     border-radius: 20px;
     border: solid 1px var(--Background-color-2);
-    box-shadow: 0px 2px 2px -1px rgba(138, 148, 166, 0.13);
+    /* box-shadow: 0px 2px 2px -1px rgba(138, 148, 166, 0.13); */
 }
 
 .cardWrapper h4 {
