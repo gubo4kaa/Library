@@ -39,7 +39,7 @@ export default async function Home() {
       <div>
         <VideoGrid/>
       </div>
-      <MiniGrid name="Featured Resources" items={featured} size={"mini"} category={allCategory} link={"/recently"}/>
+      <MiniGrid name="Featured Resources" items={featured} size={"mini"} category={allCategory} link={"/recently"} featured/>
       <MiniGrid name="Recently Added" items={allService} size={"full"} category={allCategory} link={"/recently"}/>
     </div>
   )

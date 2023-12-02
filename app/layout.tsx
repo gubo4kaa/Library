@@ -11,10 +11,6 @@ import SubscribeForm from '@/components/SubscribeForm/SubscribeForm'
 import AddServiceForm from '@/components/AddServiceForm/AddServiceForm'
 import Ymetrica from '@/components/LayoutComponents/Ymetrica'
 import { Analytics } from '@vercel/analytics/react';
-
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import { YMInitializer } from "react-yandex-metrika";
 import CopyPopap from '@/components/CopyPopap/CopyPopap'
 
 const inter = Plus_Jakarta_Sans({ subsets: ['latin'],

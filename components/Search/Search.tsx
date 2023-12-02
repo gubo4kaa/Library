@@ -11,8 +11,6 @@ import MiniCard from '../MiniCard/MiniCard';
 import styles from './Search.module.css';
 import Image from "next/image";
 
-
-
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
   category: ICategory[];
 }
@@ -104,7 +102,6 @@ export default function Search({category}:Props) {
         document.removeEventListener('touchstart', handleClick)
       }
     }
-    
   }, [droDownState]);
 
   return (
@@ -159,8 +156,11 @@ export default function Search({category}:Props) {
               <h4>
                 Nothing Found
               </h4>
-              <p>
+              <p className={styles.pDesktop}>
                 Perhaps you made a mistake when typing or this <br /> resource has not yet been added.
+              </p>
+              <p className={styles.pMobile}>
+                Perhaps you made a mistake when typing or this resource has not yet been added.
               </p>
             </div>
           </div>

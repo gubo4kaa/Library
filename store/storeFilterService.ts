@@ -3,7 +3,7 @@ import { create } from 'zustand'
 type IFilterService = {
     filterService: IServiceInterface[] | null;
 }
-  
+
 type Action = {
     setFilterService: (state: IServiceInterface[] | null) => void
 }

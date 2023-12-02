@@ -125,13 +125,21 @@
     margin-top: 8px;
 }
 
+.pMobile {
+    display: none;
+}
 
-/* @media screen and (max-width: 900px) {
-    .dropDownWrapper {
-        grid-template-columns: 1fr;
-        left: -58px;
-        right: 0;
-        min-width: calc(100% + 58px) ;
+.pDesktop {
+    display: block;
+}
+
+
+@media screen and (min-width: 520px) {
+   .pMobile {
+        display: flex;
+   }
+
+   .pDesktop {
+        display: none;
     }
-
-} */
+}

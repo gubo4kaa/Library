@@ -14,14 +14,6 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
 
 export default function FilterGrid({categories, services}:Props) {
     const [filterService, setFilterService] = storeFilterService((state) => [state.filterService, state.setFilterService])
-    useEffect(() => {
-        setFilterService(services);
-    }, [services])
-
-    useEffect(() => {
-        // console.log(filterService);
-    }, [filterService])
-
     return (
         <div className={cn(styles.wrapper, {
             [styles.notfound]: filterService === null
@@ -33,11 +25,10 @@ export default function FilterGrid({categories, services}:Props) {
                 !filterService && <p>l;askjdf;</p>
             } */}
             {
-                filterService && filterService && filterService.map((item) => (
+                filterService && filterService.map((item) => (
                     <MainCard categories={categories} key={item.id} service={item}/>
                 ))
             }
-            
         </div>
     )
 }
