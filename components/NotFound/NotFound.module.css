@@ -1,6 +1,6 @@
 .wrapper {
     display: flex;
-    margin: 200px auto;
+    
     max-width: max-content;
     align-items: center;
     flex-direction: column;
@@ -22,17 +22,4 @@
     color: var(--Text-color-3);
     margin-top: 2px;
     text-align: center;
-}
-
-
-@media screen and (max-width: 1200px) {
-    .wrapper {
-        margin-right: -50%;
-    }
-}
-
-@media screen and (max-width: 696px) {
-    .wrapper {
-        margin-top: 100px
-    }
 }

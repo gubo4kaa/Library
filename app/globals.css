@@ -84,6 +84,12 @@ ol[class] {
   }
 } */
 
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+select:focus, textarea:focus, input:focus {
+        font-size: 16px;
+    }
+}
+
 :root {
 	--Primary1: rgba(36, 137, 255, 1);
 	--Primary2: rgba(13, 203, 134, 1);

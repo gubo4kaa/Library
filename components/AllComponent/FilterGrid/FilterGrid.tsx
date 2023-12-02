@@ -27,8 +27,11 @@ export default function FilterGrid({categories, services}:Props) {
             [styles.notfound]: filterService === null
         })}>
             {
-                filterService === null && <NotFound/>
+                !filterService && <NotFound/>
             }
+            {/* {
+                !filterService && <p>l;askjdf;</p>
+            } */}
             {
                 filterService && filterService && filterService.map((item) => (
                     <MainCard categories={categories} key={item.id} service={item}/>
