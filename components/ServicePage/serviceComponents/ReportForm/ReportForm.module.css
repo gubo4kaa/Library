@@ -1,11 +1,10 @@
 .wrapper {
     position: fixed;
-    top: 25%;
+    top: 50%;
     left: 50%;
-    
     z-index: 20;
     padding: 22px;
-    transform: translateX(-50%);
+    transform: translate(-50%, -40%);
     margin-top: -5%;
     max-width: 461px;
     width: 100%;

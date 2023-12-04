@@ -38,15 +38,23 @@ export default function AddServiceForm({}:Props) {
         // // console.log(data)
         setLoadingState(true)
         try {
-          const submit = await LibraryService.OfferService(data);
+          await LibraryService.OfferService(data)
+          .catch((error) => {
+            setLoadingState(false)
+            setError("email", {
+                type: "random",
+                message: error.message
+            }) 
+          });
           setLoadingState(false);
           setAccessState(true);
           showOff();
         } catch (error: any) {
             setLoadingState(false)
-            setError("root.random", {
+            setError("email", {
                 type: "random",
-            })             
+                message: error.message
+            })              
         }
     };
     
