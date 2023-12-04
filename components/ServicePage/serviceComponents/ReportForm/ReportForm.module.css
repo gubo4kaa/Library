@@ -1,6 +1,6 @@
 .wrapper {
     position: fixed;
-    top: 40%;
+    top: 25%;
     left: 50%;
     
     z-index: 20;
@@ -47,17 +47,26 @@
     
     cursor: pointer;
     transition: all ease-in-out .1s;
+    z-index: 99999;
+    background-color: var(--Background-color-5);
 }
 
 
 .textareaWrapper {
     display: flex;
     width: 100%;
+    overflow: visible;
+    z-index: 10;
+    margin-top: -10px;
+    transition: all ease-in-out .1s;
 }
 
+.textareaWrapper.vision {
+    margin-top: 0;
+}
 
-.textareaWrapper textarea {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+.textareaWrapper textarea{
+     font-family: 'Plus Jakarta Sans', sans-serif;
     border-radius: 14px;
     border: 1px solid var(--Background-color-2);
     background: var(--Background-color-5, #FFF);
@@ -68,7 +77,20 @@
     min-width: 100%;
     resize: none;
     outline: none;
-    color: var(--Text-color-2)
+    color: var(--Text-color-2);
+    margin-top: -20%;
+    max-height: max-content;
+    transition: all ease-in-out .1s;
+    opacity: 0;
+}
+
+.vision textarea {
+    margin-top: 0;
+    opacity: 1;
+}
+
+.vision {
+    display: flex;
 }
 
 .textareaWrapper textarea::placeholder {
@@ -165,6 +187,5 @@
 @media screen and (max-width: 500px) {
    .wrapper {
     max-width: 335px;
-    margin-top: -40%;
    }
 }

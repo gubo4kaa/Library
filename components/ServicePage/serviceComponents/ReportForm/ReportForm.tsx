@@ -9,6 +9,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 import styles from './ReportForm.module.css';
 import Preloader from "@/components/Preloader/Preloader";
+import { useBlurStore } from "@/store/storeBlur";
 
 interface Checkbox {
   id: number;
@@ -21,10 +22,13 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
 }
 
 const ReportForm = ({idService}:Props) => {
+  const [blur, setBlur] = useBlurStore((state) => [state.blur, state.setBlur])
+
+  const showOff = () => {
+        setTimeout(() => {setPopapState(null); setBlur(false);}, 2000)
+    }
   const { register, handleSubmit } = useForm();
   
-  const [loading, setLoading] = useState<boolean>(false)
-  const [sent, setSent] = useState<boolean>(false)
   const [isVerified, setIsVerified] = useState(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null)
   
@@ -66,7 +70,7 @@ const ReportForm = ({idService}:Props) => {
         await LibraryService.Report(dataNew)
         setLoadingState(false)
         setAccessState(true)
-        
+        showOff()
       } catch (error) {
         console.log(error)
         setLoadingState(false)
@@ -113,15 +117,13 @@ const ReportForm = ({idService}:Props) => {
                   {checkbox.label}
                 </label>
               ))}
-            {
-              checkboxes[3].checked == true && (
-                <div className={styles.textareaWrapper}>
-                  <textarea value={valueTextarea} placeholder="Enter a discription" {...register("textarea",{
-                    onChange: (value) => setValuesTextarea(value.target.value)
-                  } )}></textarea>
-                </div>
-              )
-            }
+              <div className={cn(styles.textareaWrapper,{
+                [styles.vision]: checkboxes[3].checked == true
+              })}>
+                <textarea value={valueTextarea} placeholder="Enter a discription" {...register("textarea",{
+                  onChange: (value) => setValuesTextarea(value.target.value)
+                } )}></textarea>
+              </div>
             <div className={styles.none}>
               <button type="submit" ref={buttonRef}>Отправить</button>
             </div>
