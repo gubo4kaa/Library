@@ -39,6 +39,11 @@ export default function AddServiceForm({}:Props) {
         setLoadingState(true)
         try {
           await LibraryService.OfferService(data)
+          .then(() => {
+            setLoadingState(false);
+            setAccessState(true);
+            showOff();
+          })
           .catch((error) => {
             setLoadingState(false)
             setError("email", {
@@ -46,9 +51,7 @@ export default function AddServiceForm({}:Props) {
                 message: error.message
             }) 
           });
-          setLoadingState(false);
-          setAccessState(true);
-          showOff();
+          
         } catch (error: any) {
             setLoadingState(false)
             setError("email", {
