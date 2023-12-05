@@ -1,7 +1,7 @@
 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_ii_8108_19035)">
 <rect width="48" height="48" rx="14" fill="#FF6154"/>
-<rect x="0.25" y="0.25" width="47.5" height="47.5" rx="13.75" stroke="#FF6B5F" stroke-width="0.5" stroke-linecap="round"/>
+<rect x="0.25" y="0.25" width="47.5" height="47.5" rx="13.75" stroke="#FF6B5F" strokeWidth="0.5" strokeLinecap="round"/>
 <g filter="url(#filter1_d_8108_19035)">
 <g filter="url(#filter2_i_8108_19035)">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M38 24C38 31.7322 31.7322 38 24 38C16.2678 38 10 31.7322 10 24C10 16.2678 16.2678 10 24 10C31.7322 10 38 16.2678 38 24Z" fill="white"/>

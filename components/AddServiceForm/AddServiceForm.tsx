@@ -48,7 +48,7 @@ export default function AddServiceForm({}:Props) {
             setLoadingState(false)
             setError("url", {
                 type: "random",
-                message: error.message
+                message: error.response.data.err
             }) 
           });
           
@@ -95,14 +95,14 @@ export default function AddServiceForm({}:Props) {
             {   !loadingState && !accessState &&
                 <form onSubmit={handleSubmit(onSubmit)} method="post" className={styles.form}>
                     <svg className={styles.searchLogo} width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12.6639 6.45101L7.69943 11.4155C6.72021 12.3947 6.72021 13.9823 7.69943 14.9615C8.67864 15.9407 10.2663 15.9407 11.2455 14.9615L16.2099 9.99706C17.9725 8.23447 17.9725 5.37676 16.2099 3.61417C14.4474 1.85159 11.5896 1.85159 9.82705 3.61417L4.86259 8.57864C2.31664 11.1246 2.31664 15.2524 4.86259 17.7984C7.40855 20.3443 11.5364 20.3443 14.0823 17.7984L19.0468 12.8339" stroke="#6E7A90" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12.6639 6.45101L7.69943 11.4155C6.72021 12.3947 6.72021 13.9823 7.69943 14.9615C8.67864 15.9407 10.2663 15.9407 11.2455 14.9615L16.2099 9.99706C17.9725 8.23447 17.9725 5.37676 16.2099 3.61417C14.4474 1.85159 11.5896 1.85159 9.82705 3.61417L4.86259 8.57864C2.31664 11.1246 2.31664 15.2524 4.86259 17.7984C7.40855 20.3443 11.5364 20.3443 14.0823 17.7984L19.0468 12.8339" stroke="#6E7A90" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
 
                     <input type="url" placeholder="https://uiscore.io"
                     {...register(
                             "url", 
                             { 
-                                pattern: /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig, 
+                                pattern: /^\w+@\w+\.\w+/, 
                                 required: true 
                             }
                         )
@@ -112,7 +112,7 @@ export default function AddServiceForm({}:Props) {
                     })}/>
                     {
                         errors.url && <p className={styles.errorText}>
-                            Error Url
+                            Error url
                         </p>
                     }
                     {/* {errors.email && <p>This email is required</p>} */}
