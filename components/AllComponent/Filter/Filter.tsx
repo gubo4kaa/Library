@@ -1,10 +1,10 @@
 'use client'
+import { FeaturedFilter } from '@/store/featuredFilterStore'
 import { storeFilterService } from '@/store/storeFilterService'
 import cn from 'classnames'
+import { usePathname } from 'next/dist/client/components/navigation'
 import { DetailedHTMLProps, HTMLAttributes, useEffect, useState } from 'react'
 import styles from './Filter.module.css'
-import { FeaturedFilter } from '@/store/featuredFilterStore'
-import { usePathname, useRouter } from 'next/dist/client/components/navigation'
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
   services: IServiceInterface[] | null
@@ -73,7 +73,7 @@ export default function Filter({services}:Props) {
   }, [featuredFilter, statePrise])
 
   useEffect(() => {
-    console.log(pathName);
+    //console.log(pathName);
     if(pathName != '/recently') {
       setFeaturedFilter(false);
     }

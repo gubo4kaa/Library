@@ -16,7 +16,7 @@ const SignupForm: React.FC = () => {
         body: new FormData(e.currentTarget),
       });
       if (response.ok) {
-        console.log(response)
+        //console.log(response)
         // window.location.href = redirectUrl;
         setLoading(false)
       } else {

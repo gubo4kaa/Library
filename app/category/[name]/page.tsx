@@ -1,5 +1,4 @@
 import AllComponent from "@/components/AllComponent/AllComponent"
-import ServicePage from "@/components/ServicePage/ServicePage"
 import { Metadata } from "next"
 
 type Props = {
@@ -35,7 +34,7 @@ async function getCategory() {
 }
 
 export default async function Category({params: {name}}: Props) {
-    console.log(name);
+    //console.log(name);
     const categoryName = decodeURIComponent(name); 
     const services = await getServices(name);
     const categories = await getCategory();

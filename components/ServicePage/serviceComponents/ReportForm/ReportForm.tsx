@@ -1,15 +1,15 @@
 'use client'
 import ButtonNew from "@/components/ButtonNew/ButtonNew";
+import Preloader from "@/components/Preloader/Preloader";
 import { verifyCaptcha } from "@/components/Recap4a/Recap4a";
 import LibraryService from "@/services/services";
 import { useSubscribeStore } from "@/store/SubscribeStore";
+import { useBlurStore } from "@/store/storeBlur";
 import cn from 'classnames';
 import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 import styles from './ReportForm.module.css';
-import Preloader from "@/components/Preloader/Preloader";
-import { useBlurStore } from "@/store/storeBlur";
 
 interface Checkbox {
   id: number;
@@ -72,7 +72,7 @@ const ReportForm = ({idService}:Props) => {
         setAccessState(true)
         showOff()
       } catch (error) {
-        console.log(error)
+        //console.log(error)
         setLoadingState(false)
         setErrorState(true)
       }

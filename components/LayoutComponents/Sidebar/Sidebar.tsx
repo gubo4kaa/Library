@@ -21,7 +21,7 @@ const Sidebar = ({categories, className}: Props) => {
             </Link>
             <p className={styles.subtitle}>Categories</p>
             <CategoryList category={categories}/>
-            <div className={styles.cardWrapper}>
+            {/* <div className={styles.cardWrapper}>
               <Image src='/uiscoreLogo.svg' width={48} height={48} alt={''}/>
               <h4>
                 Uiscore 
@@ -36,6 +36,23 @@ const Sidebar = ({categories, className}: Props) => {
                   <g id="Arrow Right">
                   <path id="Vector 190" d="M16.6673 10.1917L11.0423 16.0251M16.6673 10.1917L11.0423 4.3584M16.6673 10.1917L3.33398 10.1917" stroke="#2489FF" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                   </g>
+                </svg>
+              </ButtonNew>
+            </div> */}
+            <div className={styles.cardWrapper}>
+              <Image src='/productHunt.svg' width={48} height={48} alt={''}/>
+              <h4>
+                We are on Product Hunt
+              </h4>
+              <p>
+              Support us with your vote
+              </p>
+              <ButtonNew width='max' href={process.env.NEXT_PUBLIC_UISCORE} type='Default Primary' size='s'>
+                Support 
+                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Arrow Right">
+                <path id="Vector 190" d="M16.6673 10.1917L11.0423 16.0251M16.6673 10.1917L11.0423 4.3584M16.6673 10.1917L3.33398 10.1917" stroke="#2489FF" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                </g>
                 </svg>
               </ButtonNew>
             </div>

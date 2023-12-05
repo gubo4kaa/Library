@@ -54,8 +54,8 @@ export default class LibraryService {
     }
 
     static async EmailService(body: any): Promise<AxiosResponse<IServiceInterface[]>> {
-        console.log(body);
-        console.log(body.email);
+        //console.log(body);
+        //console.log(body.email);
         const formUrl = 'https://uiscore.lemonsqueezy.com/email-subscribe/external'
         const redirectUrl = 'https://dev.uiscore.library.io/done/'
         const value = new FormData();
@@ -66,10 +66,10 @@ export default class LibraryService {
                 body: value,
             })
             .then((data) => {
-                console.log(data);
-                console.log('access!!!');
+                //console.log(data);
+                //console.log('access!!!');
             })
-            console.log('in tryCatch')
+            //console.log('in tryCatch')
           } catch (error) {
             alert('Sorry, there was an issue: ' + error);
           }
@@ -77,13 +77,13 @@ export default class LibraryService {
     }
 
     static async EmailServiceLemonsqueezy(body: object): Promise<AxiosResponse<IServiceInterface[]>> {
-        console.log(configLemonsqueezy);
-        console.log(testSubscriber);
+        //console.log(configLemonsqueezy);
+        //console.log(testSubscriber);
         return $apiLemonsqueezy.post<any>(`/`, testSubscriber)
     }
 
     static async Report(body: any): Promise<AxiosResponse<object>> {
-        console.log(body);
+        //console.log(body);
         return $api.post<any>(`/library/report`, body)
     }
 }

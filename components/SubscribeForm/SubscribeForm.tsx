@@ -57,7 +57,7 @@ export default function SubscribeForm({}:Props) {
     }
 
     const onSubmit = async (data: any) => {
-        // console.log(data)
+        // //console.log(data)
         setLoadingState(true)
         try {
           await LibraryService.EmailService(data)

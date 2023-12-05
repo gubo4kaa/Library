@@ -3,13 +3,13 @@ import LibraryService from '@/services/services';
 import { useSubscribeStore } from '@/store/SubscribeStore';
 import { useBlurStore } from '@/store/storeBlur';
 import cn from 'classnames';
+import Image from "next/image";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import MiniCard from '../MiniCard/MiniCard';
 import styles from './Search.module.css';
-import Image from "next/image";
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
   category: ICategory[];
@@ -38,7 +38,7 @@ export default function Search({category}:Props) {
   const { ref, ...rest } = register("searchString")
 
   const onSubmit = async (data: FormInputs) => {
-    console.log(droDownState);
+    //console.log(droDownState);
     setBlur(true);
     if(data.searchString.length > 0) {
       setLengthSearch(true);
@@ -87,10 +87,10 @@ export default function Search({category}:Props) {
         if(!dorpRef.current) return;
         if(!inputRef.current) return;
         if(!dorpRef.current.contains(e.target) && inputRef.current != e.target) {
-          // console.log(inputRef.current)
-          // console.log(dorpRef.current)
-          // console.log(e.target)
-          // console.log('cсработал хендлер')
+          // //console.log(inputRef.current)
+          // //console.log(dorpRef.current)
+          // //console.log(e.target)
+          // //console.log('cсработал хендлер')
           setDroDownState(false);
           setBlur(false)
         };
