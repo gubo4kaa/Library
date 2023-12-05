@@ -47,7 +47,7 @@ const Sidebar = ({categories, className}: Props) => {
               <p>
               Support us with your vote
               </p>
-              <ButtonNew width='max' href={process.env.NEXT_PUBLIC_UISCORE} type='Default Primary' size='s'>
+              <ButtonNew width='max' href={'https://www.producthunt.com/posts/uiscore-library'} type='Default Primary' size='s'>
                 Support 
                 <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="Arrow Right">

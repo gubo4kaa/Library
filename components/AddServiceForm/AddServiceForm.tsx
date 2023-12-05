@@ -31,7 +31,7 @@ export default function AddServiceForm({}:Props) {
     const [accessState, setAccessState] = useState<boolean>(false)
 
     const showOff = () => {
-        setTimeout(() => {setPopapState(null); setBlur(false)}, 2000)
+        setTimeout(() => {setPopapState(null); setBlur(false); setAccessState(false)}, 2000)
     }
 
     const onSubmit = async (data: any) => {
@@ -47,7 +47,6 @@ export default function AddServiceForm({}:Props) {
           })
           .catch((error) => {
             console.log("ERROR!!!!!")
-
             setLoadingState(false)
             setError("url", {
                 type: "random",
@@ -124,6 +123,7 @@ export default function AddServiceForm({}:Props) {
                     }} type="submit" className={cn(styles.submit)} 
                     disabled={!isVerified}
                     // disabled={false}
+                    defaultValue={'https://'}
                     />
                     {
                         !isVerified &&
