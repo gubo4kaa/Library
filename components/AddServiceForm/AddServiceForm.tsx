@@ -40,19 +40,22 @@ export default function AddServiceForm({}:Props) {
         try {
           await LibraryService.OfferService(data)
           .then(() => {
+            console.log('DONE!!!')
             setLoadingState(false);
             setAccessState(true);
             showOff();
           })
           .catch((error) => {
+            console.log("ERROR!!!!!")
+
             setLoadingState(false)
             setError("url", {
                 type: "random",
                 message: error.response.data.err
             }) 
           });
-          
         } catch (error: any) {
+            console.log("ERROR!!!!!2")
             setLoadingState(false)
             setError("url", {
                 type: "random",
@@ -102,7 +105,7 @@ export default function AddServiceForm({}:Props) {
                     {...register(
                             "url", 
                             { 
-                                pattern: /^\w+@\w+\.\w+/, 
+                                pattern: /http[s]?:\/(?:\/[^\/]+){1,}(?:\/[А-Яа-я\w ]+\.[a-z]{3,5}(?![\/]))/gi, 
                                 required: true 
                             }
                         )
