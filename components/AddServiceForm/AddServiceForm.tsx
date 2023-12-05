@@ -105,7 +105,7 @@ export default function AddServiceForm({}:Props) {
                     {...register(
                             "url", 
                             { 
-                                pattern: /http[s]?:\/(?:\/[^\/]+){1,}(?:\/[А-Яа-я\w ]+\.[a-z]{3,5}(?![\/]))/gi, 
+                                // pattern: /http[s]?:\/(?:\/[^\/]+){1,}(?:\/[А-Яа-я\w ]+\.[a-z]{3,5}(?![\/]))/gi, 
                                 required: true 
                             }
                         )
