@@ -101,7 +101,6 @@ export default function SubscribeForm({}:Props) {
                         <path id="Stroke 1" d="M16.5 7.78785C16.5 7.78785 12.8333 11 11 11C9.16667 11 5.5 7.79167 5.5 7.79167" stroke="#6E7A90" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                         </g>
                     </svg>
-                    
                     <input type="email" placeholder="email"
                     {...register(
                             "email", 

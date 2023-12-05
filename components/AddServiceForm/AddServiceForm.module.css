@@ -20,21 +20,24 @@
     align-items: center;
 }
 
-.form{
-    gap: 22px;
+.form {
     display: flex;
     align-items: center;
     flex-direction: column;
     position: relative;
     width: 100%;
-    transition: all ease-in-out 4;
 }
 
 .form p {
-    background-color: var(--Secondary4);
     color: var(--Primary4);
     width: 100%;
     border-radius: 10px;
+}
+
+.subtitle {
+    text-align: center !important;
+    margin-top: 8px;
+    margin-bottom: 15px;
 }
 
 .form input {
@@ -46,7 +49,7 @@
 }
 
 .field {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     color: var(--Text-color-2);
     display: flex;
@@ -61,6 +64,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     box-shadow: var(--Shadow-buttons-default);
+    margin-bottom: 15px;
     transition: all ease-in-out .1s;
 }
 
@@ -101,6 +105,21 @@
     box-shadow: 0px 4px 10px 0px rgba(255, 85, 95, 0.40), 0px 0px 0px 3px rgba(255, 85, 95, 0.25);
 }
 
+.errorText {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+    background-color: none;
+    text-align: left;
+    margin-bottom: 10px;
+    margin-top: -5px;
+}
+
+.recaptcha {
+    max-width: max-content;
+    margin-bottom: 15px;
+}
 
 .submit{
     display: none;
@@ -118,11 +137,8 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    color: var(--Text-color-2);
+    color: var(--Text-color-3);
     text-align: left;
-    text-align: center;
-    margin-top: 8px;
-    margin-bottom: 15px;
 }
 
 .searchLogo {
@@ -147,4 +163,3 @@
     text-align: center;
     margin: 0!important
 }
-
