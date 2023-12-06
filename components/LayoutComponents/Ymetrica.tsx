@@ -52,7 +52,7 @@ export default function Ymetrica({}:Props) {
       options={{webvisor: true,defer: true}}
       version='2'
     /> */}
-      <YMInitializer accounts={[95109351]} />
+      <YMInitializer accounts={[95789485]} />
     </div>
 }
 
