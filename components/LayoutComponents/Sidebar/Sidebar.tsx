@@ -21,7 +21,7 @@ const Sidebar = ({categories, className}: Props) => {
             </Link>
             <p className={styles.subtitle}>Categories</p>
             <CategoryList category={categories}/>
-            {/* <div className={styles.cardWrapper}>
+            <div className={styles.cardWrapper}>
               <Image src='/uiscoreLogo.svg' width={48} height={48} alt={''}/>
               <h4>
                 Uiscore 
@@ -38,8 +38,8 @@ const Sidebar = ({categories, className}: Props) => {
                   </g>
                 </svg>
               </ButtonNew>
-            </div> */}
-            <div className={styles.cardWrapper}>
+            </div>
+            {/* <div className={styles.cardWrapper}>
               <Image src='/productHunt.svg' width={48} height={48} alt={''}/>
               <h4>
                 We are on Product Hunt
@@ -55,7 +55,7 @@ const Sidebar = ({categories, className}: Props) => {
                 </g>
                 </svg>
               </ButtonNew>
-            </div>
+            </div> */}
             <footer className={styles.footer}>
               <p>
                 Library is part of Uiscore.<br/>
