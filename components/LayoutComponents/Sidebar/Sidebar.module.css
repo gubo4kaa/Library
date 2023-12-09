@@ -83,6 +83,20 @@
     color: var(--Text-color-4);
 }
 
+.linkWrapper {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.link {
+    border-radius: 8px;
+    padding: 6px;
+    max-width: max-content;
+    max-height: 32px;
+    background-color: var(--Background-color-4);
+}
+
 @media screen and (max-width: 390px) {
     .footer p {
         margin-bottom: 64px;

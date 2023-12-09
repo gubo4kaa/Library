@@ -61,6 +61,17 @@ const Sidebar = ({categories, className}: Props) => {
                 Library is part of Uiscore.<br/>
                 © 2023 Uiscore. All rights reserved.
               </p>
+              <div className={styles.linkWrapper}>
+                <Link href={'https://dribbble.com/uiscore'} className={styles.link}>
+                  <Image src={'/icons/Dribbble.svg'} height={20} width={20}  alt={''}></Image>
+                </Link>
+                <Link href={'https://twitter.com/uiscore'} className={styles.link}>
+                  <Image src={'/icons/Twitter.svg'} height={20} width={20}  alt={''}></Image>
+                </Link>
+                <Link href={'https://www.instagram.com/uiscore.io'} className={styles.link}>
+                  <Image src={'/icons/Instagram.svg'} height={20} width={20}  alt={''}></Image>
+                </Link>
+              </div>
             </footer>
           </div>
         </div>
