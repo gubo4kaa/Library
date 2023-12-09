@@ -95,10 +95,20 @@
     max-width: max-content;
     max-height: 32px;
     background-color: var(--Background-color-4);
+    transition: all ease-in-out .1s;
 }
 
-@media screen and (max-width: 390px) {
+.link:hover {
+   transform: scale(1.1, 1.1);
+}
+
+@media screen and (max-width: 550px) {
     .footer p {
-        margin-bottom: 64px;
+        margin-bottom: 24px;
+    }
+
+    .linkWrapper {
+        margin-top: 24px;
+        margin-bottom: 24px;
     }
 }

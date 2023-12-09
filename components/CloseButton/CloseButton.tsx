@@ -29,7 +29,11 @@ export default function CloseButton({}:Props) {
     variants={variantsMenu}
     transition={{type: 'ease-out', duration: 0.3}}
     className={styles.wrapper} onClick={() => {setOpenMenu(false); searchFunction('ui')}}>
-    <Image src={CloseLogo} alt=''/>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g id="Close">
+      <path id="Vector" d="M5.83325 5.83301L9.99992 9.99967M9.99992 9.99967L5.83325 14.1663M9.99992 9.99967L14.1666 5.83301M9.99992 9.99967L14.1666 14.1663" stroke="#6E7A90" stroke-width="1.92" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </svg>
   </motion.div>
 }
 
