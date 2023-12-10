@@ -27,7 +27,7 @@ export default function MainCard({categories, service}:Props) {
                             width: '100%',
                             height: 'auto',
                         }}
-                        priority={false}
+                        priority={true}
                         className={styles.img}/>
                     }
                     {
