@@ -17,7 +17,7 @@ export default function MainCard({categories, service}:Props) {
             <div className={styles.wrapper}>
                 <Link href={`/services/${code}`}>
                     {
-                        service.images[0] != 'default.png' && <Image 
+                        service.images[0] != 'default.png' && <img 
                         alt={'not image'} 
                         src={`${process.env.NEXT_PUBLIC_LIBRARY_API}${service.id}/${service.images[0]}`} 
                         width={365} 
@@ -27,7 +27,7 @@ export default function MainCard({categories, service}:Props) {
                             width: '100%',
                             height: 'auto',
                         }}
-                        priority={true}
+                        // priority={true}
                         className={styles.img}/>
                     }
                     {
