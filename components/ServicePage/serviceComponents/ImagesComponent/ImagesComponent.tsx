@@ -10,7 +10,7 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
 export default function ImagesComponent({service}:Props) {
   return (
     <div className={styles.wrapper}>  
-        <Image 
+        {/* <Image 
             alt={'not image'} 
             src={`${process.env.NEXT_PUBLIC_LIBRARY_API}${service.id}/${service.images[1]}`} 
             width={1142} 
@@ -21,8 +21,8 @@ export default function ImagesComponent({service}:Props) {
                 height: 'auto',
             }}
             priority={false}
-            className={styles.img}/>
-        {/* <img src={`${process.env.NEXT_PUBLIC_LIBRARY_API}/${service.id}/${service.images[0]}`} alt='' className={styles.image}/> */}
+            className={styles.img}/> */}
+        <img src={`${process.env.NEXT_PUBLIC_LIBRARY_API}/${service.id}/${service.images[1]}`} alt='' className={styles.img}/>
     </div>
   )
 }
