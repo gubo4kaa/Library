@@ -20,7 +20,7 @@ export default function ImagesComponent({service}:Props) {
                 width: '100%',
                 height: 'auto',
             }}
-            priority={true}
+            priority={false}
             className={styles.img}/>
         {/* <img src={`${process.env.NEXT_PUBLIC_LIBRARY_API}/${service.id}/${service.images[0]}`} alt='' className={styles.image}/> */}
     </div>
