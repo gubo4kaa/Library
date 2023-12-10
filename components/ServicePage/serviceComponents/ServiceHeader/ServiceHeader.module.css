@@ -4,6 +4,8 @@
 }
 
 .img {
+    width: 82px;
+    height: 82px;
     min-width: min-content;
     border-radius: 20px;
     border: solid 1px var( --Background-color-2);
