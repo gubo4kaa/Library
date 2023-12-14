@@ -18,6 +18,10 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
 })
 
   export const metadata: Metadata = {
+    metadataBase: new URL('https://librarry.uiscore.io'),
+    alternates: {
+    canonical: '/',
+  },
     title: {
       default: 'Library',
       template: '%s | Library'
@@ -47,18 +51,19 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
     openGraph: {
       title: 'Library',
       description: 'The library offers useful services for designers, developers and all Internet users. On our resource you will find a wide selection of tools, resources and programs that will help you improve your skills, increase your work efficiency and create high-quality projects. We offer services for design, programming, data analysis, project management and many other areas.',
-      url: 'https://nextjs.org',
+      url: 'https://libray.uiscore.io',
       siteName: 'Library',
       locale: 'en_US',
       type: 'website',
+      images: '/opener.png',
     },
     robots: {
-      index: false,
+      index: true,
       follow: true,
       googleBot: {
         index: true,
         follow: true,
-        noimageindex: true,
+        noimageindex: false,
         'max-video-preview': -1,
         'max-image-preview': 'large',
         'max-snippet': -1,
