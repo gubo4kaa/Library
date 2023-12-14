@@ -103,6 +103,7 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
           type="image/<generated>"
           sizes="any"
         />
+        <meta name="google-site-verification" content="R8Af_c8CjfDZBppwEHaUnwdybYmDm0M7DAnQmeMx35M" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
       </head>
       <body className={cn(inter.className)}>
