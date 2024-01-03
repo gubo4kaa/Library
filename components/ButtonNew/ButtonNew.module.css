@@ -52,8 +52,8 @@
 }
 
 .sizeS {
-    padding: 11px 20px;
-    border-radius: 14px;
+    padding: 9px 18px;
+    border-radius: 10px;
 }
 
 .sizeS.icon {
@@ -61,11 +61,11 @@
 }
 
 .sizeS.iconLeft{
-    padding: 11px 20px 11px 14px;
+    padding: 9px 18px 9px 12px;
 }
 
 .sizeS.iconRight {
-    padding: 11px 14px 11px 20px;
+    padding: 9px 12px 9px 18px;
 }
 
 .sizeM {

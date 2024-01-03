@@ -3,6 +3,7 @@ import styles from './page.module.css'
 import VideoGrid from "@/components/VideoGrid/VideoGrid";
 import ym, { YMInitializer } from "react-yandex-metrika";
 import Preloader from "@/components/Preloader/Preloader";
+import Slider from "@/components/Slider/Slider";
 async function getFeatured() {
   const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-limit-items/?limit=6&offset=0&featured=true`,{
     next: {
@@ -37,7 +38,7 @@ export default async function Home() {
   return (
     <div className={styles.wrapper}>
       <div>
-        <VideoGrid/>
+        <Slider/>
       </div>
       <MiniGrid name="Featured Resources" items={featured} size={"mini"} category={allCategory} link={"/recently"} featured/>
       <MiniGrid name="Recently Added" items={allService} size={"full"} category={allCategory} link={"/recently"}/>
