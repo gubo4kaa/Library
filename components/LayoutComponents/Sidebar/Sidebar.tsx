@@ -21,46 +21,19 @@ const Sidebar = ({categories, className}: Props) => {
             </Link>
             <p className={styles.subtitle}>Categories</p>
             <CategoryList category={categories}/>
-            <div className={styles.cardWrapper}>
-              <Image src='/uiscoreLogo.svg' width={48} height={48} alt={''}/>
-              <h4>
-                Uiscore 
-              </h4>
-              <p>
-              Explore our superb UI Kits, <br/>
-              3D Bundles and Mockups
-              </p>
-              <ButtonNew width='max' href={process.env.NEXT_PUBLIC_UISCORE} type='Default Primary' size='s'>
-                Visit Uiscore
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g id="Arrow Right">
-                  <path id="Vector 190" d="M16.6673 10.1917L11.0423 16.0251M16.6673 10.1917L11.0423 4.3584M16.6673 10.1917L3.33398 10.1917" stroke="#2489FF" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                  </g>
-                </svg>
-              </ButtonNew>
-            </div>
-            {/* <div className={styles.cardWrapper}>
-              <Image src='/productHunt.svg' width={48} height={48} alt={''}/>
-              <h4>
-                We are on Product Hunt
-              </h4>
-              <p>
-              Support us with your vote
-              </p>
-              <ButtonNew width='max' href={'https://www.producthunt.com/posts/uiscore-library'} type='Default Primary' size='s'>
-                Support 
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="Arrow Right">
-                <path id="Vector 190" d="M16.6673 10.1917L11.0423 16.0251M16.6673 10.1917L11.0423 4.3584M16.6673 10.1917L3.33398 10.1917" stroke="#2489FF" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                </g>
-                </svg>
-              </ButtonNew>
-            </div> */}
+            <Link href={`${process.env.NEXT_PUBLIC_UISCORE}`} className={styles.cardLink}>
+              <Image src='/UiscorePublic.png' width={218} height={120} alt={''}  quality={100} className={styles.UiscoreLogo}/>
+              <div className={styles.hWrapper}>
+                <h4>
+                  Uiscore 
+                </h4>
+                <p>
+                  Promoted
+                </p>
+              </div>
+            </Link>
+            <span className={styles.tuk}></span>
             <footer className={styles.footer}>
-              <p>
-                Library is part of Uiscore.<br/>
-                © 2023 Uiscore. All rights reserved.
-              </p>
               <div className={styles.linkWrapper}>
                 <Link href={'https://dribbble.com/uiscore'} className={styles.link}>
                   <Image src={'/icons/Dribbble.svg'} height={20} width={20}  alt={''}></Image>
@@ -71,7 +44,14 @@ const Sidebar = ({categories, className}: Props) => {
                 <Link href={'https://www.instagram.com/uiscore.io'} className={styles.link}>
                   <Image src={'/icons/Instagram.svg'} height={20} width={20}  alt={''}></Image>
                 </Link>
+                <Link href={'https://layers.to/uiscore'} className={styles.link}>
+                  <Image src={'/icons/Layers.svg'} height={20} width={20}  alt={''}></Image>
+                </Link>
               </div>
+              <p>
+                Library is part of Uiscore.<br/>
+                © 2023 Uiscore. All rights reserved.
+              </p>
             </footer>
           </div>
         </div>

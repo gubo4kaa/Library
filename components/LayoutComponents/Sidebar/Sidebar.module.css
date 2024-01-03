@@ -36,7 +36,7 @@
     color: var(--Text-color-4);
     font-size: 14px;
     font-weight: 500;
-    margin-top: 24px;
+    margin-top: 16px;
     margin-bottom: 10px;
 }
 
@@ -45,38 +45,48 @@
     opacity: 1;
 }
 
-.cardWrapper {
+.cardLink {
     display: flex;
     flex-direction: column;
-    max-width: 100%;
-    padding: 16px;
-    box-shadow: var(--Shadow-card-small);
-    border-radius: 20px;
+    border-bottom: solid 1px var(--Background-color-2);
+    gap: 10px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+}
+
+.UiscoreLogo {
     border: solid 1px var(--Background-color-2);
+    border-radius: 14px;
+}
+
+.hWrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    align-items: center;
     /* box-shadow: 0px 2px 2px -1px rgba(138, 148, 166, 0.13); */
 }
 
-.cardWrapper h4 {
-    margin-top: 12px;
-    font-size: 16px;
+.hWrapper h4 {
+    font-size: 14px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     line-height: normal;
-    word-wrap: break-word;
     color: var(--Text-color-2);
 }
 
-.cardWrapper p {
-    margin: 2px 0 12px;
-    font-size: 14px;
+.hWrapper p {
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 26px; 
+    line-height: normal;
     color: var(--Text-color-3);
 }
 
+
+
 .footer p {
-    margin-top: 24px;
+    margin-top: 12px;
     font-size: 12px;
     font-weight: 400;
     line-height: 24px;
@@ -96,10 +106,6 @@
     max-height: 32px;
     background-color: var(--Background-color-4);
     transition: all ease-in-out .1s;
-}
-
-.link:hover {
-   transform: scale(1.1, 1.1);
 }
 
 @media screen and (max-width: 550px) {

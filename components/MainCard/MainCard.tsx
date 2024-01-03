@@ -12,6 +12,7 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
 
 export default function MainCard({categories, service}:Props) {
     const code = encodeURIComponent(`${service.name}`)
+    const category = categories.filter((i) => i.id == service.categoryId)
     return (
         <>
             <div className={styles.wrapper}>

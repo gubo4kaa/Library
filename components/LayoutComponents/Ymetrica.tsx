@@ -18,7 +18,12 @@ export default function Ymetrica({}:Props) {
   })
 
   return <div>
-      <YMInitializer accounts={[95789485]} options={{webvisor: true}} />
+      <YMInitializer accounts={[95789485]} options={{
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+        }} />
     </div>
 }
 
