@@ -38,7 +38,7 @@ export default async function Home() {
   return (
     <div className={styles.wrapper}>
       <div>
-        <Slider/>
+        <Slider categories={allCategory} services={allService.slice(0, 6)}/>
       </div>
       <MiniGrid name="Featured Resources" items={featured} size={"mini"} category={allCategory} link={"/recently"} featured/>
       <MiniGrid name="Recently Added" items={allService} size={"full"} category={allCategory} link={"/recently"}/>

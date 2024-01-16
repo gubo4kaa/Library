@@ -57,6 +57,8 @@
 .UiscoreLogo {
     border: solid 1px var(--Background-color-2);
     border-radius: 14px;
+    overflow: hidden;
+    display: flex;
 }
 
 .hWrapper {
