@@ -50,7 +50,7 @@ const Sidebar = ({categories, className}: Props) => {
               </div>
               <p>
                 Library is part of Uiscore.<br/>
-                © 2023 Uiscore. All rights reserved.
+                © 2024 Uiscore. All rights reserved.
               </p>
             </footer>
           </div>
