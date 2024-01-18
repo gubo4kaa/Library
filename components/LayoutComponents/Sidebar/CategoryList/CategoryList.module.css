@@ -1,7 +1,7 @@
 .categoriesWrapper {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
     padding-bottom: 16px;
     border-bottom: solid 1px var(--Background-color-2);
     margin-bottom: 16px;
@@ -9,7 +9,7 @@
 
 .category {
     display: flex;
-    padding: 10px;
+    padding: 8px;
     gap: 8px;
     align-items: center;
     cursor: pointer;
