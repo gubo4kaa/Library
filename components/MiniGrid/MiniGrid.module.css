@@ -10,7 +10,7 @@
 }
 
 .headerWrapper h4 {
-    font-size: 22px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -31,14 +31,14 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 16px;
-    padding: 16px 0;
+    padding: 20px 0;
 }
 
 @media screen and (max-width: 1200px) {
     .grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 24px;
+        gap: 16px;
     }
 }
 
@@ -46,6 +46,6 @@
     .grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 16px;
     }
 }

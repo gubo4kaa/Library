@@ -16,7 +16,7 @@ export default function MainCard({categories, service}:Props) {
     return (
         <>
             <div className={styles.wrapper}>
-                <Link href={`/services/${code}`}>
+                <Link href={`/${encodeURIComponent(category[0].nameCategory)}/${code}`}>
                     {/* {
                         service.images[0] != 'default.png' && <img 
                         alt={'not image'} 

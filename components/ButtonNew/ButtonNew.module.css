@@ -70,7 +70,7 @@
 
 .sizeM {
     padding: 14px 20px;
-    border-radius: 14px;
+    border-radius: 10px;
 }
 
 .sizeM.icon {
@@ -149,7 +149,7 @@
 
 /*-secondaryGhost-*/
 .secondaryGhost {
-    border-radius: 14px;
+    border-radius: 10px;
     background: var(--primary-colors-primary-6, #FFF);
     color: var(--Text-color-3);
 }

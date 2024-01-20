@@ -1,0 +1,12 @@
+.wrapper {
+	padding-bottom: 20px;
+}
+
+.wrapper > h4 {
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	margin-bottom: 24px;
+	color: var(--Text-color-2);
+}

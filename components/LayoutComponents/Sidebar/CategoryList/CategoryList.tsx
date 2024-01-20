@@ -21,7 +21,7 @@ export default function CategoryList({category}:Props) {
   useEffect(() => {
     const pathArr = pathname?.split('/')
     const sameArrow = categoryNameArr.filter(i => {
-      if(pathArr) {
+      if(pathArr && pathArr.length <= 2) {
         const codePath = encodeURIComponent(i)
         if (pathArr?.includes(codePath)) {
           return true
@@ -33,7 +33,6 @@ export default function CategoryList({category}:Props) {
     } else {
       setActive('');
     }
-    
   }, [pathname, router])
 
   return <div className={styles.categoriesWrapper}>
@@ -58,7 +57,7 @@ export default function CategoryList({category}:Props) {
       </Link>
   {
     category.map((category: ICategory) => (
-      <Link href={`/category/${encodeURIComponent(category.nameCategory)}`} key={category.id} className={cn(styles.category, {
+      <Link href={`/${encodeURIComponent(category.nameCategory)}`} key={category.id} className={cn(styles.category, {
         [styles.active]: active == category.nameCategory
       }
         )} onClick={() => {setActive(category.nameCategory)}}>

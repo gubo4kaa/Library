@@ -3,13 +3,13 @@ import { Metadata } from "next"
 
 type Props = {
   params: {
-    name: string
+    nameCategory: string
   }
 }
 
-export async function generateMetadata({params: {name}}: Props): Promise<Metadata> {
+export async function generateMetadata({params: {nameCategory}}: Props): Promise<Metadata> {
   return {
-    title: decodeURIComponent(name),
+    title: decodeURIComponent(nameCategory),
   }
 }
 
@@ -33,10 +33,10 @@ async function getCategory() {
     return category.json()
 }
 
-export default async function Category({params: {name}}: Props) {
+export default async function Category({params: {nameCategory}}: Props) {
     //console.log(name);
-    const categoryName = decodeURIComponent(name); 
-    const services = await getServices(name);
+    const categoryName = decodeURIComponent(nameCategory); 
+    const services = await getServices(nameCategory);
     const categories = await getCategory();
     return <div>
         <AllComponent services={services ? services : null} namePage={categoryName} categories={categories} />
