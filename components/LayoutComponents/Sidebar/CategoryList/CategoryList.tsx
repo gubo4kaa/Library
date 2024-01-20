@@ -21,7 +21,7 @@ export default function CategoryList({category}:Props) {
   useEffect(() => {
     const pathArr = pathname?.split('/')
     const sameArrow = categoryNameArr.filter(i => {
-      if(pathArr && pathArr.length <= 2) {
+      if(pathArr) {
         const codePath = encodeURIComponent(i)
         if (pathArr?.includes(codePath)) {
           return true
