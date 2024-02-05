@@ -11,6 +11,10 @@
     border: 1px solid var(--Background-color-1)
 }
 
+.wrapper:hover {
+    box-shadow: var(--Shadow-boxes-hover);
+}
+
 .headerCard {
     position: absolute;
     bottom: 0;
