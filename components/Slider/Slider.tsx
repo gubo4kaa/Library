@@ -31,7 +31,7 @@ export default function Slider({categories, services}: ISlider) {
 		Updates this week
 	</h4>
       <Swiper
-        spaceBetween={10}
+        spaceBetween={16}
         slidesPerView={3}
         onSlideChange={handleSlideChange}
       >
