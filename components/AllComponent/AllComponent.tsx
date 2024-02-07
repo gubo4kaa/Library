@@ -16,7 +16,6 @@ export default function AllComponent({categories, services, namePage}: Props) {
     <div className={styles.wrapper}>
         <div className={styles.header}>
             {namePage}
-
             {
                 services[0] && <Filter services={services}/>
             }

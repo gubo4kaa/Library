@@ -1,7 +1,7 @@
 .wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
+    gap: 16px;
 }
 
 .notfound {
@@ -22,7 +22,6 @@
     .wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 24px;
     }
 
     .notfound {
@@ -37,7 +36,6 @@
     .wrapper {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 24px;
         align-items: center;
     }
 

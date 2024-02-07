@@ -12,7 +12,7 @@
     max-width: 461px;
     width: 100%;
     background-color: var(--Primary6);
-    border-radius: 24px;
+    border-radius: 16px;
     border: solid 1px var(--Background-color-2);
     box-shadow: var(--Shadow-card-medium);
     display: flex;

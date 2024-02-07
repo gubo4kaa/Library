@@ -8,11 +8,12 @@
     background-color: var(--Background-color-4);
     box-shadow: var(--Shadow-card-medium);
     border-radius: 14px;
-    border: 1px solid var(--Background-color-1)
+    border: 1px solid var(--Background-color-1);
+    transition: all .1s;
 }
 
 .wrapper:hover {
-    box-shadow: var(--Shadow-boxes-hover);
+    box-shadow: var(--Shadow-card-XL);
 }
 
 .headerCard {

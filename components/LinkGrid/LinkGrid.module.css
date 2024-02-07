@@ -1,5 +1,6 @@
 .link {
     align-self: center;
+    align-items: center;
     display: flex;
     font-size: 14px;
     font-style: normal;
