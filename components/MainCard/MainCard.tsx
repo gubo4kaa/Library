@@ -14,9 +14,8 @@ export default function MainCard({categories, service}:Props) {
     const code = encodeURIComponent(`${service.name}`)
     const category = categories.filter((i) => i.id == service.categoryId)
     return (
-        <>
-            <div className={styles.wrapper}>
-                <Link href={`/${encodeURIComponent(category[0].nameCategory)}/${code}`}>
+            // <div className={styles.wrapper}>
+                <Link href={`/${encodeURIComponent(category[0].nameCategory)}/${code}`} className={styles.wrapper}> 
                     {/* {
                         service.images[0] != 'default.png' && <img 
                         alt={'not image'} 
@@ -93,8 +92,7 @@ export default function MainCard({categories, service}:Props) {
                         </div>
                     </div>
                 </Link>
-            </div>
-        </>
+            // </div>
     )
 }
 

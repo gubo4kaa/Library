@@ -10,3 +10,27 @@
 	margin-bottom: 20px;
 	color: var(--Text-color-2);
 }
+
+.wrapperPagination {
+	margin-top: 25px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.wrapperTabs {
+	display: flex;
+	gap: 12px;
+}
+
+.linkToSlide {
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 600;
+	color: var(--Text-color-3);
+	padding: 5px 10px;
+}
+
+.activeLink {
+	background-color: var(--Background-color-4);
+}
+

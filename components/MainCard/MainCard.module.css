@@ -10,6 +10,7 @@
     border-radius: 14px;
     border: 1px solid var(--Background-color-1);
     transition: all .1s;
+    display: flex;
 }
 
 .wrapper:hover {
