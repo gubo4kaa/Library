@@ -28,9 +28,24 @@
 	font-weight: 600;
 	color: var(--Text-color-3);
 	padding: 5px 10px;
+	border-radius: 8px;
 }
 
 .activeLink {
 	background-color: var(--Background-color-4);
 }
 
+.wrapperArrows {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+}
+
+.wrapperArrows span {
+	padding: 2px;
+	display: flex;
+}
+
+.wrapperArrows span:hover {
+	background-color: var(--Background-color-2);
+}
