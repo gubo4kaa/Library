@@ -1,5 +1,6 @@
 .wrapper {
 	padding-bottom: 20px;
+
 }
 
 .wrapper > h4 {
@@ -15,6 +16,10 @@
 	margin-top: 25px;
 	display: flex;
 	justify-content: space-between;
+}
+
+.swiper {
+	padding: 0 1px;
 }
 
 .wrapperTabs {
@@ -37,15 +42,28 @@
 
 .wrapperArrows {
 	display: flex;
-	gap: 12px;
-	align-items: center;
+    justify-content: center;
+    align-items: center;
+	gap: 20px;
+	transform: translateY(10px);
 }
 
-.wrapperArrows span {
-	padding: 2px;
+.arrow {
+	max-height: max-content;
 	display: flex;
+	position: static;
+	transition: all .1s ease-out;
 }
 
-.wrapperArrows span:hover {
-	background-color: var(--Background-color-2);
+.buttonPrew:hover {
+	transform: translateX(-3px);
+}
+
+.buttonNext:hover {
+	transform: translateX(3px);
+}
+
+.button_disable path {
+	stroke: var(--Text-color-5);
+	opacity: .3;
 }
