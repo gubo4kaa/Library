@@ -61,6 +61,11 @@
     display: flex;
 }
 
+.UiscoreLogo video {
+    width: 100%;
+    border-right: solid 0px;
+}
+
 .hWrapper {
     display: flex;
     justify-content: space-between;
@@ -84,8 +89,6 @@
     line-height: normal;
     color: var(--Text-color-3);
 }
-
-
 
 .footer p {
     margin-top: 12px;

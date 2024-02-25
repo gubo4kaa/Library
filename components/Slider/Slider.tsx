@@ -25,63 +25,59 @@ export default function Slider({categories, services}: ISlider) {
   const swiper = useSwiper();
   return (
     <div className={styles.wrapper}>
-      <h4>
-        Updates this week
-      </h4>
       <Swiper
          modules={[Navigation, Pagination, Scrollbar, A11y, Grid]}
          spaceBetween={16}
-         slidesPerView={3}
+         slidesPerView={1}
+         autoplay-delay="2500"
          grid={{
-            rows: 1,
-          }}
+          rows: 1,
+        }}
          pagination={ 
-            { el: '.swiper-pagination',
-               clickable: true }}
+            {   el: '.swiper-pagination',
+                clickable: true }}
          navigation= {{
             prevEl: '.swiper-button-prev',
             nextEl: '.swiper-button-next',
             disabledClass: `${styles.button_disable}`
             }}
+          breakpoints={
+            {
+                696: {
+                  slidesPerView: 2
+                },
+                1200: {
+                  slidesPerView: 3
+                }
+            }
+          }
          className={styles.swiper}
       >
+        <div className={styles.headerWrapper}>
+          <h4>
+            Updates this week
+          </h4>
+          <div className={cn(styles.wrapperArrows)}>
+            <span className={cn('swiper-button-prev', styles.arrow, styles.buttonPrew)}>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.33342 10.0003L8.95842 15.8337M3.33342 10.0003L8.95842 4.16699M3.33342 10.0003L16.6667 10.0003" stroke="#6E7A90" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span className={cn('swiper-button-next', styles.arrow, styles.buttonNext)}>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.6666 10.0003L11.0416 15.8337M16.6666 10.0003L11.0416 4.16699M16.6666 10.0003L3.33325 10.0003" stroke="#6E7A90" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div> 
+        </div>
+      <div>
         {services.map((service, key) => (
           <SwiperSlide key={key}>
 				    <MainCard service={service} categories={categories}/>
           </SwiperSlide>
         ))}
-      <div className={styles.wrapperPagination}>  
-        <div className={styles.wrapperTabs}>
-          {services.map((service, key) => (
-            <span
-              key={key}
-              className={cn(styles.linkToSlide, {
-                [styles.activeLink]: key == 0
-              })}
-            >
-              {
-                service.name
-              }
-            </span>
-          ))}
-        </div>
-        <div className={cn(styles.wrapperArrows)}>
-            <span className={cn('swiper-button-prev', styles.arrow, styles.buttonPrew)}>
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="Arrow Left">
-                  <path id="Vector 190" d="M3.66658 10.9997L9.85409 17.4163M3.66658 10.9997L9.85409 4.58301M3.66658 10.9997L18.3333 10.9997" stroke="#6E7A90" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                </g>
-              </svg>
-            </span>
-            <span className={cn('swiper-button-next', styles.arrow, styles.buttonNext)}>
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="Arrow Right">
-                  <path id="Vector 190" d="M18.3334 10.9997L12.1459 17.4163M18.3334 10.9997L12.1459 4.58301M18.3334 10.9997L3.66675 10.9997" stroke="#6E7A90" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                </g>
-              </svg>
-            </span>
-        </div>
       </div>
+      <div className={cn('swiper-pagination', styles.pagination)}></div>
       </Swiper>
     </div>
   );

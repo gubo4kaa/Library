@@ -58,7 +58,7 @@
     width: 100%;
     padding: 13px 38px;
     
-    border-radius: 14px;
+    border-radius: 10px;
     border: 1px solid var(--Background-color-2);
 
     overflow: hidden;

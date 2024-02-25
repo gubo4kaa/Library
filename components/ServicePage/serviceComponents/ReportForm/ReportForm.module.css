@@ -63,8 +63,8 @@
 }
 
 .textareaWrapper textarea{
-     font-family: 'Plus Jakarta Sans', sans-serif;
-    border-radius: 14px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    border-radius: 10px;
     border: 1px solid var(--Background-color-2);
     background: var(--Background-color-5, #FFF);
     

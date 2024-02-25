@@ -54,6 +54,7 @@
 .sizeS {
     padding: 9px 18px;
     border-radius: 10px;
+    max-height: 38px;
 }
 
 .sizeS.icon {

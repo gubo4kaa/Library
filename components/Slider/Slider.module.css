@@ -1,15 +1,5 @@
 .wrapper {
-	padding-bottom: 20px;
-
-}
-
-.wrapper > h4 {
-	font-size: 18px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: normal;
-	margin-bottom: 20px;
-	color: var(--Text-color-2);
+	
 }
 
 .wrapperPagination {
@@ -20,6 +10,10 @@
 
 .swiper {
 	padding: 0 1px;
+	display: flex;
+	flex-direction: column-reverse;
+	position: relative;
+	padding-bottom: 20px;
 }
 
 .wrapperTabs {
@@ -42,28 +36,93 @@
 
 .wrapperArrows {
 	display: flex;
-    justify-content: center;
-    align-items: center;
-	gap: 20px;
-	transform: translateY(10px);
+    justify-content: center !important;
+    align-items: center !important;
+	gap: 12px;
+	max-height: 20px;
+	overflow: visible;
+}
+
+.headerWrapper {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.headerWrapper h4 {
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	color: var(--Text-color-2);
 }
 
 .arrow {
-	max-height: max-content;
+	min-height: 34px;
+	max-height: 34px;
+	min-width: 34px;
 	display: flex;
 	position: static;
 	transition: all .1s ease-out;
+	align-self: center;
+	transform: translateY(20px);
+	padding: 7px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
 }
 
-.buttonPrew:hover {
-	transform: translateX(-3px);
+.arrow svg {
+	min-width: 20px;
+	min-height: 20px;
 }
 
-.buttonNext:hover {
-	transform: translateX(3px);
+.arrow:hover {
+	background-color: var(--Background-color-4);
 }
 
 .button_disable path {
 	stroke: var(--Text-color-5);
-	opacity: .3;
+}
+
+.pagination {
+    position: absolute;
+	bottom: 0 !important;
+	display: none !important;
+    max-height: max-content !important;
+    margin: 0;
+	bottom: 0;
+    align-items: center;
+    display: flex;
+    max-width: max-content;
+    gap: 6px;
+	left: 50% !important;
+    transform: translateX(-50%);
+}
+
+.pagination span {
+    display: inline-block;
+    background-color: var(--Text-color-3);
+    border-radius: 19px;
+    width: 8px;
+    height: 8px;
+    position: static;
+    margin: 0 !important;
+}
+
+@media screen and (max-width: 695px) {
+	.wrapperArrows {
+		display: none;
+	}
+
+	.pagination {
+		display: flex !important;
+		bottom: 0px !important;
+	}
+	
+	.wrapper {
+		margin-bottom: 16px;
+	}
 }

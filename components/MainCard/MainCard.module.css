@@ -61,6 +61,7 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
+    color: var(--Primary5);
 }
 
 .featuredWrapper {
@@ -68,6 +69,13 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
+}
+
+.featuredWrapper p {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--Primary5);
 }
 
 .arrow {
