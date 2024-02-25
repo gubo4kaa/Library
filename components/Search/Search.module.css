@@ -94,7 +94,7 @@
     
     background-color: var(--Background-color-5);
     box-shadow: var(--Shadow-card-medium);
-    border-radius: 18px;
+    border-radius: 14px;
     border: 1px solid var(--Background-color-2);
     padding: 10px;
     flex-direction: column;

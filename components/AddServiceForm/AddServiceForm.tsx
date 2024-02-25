@@ -19,7 +19,7 @@ export default function AddServiceForm({}:Props) {
 
     const [blur, setBlur] = useBlurStore((state) => [state.blur, state.setBlur])
     const [popapState, setPopapState] = useSubscribeStore((state) => [state.popapState, state.setPopapState])
-    
+
     useEffect(()=> {
         if(!blur) {
             setPopapState(null)
@@ -35,7 +35,7 @@ export default function AddServiceForm({}:Props) {
     }
 
     const onSubmit = async (data: any) => {
-        // // //console.log(data)
+
         setLoadingState(true)
         try {
           await LibraryService.OfferService(data)
@@ -62,14 +62,13 @@ export default function AddServiceForm({}:Props) {
             })              
         }
     };
-    
-   
+
     const refButton = useRef<HTMLInputElement>(null)
 
     const focusInput = () => {
         refButton.current?.click();
     };
-    
+
     const recaptchaRef = useRef<ReCAPTCHA>(null)
     const [isVerified, setIsverified] = useState<boolean>(false)
 
@@ -79,7 +78,7 @@ export default function AddServiceForm({}:Props) {
         .then(() => setIsverified(true))
         .catch(() => setIsverified(false))
     }
-    
+
     return ( popapState == 'addForm' && (
          <div className={cn(styles.wrapper)}>
             <h4>
