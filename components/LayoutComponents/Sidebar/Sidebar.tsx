@@ -23,7 +23,7 @@ const Sidebar = ({categories, className}: Props) => {
             <CategoryList category={categories}/>
             <Link href={`${process.env.NEXT_PUBLIC_UISCORE}`} className={styles.cardLink}>
               <div className={styles.UiscoreLogo}>
-                <video width="218" loop autoPlay muted playsInline height="120">
+                <video width="218" autoPlay loop muted height="120">
                   <source src="./video/BannerSite.mp4" type="video/mp4"/>
                 </video>
               </div>
