@@ -29,7 +29,7 @@ const Sidebar = ({categories, className}: Props) => {
               </div>
               <div className={styles.hWrapper}>
                 <h4>
-                  Uiscore 
+                  Uiscore
                 </h4>
                 <p>
                   Promoted
