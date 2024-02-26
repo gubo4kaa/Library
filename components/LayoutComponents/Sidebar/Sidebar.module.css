@@ -63,6 +63,7 @@
 
 .UiscoreLogo video {
     width: 100%;
+    max-width: 218px;
     border-right: solid 0px;
 }
 
