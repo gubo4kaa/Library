@@ -26,14 +26,14 @@ export default function Slider({categories, services}: ISlider) {
   return (
     <div className={styles.wrapper}>
       <Swiper
-         modules={[Navigation, Pagination, Scrollbar, A11y, Grid]}
-         spaceBetween={16}
-         slidesPerView={1}
-         autoplay-delay="2500"
-         grid={{
+        modules={[Navigation, Pagination, Scrollbar, A11y, Grid]}
+        spaceBetween={16}
+        slidesPerView={1}
+        autoplay-delay="2500"
+        grid={{
           rows: 1,
         }}
-         pagination={ 
+         pagination={
             {   el: '.swiper-pagination',
                 clickable: true }}
          navigation= {{
@@ -43,12 +43,12 @@ export default function Slider({categories, services}: ISlider) {
             }}
           breakpoints={
             {
-                696: {
-                  slidesPerView: 2
-                },
-                1200: {
-                  slidesPerView: 3
-                }
+              696: {
+                slidesPerView: 2
+              },
+              1200: {
+                slidesPerView: 3
+              }
             }
           }
          className={styles.swiper}

@@ -67,6 +67,10 @@
     border-right: solid 0px;
 }
 
+.UiscoreLogo img {
+    display: none;
+}
+
 .hWrapper {
     display: flex;
     justify-content: space-between;
@@ -114,6 +118,15 @@
     transition: all ease-in-out .1s;
 }
 
+@media screen and (max-width: 902px) {
+    .UiscoreLogo img {
+        display: flex;
+    }
+
+    .UiscoreLogo video {
+        display: none;
+    }
+}
 @media screen and (max-width: 550px) {
     .footer p {
         margin-bottom: 24px;

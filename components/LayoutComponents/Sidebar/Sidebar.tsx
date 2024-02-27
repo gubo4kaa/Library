@@ -26,6 +26,7 @@ const Sidebar = ({categories, className}: Props) => {
                 <video width="218" autoPlay loop muted height="120">
                   <source src="./video/BannerSite.mp4" type="video/mp4"/>
                 </video>
+                <Image src={"/UiscoreVideo.jpg"} width={218} height={120} alt='Uiscore'/>
               </div>
               <div className={styles.hWrapper}>
                 <h4>
