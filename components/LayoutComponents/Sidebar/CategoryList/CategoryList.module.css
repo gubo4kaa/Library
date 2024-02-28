@@ -1,7 +1,7 @@
 .categoriesWrapper {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     padding-bottom: 16px;
     border-bottom: solid 1px var(--Background-color-2);
     margin-bottom: 16px;
