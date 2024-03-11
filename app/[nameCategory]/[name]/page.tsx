@@ -3,14 +3,15 @@ import { Metadata } from "next"
 
 type Props = {
   params: {
-    name: string
+    name: string,
+    description: string
   }
 }
 
-export async function generateMetadata({params: {name}}: Props): Promise<Metadata> {
+export async function generateMetadata({params: {name, description}}: Props): Promise<Metadata> {
   return {
-    title: decodeURIComponent(name)
-    // made metadata is service page
+    title: decodeURIComponent(name),
+    description: description
   }
 }
 
