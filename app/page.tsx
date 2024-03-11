@@ -5,7 +5,7 @@ import ym, { YMInitializer } from "react-yandex-metrika";
 import Preloader from "@/components/Preloader/Preloader";
 import Slider from "@/components/Slider/Slider";
 async function getFeatured() {
-  const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-limit-items/?limit=6&offset=0&featured=true`,{
+  const services = await fetch(`${process.env.NEXT_PUBLIC_LIBRARY_API_LOCAL}library/find-limit-items/?limit=6&offset=0&featured=true`,{
     next: {
       revalidate: 60
     }
@@ -14,7 +14,7 @@ async function getFeatured() {
 }
 
 async function getAllItems() {
-  const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-items`,{
+  const services = await fetch(`${process.env.NEXT_PUBLIC_LIBRARY_API_LOCAL}library/find-items`,{
     next:{
       revalidate: 60
     }
@@ -23,7 +23,7 @@ async function getAllItems() {
 }
 
 async function getCategory() {
-  const category = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-categories`,{
+  const category = await fetch(`${process.env.NEXT_PUBLIC_LIBRARY_API_LOCAL}library/find-categories`,{
     next:{
       revalidate: 60,
     }

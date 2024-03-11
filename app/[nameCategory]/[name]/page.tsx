@@ -18,7 +18,7 @@ export async function generateMetadata({params: {name, description}}: Props): Pr
 export const revalidate = 10
 
 async function getService(name: string) {
-  const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-item/?name=${name}`,{
+  const services = await fetch(`${process.env.NEXT_PUBLIC_LIBRARY_API_LOCAL}library/find-item/?name=${name}`,{
     next: {
       revalidate: 60
     }
@@ -27,7 +27,7 @@ async function getService(name: string) {
 }
 
 async function getFindLastService(categoryName: string) {
-  const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/search-by-category/?category=${encodeURIComponent(categoryName)}&amount=4`,{
+  const services = await fetch(`${process.env.NEXT_PUBLIC_LIBRARY_API_LOCAL}library/search-by-category/?category=${encodeURIComponent(categoryName)}&amount=4`,{
     next: {
       revalidate: 60
     }
@@ -36,7 +36,7 @@ async function getFindLastService(categoryName: string) {
 }
 
 async function getCategory() {
-  const category = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-categories`,{
+  const category = await fetch(`${process.env.NEXT_PUBLIC_LIBRARY_API_LOCAL}library/find-categories`,{
     next:{
       revalidate: 60,
     }
@@ -45,7 +45,7 @@ async function getCategory() {
 } 
 
 export async function generateStaticParams() {
-  const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-items`, {
+  const services = await fetch(`${process.env.NEXT_PUBLIC_LIBRARY_API_LOCAL}library/find-items`, {
     next:{
       revalidate: 60,
     }

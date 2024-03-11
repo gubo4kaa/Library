@@ -77,7 +77,7 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
   }
 
   async function getCategory() {
-    const category = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-categories`,{
+    const category = await fetch(`${process.env.NEXT_PUBLIC_LIBRARY_API_LOCAL}library/find-categories`,{
       next:{
         revalidate: 60
       }

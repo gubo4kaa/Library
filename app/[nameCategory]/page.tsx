@@ -16,7 +16,7 @@ export async function generateMetadata({params: {nameCategory}}: Props): Promise
 export const revalidate = 10
 
 async function getServices(name: string) {
-  const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/search-by-category/?category=${name}`,{
+  const services = await fetch(`${process.env.NEXT_PUBLIC_LIBRARY_API_LOCAL}library/search-by-category/?category=${name}`,{
     next: {
       revalidate: 10
     }
@@ -25,7 +25,7 @@ async function getServices(name: string) {
 }
 
 async function getCategory() {
-    const category = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-categories`,{
+    const category = await fetch(`${process.env.NEXT_PUBLIC_LIBRARY_API_LOCAL}library/find-categories`,{
       next:{
         revalidate: 60,
       }
