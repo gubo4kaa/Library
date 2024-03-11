@@ -60,7 +60,7 @@ export default function MainCard({categories, service}:Props) {
                     }  */}
                     <Image
                         alt={'not image'} 
-                        src={`${process.env.NEXT_PUBLIC_LIBRARY_API_LOCAL}${service.id}/${service.images[0]}`} 
+                        src={`${process.env.NEXT_PUBLIC_LIBRARY_API}${service.id}/${service.images[0]}`} 
                         width={372}
                         height={323}
                         sizes="100vw"
