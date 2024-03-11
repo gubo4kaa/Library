@@ -58,7 +58,7 @@ export default function MainCard({categories, service}:Props) {
                         priority={false}
                         className={styles.img}/>
                     }  */}
-                    <Image
+                    <img
                         alt={'not image'} 
                         src={`${process.env.NEXT_PUBLIC_LIBRARY_API}${service.id}/${service.images[0]}`} 
                         width={372}
