@@ -20,8 +20,8 @@ export default function MainCard({categories, service}:Props) {
                         service.images[0] != 'default.png' && <img 
                         alt={'not image'} 
                         src={`${process.env.NEXT_PUBLIC_LIBRARY_API}${service.id}/${service.images[0]}`} 
-                        width={365} 
-                        height={209} 
+                        width={372} 
+                        height={323} 
                         sizes="100vw"
                         style={{
                             width: '100%',
@@ -58,7 +58,7 @@ export default function MainCard({categories, service}:Props) {
                         priority={false}
                         className={styles.img}/>
                     }  */}
-                    <img 
+                    <Image
                         alt={'not image'} 
                         src={`${process.env.NEXT_PUBLIC_LIBRARY_API}${service.id}/${service.images[0]}`} 
                         width={372}
