@@ -4,8 +4,8 @@
 
 .header {
     font-size: 18px;
-    font-weight: 700;
-    color: var(--Text-color-2);
+    font-weight: 600;
+    color: var(--Text-color-1);
     margin-bottom: 24px;
     display: flex;
     align-items: center;

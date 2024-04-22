@@ -53,9 +53,9 @@
 .headerWrapper h4 {
 	font-size: 18px;
 	font-style: normal;
-	font-weight: 700;
+	font-weight: 600;
 	line-height: normal;
-	color: var(--Text-color-2);
+	color: var(--Text-color-1);
 }
 
 .arrow {
