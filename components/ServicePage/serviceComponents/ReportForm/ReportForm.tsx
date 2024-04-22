@@ -114,7 +114,9 @@ const ReportForm = ({idService}:Props) => {
                         onChange: () => handleCheckboxChange(checkbox.id),
                       })}
                     />
-                  {checkbox.label}
+                    <p>
+                      {checkbox.label}
+                    </p>
                 </label>
               ))}
               <div className={cn(styles.textareaWrapper,{

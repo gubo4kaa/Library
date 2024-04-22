@@ -70,7 +70,7 @@
 
 .sizeM {
     padding: 14px 20px;
-    border-radius: 14px;
+    border-radius: 10px;
 }
 
 .sizeM.icon {
@@ -136,6 +136,8 @@
 .defaultGhost {
     border: solid 1px var(--Background-color-2);
     box-shadow: var(--Shadow-buttons-default);
+    color: var(--Text-color-1);
+    background-color: var(--Background-color-5 );
 }
 
 .defaultGhost:hover, .defaultGhost:hover svg path {
@@ -149,7 +151,7 @@
 
 /*-secondaryGhost-*/
 .secondaryGhost {
-    border-radius: 14px;
+    border-radius: 10px;
     background: var(--primary-colors-primary-6, #FFF);
     color: var(--Text-color-3);
 }

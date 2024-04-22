@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3000",
     "lint": "next lint"
   },
   "dependencies": {
@@ -27,7 +27,7 @@
     "react-yandex-metrika": "^2.6.0",
     "sharp": "^0.32.6",
     "svg-parser": "^2.0.4",
-    "swiper": "^10.1.0",
+    "swiper": "^11.0.6",
     "typescript": "5.1.6",
     "use-clipboard-copy": "^0.2.0",
     "usehooks-ts": "^2.9.1",

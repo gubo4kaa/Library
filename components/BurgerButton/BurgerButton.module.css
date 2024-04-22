@@ -3,12 +3,12 @@
     align-items: center;
 
     padding: 9px 12px;
-    border-radius: 14px;
+    border-radius: 10px;
 
     background: var(--Primary6);
     box-shadow: var(--Shadow-buttons-default);
     border: solid 1px var(--Background-color-2);
-    
+
     box-sizing: border-box;
     cursor: pointer;
     min-width: min-content;

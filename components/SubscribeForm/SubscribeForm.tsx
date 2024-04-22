@@ -16,7 +16,6 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
 }
 
 export default function SubscribeForm({}:Props) {
-
     const [blur, setBlur] = useBlurStore((state) => [state.blur, state.setBlur])
     const [popapState, setPopapState] = useSubscribeStore((state) => [state.popapState, state.setPopapState])
     
@@ -25,12 +24,6 @@ export default function SubscribeForm({}:Props) {
             setPopapState(null)
         }
     }, [blur])
-
-    // useEffect(()=> {
-    //     setLoadingState(false);
-    //     setPopapState(null); 
-    //     setBlur(false);
-    // }, [])
 
     const { register, handleSubmit, setError, formState: { errors } } = useForm();
     const [loadingState, setLoadingState] = useState<boolean>(false)
@@ -45,12 +38,12 @@ export default function SubscribeForm({}:Props) {
     const focusInput = () => {
         refButton.current?.click();
     };
-    
+
     const recaptchaRef = useRef<ReCAPTCHA>(null)
     const [isVerified, setIsverified] = useState<boolean>(false)
 
     async function handleCaptchaSubmission(token: string | null) {
-        // Server function to verify captcha
+        
         await verifyCaptcha(token)
         .then(() => setIsverified(true))
         .catch(() => setIsverified(false))
@@ -81,7 +74,7 @@ export default function SubscribeForm({}:Props) {
             })             
         }
     };
-    
+
     return ( popapState == 'subscribe' && (
          <div className={cn(styles.wrapper)}>
             <h4>
@@ -93,7 +86,8 @@ export default function SubscribeForm({}:Props) {
             {
                 !loadingState && accessState && <p className={styles.access}>Great! Your resource will be added soon</p>
             }
-            {   !loadingState && !accessState &&
+            {   
+                !loadingState && !accessState &&
                 <form onSubmit={handleSubmit(onSubmit)} method="post" className={styles.form}>
                     <svg className={styles.searchLogo} width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Inbox">
@@ -101,7 +95,7 @@ export default function SubscribeForm({}:Props) {
                         <path id="Stroke 1" d="M16.5 7.78785C16.5 7.78785 12.8333 11 11 11C9.16667 11 5.5 7.79167 5.5 7.79167" stroke="#6E7A90" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                         </g>
                     </svg>
-                    <input type="email" placeholder="email"
+                    <input type="email" placeholder="Email"
                     {...register(
                             "email", 
                             { 

@@ -4,7 +4,7 @@
     left: 50%;
     
     z-index: 20;
-    padding: 22px;
+    padding: 20px;
     margin: 0 5px;
 
     transform: translate(-50%, -40%);
@@ -12,7 +12,7 @@
     max-width: 461px;
     width: 100%;
     background-color: var(--Primary6);
-    border-radius: 24px;
+    border-radius: 16px;
     border: solid 1px var(--Background-color-2);
     box-shadow: var(--Shadow-card-medium);
     display: flex;
@@ -58,7 +58,7 @@
     width: 100%;
     padding: 13px 38px;
     
-    border-radius: 14px;
+    border-radius: 10px;
     border: 1px solid var(--Background-color-2);
 
     overflow: hidden;

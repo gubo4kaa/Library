@@ -9,12 +9,13 @@
 
 .category {
     display: flex;
-    padding: 10px;
+    padding: 8px;
     gap: 8px;
     align-items: center;
     cursor: pointer;
-    border-radius: 14px;
+    border-radius: 10px;
     min-width: 218px;
+    max-width: max-content;
     transition: all ease-in-out .1s;
 }
 
@@ -26,6 +27,11 @@
     font-size: 14px;
     font-weight: 500;
     color: var(--Text-color-2)
+}
+
+.category svg {
+    width: 22px;
+    height: 22px;
 }
 
 .arrow {

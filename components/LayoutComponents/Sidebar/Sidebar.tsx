@@ -17,15 +17,20 @@ const Sidebar = ({categories, className}: Props) => {
         <div className={styles.stickyWrapper}>
           <div className={styles.scrollWrapper}> 
             <Link href={'/'} className={styles.linkLogo}> 
-              <Image src={'/main-logo-svg.svg'} priority={true} quality={100} width={165} height={44} alt={''}/>
+              <Image src={'/main-logo-svg.svg'} priority={true} quality={100} width={152} height={40} alt={''}/>
             </Link>
             <p className={styles.subtitle}>Categories</p>
             <CategoryList category={categories}/>
             <Link href={`${process.env.NEXT_PUBLIC_UISCORE}`} className={styles.cardLink}>
-              <Image src='/UiscorePublic.png' width={218} height={120} alt={''}  quality={100} className={styles.UiscoreLogo}/>
+              <div className={styles.UiscoreLogo}>
+                <video width="218" loop autoPlay muted height="120">
+                  <source src="./video/BannerSite.mp4" type="video/mp4"/>
+                </video>
+                <Image src={"/UiscoreVideo.jpg"} width={218} height={120} alt='Uiscore'/>
+              </div>
               <div className={styles.hWrapper}>
                 <h4>
-                  Uiscore 
+                  Uiscore
                 </h4>
                 <p>
                   Promoted

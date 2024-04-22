@@ -57,6 +57,18 @@
 .UiscoreLogo {
     border: solid 1px var(--Background-color-2);
     border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+}
+
+.UiscoreLogo video {
+    width: 100%;
+    max-width: 218px;
+    border-right: solid 0px;
+}
+
+.UiscoreLogo img {
+    display: none;
 }
 
 .hWrapper {
@@ -83,8 +95,6 @@
     color: var(--Text-color-3);
 }
 
-
-
 .footer p {
     margin-top: 12px;
     font-size: 12px;
@@ -108,6 +118,15 @@
     transition: all ease-in-out .1s;
 }
 
+@media screen and (max-width: 902px) {
+    .UiscoreLogo img {
+        display: flex;
+    }
+
+    .UiscoreLogo video {
+        display: none;
+    }
+}
 @media screen and (max-width: 550px) {
     .footer p {
         margin-bottom: 24px;

@@ -1,7 +1,7 @@
 .wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
+    gap: 16px;
 }
 
 .notfound {
@@ -11,7 +11,7 @@
     padding-top: 200px;
 }
 
-.wrapper h4 {
+.wrapper > h4 {
     font-size: 22px;
     font-weight: 700;
     color: var(--Text-color-2);
@@ -22,7 +22,6 @@
     .wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 24px;
     }
 
     .notfound {
@@ -37,7 +36,6 @@
     .wrapper {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 24px;
         align-items: center;
     }
 
