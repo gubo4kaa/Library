@@ -67,9 +67,4 @@
         padding-top: 220px;
         background: linear-gradient(180deg, rgba(246, 246, 247, 0.00) 0%, rgba(246, 246, 247, 0.72) 28.4%, #F6F6F7 74.95%);
     }
-
-    .button {
-        height: max-content;
-        width: 100%;
-    }
 }

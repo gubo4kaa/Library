@@ -61,6 +61,31 @@
     display: flex;
 }
 
+.cardHelp {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    box-shadow: var(--Shadow-card-large);
+    max-width: 218px;
+}
+
+.cardHelp h5 {
+    white-space: wrap;
+    color: var(--Text-color-1);
+    font-size: 14px;
+    font-style: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.cardHelp p {
+    white-space: wrap;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--Text-color-2);
+    margin-bottom: 12px;
+}
+
 .UiscoreLogo video {
     width: 100%;
     max-width: 218px;
@@ -116,6 +141,14 @@
     max-height: 32px;
     background-color: var(--Background-color-4);
     transition: all ease-in-out .1s;
+}
+
+.tuk {
+    background-color: var(--Background-color-2);
+    min-width: 100%;
+    width: 100%;
+    height: 1px;
+    margin: 16px 0;
 }
 
 @media screen and (max-width: 902px) {

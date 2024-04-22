@@ -133,6 +133,22 @@
     display: block;
 }
 
+.slash {
+    padding: 5px;
+    box-shadow: 0px 1px 2px 0px rgba(138, 148, 166, 0.13);
+    border: 1px solid var(--Background-color-2);
+    border-radius: 6px;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    opacity: 10000;
+    max-height: max-content;
+    height: max-content;
+    display: flex;
+    box-shadow: var(--Shadow-card-small);
+    background-color: var(--Background-color-5);
+}
+
 
 @media screen and (min-width: 520px) {
    .pMobile {

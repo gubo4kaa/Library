@@ -17,16 +17,17 @@ const Sidebar = ({categories, className}: Props) => {
         <div className={styles.stickyWrapper}>
           <div className={styles.scrollWrapper}> 
             <Link href={'/'} className={styles.linkLogo}> 
-              <Image src={'/main-logo-svg.svg'} priority={true} quality={100} width={152} height={40} alt={''}/>
+              <Image src={'/LibraryLogoCurrent.svg'} priority={true} quality={100} width={152} height={40} alt={''}/>
             </Link>
             <p className={styles.subtitle}>Categories</p>
             <CategoryList category={categories}/>
-            <Link href={`${process.env.NEXT_PUBLIC_UISCORE}`} className={styles.cardLink}>
+            {/* <Link href={`${process.env.NEXT_PUBLIC_UISCORE}`} className={styles.cardLink}>
               <div className={styles.UiscoreLogo}>
                 <video width="218" loop autoPlay muted height="120">
                   <source src="./video/BannerSite.mp4" type="video/mp4"/>
                 </video>
                 <Image src={"/UiscoreVideo.jpg"} width={218} height={120} alt='Uiscore'/>
+                s;dlkfj
               </div>
               <div className={styles.hWrapper}>
                 <h4>
@@ -36,8 +37,23 @@ const Sidebar = ({categories, className}: Props) => {
                   Promoted
                 </p>
               </div>
-            </Link>
-            <span className={styles.tuk}></span>
+            </Link> */}
+            <div className={cn(styles.UiscoreLogo, styles.cardHelp)}>
+              <h5>
+                Help us become better! 
+              </h5>
+              <p>
+                Take a short survey on what could be improved in the library.
+              </p>
+              <ButtonNew href='https://forms.gle/Vu6PfB9XThuwcX7NA' size='es' iconPosition={'iconRight'} width='max'>Take the survey <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                  <path d="M17.1666 10.3792L11.5416 16.2126M17.1666 10.3792L11.5416 4.5459M17.1666 10.3792L3.83325 10.3792" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </ButtonNew>
+            </div>
+            <div className={styles.tuk}></div>
+            <ButtonNew href='https://forms.gle/Vu6PfB9XThuwcX7NA' type='Default Ghost' size='es'   iconPosition={'iconRight'} width='max'>
+              Support Us
+            </ButtonNew>
             <footer className={styles.footer}>
               <div className={styles.linkWrapper}>
                 <Link href={'https://dribbble.com/uiscore'} className={styles.link}>
@@ -54,8 +70,8 @@ const Sidebar = ({categories, className}: Props) => {
                 </Link>
               </div>
               <p>
-                Library is part of Uiscore.<br/>
-                © 2024 Uiscore. All rights reserved.
+                © 2024 Made by Uiscore<br/>
+                libary@uiscore.io
               </p>
             </footer>
           </div>

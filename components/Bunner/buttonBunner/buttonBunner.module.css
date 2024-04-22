@@ -1,0 +1,31 @@
+.wrapper {
+    display: flex;
+    width: max-content;
+    min-width: max-content;
+    gap: 16px;
+    align-items: center;
+    margin-left: 16 px;
+}
+
+
+
+
+.button {
+    height: max-content;
+    width: max-content;
+}
+
+@media screen and (max-width: 767px) {
+    .wrapper {
+        width: 100%;
+    }
+
+    .wrapper span {
+        width: 100%;
+    }
+
+    .button {
+        height: max-content;
+        width: 100%;
+    }
+}

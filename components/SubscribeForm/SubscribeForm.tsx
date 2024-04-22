@@ -10,6 +10,7 @@ import ButtonNew from '../ButtonNew/ButtonNew';
 import Preloader from '../Preloader/Preloader';
 import { verifyCaptcha } from '../Recap4a/Recap4a';
 import styles from './SubscribeForm.module.css';
+import Image from 'next/image'
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
     
@@ -77,6 +78,12 @@ export default function SubscribeForm({}:Props) {
 
     return ( popapState == 'subscribe' && (
          <div className={cn(styles.wrapper)}>
+            <Image src="/bunner/submit-bg3.png"
+            width={321}
+            height={146}
+            alt=''
+            className={styles.img_bg}
+            />
             <h4>
                 Subscribe Newsletter
             </h4>

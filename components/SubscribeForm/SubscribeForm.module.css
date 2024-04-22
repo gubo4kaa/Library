@@ -1,10 +1,12 @@
 .wrapper {
     position: fixed;
+    overflow: hidden;
     top: 50%;
     left: 50%;
     
     z-index: 20;
     padding: 20px;
+    padding-top: 120px;
     margin: 0 5px;
 
     transform: translate(-50%, -40%);
@@ -21,7 +23,16 @@
     gap: 22px;
 }
 
+.img_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
 .form {
+    z-index: 2;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -126,6 +137,7 @@
     font-weight: 700;
     color: var(--Text-color-2);
     text-align: left;
+    z-index: 2;
 }
 
 .wrapper p {
