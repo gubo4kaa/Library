@@ -67,7 +67,7 @@
 
 .titleWrapper .title {
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--Text-color-1);
     margin-bottom: 8px;
     white-space: nowrap;
@@ -136,7 +136,7 @@
 p.featured {
     margin-left: -3px;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--Primary5);
 }
 

@@ -30,7 +30,7 @@
 .headerCard h4 {
     font-size: 16px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--Text-color-1);
 }
 
@@ -59,7 +59,7 @@
 .featured {
     font-size: 14px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--Primary5);
 }
 
@@ -73,7 +73,7 @@
 .featuredWrapper p {
     font-size: 14px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--Primary5);
 }
 
