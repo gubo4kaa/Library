@@ -22,14 +22,14 @@
     font-style: normal;
     font-weight: 400;
     line-height: 28px; 
-    color: var(--Text-color-3);
+    color: var(--Text-color-2);
 }
 
 .overview h4 {
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
-    color: var(--Text-color-2);
+    color: var(--Text-color-1);
     margin-bottom: 8px;
 }
 

@@ -19,7 +19,7 @@
     font-style: normal;
     font-weight: 700;
     white-space: nowrap;
-    color: var(--Text-color-2);
+    color: var(--Text-color-1);
 }
 
 .link {
@@ -38,7 +38,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-    .wrapperCards>div:last-child {
+    .wrapperCards > a:last-child {
         display: none;
     }
 }
@@ -47,7 +47,8 @@
     .wrapperCards {
         flex-direction: column;
     }
-    .wrapperCards>div:last-child {
+
+    .wrapperCards > a:last-child {
         display: block;
     }
 

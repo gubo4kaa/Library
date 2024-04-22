@@ -20,7 +20,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 22px;
+    text-align: center;
+    /* gap: 22px; */
 }
 
 .img_bg {
@@ -57,7 +58,7 @@
 .field {
     font-size: 14px;
     font-weight: 400;
-    color: var(--Text-color-2);
+    color: var(--Text-color-1);
     display: flex;
     flex: 1;
     
@@ -79,7 +80,7 @@
 .field:-webkit-autofill:focus,
 .field:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0px 10em white inset !important;
-  -webkit-text-fill-color: var(--Text-color-2) !important;
+  -webkit-text-fill-color: var(--Text-color-1) !important;
 }
 
 .field:focus {
@@ -135,17 +136,25 @@
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
-    color: var(--Text-color-2);
+    color: var(--Text-color-1);
     text-align: left;
     z-index: 2;
+    margin-bottom: 8px;
 }
 
 .wrapper p {
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    color: var(--Text-color-3);
-    text-align: left;
+    color: var(--Text-color-2);
+    z-index: 2;
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.wrapper p:last-child {
+    margin-bottom: 0;
+    margin-top: 14px;
 }
 
 .searchLogo {

@@ -27,7 +27,7 @@
 .mainInput {
     font-size: 14px;
     font-weight: 400;
-    color: var(--Text-color-2);
+    color: var(--Text-color-1);
     display: flex;
     flex: 1;
     
@@ -48,7 +48,7 @@
 .mainInput:-webkit-autofill:focus,
 .mainInput:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0px 10em rgb(255, 255, 255) inset !important;
-  -webkit-text-fill-color: var(--Text-color-2) !important;
+  -webkit-text-fill-color: var(--Text-color-1) !important;
   box-shadow: var(--Shadow-buttons-default);
   border: 1px solid var(--Background-color-2);
 }
@@ -62,7 +62,7 @@
 .mainInput::placeholder {
     font-size: 14px;
     font-weight: 400;
-    color: var(--Text-color-4);
+    color: var(--Text-color-3);
 }
 
 .searchLogo {
@@ -112,7 +112,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    color: var(--Text-color-2);
+    color: var(--Text-color-1);
     margin-top: 10px;
 }
 
@@ -121,7 +121,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 26px;
-    color: var(--Text-color-3);
+    color: var(--Text-color-2);
     margin-top: 8px;
 }
 

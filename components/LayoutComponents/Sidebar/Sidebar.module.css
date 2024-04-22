@@ -33,7 +33,7 @@
 }
 
 .subtitle {
-    color: var(--Text-color-4);
+    color: var(--Text-color-3);
     font-size: 14px;
     font-weight: 500;
     margin-top: 16px;
@@ -109,7 +109,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    color: var(--Text-color-2);
+    color: var(--Text-color-1);
 }
 
 .hWrapper p {
@@ -117,7 +117,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    color: var(--Text-color-3);
+    color: var(--Text-color-2);
 }
 
 .footer p {
@@ -125,7 +125,7 @@
     font-size: 12px;
     font-weight: 400;
     line-height: 24px;
-    color: var(--Text-color-4);
+    color: var(--Text-color-3);
 }
 
 .linkWrapper {

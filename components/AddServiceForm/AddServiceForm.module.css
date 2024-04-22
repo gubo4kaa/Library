@@ -51,7 +51,7 @@
 .field {
     font-size: 14px;
     font-weight: 400;
-    color: var(--Text-color-2);
+    color: var(--Text-color-1);
     display: flex;
     flex: 1;
     
@@ -73,7 +73,7 @@
 .field:-webkit-autofill:focus,
 .field:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0px 10em white inset !important;
-  -webkit-text-fill-color: var(--Text-color-2) !important;
+  -webkit-text-fill-color: var(--Text-color-1) !important;
 }
 
 .field:focus {
@@ -129,7 +129,7 @@
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
-    color: var(--Text-color-2);
+    color: var(--Text-color-1);
     text-align: left;
 }
 
@@ -137,7 +137,7 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    color: var(--Text-color-3);
+    color: var(--Text-color-2);
     text-align: left;
 }
 

@@ -21,8 +21,8 @@ export default function Bunner({className}:Props) {
                 </p>
                 <ButtonBunner/>
             </div>
-            <Image className={styles.img} src={'/bunner/bunner-bg.png'} alt={''} width={575} height={150}></Image>
-            <Image className={styles.img__mb} src={'/bunner/bunner-bg__mobile.png'} alt={''} width={335} height={390}></Image>
+            <img className={styles.img} src='/bunner/bunner-bg.png' alt="" />
+            <img className={styles.img__mb} src='/bunner/bunner-bg__mobile.png' alt="" />
         </div>
     )
 }

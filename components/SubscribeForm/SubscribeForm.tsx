@@ -87,6 +87,9 @@ export default function SubscribeForm({}:Props) {
             <h4>
                 Subscribe Newsletter
             </h4>
+            <p>
+            Get the most relevant and useful resources delivered to you every Monday for work and inspiration.
+            </p>
             {
                 loadingState && !accessState && <Preloader/>
             }

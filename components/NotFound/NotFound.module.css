@@ -10,7 +10,7 @@
     font-size: 22px;
     font-style: normal;
     font-weight: 700;
-    color: var(--Text-color-2);
+    color: var(--Text-color-1);
     margin-top: 6px;
     margin-bottom: 12px !important;
 }
@@ -19,7 +19,7 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    color: var(--Text-color-3);
+    color: var(--Text-color-2);
     margin-top: 2px;
     text-align: center;
 }
