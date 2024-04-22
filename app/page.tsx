@@ -4,6 +4,7 @@ import VideoGrid from "@/components/VideoGrid/VideoGrid";
 import ym, { YMInitializer } from "react-yandex-metrika";
 import Preloader from "@/components/Preloader/Preloader";
 import Slider from "@/components/Slider/Slider";
+import Bunner from "@/components/Bunner/Bunner";
 async function getFeatured() {
   const services = await fetch(`${process.env.NEXT_PUBLIC_LIBRARY_API_LOCAL}library/find-limit-items/?limit=6&offset=0&featured=true`,{
     next: {
@@ -37,6 +38,7 @@ export default async function Home() {
   const allCategory = await getCategory();
   return (
     <div className={styles.wrapper}>
+      <Bunner className={styles.banner}/>
       <div>
         <Slider categories={allCategory} services={allService.slice(0, 6)}/>
       </div>

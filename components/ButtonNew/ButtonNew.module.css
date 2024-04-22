@@ -136,6 +136,8 @@
 .defaultGhost {
     border: solid 1px var(--Background-color-2);
     box-shadow: var(--Shadow-buttons-default);
+    color: var(--Text-color-1);
+    background-color: var(--Background-color-5 );
 }
 
 .defaultGhost:hover, .defaultGhost:hover svg path {
