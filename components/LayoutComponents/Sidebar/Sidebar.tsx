@@ -51,7 +51,7 @@ const Sidebar = ({categories, className}: Props) => {
               </ButtonNew>
             </div>
             <div className={styles.tuk}></div>
-            <ButtonNew href='https://uiscore.lemonsqueezy.com/buy/101c4821-3cd0-4787-900c-fad723198647?embed=1&logo=0&discount=0' type='Default Ghost' size='es'   iconPosition={'iconRight'} width='max'>
+            <ButtonNew href='https://uiscore.lemonsqueezy.com/buy/101c4821-3cd0-4787-900c-fad723198647?embed=1&logo=0&discount=0' type='Default Ghost' className={"lemonsqueezy-button"} size='es' iconPosition={'iconRight'} width='max'>
               Support Us
             </ButtonNew>
             <footer className={styles.footer}>

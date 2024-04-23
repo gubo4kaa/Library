@@ -23,11 +23,12 @@ export default function Search({category}:Props) {
 
   const submitRef = useRef<HTMLInputElement>(null);
   const resetRef = useRef<HTMLButtonElement>(null);
+  const refSlash = useRef<HTMLButtonElement>(null);
   const [loadingState, setLoadingState] = useState(false);
   const [lengthSearch, setLengthSearch] = useState<boolean>(false);
 
   const [dataState, setDataState] = useState<IServiceInterface[] | undefined>(undefined);
-  
+
   const {
     register,
     handleSubmit,
@@ -38,7 +39,12 @@ export default function Search({category}:Props) {
   const { ref, ...rest } = register("searchString")
 
   const onSubmit = async (data: FormInputs) => {
-    //console.log(droDownState);
+    if(inputRef.current) {
+      if(inputRef.current.value.length == 1 && inputRef.current.value[0] == '/' || inputRef.current.value[0] == '.'){
+        inputRef.current.value = ''
+      }
+    }
+    console.log(inputRef.current?.value);
     setBlur(true);
     if(data.searchString.length > 0) {
       setLengthSearch(true);
@@ -62,6 +68,8 @@ export default function Search({category}:Props) {
       setDroDownState(false)
       setDataState(undefined)
     }
+
+    
   }
   
   const [blur, setBlur] = useBlurStore((state) => [state.blur, state.setBlur])
@@ -104,6 +112,20 @@ export default function Search({category}:Props) {
     }
   }, [droDownState]);
 
+  useEffect(() => {
+    const onKeypress = async (e: any) => {
+      // console.log(e)
+      if(e.code == 'Slash') {
+        refSlash.current?.click()
+      }
+    };
+  
+    document.addEventListener('keypress', onKeypress);
+  
+    return () => {
+      document.removeEventListener('keypress', onKeypress);
+    };
+  }, []);
   return (
     <div className={cn(styles.wrapper, {
       [styles.inactive]: popapState
@@ -118,9 +140,9 @@ export default function Search({category}:Props) {
         <input autoComplete="off" {...register("searchString")} placeholder="Search" className={styles.mainInput} ref={(e) => {
           ref(e)
           inputRef.current = e // you can still assign to ref
-        }} />
+        }}/>
         {/* {errors.exampleRequired && <p>This field is required</p>} */}
-        <input type="submit" hidden ref={submitRef}/>
+        <input  type="submit" hidden ref={submitRef}/>
         <button type="reset" hidden ref={resetRef} onClick={() => {setDroDownState(false); setBlur(false)}}/>
         <svg onClick={(e) => { submitRef.current?.click(); } } className={styles.searchLogo} width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="Search">
@@ -134,7 +156,7 @@ export default function Search({category}:Props) {
             <svg onClick={(e) => { resetRef.current?.click(); setDataState(undefined); setLengthSearch(false) } } className={styles.closeLogo} width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6.4165 6.41675L10.9998 11.0001M10.9998 11.0001L6.4165 15.5834M10.9998 11.0001L15.5832 6.41675M10.9998 11.0001L15.5832 15.5834" stroke="#909DB3" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-          ): (<span className={styles.slash} onClick={(e) => { inputRef.current?.focus(); } }>
+          ): (<span className={styles.slash} onClick={(e) => { inputRef.current?.focus(); } } ref={refSlash}>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
               <path d="M11.25 3L6 15.75" stroke="#6E7A90" stroke-width="1.6" stroke-linecap="round"/>
               </svg>
