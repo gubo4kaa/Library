@@ -1,5 +1,5 @@
 .button {
-    border-radius: 10 px;
+    border-radius: 10px;
     gap: 5px;
 
     max-width: 100%;
@@ -36,7 +36,6 @@
 
 .sizeEs {
     padding: 10px 18px;
-    border-radius: 12px;
 }
 
 .sizeEs.icon {
@@ -53,7 +52,6 @@
 
 .sizeS {
     padding: 9px 18px;
-    border-radius: 10px;
 }
 
 .sizeS.icon {
@@ -70,7 +68,6 @@
 
 .sizeM {
     padding: 14px 20px;
-    border-radius: 10px;
 }
 
 .sizeM.icon {
@@ -151,7 +148,6 @@
 
 /*-secondaryGhost-*/
 .secondaryGhost {
-    border-radius: 10px;
     background: var(--primary-colors-primary-6, #FFF);
     color: var(--Text-color-2);
 }
