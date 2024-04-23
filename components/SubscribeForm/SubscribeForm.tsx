@@ -78,9 +78,7 @@ export default function SubscribeForm({}:Props) {
 
     return ( popapState == 'subscribe' && (
          <div className={cn(styles.wrapper)}>
-            <Image src="/bunner/submit-bg3.png"
-            width={321}
-            height={146}
+            <img src="/bunner/submit-bg3.png"
             alt=''
             className={styles.img_bg}
             />

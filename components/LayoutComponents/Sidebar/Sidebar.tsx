@@ -17,7 +17,7 @@ const Sidebar = ({categories, className}: Props) => {
         <div className={styles.stickyWrapper}>
           <div className={styles.scrollWrapper}> 
             <Link href={'/'} className={styles.linkLogo}> 
-              <Image src={'/LibraryLogoCurrent.svg'} priority={true} quality={100} width={152} height={40} alt={''}/>
+              <Image src={'/LogoLibrary3.svg'} priority={true} quality={100} width={152} height={40} alt={''}/>
             </Link>
             <p className={styles.subtitle}>Categories</p>
             <CategoryList category={categories}/>
@@ -51,7 +51,7 @@ const Sidebar = ({categories, className}: Props) => {
               </ButtonNew>
             </div>
             <div className={styles.tuk}></div>
-            <ButtonNew href='https://forms.gle/Vu6PfB9XThuwcX7NA' type='Default Ghost' size='es'   iconPosition={'iconRight'} width='max'>
+            <ButtonNew href='https://uiscore.lemonsqueezy.com/buy/101c4821-3cd0-4787-900c-fad723198647?embed=1&logo=0&discount=0' type='Default Ghost' size='es'   iconPosition={'iconRight'} width='max'>
               Support Us
             </ButtonNew>
             <footer className={styles.footer}>
@@ -71,7 +71,9 @@ const Sidebar = ({categories, className}: Props) => {
               </div>
               <p>
                 © 2024 Made by Uiscore<br/>
-                libary@uiscore.io
+                <a href="mailto:libary@uiscore.io">
+                  libary@uiscore.io
+                </a>
               </p>
             </footer>
           </div>

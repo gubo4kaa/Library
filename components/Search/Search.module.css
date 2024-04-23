@@ -147,6 +147,7 @@
     display: flex;
     box-shadow: var(--Shadow-card-small);
     background-color: var(--Background-color-5);
+    cursor: pointer;
 }
 
 

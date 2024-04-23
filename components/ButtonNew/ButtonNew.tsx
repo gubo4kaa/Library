@@ -4,7 +4,6 @@ import styles from './ButtonNew.module.css'
 import cn from 'classnames';
 import Link from 'next/link';
 
-
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLAnchorElement>,HTMLAnchorElement> {
     href?: string,
     disable?: boolean,
