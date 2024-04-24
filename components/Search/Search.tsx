@@ -39,9 +39,7 @@ export default function Search({category}:Props) {
   const { ref, ...rest } = register("searchString")
 
   const onSubmit = async (data: FormInputs) => {
-    console.log('зашел1')
     if(inputRef.current) {
-      console.log('зашел2')
       if(inputRef.current.value.length == 1 && inputRef.current.value[0] == '/' || inputRef.current.value[0] == '.'){
         inputRef.current.value = ''
         setLengthSearch(false)
@@ -123,6 +121,15 @@ export default function Search({category}:Props) {
         inputRef.current?.focus()
       }
     };
+
+    document.addEventListener("keydown", (e) => {
+      if (e.code == "Escape") {
+        inputRef.current?.blur()
+        setBlur(false)
+        setDroDownState(false);
+      }
+    });
+
     document.addEventListener('keypress', onKeypress);
     return () => {
       document.addEventListener('keypress', onKeypress);
