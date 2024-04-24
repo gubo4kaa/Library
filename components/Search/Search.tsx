@@ -39,14 +39,18 @@ export default function Search({category}:Props) {
   const { ref, ...rest } = register("searchString")
 
   const onSubmit = async (data: FormInputs) => {
+    console.log('зашел1')
     if(inputRef.current) {
+      console.log('зашел2')
       if(inputRef.current.value.length == 1 && inputRef.current.value[0] == '/' || inputRef.current.value[0] == '.'){
         inputRef.current.value = ''
+        setLengthSearch(false)
       }
     }
     console.log(inputRef.current?.value);
     setBlur(true);
-    if(data.searchString.length > 0) {
+    if(data.searchString.length > 0 && data.searchString[0] !== '/' && data.searchString[0] !== '.') {
+      console.log(data.searchString)
       setLengthSearch(true);
     } else {
       setLengthSearch(false);
@@ -77,7 +81,7 @@ export default function Search({category}:Props) {
 
   const [droDownState, setDroDownState] = useState<boolean>(false);
   
-  const dorpRef = useRef<HTMLDivElement>(null);
+  const dropRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const path = usePathname()
 
@@ -92,11 +96,11 @@ export default function Search({category}:Props) {
       return
     } else {
       const handleClick = (e:any) => {
-        if(!dorpRef.current) return;
+        if(!dropRef.current) return;
         if(!inputRef.current) return;
-        if(!dorpRef.current.contains(e.target) && inputRef.current != e.target) {
+        if(!dropRef.current.contains(e.target) && inputRef.current != e.target) {
           // //console.log(inputRef.current)
-          // //console.log(dorpRef.current)
+          // //console.log(dropRef.current)
           // //console.log(e.target)
           // //console.log('cсработал хендлер')
           setDroDownState(false);
@@ -114,16 +118,14 @@ export default function Search({category}:Props) {
 
   useEffect(() => {
     const onKeypress = async (e: any) => {
-      // console.log(e)
+      console.log(e);
       if(e.code == 'Slash') {
-        refSlash.current?.click()
+        inputRef.current?.focus()
       }
     };
-  
     document.addEventListener('keypress', onKeypress);
-  
     return () => {
-      document.removeEventListener('keypress', onKeypress);
+      document.addEventListener('keypress', onKeypress);
     };
   }, []);
   return (
@@ -166,7 +168,7 @@ export default function Search({category}:Props) {
       </form>
       {
         droDownState && dataState && (
-          <div className={styles.dropDownWrapper} ref={dorpRef}>
+          <div className={styles.dropDownWrapper} ref={dropRef}>
             {
               dataState.map((item, key) => (
                 <Link href={`/services/${encodeURIComponent(item.name)}`} key={key} onClick={(i) => {setDroDownState(false); setBlur(false); setDataState(undefined)}}>
@@ -179,7 +181,7 @@ export default function Search({category}:Props) {
       }
       {
         droDownState && !dataState && lengthSearch && (
-          <div className={cn(styles.dropDownWrapper, styles.notFoundDataWrapper)} ref={dorpRef}>
+          <div className={cn(styles.dropDownWrapper, styles.notFoundDataWrapper)} ref={dropRef}>
             <Image src={'/notFoundSearch.png'} width={144} height={144} alt=''/>
             <div>
               <h4>
