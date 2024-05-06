@@ -160,6 +160,14 @@ select:focus, textarea:focus, input:focus {
     --Background-color-4: rgba(246, 246, 247, 1);
     --Background-color-5: rgba(255, 255, 255, 1);
 
+    --Primary-Gradients-Gradient-Primary-1: linear-gradient(180deg, #4C9EFF 0%, #2489FF 100%);
+    --Hover-Gradients-Hover-Gradient-Primary-1: linear-gradient(180deg, #5EA8FF 0%, #479CFF 100%);
+    --Active-Gradients-Active-Gradient-Primary-1: linear-gradient(180deg, #3592FF 0%, #0076FF 100%);
+    --Border-Gradients-Border-Gradient-Primary-1: linear-gradient(180deg, #3288ED 0%, #016DEC 100%);
+    --Disabled-Gradients-Disabled-Gradient-1: linear-gradient(180deg, rgba(76, 158, 255, 0.50) 0%, rgba(36, 137, 255, 0.50) 100%);
+    --Secondary-Gradients-Gradient-Secondary-1: linear-gradient(180deg, rgba(76, 158, 255, 0.15) 0%, rgba(36, 137, 255, 0.15) 100%);
+    --Soft-Gradients-Gradient-Soft-1: linear-gradient(180deg, rgba(76, 158, 255, 0.10) 0%, rgba(36, 137, 255, 0.10) 100%);
+
     --Shadow-card-small: 0px 1px 2px 0px rgba(138, 148, 166, 0.13);
     --Shadow-card-medium: 0px 3px 5px -1px rgba(138, 148, 166, 0.13);
     --Shadow-card-large: 0px 5px 7px -1px rgba(138, 148, 166, 0.13);

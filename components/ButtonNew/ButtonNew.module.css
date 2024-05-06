@@ -86,7 +86,7 @@
 
 .primary { 
     border: 1px solid var(--Active-Primary1, #257DE4);
-    background: var(--Primary1);
+    background: var(--Primary-Gradients-Gradient-Primary-1);
     /* Button Styles/Button Primary 1/Button Primary Default */
     box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset;
     color: var(--Primary6);
@@ -96,16 +96,16 @@
     border: 1px solid var(--Secondary1);
     cursor: not-allowed;
     pointer-events: none;
-    background-color: var(--Disabled-color1);
+    background: var(--Disabled-Gradients-Disabled-Gradient-1);
 }
 
 .primary:hover {
-    background-color: var(--Hover-Primary1);
+    background: var(--Hover-Gradients-Hover-Gradient-Primary-1);
 }
 
 .primary:active {
     border: 1px solid var(--border-primary-border-primary-1, #257DE4);
-    background-color: var(--Active-Primary1);
+    background: var(--Active-Gradients-Active-Gradient-Primary-1);
     box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset, 0px 0px 0px 3px rgba(36, 137, 255, 0.25);
 }
 
