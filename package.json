@@ -19,7 +19,7 @@
     "eslint-config-next": "13.4.9",
     "framer-motion": "^10.12.21",
     "html-react-parser": "^4.0.0",
-    "next": "13.4.9",
+    "next": "14.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-google-recaptcha": "^3.1.0",
