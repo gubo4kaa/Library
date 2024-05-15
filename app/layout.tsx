@@ -59,7 +59,7 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
       siteName: 'Library',
       locale: 'en_US',
       type: 'website',
-      images: 'opener.png',
+      images: 'opengraph-image.png',
     },
 
     robots: {
