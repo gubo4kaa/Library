@@ -59,7 +59,26 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
       siteName: 'Library',
       locale: 'en_US',
       type: 'website',
-      images: 'opengraph-image.png',
+      images: [
+        {
+          url: 'https:///libray.uiscore.io/opengraph-image.png', // Must be an absolute URL
+          width: 800,
+          height: 600,
+        },
+        {
+          url: 'https:///libray.uiscore.io/opengraph-image.png', // Must be an absolute URL
+          width: 1800,
+          height: 1600,
+          alt: 'My custom alt',
+        },
+      ],
+    },
+    
+    twitter: {
+      title: 'Library',
+      description: 'The library offers useful services for designers, developers and all Internet users. On our resource you will find a wide selection of tools, resources and programs that will help you improve your skills, increase your work efficiency and create high-quality projects. We offer services for design, programming, data analysis, project management and many other areas.',
+      creator: 'uiscore.io',
+      images: ['https://library.uiscore.io/twitter-image.png'], // Must be an absolute URL
     },
 
     robots: {
