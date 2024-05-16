@@ -61,12 +61,12 @@ const inter = Plus_Jakarta_Sans({ subsets: ['latin'],
       type: 'website',
       images: [
         {
-          url: 'https:///library.uiscore.io/opengraph-image.png', // Must be an absolute URL
+          url: 'https:///library.uiscore.io/og-image.png', // Must be an absolute URL
           width: 800,
           height: 600,
         },
         {
-          url: 'https:///library.uiscore.io/opengraph-image.png', // Must be an absolute URL
+          url: 'https:///library.uiscore.io/og-image.png', // Must be an absolute URL
           width: 1800,
           height: 1600,
           alt: 'My custom alt',
