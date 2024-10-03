@@ -6,7 +6,8 @@
     border-radius: 12px;
     display: flex;
     overflow: hidden;
-    background: #F6F6F7;
+    /* background: #F6F6F7; */
+    background: #000;
 }
 
 .main {
@@ -15,11 +16,13 @@
     flex-direction: column;
     max-width: max-content;
     z-index: 2;
-    background: linear-gradient(270deg, rgba(246, 246, 247, 0.00) 0%, rgba(246, 246, 247, 0.72) 28.4%, #F6F6F7 74.95%);
+    /* background: linear-gradient(270deg, rgba(246, 246, 247, 0.00) 0%, rgba(246, 246, 247, 0.72) 28.4%, #F6F6F7 74.95%); */
+    background: linear-gradient(270deg, rgba(246, 246, 247, 0.00) 0%, rgb(0, 0, 0) 40%, #000000 84.95%);
 }
 
 .main h1 {
-    color: var(--Text-color-1);
+    /* color: var(--Text-color-1); */
+    color: #fff;
     font-size: 22px;
     line-height: 24px;
     font-weight: 600;
@@ -28,6 +31,7 @@
 
 .main p {
     color: var(--Text-color-2);
+    color: #A1A1AA;
     margin-bottom: 16px;
 }
 
@@ -47,25 +51,32 @@
 
 .img__mb {
     display: none;
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
+    min-width: 450px;
     width: 100%;
     height: auto;
 }
 
 @media screen and (max-width: 690px) {
+    .wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
     .img {
         display: none;
     }
 
     .img__mb {
-        display: block;
+        display: flex;
+        z-index: 0;
     }
 
     .main {
+        padding-top: 0;
         min-width: 100%;
-        padding-top: 220px;
-        background: linear-gradient(180deg, rgba(246, 246, 247, 0.00) 0%, rgba(246, 246, 247, 0.72) 28.4%, #F6F6F7 74.95%);
+        background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 40%, #00000000 75%);
+        z-index: 1;
     }
 }
