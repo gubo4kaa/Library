@@ -48,9 +48,9 @@ const Sidebar = ({ categories, className }: Props) => {
             </Link> */}
           <div className={cn(styles.UiscoreLogo, styles.cardHelp)}>
             <Image
-              src={"/sidebaricons.png"}
+              src={"/sidebariconsnew.png"}
               height={231}
-              width={339}
+              width={455}
               alt={""}
               className={styles.logoes}
             ></Image>

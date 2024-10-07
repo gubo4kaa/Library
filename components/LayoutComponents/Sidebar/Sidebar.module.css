@@ -99,7 +99,7 @@
 }
 
 .logoes {
-    max-width: 80px;
+    max-width: 101px;
     height: auto;
     display: flex !important
 }
@@ -113,7 +113,7 @@
 }
 
 .hWrapper h4 {
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -121,7 +121,7 @@
 }
 
 .hWrapper p {
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
