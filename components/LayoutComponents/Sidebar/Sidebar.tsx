@@ -81,7 +81,7 @@ const Sidebar = ({ categories, className }: Props) => {
             </ButtonNew>
           </div>
           <div className={styles.tuk}></div>
-          <ButtonNew
+          {/* <ButtonNew
             href="https://uiscore.lemonsqueezy.com/buy/101c4821-3cd0-4787-900c-fad723198647?embed=1&logo=0&discount=0"
             type="Default Ghost"
             className={"lemonsqueezy-button"}
@@ -90,7 +90,7 @@ const Sidebar = ({ categories, className }: Props) => {
             width="max"
           >
             Support Us
-          </ButtonNew>
+          </ButtonNew> */}
           <footer className={styles.footer}>
             <div className={styles.linkWrapper}>
               <Link
