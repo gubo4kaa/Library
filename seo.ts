@@ -1,4 +1,4 @@
-export const siteUrl = "https://www.library.uiscore.io";
+export const siteUrl = "https://library.uiscore.io";
 export const siteName = "Library";
 export const siteDescription =
   "The library offers useful services for designers, developers and all Internet users. On our resource you will find a wide selection of tools, resources and programs that will help you improve your skills, increase your work efficiency and create high-quality projects. We offer services for design, programming, data analysis, project management and many other areas.";
