@@ -1,0 +1,51 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.link,
+.current {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--Text-color-3);
+  text-decoration: none;
+}
+
+.link {
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--Text-color-2);
+}
+
+.current {
+  color: var(--Text-color-2);
+}
+
+.separator {
+  color: #b7c0d0;
+  flex: 0 0 auto;
+}
+
+@media screen and (max-width: 696px) {
+  .wrapper {
+    margin-bottom: 14px;
+  }
+
+  .link,
+  .current {
+    font-size: 13px;
+    line-height: 18px;
+  }
+}

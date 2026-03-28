@@ -1,9 +1,17 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./404.module.css";
-import ButtonNew from "@/components/ButtonNew/ButtonNew";
+import styles from "./not-found.module.css";
 
-export default function Custom404() {
+export const metadata: Metadata = {
+  title: "Page Not Found",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+
+export default function NotFoundPage() {
   return (
     <div className={styles.page}>
       <div className={styles.card}>
@@ -17,17 +25,11 @@ export default function Custom404() {
         />
         <h1 className={styles.title}>Page not found</h1>
         <p className={styles.description}>
-          The page may have been moved, deleted, or never existed.
+          The page may have been moved, deleted, or never existed. Use the main
+          catalog to continue browsing Library.
         </p>
         <Link href="/" className={styles.button}>
-          <ButtonNew
-            type={"Primary"}
-            size="s"
-            iconPosition={"iconLeft"}
-            width="min"
-          >
-            Back to Home
-          </ButtonNew>
+          Back to Home
         </Link>
       </div>
     </div>

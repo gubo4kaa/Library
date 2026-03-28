@@ -1,45 +1,87 @@
-import AllComponent from "@/components/AllComponent/AllComponent"
-import { Metadata } from "next"
+import AllComponent from "@/components/AllComponent/AllComponent";
+import JsonLd from "@/components/Seo/JsonLd";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { createBreadcrumbJsonLd, createCanonicalUrl } from "@/seo";
 
 type Props = {
   params: {
-    name: string
-  }
-}
+    name: string;
+  };
+};
 
-export async function generateMetadata({params: {name}}: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params: { name },
+}: Props): Promise<Metadata> {
+  const decodedName = decodeURIComponent(name);
+  const description = `Browse ${decodedName} resources in the Library.`;
+
   return {
-    title: decodeURIComponent(name),
-  }
+    title: decodedName,
+    description,
+    alternates: {
+      canonical: `/category/${name}`,
+    },
+    openGraph: {
+      url: createCanonicalUrl(`/category/${name}`),
+      title: `${decodedName} | Library`,
+      description,
+    },
+  };
 }
 
-export const revalidate = 10
+export const revalidate = 10;
 
 async function getServices(name: string) {
-  const services = await fetch(`${process.env.LOCAL_LIBRARY_API}library/search-by-category/?category=${name}`,{
-    next: {
-      revalidate: 10
-    }
-  })
-  return services.json()
+  const services = await fetch(
+    `${process.env.LOCAL_LIBRARY_API}library/search-by-category/?category=${encodeURIComponent(name)}`,
+    {
+      next: {
+        revalidate: 10,
+      },
+    },
+  );
+  return services.json();
 }
 
 async function getCategory() {
-    const category = await fetch(`${process.env.LOCAL_LIBRARY_API}library/find-categories`,{
-      next:{
+  const category = await fetch(
+    `${process.env.LOCAL_LIBRARY_API}library/find-categories`,
+    {
+      next: {
         revalidate: 60,
-      }
-    })
-    return category.json()
+      },
+    },
+  );
+  return category.json();
 }
 
-export default async function Category({params: {name}}: Props) {
-    //console.log(name);
-    const categoryName = decodeURIComponent(name); 
-    const services = await getServices(name);
-    const categories = await getCategory();
-    return <div>
-        <AllComponent services={services ? services : null} namePage={categoryName} categories={categories} />
-    </div>
-}
+export default async function Category({ params: { name } }: Props) {
+  const categoryName = decodeURIComponent(name);
+  const services = await getServices(categoryName);
+  const categories = await getCategory();
+  const currentCategory = categories.find(
+    (item: ICategory) => item.nameCategory === categoryName,
+  );
 
+  if (!currentCategory) {
+    notFound();
+  }
+
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: currentCategory.nameCategory },
+  ];
+
+  return (
+    <>
+      <JsonLd data={createBreadcrumbJsonLd(breadcrumbItems)} />
+      <AllComponent
+        services={Array.isArray(services) ? services : []}
+        namePage={categoryName}
+        categories={categories}
+        breadcrumbs={breadcrumbItems}
+      />
+    </>
+  );
+}

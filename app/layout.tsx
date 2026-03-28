@@ -12,19 +12,19 @@ import AddServiceForm from "@/components/AddServiceForm/AddServiceForm";
 import Ymetrica from "@/components/LayoutComponents/Ymetrica";
 import { Analytics } from "@vercel/analytics/react";
 import CopyPopap from "@/components/CopyPopap/CopyPopap";
+import JsonLd from "@/components/Seo/JsonLd";
+import {
+  createOrganizationJsonLd,
+  createWebSiteJsonLd,
+  shareImagePath,
+  siteDescription,
+  siteUrl,
+} from "@/seo";
 
 const inter = Plus_Jakarta_Sans({ subsets: ["latin"], style: ["normal"] });
 
-const siteUrl = "https://library.uiscore.io";
-const siteDescription =
-  "The library offers useful services for designers, developers and all Internet users. On our resource you will find a wide selection of tools, resources and programs that will help you improve your skills, increase your work efficiency and create high-quality projects. We offer services for design, programming, data analysis, project management and many other areas.";
-const shareImagePath = "/Thumbnail.png";
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  alternates: {
-    canonical: "/",
-  },
   title: {
     default: "Library",
     template: "%s | Library",
@@ -251,6 +251,7 @@ export default async function RootLayout({
         ></meta>
       </head>
       <body className={cn(inter.className)}>
+        <JsonLd data={[createOrganizationJsonLd(), createWebSiteJsonLd()]} />
         <div className={styles.mainWrapper}>
           <div className={styles.mainGrid}>
             <Analytics />

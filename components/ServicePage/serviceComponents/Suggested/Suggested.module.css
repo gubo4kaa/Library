@@ -1,6 +1,7 @@
 .wrapper {
     display: flex;
     flex-direction: column;
+    padding: 0 24px 16px;
 }
 
 .wrapperCards {
@@ -38,16 +39,20 @@
 }
 
 @media screen and (max-width: 1200px) {
-    .wrapperCards>div:last-child {
+    .wrapperCards > div:last-child {
         display: none;
     }
 }
 
 @media screen and (max-width: 696px) {
+    .wrapper {
+        padding: 0 20px 10px;
+    }
+
     .wrapperCards {
         flex-direction: column;
     }
-    .wrapperCards>div:last-child {
+    .wrapperCards > div:last-child {
         display: block;
     }
 
