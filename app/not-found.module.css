@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 24px;
+}
+
+@media screen and (max-width: 696px) {
+  .wrapper {
+    min-height: 50vh;
+    padding: 20px;
+  }
+}

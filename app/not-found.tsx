@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import NotFound from "@/components/NotFound/NotFound";
+import styles from "./not-found.module.css";
 
 export const metadata: Metadata = {
   title: "Nothing Found",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function AppNotFound() {
   return (
-    <div style={{ padding: "16px 24px" }}>
+    <div className={styles.wrapper}>
       <NotFound />
     </div>
   );
