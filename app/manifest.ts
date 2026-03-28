@@ -1,20 +1,22 @@
-import { MetadataRoute } from 'next'
- 
+import { MetadataRoute } from "next";
+
+import { siteDescription, siteName, siteUrl } from "@/seo";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Library',
-    short_name: 'Library',
-    description: 'Your best service for selecting resources for productive work, or just for finding inspiration',
-    start_url: 'https://library.uiscore.io',
-    display: 'standalone',
-    background_color: '#fff',
-    theme_color: '#fff',
+    name: siteName,
+    short_name: siteName,
+    description: siteDescription,
+    start_url: siteUrl,
+    display: "standalone",
+    background_color: "#fff",
+    theme_color: "#fff",
     icons: [
       {
-        src: '/favicon.ico',
-        sizes: '96x96',
-        type: 'image/x-icon',
+        src: "/favicon.ico",
+        sizes: "96x96",
+        type: "image/x-icon",
       },
     ],
-  }
+  };
 }
