@@ -6,9 +6,78 @@
     overflow: hidden;
 }
 
-.img {
+.imageFrame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 37 / 32;
     border-radius: 16px;
+    overflow: hidden;
     margin-bottom: 7px;
+    background: #eef2f7;
+}
+
+.imagePlaceholder {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 255, 255, 0.9),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(205, 216, 230, 0.8),
+            rgba(232, 237, 244, 0.95)
+        );
+    filter: blur(18px);
+    transform: scale(1.08);
+    transition: opacity 0.25s ease-out;
+}
+
+.previewImg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(1.12);
+    transition: opacity 0.2s ease-out;
+}
+
+.previewImg[data-loaded="true"] {
+    opacity: 1;
+}
+
+.img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    filter: blur(18px);
+    transform: scale(1.05);
+    transition:
+        opacity 0.25s ease-out,
+        filter 0.35s ease-out,
+        transform 0.35s ease-out;
+}
+
+.imageFrame[data-loaded="true"] .img {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+}
+
+.imageFrame[data-loaded="true"] .imagePlaceholder {
+    opacity: 0;
+}
+
+.imageFrame[data-loaded="true"] .previewImg {
+    opacity: 0;
 }
 
 .arrow {
@@ -17,7 +86,7 @@
     position: absolute;
     bottom: 18px;
     right: 20px;
-    transition: all .1s ease-out;
+    transition: all 0.1s ease-out;
     max-height: max-content;
     max-width: max-content;
 }

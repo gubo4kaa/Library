@@ -9,25 +9,25 @@ import {
 } from "@/seo";
 
 type Props = {
-  params: {
+  params: Promise<{
     name: string;
-  };
+  }>;
 };
 
-export async function generateMetadata({
-  params: { name },
-}: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { name } = await params;
   const decodedName = decodeURIComponent(name);
+  const slug = encodeURIComponent(decodedName);
   const description = `Browse ${decodedName} resources in the Library.`;
 
   return {
     title: decodedName,
     description,
     alternates: {
-      canonical: `/category/${name}`,
+      canonical: `/category/${slug}`,
     },
     openGraph: {
-      url: createCanonicalUrl(`/category/${name}`),
+      url: createCanonicalUrl(`/category/${slug}`),
       title: `${decodedName} | Library`,
       description,
       images: [shareImagePath],
@@ -44,7 +44,7 @@ export const revalidate = 10;
 
 async function getServices(name: string) {
   const services = await fetch(
-    `${process.env.LOCAL_LIBRARY_API}library/search-by-category/?category=${name}`,
+    `${process.env.LOCAL_LIBRARY_API}library/search-by-category/?category=${encodeURIComponent(name)}`,
     {
       next: {
         revalidate: 10,
@@ -85,24 +85,27 @@ export async function generateStaticParams() {
   const normalizedCategories = Array.isArray(categories) ? categories : [];
 
   return normalizedCategories.map((item: ICategory) => ({
-    name: encodeURIComponent(item.nameCategory),
+    name: item.nameCategory,
   }));
 }
 
-export default async function Category({ params: { name } }: Props) {
+export default async function Category({ params }: Props) {
+  const { name } = await params;
+  const decodedName = decodeURIComponent(name);
+  const slug = encodeURIComponent(decodedName);
   const categories = await getCategory();
   if (!Array.isArray(categories)) {
     notFound();
   }
 
-  const currentCategory = findCategoryBySlug(categories, name);
+  const currentCategory = findCategoryBySlug(categories, slug);
 
   if (!currentCategory) {
     notFound();
   }
 
-  const categoryName = decodeURIComponent(name);
-  const services = await getServices(name);
+  const categoryName = decodedName;
+  const services = await getServices(decodedName);
   const normalizedServices = Array.isArray(services) ? services : [];
 
   const breadcrumbItems = [
@@ -115,7 +118,7 @@ export default async function Category({ params: { name } }: Props) {
     "@type": "CollectionPage",
     name: `${categoryName} | Library`,
     description: `Browse ${categoryName} resources in the Library.`,
-    url: createCanonicalUrl(`/category/${name}`),
+    url: createCanonicalUrl(`/category/${slug}`),
     isPartOf: {
       "@type": "WebSite",
       name: "Library",

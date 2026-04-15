@@ -1,18 +1,21 @@
-import { create } from 'zustand'
+import { shallow } from "zustand/shallow";
+import { createWithEqualityFn } from "zustand/traditional";
 
 type StateBlur = {
-    blur: boolean;
-}
-  
+  blur: boolean;
+};
+
 type Action = {
-    setBlur: (state: boolean) => void
-}
+  setBlur: (state: boolean) => void;
+};
 
 // Create your store, which includes both state and (optionally) actions
-export const useBlurStore = create<StateBlur & Action>((set) => ({
+export const useBlurStore = createWithEqualityFn<StateBlur & Action>(
+  (set) => ({
     blur: false,
     setBlur: (state: boolean) => {
-        set(() => ({ blur: state }))
+      set(() => ({ blur: state }));
     },
-}))
-
+  }),
+  shallow,
+);

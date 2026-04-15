@@ -10,21 +10,21 @@ import {
 } from "@/seo";
 
 type Props = {
-  params: {
+  params: Promise<{
     name: string;
-  };
+  }>;
 };
 
-export async function generateMetadata({
-  params: { name },
-}: Props): Promise<Metadata> {
-  const service = await getService(name);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { name } = await params;
+  const decodedName = decodeURIComponent(name);
+  const slug = encodeURIComponent(decodedName);
+  const service = await getService(decodedName);
 
   if (!service?.id) {
     notFound();
   }
 
-  const decodedName = decodeURIComponent(name);
   const title = service?.name || decodedName;
   const description =
     service?.description || `Browse ${decodedName} in the Library.`;
@@ -37,10 +37,10 @@ export async function generateMetadata({
     title,
     description,
     alternates: {
-      canonical: `/services/${name}`,
+      canonical: `/services/${slug}`,
     },
     openGraph: {
-      url: createCanonicalUrl(`/services/${name}`),
+      url: createCanonicalUrl(`/services/${slug}`),
       title: `${title} | Library`,
       description,
       images: [
@@ -62,7 +62,7 @@ export const revalidate = 10;
 
 async function getService(name: string) {
   const services = await fetch(
-    `${process.env.LOCAL_LIBRARY_API}library/find-item/?name=${name}`,
+    `${process.env.LOCAL_LIBRARY_API}library/find-item/?name=${encodeURIComponent(name)}`,
     {
       next: {
         revalidate: 60,
@@ -108,7 +108,7 @@ export async function generateStaticParams() {
   const normalizedServices = Array.isArray(services) ? services : [];
 
   return normalizedServices.map((item: IServiceInterface) => ({
-    name: encodeURIComponent(item.name),
+    name: item.name,
   }));
 }
 
@@ -122,7 +122,7 @@ function deleteService(
 ): IServiceInterface[] {
   const freeServices: IServiceInterface[] = [];
   services.map((e) => {
-    if (encodeURIComponent(e.name) != deleteName) {
+    if (e.name != deleteName) {
       freeServices.push(e);
     }
   });
@@ -134,8 +134,11 @@ function deleteService(
   return freeServices;
 }
 
-export default async function Service({ params: { name } }: Props) {
-  const service = await getService(name);
+export default async function Service({ params }: Props) {
+  const { name } = await params;
+  const decodedName = decodeURIComponent(name);
+  const slug = encodeURIComponent(decodedName);
+  const service = await getService(decodedName);
   if (!service?.id) {
     notFound();
   }
@@ -160,7 +163,7 @@ export default async function Service({ params: { name } }: Props) {
 
   const finishLastService = deleteService(
     Array.isArray(lastService) ? lastService : [],
-    name,
+    decodedName,
   );
   const breadcrumbItems = [
     { label: "Home", href: "/" },
@@ -181,7 +184,7 @@ export default async function Service({ params: { name } }: Props) {
     "@type": "WebPage",
     name: `${service.name} | Library`,
     description: service.description,
-    url: createCanonicalUrl(`/services/${name}`),
+    url: createCanonicalUrl(`/services/${slug}`),
     primaryImageOfPage: serviceImage,
     about: {
       "@type": "Thing",

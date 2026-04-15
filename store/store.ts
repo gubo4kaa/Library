@@ -1,18 +1,21 @@
-import { create } from 'zustand'
+import { shallow } from "zustand/shallow";
+import { createWithEqualityFn } from "zustand/traditional";
 
 type StateMenu = {
-    menuOpen: boolean;
-}
-  
+  menuOpen: boolean;
+};
+
 type Action = {
-    setOpenMenu: (state: boolean) => void
-}
+  setOpenMenu: (state: boolean) => void;
+};
 
 // Create your store, which includes both state and (optionally) actions
-export const useOpenMenuStore = create<StateMenu & Action>((set) => ({
+export const useOpenMenuStore = createWithEqualityFn<StateMenu & Action>(
+  (set) => ({
     menuOpen: false,
     setOpenMenu: (state: boolean) => {
-        set(() => ({ menuOpen: state }))
+      set(() => ({ menuOpen: state }));
     },
-}))
-
+  }),
+  shallow,
+);

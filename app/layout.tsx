@@ -3,7 +3,7 @@ import Header from "@/components/LayoutComponents/Header/Header";
 import MobileMenu from "@/components/LayoutComponents/MobileMenu/MobileMenu";
 import Sidebar from "@/components/LayoutComponents/Sidebar/Sidebar";
 import cn from "classnames";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import styles from "./layout.module.css";
@@ -158,7 +158,6 @@ export const metadata: Metadata = {
     { name: "Uiscore" },
     { name: "Uiscore", url: "https://uiscore.io" },
   ],
-  colorScheme: "light",
   creator: "Uiscore Company",
   publisher: "Uiscore",
   formatDetection: {
@@ -202,6 +201,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  colorScheme: "light",
+};
+
 async function getCategory() {
   const category = await fetch(
     `${process.env.LOCAL_LIBRARY_API}library/find-categories`,
@@ -237,10 +243,6 @@ export default async function RootLayout({
           type="image/<generated>"
           sizes="any"
         />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1"
-        ></meta>
       </head>
       <body className={cn(inter.className)}>
         <JsonLd data={[createOrganizationJsonLd(), createWebSiteJsonLd()]} />

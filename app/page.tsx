@@ -31,7 +31,7 @@ async function getFeatured() {
 
 async function getAllItems() {
   const services = await fetch(
-    `${process.env.LOCAL_LIBRARY_API}library/find-items`,
+    `${process.env.LOCAL_LIBRARY_API}library/find-limit-items/?limit=20&offset=0&featured=false`,
     {
       next: {
         revalidate: 60,
@@ -54,9 +54,11 @@ async function getCategory() {
 }
 
 export default async function Home() {
-  const featured = await getFeatured();
-  const allService = await getAllItems();
-  const allCategory = await getCategory();
+  const [featured, allService, allCategory] = await Promise.all([
+    getFeatured(),
+    getAllItems(),
+    getCategory(),
+  ]);
   return (
     <div className={styles.wrapper}>
       <div>
@@ -69,6 +71,7 @@ export default async function Home() {
         category={allCategory}
         link={"/recently"}
         featured
+        eagerCount={6}
       />
       <MiniGrid
         name="Recently Added"
@@ -76,6 +79,7 @@ export default async function Home() {
         size={"full"}
         category={allCategory}
         link={"/recently"}
+        eagerCount={8}
       />
     </div>
   );

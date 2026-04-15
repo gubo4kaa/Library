@@ -1,18 +1,21 @@
-import { create } from 'zustand';
+import { shallow } from "zustand/shallow";
+import { createWithEqualityFn } from "zustand/traditional";
 
 type Report = {
-    reportPopapState: boolean
-}
-  
+  reportPopapState: boolean;
+};
+
 type Action = {
-    setReportPopapState: (state: boolean) => void
-}
+  setReportPopapState: (state: boolean) => void;
+};
 
 // Create your store, which includes both state and (optionally) actions
-export const useReportStore = create<Report & Action>((set) => ({
+export const useReportStore = createWithEqualityFn<Report & Action>(
+  (set) => ({
     reportPopapState: false,
     setReportPopapState: (state: boolean) => {
-        set(() => ({ reportPopapState: state }))
+      set(() => ({ reportPopapState: state }));
     },
-}))
-
+  }),
+  shallow,
+);
