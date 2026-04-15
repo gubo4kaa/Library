@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import styles from "./MainCard.module.css";
+import Image from "next/image";
 interface Props {
   alt: string;
   eager?: boolean;
@@ -17,20 +18,13 @@ export default function MainCardImage({
   const [loaded, setLoaded] = useState(false);
   const [previewLoaded, setPreviewLoaded] = useState(false);
   const [previewFailed, setPreviewFailed] = useState(false);
-  useEffect(() => {
-    setLoaded(false);
-    setPreviewLoaded(false);
-    setPreviewFailed(false);
-    if (imageRef.current?.complete && imageRef.current.naturalWidth > 0) {
-      setLoaded(true);
-    }
-  }, [src]);
   return (
     <div className={styles.imageFrame} data-loaded={loaded}>
       {" "}
       <div className={styles.imagePlaceholder} aria-hidden="true" />{" "}
       {previewSrc && !previewFailed && (
-        <img
+        <Image
+          key={previewSrc}
           alt=""
           aria-hidden="true"
           src={previewSrc}
@@ -44,7 +38,8 @@ export default function MainCardImage({
           data-loaded={previewLoaded}
         />
       )}{" "}
-      <img
+      <Image
+        key={src}
         ref={imageRef}
         alt={alt}
         src={src}
