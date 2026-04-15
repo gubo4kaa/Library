@@ -1,11 +1,19 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react'
-import styles from './404.module.css'
+import Head from "next/head";
 
-interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
+import NotFoundPage from "@/components/NotFoundPage/NotFoundPage";
 
+export default function Custom404() {
+  return (
+    <>
+      <Head>
+        <title>Page Not Found | Library</title>
+        <meta
+          name="description"
+          content="The requested page could not be found."
+        />
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
+      <NotFoundPage />
+    </>
+  );
 }
-
-export default function Custom404({}: Props) {
-  return <div>404</div>
-}
-

@@ -31,12 +31,8 @@ export const metadata: Metadata = {
   },
   description: siteDescription,
   verification: {
-    google: "google",
+    google: "R8Af_c8CjfDZBppwEHaUnwdybYmDm0M7DAnQmeMx35M",
     yandex: "721b9fb9cda3105e",
-    yahoo: "yahoo",
-    other: {
-      me: ["my-email", "my-link"],
-    },
   },
   keywords: [
     "Design resources",
@@ -240,10 +236,6 @@ export default async function RootLayout({
           href="/favicon.png"
           type="image/<generated>"
           sizes="any"
-        />
-        <meta
-          name="google-site-verification"
-          content="R8Af_c8CjfDZBppwEHaUnwdybYmDm0M7DAnQmeMx35M"
         />
         <meta
           name="viewport"

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
-import NotFound from "@/components/NotFound/NotFound";
-import styles from "./not-found.module.css";
+import NotFoundPage from "@/components/NotFoundPage/NotFoundPage";
 
 export const metadata: Metadata = {
-  title: "Nothing Found",
+  title: "Page Not Found",
+  description: "The requested page could not be found.",
   robots: {
     index: false,
     follow: false,
@@ -12,9 +12,5 @@ export const metadata: Metadata = {
 };
 
 export default function AppNotFound() {
-  return (
-    <div className={styles.wrapper}>
-      <NotFound />
-    </div>
-  );
+  return <NotFoundPage />;
 }
