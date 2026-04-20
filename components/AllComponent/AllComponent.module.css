@@ -1,27 +1,23 @@
 .wrapper {
-    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px 32px 40px;
 }
 
-.header {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--Text-color-2);
-    margin-bottom: 24px;
+.headerRow {
     display: flex;
     align-items: center;
-}
-
-
-@media screen and (max-width: 1200px) {
-    
+    justify-content: space-between;
+    gap: 20px;
 }
 
 @media screen and (max-width: 696px) {
     .wrapper {
-        padding: 10px 20px;
+        padding: 16px 16px 32px;
     }
 
-    .header {
+    .headerRow {
         flex-direction: column;
         align-items: start;
     }

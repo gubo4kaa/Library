@@ -1,0 +1,79 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.titleGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+
+.iconMarkup {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+
+.iconMarkup svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.icon[data-tone="new"] {
+  color: #735ce6;
+}
+
+.icon[data-tone="featured"] {
+  color: #18bed4;
+}
+
+.icon[data-tone="recent"] {
+  color: #71717b;
+}
+
+.title {
+  color: var(--ui-text);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--ui-blue);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.action svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

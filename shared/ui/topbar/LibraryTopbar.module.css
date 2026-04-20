@@ -1,0 +1,77 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 60px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--ui-border);
+  background: var(--ui-bg);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo {
+  width: 111px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.search {
+  width: 126px;
+  min-width: 126px;
+}
+
+.subscribeButton {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 900px) {
+  .wrapper {
+    padding: 14px 16px;
+  }
+
+  .search {
+    width: 112px;
+    min-width: 112px;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    gap: 12px;
+  }
+
+  .logo {
+    width: 94px;
+    height: 28px;
+  }
+
+  .search {
+    width: 110px;
+    min-width: 110px;
+  }
+
+  .subscribeButton {
+    font-size: 13px;
+  }
+}

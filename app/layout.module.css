@@ -1,7 +1,6 @@
 .mainWrapper {
     max-width: 1440px;
     width: 100%;
-    width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
     min-height: 100vh;
@@ -9,17 +8,12 @@
 
 .mainGrid {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 272px 1fr;
     grid-template-rows: auto 1fr;
     grid-template-areas: 
-    'sidebar header'
+    'header header'
     'sidebar mainContent';
 }
-
-/* .contentColumnWrapper {
-    grid-area: mainContent;
-    min-width: 100%;
-} */
 
 .sidebar {
     grid-area: sidebar;
@@ -28,18 +22,23 @@
 .header {
     grid-area: header;
     box-sizing: border-box;
-    min-height: 86px;
-    height: 86px;
+    min-height: 60px;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: var(--ui-bg);
 }
 
 .content {
     grid-area: mainContent;
+    min-width: 0;
 }
 
 @media screen and (max-width: 900px) {
     .mainGrid {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
+        grid-template-rows: auto 1fr;
         grid-template-areas: 
         'header'
         'mainContent';

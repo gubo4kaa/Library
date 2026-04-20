@@ -35,15 +35,17 @@ export default async function ServicePage({
           { label: service.name },
         ]}
       />
-      <ServiceHeader service={service} category={category} />
-      <ImagesComponent service={service} />
-      <div className={styles.overview}>
-        <h4>Overview</h4>
-        <p>{service.description}</p>
+      <div className={styles.content}>
+        <ServiceHeader service={service} category={category} />
+        <ImagesComponent service={service} />
+        <div className={styles.overview}>
+          <h4>Overview</h4>
+          <p>{service.description}</p>
+        </div>
+        {lastService && (
+          <Suggested categories={categories} services={lastService} />
+        )}
       </div>
-      {lastService && (
-        <Suggested categories={categories} services={lastService} />
-      )}
       <div></div>
     </div>
   );

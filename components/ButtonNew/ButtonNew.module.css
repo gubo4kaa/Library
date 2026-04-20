@@ -1,186 +1,216 @@
 .button {
-    border-radius: 12px;
-    gap: 5px;
-
-    max-width: 100%;
-    width: max-content;
-    min-width: max-content;
-    height: 100%;
-
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    font-size: 14px;
-    font-weight: 700;
-    font-style: normal;
-    line-height: normal;
-
-    cursor: pointer;
+    gap: 6px;
+    width: max-content;
+    min-width: max-content;
+    max-width: 100%;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
     box-sizing: border-box;
     white-space: nowrap;
-    transition: all ease-in-out .1s;
+    text-decoration: none;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    cursor: pointer;
+    transition:
+        transform 0.16s ease,
+        box-shadow 0.16s ease,
+        border-color 0.16s ease,
+        background-color 0.16s ease,
+        color 0.16s ease;
+}
+
+.button svg {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+}
+
+.button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(36, 137, 255, 0.18);
 }
 
 .maxWidth {
     width: 100%;
 }
 
-/* .iconRight {
-    padding-left: 20px;
-}
-
-.iconLeft {
-    padding-right: 20px;
-} */
-
 .sizeEs {
-    padding: 10px 18px;
-    border-radius: 12px;
+    min-height: 28px;
+    padding: 4px 10px;
 }
 
 .sizeEs.icon {
-    padding: 9px;
+    width: 28px;
+    padding: 6px;
 }
 
 .sizeEs.iconLeft{
-    padding: 9px 18px 9px 12px;
+    padding: 4px 10px 4px 8px;
 }
 
 .sizeEs.iconRight {
-    padding: 9px 12px 9px 18px;
+    padding: 4px 8px 4px 10px;
 }
 
 .sizeS {
-    padding: 9px 18px;
-    border-radius: 10px;
+    min-height: 32px;
+    padding: 6px 10px;
 }
 
 .sizeS.icon {
-    padding: 11px;
+    width: 32px;
+    padding: 8px;
 }
 
 .sizeS.iconLeft{
-    padding: 9px 18px 9px 12px;
+    padding: 6px 10px 6px 8px;
 }
 
 .sizeS.iconRight {
-    padding: 9px 12px 9px 18px;
+    padding: 6px 8px 6px 10px;
 }
 
 .sizeM {
-    padding: 14px 20px;
-    border-radius: 14px;
+    min-height: 40px;
+    padding: 10px 12px;
 }
 
 .sizeM.icon {
-    padding: 13px;
+    width: 40px;
+    padding: 12px;
 }
 
 .sizeM.iconLeft{
-    padding: 13px 20px 13px 13px;
+    padding: 10px 12px 10px 10px;
 }
 
 .sizeM.iconRight {
-    padding: 13px 13px 13px 20px;
+    padding: 10px 10px 10px 12px;
 }
 
 /*-Primary-*/
 
 .primary { 
-    border: 1px solid var(--Active-Primary1, #257DE4);
-    background: var(--Primary1);
-    /* Button Styles/Button Primary 1/Button Primary Default */
-    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset;
-    color: var(--Primary6);
+    background: var(--ui-blue);
+    box-shadow: var(--ui-shadow-primary);
+    color: #fff;
 }
 
 .primary.disable {
-    border: 1px solid var(--Secondary1);
     cursor: not-allowed;
     pointer-events: none;
-    background-color: var(--Disabled-color1);
+    background: rgba(36, 137, 255, 0.5);
+    box-shadow: 0 0 0 1px rgba(36, 137, 255, 0.14);
+    color: rgba(255, 255, 255, 0.86);
 }
 
 .primary:hover {
-    background-color: var(--Hover-Primary1);
+    background: #1b71f5;
+    box-shadow: 0 2px 6px rgba(27, 113, 245, 0.3);
 }
 
 .primary:active {
-    border: 1px solid var(--border-primary-border-primary-1, #257DE4);
-    background-color: var(--Active-Primary1);
-    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset, 0px 0px 0px 3px rgba(36, 137, 255, 0.25);
+    transform: translateY(1px);
+    background: #1b71f5;
 }
 
 /*-LinkGhost-*/
 
 .linkGhost {
-    color: var(--Text-color-4);
+    min-height: auto;
     padding: 0;
-    max-height: max-content;
-    height: max-content;
+    color: var(--ui-subtle);
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .linkGhost:hover, .linkGhost:hover svg path {
-    color: var(--Primary1);
-    stroke: var(--Primary1);
+    color: var(--ui-blue);
+    stroke: var(--ui-blue);
 }
 
 .linkGhost:active, .linkGhost:active svg path {
-    color: var(--Active-Primary1);
-    stroke: var(--Active-Primary1);
+    color: #1b71f5;
+    stroke: #1b71f5;
 }
 
 /*-defaultGhost-*/
 
 .defaultGhost {
-    border: solid 1px var(--Background-color-2);
-    box-shadow: var(--Shadow-buttons-default);
+    background: var(--ui-bg);
+    border: 1px solid var(--ui-border);
+    box-shadow: var(--ui-shadow-button);
+    color: var(--ui-subtle);
 }
 
 .defaultGhost:hover, .defaultGhost:hover svg path {
-    border-color: var(--Background-color-1);
-    box-shadow: var(--Shadow-buttons-hover);
+    border-color: #d4d4d8;
+    background: var(--ui-bg-subtle);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    color: var(--ui-text);
+    stroke: currentColor;
 }
 
 .defaultGhost:active, .defaultGhost:active svg path {
-    box-shadow: var(--Shadow-buttons-active);
+    background: #ededee;
+    box-shadow: var(--ui-shadow-button);
+    color: var(--ui-text);
+    stroke: currentColor;
 }
 
 /*-secondaryGhost-*/
 .secondaryGhost {
-    border-radius: 14px;
-    background: var(--primary-colors-primary-6, #FFF);
-    color: var(--Text-color-3);
+    background: var(--ui-bg);
+    border: 1px solid transparent;
+    color: var(--ui-subtle);
+    box-shadow: none;
 }
 .secondaryGhost:hover {
-    background-color: var(--Background-color-4);
+    background-color: var(--ui-bg-subtle);
+    color: var(--ui-text);
 }
 
 .secondaryGhost:active {
-    background-color: var(--Background-color-3);
+    background-color: #ededee;
 }
 
 /*-defaultPrimary-*/
 
 .defaultPrimary {
-    border: 1px solid var(--Background-color-2);
-    box-shadow: var(--Shadow-buttons-default);
-    color: var(--Primary1);
+    background: var(--ui-bg);
+    border: 1px solid var(--ui-border);
+    box-shadow: var(--ui-shadow-button);
+    color: var(--ui-blue);
 }
 
 .defaultPrimary:hover {
-    border-color: var(--Background-color-1);
-    box-shadow: var(--Shadow-buttons-hover);
+    border-color: #d4d4d8;
+    background: #f8fbff;
+    box-shadow: 0 2px 6px rgba(36, 137, 255, 0.08);
 }
 
 .defaultPrimary:active, .defaultPrimary:active svg path  {
-    box-shadow: var(--Shadow-buttons-active);
-    color: var(--Active-Primary1);
-    stroke: var(--Active-Primary1);
+    background: #eff6ff;
+    box-shadow: var(--ui-shadow-button);
+    color: #1b71f5;
+    stroke: #1b71f5;
 }
 
-.defaultPrimary:disabled {
-    border: 1px solid var(--Background-color-2);
-    color: var( --Disabled-color1);
+.disable,
+.button[aria-disabled="true"],
+.button:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none;
+}
+
+.button p {
+    margin: 0;
 }

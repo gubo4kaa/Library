@@ -1,26 +1,24 @@
 .wrapper {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
     margin-left: auto;
     width: max-content;
-    
 }
 
 .button {
     display: flex;
     align-items: center;
     gap: 6px;
-
-    padding: 5px 10px;
+    padding: 0 8px;
+    min-height: 20px;
     cursor: pointer;
-
-    font-size: 14px;
-    font-style: normal;
+    font-size: 12px;
     font-weight: 700;
-    color: var(--Text-color-4);
-    background-color: var(--Background-color-4);
-    border-radius: 8px;
-
+    color: var(--ui-subtle);
+    background-color: var(--ui-bg-subtle);
+    border: 1px solid var(--ui-border);
+    border-radius: 999px;
     min-width: max-content;
     transition: all ease-in .1s;
     overflow: hidden;
@@ -41,17 +39,15 @@
 }
 
 .active {
-    background-color: var(--Soft1);
-    color: var(--Primary1);
+    background-color: #eff6ff;
+    border-color: #bfdbfe;
+    color: var(--ui-blue);
 }
 
 @media screen and (max-width: 696px) {
     .wrapper {
-        margin-top: 14px;
         margin-left: 0;
-        gap: 12px;
         max-width: 100%;
         width: 100%;
-        flex-wrap: wrap;
     }
 }

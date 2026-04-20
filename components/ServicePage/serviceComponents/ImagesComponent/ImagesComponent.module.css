@@ -9,9 +9,81 @@
     max-width: 1142px;
 }
 
-.img {
+.frame {
+    position: relative;
     width: 100%;
-    max-width: 100%;
-    height: auto;
+    aspect-ratio: 1142 / 736;
+    background: #eef2f7;
+    overflow: hidden;
+}
+
+.placeholder {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 255, 255, 0.9),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(205, 216, 230, 0.8),
+            rgba(232, 237, 244, 0.95)
+        );
+    filter: blur(18px);
+    transform: scale(1.08);
+    transition: opacity 0.25s ease-out;
+}
+
+.previewImg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    filter: blur(28px);
+    transform: scale(1.08);
+    transition: opacity 0.2s ease-out;
+}
+
+.previewImg[data-loaded="true"] {
+    opacity: 1;
+}
+
+.img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     vertical-align: bottom;
+    opacity: 0;
+    filter: blur(22px);
+    transform: scale(1.03);
+    transition:
+        opacity 0.25s ease-out,
+        filter 0.35s ease-out,
+        transform 0.35s ease-out;
+}
+
+.frame[data-loaded="true"] .img {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+}
+
+.frame[data-loaded="true"] .placeholder {
+    opacity: 0;
+}
+
+.frame[data-loaded="true"] .previewImg {
+    opacity: 0;
+}
+
+@media screen and (max-width: 696px) {
+    .wrapper {
+        margin-top: 16px;
+    }
 }

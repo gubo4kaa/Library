@@ -1,75 +1,49 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
-import bannerDesktop from "./Frame1362789696.png";
-import bannerMobile from "./FrameS.png";
-import bannerTablet from "./Framesm.png";
+import ButtonNew from "@/components/ButtonNew/ButtonNew";
+import { useSubscribeStore } from "@/store/SubscribeStore";
+import { useBlurStore } from "@/store/storeBlur";
+import Image from "next/image";
 import styles from "./Slider.module.css";
 
 const Slider = () => {
+  const [, setBlur] = useBlurStore((state) => [state.blur, state.setBlur]);
+  const [, setPopapState] = useSubscribeStore((state) => [
+    state.popapState,
+    state.setPopapState,
+  ]);
+
   return (
-    <section className={styles.wrapper} aria-label="Uiscore banner">
-      <div className={styles.desktopTabletCard}>
+    <section className={styles.wrapper} aria-label="Library hero banner">
+      <div className={styles.card}>
         <div className={styles.copy}>
-          <h2 className={styles.title}>High-end design resources from Uiscore</h2>
+          <h2 className={styles.title}>Ultimate resource hub for professionals</h2>
           <p className={styles.description}>
-            Create, enhance, and build faster with our premium library of design
-            assets for digital creators.
+            A curated collection of resources for digital creators, updated
+            weekly.
           </p>
-          <Link
-            href="https://uiscore.io"
-            target="_blank"
-            rel="noreferrer"
+          <ButtonNew
+            type="Primary"
+            size="s"
             className={styles.button}
+            onClick={() => {
+              setBlur(true);
+              setPopapState("subscribe");
+            }}
           >
-            Visit Uiscore
-          </Link>
+            Subscribe for Free
+          </ButtonNew>
         </div>
 
         <div className={styles.visual} aria-hidden="true">
           <Image
-            src={bannerDesktop}
+            src="/home-hero-figma.png"
             alt=""
-            className={`${styles.banner} ${styles.desktopBanner}`}
+            className={styles.banner}
             priority
-            sizes="(max-width: 1023px) 0px, 671px"
+            fill
+            sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1280px) 58vw, 760px"
           />
-          <Image
-            src={bannerTablet}
-            alt=""
-            className={`${styles.banner} ${styles.tabletBanner}`}
-            priority
-            sizes="(max-width: 767px) 0px, (max-width: 1023px) 255px, 0px"
-          />
-        </div>
-      </div>
-
-      <div className={styles.mobileCard}>
-        <Image
-          src={bannerMobile}
-          alt=""
-          className={styles.mobileBanner}
-          priority
-          sizes="(max-width: 767px) calc(100vw - 48px), 0px"
-          aria-hidden="true"
-        />
-
-        <div className={styles.mobileOverlay}>
-          <h2 className={styles.mobileTitle}>
-            High-end design resources from Uiscore
-          </h2>
-          <p className={styles.mobileDescription}>
-            Create, enhance, and build faster with our premium library of design
-            assets for digital creators.
-          </p>
-          <Link
-            href="https://uiscore.io"
-            target="_blank"
-            rel="noreferrer"
-            className={`${styles.button} ${styles.mobileButton}`}
-          >
-            Visit Uiscore
-          </Link>
         </div>
       </div>
     </section>

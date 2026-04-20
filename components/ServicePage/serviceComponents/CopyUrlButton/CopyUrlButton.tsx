@@ -1,9 +1,7 @@
 'use client'
 import ButtonNew from '@/components/ButtonNew/ButtonNew'
 import styles from './CopyUrlButton.module.css'
-import { DetailedHTMLProps, HTMLAttributes, useCallback, useEffect, useRef } from 'react'
-import { useClipboard } from 'use-clipboard-copy';
-import { useCopyToClipboard } from 'usehooks-ts'
+import { DetailedHTMLProps, HTMLAttributes } from 'react'
 import { useStateCopy } from '@/store/storeCopy';
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
@@ -12,11 +10,16 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDiv
 
 export default function CopyUrlButton({urlCopy}:Props) {
     const url = `https://${urlCopy}`
-    const [copyState, setCopyState] = useStateCopy((state) => [state.copyState, state.setCopyState])
+    const [, setCopyState] = useStateCopy((state) => [state.copyState, state.setCopyState])
     
     return  (
-        <button onClick={() => {navigator.clipboard.writeText(url); setCopyState(true)}} className={styles.button}>
-            <ButtonNew width={'max'} size='m' preventDefault iconPosition={'icon'} type='Default Ghost' className={styles.wrapper}>
+            <ButtonNew
+            onClick={() => {navigator.clipboard.writeText(url); setCopyState(true)}}
+            size='s'
+            iconPosition={'iconLeft'}
+            type='Default Ghost'
+            className={styles.button}
+            >
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="Copy">
                     <path id="Vector" d="M12.833 2.75C17.8234 2.75 19.25 4.17593 19.25 9.16667C19.25 14.1574 17.7686 15.5833 12.833 15.5833C7.89744 15.5833 6.41667 14.1574 6.41667 9.16667C6.41667 4.17593 7.84259 2.75 12.833 2.75Z" stroke="#6E7A90" strokeWidth="1.96364" strokeLinecap="round" strokeLinejoin="round"/>
@@ -27,7 +30,5 @@ export default function CopyUrlButton({urlCopy}:Props) {
                 Copy Link
             </p>
             </ButtonNew>
-        </button>
     )
 }
-

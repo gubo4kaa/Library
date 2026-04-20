@@ -1,6 +1,5 @@
 import { DetailedHTMLProps, HTMLAttributes, ReactElement } from "react";
-import styles from "./Button.module.css";
-import cn from "classnames";
+import ButtonNew from "../ButtonNew/ButtonNew";
 
 interface Props extends DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
@@ -18,28 +17,18 @@ export default function Button({
   href,
   size = "small",
   width = null,
-  height = null,
   className,
   children,
 }: Props): ReactElement {
   return (
-    <a
+    <ButtonNew
       href={href}
-      className={cn(
-        styles.button,
-        {
-          [styles.extraSmall]: size == "extraSmall",
-          [styles.small]: size == "small",
-          [styles.medium]: size == "medium",
-          [styles.blueWhite]: color == "blueWhite",
-          [styles.whiteBlue]: color == "whiteBlue",
-          [styles.widthFull]: width == "full",
-          [styles.heightFull]: height == "full",
-        },
-        className,
-      )}
+      className={className}
+      size={size === "medium" ? "m" : "s"}
+      width={width === "full" ? "max" : "min"}
+      type={color === "blueWhite" ? "Primary" : "Default Primary"}
     >
       {children}
-    </a>
+    </ButtonNew>
   );
 }

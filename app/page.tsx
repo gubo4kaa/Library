@@ -1,9 +1,6 @@
 import MiniGrid from "@/components/MiniGrid/MiniGrid";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
-import VideoGrid from "@/components/VideoGrid/VideoGrid";
-import ym, { YMInitializer } from "react-yandex-metrika";
-import Preloader from "@/components/Preloader/Preloader";
 import Slider from "@/components/Slider/Slider";
 import { createCanonicalUrl, siteDescription } from "@/seo";
 
@@ -59,27 +56,41 @@ export default async function Home() {
     getAllItems(),
     getCategory(),
   ]);
+
+  const normalizedFeatured = Array.isArray(featured) ? featured : [];
+  const normalizedRecent = Array.isArray(allService) ? allService : [];
+  const normalizedCategories = Array.isArray(allCategory) ? allCategory : [];
+
   return (
     <div className={styles.wrapper}>
-      <div>
-        <Slider />
-      </div>
+      <Slider />
+      <MiniGrid
+        name="New on Library"
+        items={normalizedRecent.slice(0, 3)}
+        size={"mini"}
+        category={normalizedCategories}
+        link={"/recently"}
+        eagerCount={3}
+        tone="new"
+      />
       <MiniGrid
         name="Featured Resources"
-        items={featured}
+        items={normalizedFeatured.slice(0, 3)}
         size={"mini"}
-        category={allCategory}
+        category={normalizedCategories}
         link={"/recently"}
         featured
-        eagerCount={6}
+        eagerCount={3}
+        tone="featured"
       />
       <MiniGrid
         name="Recently Added"
-        items={allService}
+        items={normalizedRecent.slice(3, 12)}
         size={"full"}
-        category={allCategory}
+        category={normalizedCategories}
         link={"/recently"}
-        eagerCount={8}
+        eagerCount={6}
+        tone="recent"
       />
     </div>
   );

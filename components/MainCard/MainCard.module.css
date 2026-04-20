@@ -1,18 +1,10 @@
-.wrapper {
-    position: relative;
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    overflow: hidden;
-}
-
 .imageFrame {
     position: relative;
     width: 100%;
-    aspect-ratio: 37 / 32;
-    border-radius: 16px;
+    aspect-ratio: 352 / 184;
+    border-radius: 8px 8px 0 0;
     overflow: hidden;
-    margin-bottom: 7px;
+    margin-bottom: 0;
     background: #eef2f7;
 }
 
@@ -78,20 +70,4 @@
 
 .imageFrame[data-loaded="true"] .previewImg {
     opacity: 0;
-}
-
-.arrow {
-    display: flex;
-    opacity: 0;
-    position: absolute;
-    bottom: 18px;
-    right: 20px;
-    transition: all 0.1s ease-out;
-    max-height: max-content;
-    max-width: max-content;
-}
-
-.wrapper:hover .arrow {
-    opacity: 1;
-    right: 0px;
 }

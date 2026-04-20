@@ -1,37 +1,14 @@
 .wrapper {
-    padding-top: 30px;
-    border-top: solid 1px var(--Background-color-2);
-}
-
-.headerWrapper {
     display: flex;
-    justify-content: space-between;
-
-}
-
-.headerWrapper h4 {
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    color: var(--Text-color-2);
-}
-
-.link {
-    align-self: center;
-    display: flex;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    color: var(--Primary1);
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 8px;
 }
 
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-    padding: 16px 0;
+    gap: 24px;
 }
 
 @media screen and (max-width: 1200px) {

@@ -1,197 +1,140 @@
 .wrapper {
     width: 100%;
-    margin-bottom: 20px;
 }
 
-.desktopTabletCard,
-.mobileCard {
-    overflow: hidden;
-    border: 1px solid #d4d4d8;
-    border-radius: 12px;
-    background: linear-gradient(180deg, #fbfbfb 0%, #f6f6f7 100%);
-    box-shadow: 0 3px 5px -1px rgba(138, 148, 166, 0.13);
-}
-
-.desktopTabletCard {
+.card {
+    position: relative;
     display: grid;
-    grid-template-columns: 479px minmax(0, 1fr);
+    grid-template-columns: minmax(300px, 0.78fr) minmax(360px, 1.22fr);
     align-items: stretch;
-    min-height: 178px;
-    height: 178px;
+    min-height: 260px;
+    overflow: hidden;
+    border: 1px solid var(--ui-border);
+    border-radius: 10px;
+    background:
+        radial-gradient(circle at 17% 28%, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0) 50%),
+        linear-gradient(180deg, #fbfbfc 0%, #f4f4f5 100%);
+    box-shadow: var(--ui-shadow-card);
 }
 
 .copy {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 16px;
+    gap: 14px;
     box-sizing: border-box;
-    width: 479px;
-    padding: 20px;
+    width: 100%;
+    padding: 36px 34px 36px 32px;
 }
 
 .title {
-    max-width: 439px;
+    max-width: 320px;
     margin: 0;
-    color: #21252b;
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 28px;
+    color: var(--ui-text);
+    font-size: clamp(38px, 4vw, 48px);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -0.035em;
 }
 
 .description {
-    max-width: 439px;
+    max-width: 284px;
     margin: 0;
-    color: #3c414a;
-    font-size: 16px;
+    color: var(--ui-description);
+    font-size: 14px;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 1.6;
 }
 
 .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 38px;
-    padding: 10px 18px;
-    border: 1px solid #e4e4e4;
-    border-radius: 10px;
-    background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
-    box-shadow: var(--Shadow-buttons-default);
-    color: #21252b;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1;
-    text-decoration: none;
-    white-space: nowrap;
-    cursor: pointer;
-    user-select: none;
-    transition:
-        background 0.14s ease,
-        box-shadow 0.14s ease,
-        border-color 0.14s ease,
-        color 0.14s ease;
-}
-
-.button:hover {
-    border-color: #d4d4d8;
-    background: linear-gradient(180deg, #ffffff 0%, #f6f6f7 100%);
-    box-shadow: var(--Shadow-buttons-hover);
-}
-
-.button:active {
-    border-color: #d4d4d8;
-    background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
-    box-shadow: var(--Shadow-buttons-active);
-    color: #21252b;
-}
-
-.button:focus-visible {
-    outline: none;
-    border-color: #d4d4d8;
-    box-shadow: var(--Shadow-buttons-active);
-}
-
-.button:visited {
-    color: #21252b;
+    margin-top: 2px;
 }
 
 .visual {
     position: relative;
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    height: 178px;
+    min-height: 260px;
     overflow: hidden;
 }
 
 .banner {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
-    object-position: center;
-}
-
-.desktopBanner,
-.tabletBanner {
-    display: none;
-}
-
-.desktopBanner {
-    display: block;
-    flex: none;
-    width: 671px;
-    min-width: 671px;
-    max-width: none;
-}
-
-.mobileCard {
-    display: none;
-    position: relative;
-    min-height: 390px;
-    height: 390px;
-}
-
-.mobileBanner {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-}
-
-.mobileOverlay {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 16px;
-    padding: 20px;
-}
-
-.mobileTitle {
-    margin: 0;
-    color: #21252b;
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 30px;
-}
-
-.mobileDescription {
-    margin: 0;
-    color: #3c414a;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-}
-
-.mobileButton {
-    width: 100%;
+    object-position: right center;
+    transform: scale(1.02);
 }
 
 @media (max-width: 1023px) {
-    .desktopTabletCard {
-        grid-template-columns: minmax(0, 1fr) 255px;
+    .card {
+        grid-template-columns: minmax(260px, 0.92fr) minmax(260px, 1.08fr);
+        min-height: 236px;
     }
 
-    .desktopBanner {
-        display: none;
+    .copy {
+        padding: 28px 24px;
     }
 
-    .tabletBanner {
-        display: block;
+    .title {
+        max-width: 280px;
+        font-size: clamp(30px, 4.4vw, 40px);
+    }
+
+    .description {
+        max-width: 250px;
+    }
+
+    .visual {
+        min-height: 236px;
+    }
+
+    .banner {
+        object-position: 66% center;
     }
 }
 
 @media (max-width: 767px) {
-    .desktopTabletCard {
-        display: none;
+    .card {
+        grid-template-columns: 1fr;
+        min-height: 0;
     }
 
-    .mobileCard {
-        display: block;
+    .copy {
+        padding: 24px 20px 0;
+        gap: 12px;
+    }
+
+    .title {
+        max-width: 100%;
+        font-size: 34px;
+    }
+
+    .description {
+        max-width: 100%;
+    }
+
+    .visual {
+        min-height: 220px;
+        margin-top: 8px;
+    }
+
+    .banner {
+        object-position: 62% center;
+        transform: scale(1.08);
+    }
+}
+
+@media (max-width: 520px) {
+    .title {
+        font-size: 30px;
+    }
+
+    .visual {
+        min-height: 184px;
+    }
+
+    .banner {
+        object-position: 63% center;
+        transform: scale(1.14);
     }
 }

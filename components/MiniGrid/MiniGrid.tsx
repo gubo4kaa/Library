@@ -1,8 +1,7 @@
-import Link from "next/link";
+import SectionHeader from "@/shared/ui/section-header/SectionHeader";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 import MainCard from "../MainCard/MainCard";
 import styles from "./MiniGrid.module.css";
-import LinkGrid from "../LinkGrid/LinkGrid";
 
 interface Props extends DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
@@ -15,25 +14,20 @@ interface Props extends DetailedHTMLProps<
   link: string;
   featured?: boolean;
   eagerCount?: number;
+  tone?: "new" | "featured" | "recent";
 }
 
 export default function MiniGrid({
   name,
-  size,
   items,
   category,
   link,
-  featured,
   eagerCount = 0,
+  tone = "recent",
 }: Props) {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.headerWrapper}>
-        <h4>{name}</h4>
-        <LinkGrid url={link} featured={featured}>
-          View More
-        </LinkGrid>
-      </div>
+      <SectionHeader title={name} tone={tone} actionHref={link} />
       <div className={styles.grid}>
         {items.map((item, index) => (
           <MainCard

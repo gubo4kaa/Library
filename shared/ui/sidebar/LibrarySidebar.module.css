@@ -1,0 +1,288 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 60px);
+  border-right: 1px solid var(--ui-border);
+  background: var(--ui-bg);
+}
+
+.sticky {
+  position: sticky;
+  top: 60px;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 60px);
+}
+
+.scroll {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 18px;
+  padding: 14px 12px;
+  overflow-y: auto;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sectionTitle {
+  padding: 0 8px;
+  color: var(--ui-muted);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 0;
+}
+
+.divider {
+  height: 1px;
+  background: var(--ui-border);
+  margin: 0;
+}
+
+.navLink,
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+  padding: 6px 8px;
+  color: var(--ui-subtle);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.navLink {
+  min-height: 32px;
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+.navLink:hover {
+  background: var(--ui-bg-subtle);
+  color: var(--ui-text);
+}
+
+.active {
+  background: var(--ui-bg-subtle);
+  color: var(--ui-text);
+}
+
+.isDisabled {
+  cursor: default;
+}
+
+.navIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: currentColor;
+  flex: 0 0 16px;
+}
+
+.inlineIcon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+}
+
+.inlineIcon svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trailingIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: #7b8090;
+  flex: 0 0 16px;
+}
+
+.badgeSoon {
+  margin-left: auto;
+  border-radius: 999px;
+  background: #f98507;
+  color: var(--ui-bg);
+  padding: 0 6px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.legendItem {
+  min-height: 28px;
+  padding: 4px 8px;
+  color: var(--ui-subtle);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.legendDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  flex: 0 0 6px;
+}
+
+.legendDot[data-tone="featured"] {
+  background: #00b7ff;
+}
+
+.legendDot[data-tone="free"] {
+  background: #32b332;
+}
+
+.legendDot[data-tone="paid"] {
+  background: #ff3347;
+}
+
+.legendDot[data-tone="trial"] {
+  background: #f98507;
+}
+
+.legendDot[data-tone="promoted"] {
+  background: #735ce6;
+}
+
+.submitButton {
+  width: 100%;
+}
+
+.submitContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.submitContent svg {
+  width: 16px;
+  height: 16px;
+}
+
+.footerStack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.promoCard {
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  background: var(--ui-bg);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.02),
+    0 1px 2px -1px rgba(0, 0, 0, 0.08),
+    0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.promoMedia {
+  position: relative;
+  aspect-ratio: 236 / 87;
+  margin: 4px;
+  overflow: hidden;
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg, rgba(245, 245, 247, 0.92), rgba(239, 239, 242, 0.92)),
+    #f4f4f5;
+}
+
+.promoImage {
+  object-fit: cover;
+  opacity: 0.92;
+}
+
+.promoBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 12px 12px;
+}
+
+.promoTitle,
+.promoText,
+.copyright {
+  margin: 0;
+}
+
+.promoTitle {
+  color: var(--ui-text);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.promoText {
+  color: #5f6776;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.socialButton {
+  display: inline-flex;
+  flex: 1 1 0;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  border-radius: 6px;
+  background: var(--ui-bg-subtle);
+  color: #5f6776;
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease;
+}
+
+.socialButton:hover {
+  background: #ececf0;
+  color: var(--ui-text);
+}
+
+.socialButton svg {
+  width: 16px;
+  height: 16px;
+}
+
+.copyright {
+  color: #5f6776;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+@media (max-width: 900px) {
+  .wrapper {
+    display: none;
+  }
+}

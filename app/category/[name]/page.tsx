@@ -149,6 +149,7 @@ export default async function Category({ params }: Props) {
         services={normalizedServices}
         namePage={categoryName}
         categories={categories}
+        currentCategory={currentCategory}
         breadcrumbs={breadcrumbItems}
       />
     </>

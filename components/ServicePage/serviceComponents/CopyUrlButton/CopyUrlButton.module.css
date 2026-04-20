@@ -1,20 +1,13 @@
 .button {
     padding: 0;
-    border: none;
-    font: inherit;
-    color: inherit;
-    background-color: transparent;
-    display: block;
-    min-width: min-content;
-    width: 100%;
-    max-width: 100%;
+    flex: 0 0 auto;
     cursor: copy;
 }
 
 .button p {
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
     color: var(--Text-color-3);
 }
 

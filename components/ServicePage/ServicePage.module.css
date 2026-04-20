@@ -2,6 +2,10 @@
     padding: 16px 24px;
 }
 
+.content {
+    padding-top: 20px;
+}
+
 .iframe {
     margin-top: 30px;
     width: 100%;

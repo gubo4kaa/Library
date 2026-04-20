@@ -8,7 +8,7 @@
     height: 82px;
     min-width: min-content;
     border-radius: 20px;
-    border: solid 1px var( --Background-color-2);
+    border: solid 1px var(--Background-color-2);
     box-shadow: 0px 1.28125px 2.5625px 0px rgba(138, 148, 166, 0.13);
 }
 
@@ -46,7 +46,7 @@
     flex-wrap: wrap;
 }
 
-.tagList span {
+.separator {
     border-radius: 50%;
     background-color: var(--Background-color-1);
     min-height: 6px;
@@ -54,6 +54,14 @@
     width: 6px;
     height: 6px;
     transform: translateY(1px);
+}
+
+.categoryBadge {
+    color: var(--Text-color-4);
+}
+.categoryBadge img {
+    min-width: 20px;
+    min-height: 20px;
 }
 
 .tagList > div {
@@ -65,7 +73,7 @@
     color: var(--Primary5);
 }
 
-.tagList > div span {
+.tagList > div .separator {
     margin-right: 10px;
 }
 
@@ -76,15 +84,23 @@
 .buttonWrapper {
     margin-left: auto;
     display: flex;
+    align-items: center;
     max-height: min-content;
     height: max-content;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 .buttonWrapperMini {
     display: flex;
+    align-items: center;
     min-width: min-content;
     gap: 15px;
+    flex-wrap: wrap;
+}
+
+.exploreButton {
+    flex: 0 0 auto;
 }
 
 @media screen and (max-width: 696px) {
@@ -92,24 +108,16 @@
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .titleWrapper {
         margin-left: 0px;
         margin-top: 20px;
     }
-    
+
     .buttonWrapper {
         margin-top: 30px;
-        width: 100%;
         flex-direction: column-reverse;
-    }
-    
-    .buttonWrapper > a {
-        width: 100%!important
-    }
-    
-    .buttonWrapperMini > a,.buttonWrapperMini > div {
-        width: 100%!important
+        align-items: flex-start;
     }
 }
 
@@ -117,4 +125,4 @@
     .buttonWrapperMini {
         flex-direction: column;
     }
-}  
+}
