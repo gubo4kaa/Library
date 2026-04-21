@@ -1,160 +1,271 @@
 .wrapper {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    
-    z-index: 20;
-    padding: 22px;
-    margin: 0 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 81;
+  width: min(400px, calc(100vw - 24px));
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--ui-bg);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.08),
+    0 4px 8px rgba(0, 0, 0, 0.08),
+    0 8px 16px rgba(0, 0, 0, 0.08);
+  transform: translate(-50%, -50%);
+}
 
-    transform: translate(-50%, -40%);
-    margin-top: -5%;
-    max-width: 461px;
-    width: 100%;
-    background-color: var(--Primary6);
-    border-radius: 24px;
-    border: solid 1px var(--Background-color-2);
-    box-shadow: var(--Shadow-card-medium);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 22px;
+.stateLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 138px;
+}
+
+.stateDone {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+.doneHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.newsletterIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.newsletterIconImage {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.title {
+  width: 100%;
+  margin: 0;
+  color: var(--ui-text);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.subtitle {
+  width: 100%;
+  max-width: 320px;
+  margin: 0;
+  color: var(--ui-subtle);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  padding: 16px;
+  border-top: 1px solid var(--ui-border);
 }
 
 .form {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
 }
 
-.form p {
-    color: var(--Primary4);
-    width: 100%;
-    border-radius: 10px;
+.inputShell {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--ui-bg);
+  box-shadow: var(--ui-shadow-card);
+  transition: box-shadow 0.15s ease;
 }
 
-.form input {
-    width: 100%;
+.inputShell:focus-within {
+  box-shadow:
+    0 0 0 1px rgba(36, 137, 255, 0.35),
+    0 0 0 3px rgba(36, 137, 255, 0.12),
+    var(--ui-shadow-card);
 }
 
-.form span {
-    width: 100%;
+.inputShellError,
+.inputShellError:focus-within {
+  box-shadow:
+    0 0 0 1px rgba(255, 51, 71, 0.45),
+    0 0 0 3px rgba(255, 51, 71, 0.16);
+}
+
+.inputIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0 0 0 10px;
+  color: var(--ui-muted);
+}
+
+.inputIcon svg {
+  width: 16px;
+  height: 16px;
 }
 
 .field {
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--Text-color-2);
-    display: flex;
-    flex: 1;
-    
-    width: 100%;
-    padding: 13px 38px;
-    
-    border-radius: 14px;
-    border: 1px solid var(--Background-color-2);
+  width: 100%;
+  min-width: 0;
+  padding: 6px 10px 6px 8px;
+  border: 0;
+  background: transparent;
+  color: var(--ui-text);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
 
-    overflow: hidden;
-    text-overflow: ellipsis;
-    box-shadow: var(--Shadow-buttons-default);
-    margin-bottom: 15px;
-    transition: all ease-in-out .1s;
+.field:focus {
+  outline: none;
+}
+
+.field::placeholder {
+  color: var(--ui-muted);
 }
 
 .field:-webkit-autofill,
 .field:-webkit-autofill:hover,
-.field:-webkit-autofill:focus,
-.field:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 10em white inset !important;
-  -webkit-text-fill-color: var(--Text-color-2) !important;
-}
-
-.field:focus {
-    outline: none;
-    border: 1px solid var(--disabled-color-button-disabled-1, rgba(36, 137, 255, 0.50));
-    background: var(--background-colors-background-5, #FFF);
-    box-shadow: 0px 4px 10px 0px rgba(36, 137, 255, 0.40), 0px 0px 0px 3px rgba(36, 137, 255, 0.25);
-}
-
-.field::placeholder {
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--Text-color-5);
-}
-
-.errorField {
-    border-radius: 14px;
-    border: 1px solid var(--disabled-color-button-disabled-4, rgba(255, 85, 95, 0.50));
-    background: var(--background-colors-background-5, #FFF);
-    /* Form Styles/Form Wrong */
-    box-shadow: 0px 4px 10px 0px rgba(255, 85, 95, 0.40), 0px 0px 0px 3px rgba(255, 85, 95, 0.25);
-}
-
-.field.errorField:focus {
-    border-radius: 14px;
-    border: 1px solid var(--disabled-color-button-disabled-4, rgba(255, 85, 95, 0.50));
-    background: var(--background-colors-background-5, #FFF);
-    /* Form Styles/Form Wrong */
-    box-shadow: 0px 4px 10px 0px rgba(255, 85, 95, 0.40), 0px 0px 0px 3px rgba(255, 85, 95, 0.25);
+.field:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 100px var(--ui-bg) inset !important;
+  -webkit-text-fill-color: var(--ui-text) !important;
 }
 
 .errorText {
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 100;
-    line-height: normal;
-    background-color: none;
-    text-align: left;
-    margin-bottom: 10px;
-    margin-top: -5px;
+  margin: -4px 0 0;
+  color: #ff3347;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+}
+
+.actionButton {
+  flex: 1 1 0;
 }
 
 .recaptcha {
-    max-width: max-content;
-    margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-.submit{
-    display: none;
+.submit {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.wrapper h4 {
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    color: var(--Text-color-2);
-    text-align: left;
+.loadingState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 24px;
 }
 
-.wrapper p {
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    color: var(--Text-color-3);
-    text-align: left;
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #dbeafe;
+  border-right-color: transparent;
+  border-radius: 999px;
+  animation: spin 0.8s linear infinite;
 }
 
-.searchLogo {
-    position: absolute;
-    top: 11px;
-    left: 10px;
-    cursor: pointer;
+.loadingText {
+  color: var(--ui-text);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
 }
 
-.access {
-    display: flex;
-    width: 100%;
-    background-color: var(--Secondary2);
-    padding: 10px 14px;
-    border-radius: 16px;
-    
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 28px;
-    color: var(--Primary2)!important;
-    text-align: center;
-    margin: 0!important
+.successIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #32b332;
+  color: #fff;
+  box-shadow:
+    inset 0 2px 6px rgba(255, 255, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    0 2px 4px -1px rgba(0, 0, 0, 0.15);
+}
+
+.successIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 520px) {
+  .wrapper {
+    width: calc(100vw - 20px);
+  }
+
+  .header,
+  .doneHeader,
+  .footer {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .actions {
+    gap: 10px;
+  }
 }

@@ -1,12 +1,21 @@
 .wrapper {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
+    gap: 20px;
+}
+
+.identity {
+    display: flex;
+    align-items: flex-start;
+    min-width: 0;
+    gap: 20px;
 }
 
 .img {
     width: 82px;
     height: 82px;
-    min-width: min-content;
+    flex: 0 0 82px;
     border-radius: 20px;
     border: solid 1px var(--Background-color-2);
     box-shadow: 0px 1.28125px 2.5625px 0px rgba(138, 148, 166, 0.13);
@@ -16,10 +25,11 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-left: 20px;
+    min-width: 0;
 }
 
 .titleWrapper > h3 {
+    margin: 0;
     font-size: 22px;
     font-style: normal;
     font-weight: 700;
@@ -38,25 +48,27 @@
 .tagList {
     display: flex;
     align-items: center;
+    align-content: center;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
     color: var(--Text-color-4);
     gap: 10px;
     flex-wrap: wrap;
+    min-width: 0;
 }
 
 .separator {
+    flex: 0 0 6px;
     border-radius: 50%;
     background-color: var(--Background-color-1);
-    min-height: 6px;
-    min-width: 6px;
     width: 6px;
     height: 6px;
     transform: translateY(1px);
 }
 
 .categoryBadge {
+    flex: 0 1 auto;
     color: var(--Text-color-4);
 }
 .categoryBadge img {
@@ -64,38 +76,39 @@
     min-height: 20px;
 }
 
-.tagList > div {
+.price {
+    white-space: nowrap;
+}
+
+.featuredTag {
     display: flex;
     align-items: center;
+    gap: 5px;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
     color: var(--Primary5);
+    flex-wrap: nowrap;
 }
 
-.tagList > div .separator {
-    margin-right: 10px;
-}
-
-.tagList > div p {
-    margin-left: 5px;
+.featured {
+    margin: 0;
+    white-space: nowrap;
 }
 
 .buttonWrapper {
-    margin-left: auto;
     display: flex;
     align-items: center;
-    max-height: min-content;
-    height: max-content;
-    gap: 15px;
+    justify-content: flex-end;
+    gap: 12px;
     flex-wrap: wrap;
+    align-self: center;
 }
 
 .buttonWrapperMini {
     display: flex;
     align-items: center;
-    min-width: min-content;
-    gap: 15px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
@@ -103,26 +116,79 @@
     flex: 0 0 auto;
 }
 
-@media screen and (max-width: 696px) {
+@media screen and (max-width: 980px) {
     .wrapper {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         align-items: flex-start;
-    }
-
-    .titleWrapper {
-        margin-left: 0px;
-        margin-top: 20px;
+        gap: 16px;
     }
 
     .buttonWrapper {
-        margin-top: 30px;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .buttonWrapperMini {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media screen and (max-width: 696px) {
+    .identity {
+        width: 100%;
+        gap: 14px;
+    }
+
+    .img {
+        width: 72px;
+        height: 72px;
+        flex-basis: 72px;
+        border-radius: 18px;
+    }
+
+    .titleWrapper > h3 {
+        font-size: 20px;
+    }
+
+    .tagList,
+    .buttonWrapper {
+        gap: 10px;
+    }
+
+    .buttonWrapperMini {
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .identity {
+        align-items: center;
+    }
+
+    .buttonWrapper {
+        width: 100%;
         flex-direction: column-reverse;
-        align-items: flex-start;
+        align-items: stretch;
+    }
+
+    .buttonWrapperMini {
+        width: 100%;
+    }
+
+    .exploreButton {
+        width: 100%;
     }
 }
 
 @media screen and (max-width: 310px) {
-    .buttonWrapperMini {
+    .identity {
         flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .buttonWrapperMini {
+        grid-template-columns: 1fr;
     }
 }

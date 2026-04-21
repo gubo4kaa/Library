@@ -7,6 +7,7 @@ import cn from "classnames";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import styles from "./Search.module.css";
 
 interface Props {
@@ -132,6 +133,7 @@ export default function Search({ category }: Props) {
   const [defaultItems, setDefaultItems] = useState<IServiceInterface[]>([]);
   const [loadingState, setLoadingState] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
 
   const [, setBlur] = useBlurStore((state) => [state.blur, state.setBlur]);
   const [popapState, setPopapState] = useSubscribeStore((state) => [
@@ -179,6 +181,10 @@ export default function Search({ category }: Props) {
     setLoadingState(false);
     setActiveIndex(0);
   }, [setBlur, setPopapState]);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!isOpen) {
@@ -368,26 +374,7 @@ export default function Search({ category }: Props) {
     return () => window.clearTimeout(timeoutId);
   }, [path, setBlur, setPopapState]);
 
-  return (
-    <div
-      className={cn(styles.wrapper, {
-        [styles.inactive]: Boolean(popapState) && !isOpen,
-      })}
-    >
-      <button
-        type="button"
-        className={styles.trigger}
-        onClick={handleOpen}
-        aria-expanded={isOpen}
-        aria-controls="search-command-menu"
-      >
-        <span className={styles.triggerIcon}>
-          <SearchIcon />
-        </span>
-        <span className={styles.triggerLabel}>Search /</span>
-      </button>
-
-      {isOpen ? (
+  const dialog = isOpen ? (
         <div
           id="search-command-menu"
           className={cn(styles.dialog, {
@@ -536,7 +523,28 @@ export default function Search({ category }: Props) {
             </div>
           </div>
         </div>
-      ) : null}
+      ) : null;
+
+  return (
+    <div
+      className={cn(styles.wrapper, {
+        [styles.inactive]: Boolean(popapState) && !isOpen,
+      })}
+    >
+      <button
+        type="button"
+        className={styles.trigger}
+        onClick={handleOpen}
+        aria-expanded={isOpen}
+        aria-controls="search-command-menu"
+      >
+        <span className={styles.triggerIcon}>
+          <SearchIcon />
+        </span>
+        <span className={styles.triggerLabel}>Search /</span>
+      </button>
+
+      {isMounted && dialog ? createPortal(dialog, document.body) : null}
     </div>
   );
 }

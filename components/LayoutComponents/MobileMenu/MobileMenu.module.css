@@ -1,61 +1,33 @@
 .wrapper {
     display: none;
-    position: relative;
     position: fixed;
-    transform: translateX(-100%);
-    z-index: 2;
-}
-
-.wrapper.open {
-    transform: translateX(0);
-    transition: all 4s;
-}
-
-.close {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-
-    max-width: max-content;
-    padding: 4px;
-    border-radius: 50px;
-    box-shadow: var(--Shadow-buttons-default);
-    border:solid 1px var(--Background-color-2);
-    background: var(--Primary6);
-    position: absolute;
     top: 0;
-}
-
-.close:hover {
-    border:solid 1px var(--Background-color-1);
-    box-shadow: var(--Shadow-buttons-hover);
-}
-
-.close:active {
-    background: var(--Background-color-4);
-    box-shadow: var(--Shadow-buttons-default);
+    left: 0;
+    bottom: 0;
+    width: min(272px, calc(100vw - 48px));
+    max-width: 100vw;
+    z-index: 70;
 }
 
 .blur {
-    background-color: rgba(137, 43, 226, 0.216);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     min-width: 100vw;
     min-height: 100vh;
-    z-index: 2;
+    z-index: 69;
     background: rgba(249, 250, 251, 0.49);
     backdrop-filter: blur(2.5px);
+    pointer-events: none;
 }
 
 @media screen and (max-width: 900px) {
     .wrapper {
         display: block;
-        z-index: 22;
     }
 
     .blur {
-        z-index: 21;
+        pointer-events: auto;
     }
 }

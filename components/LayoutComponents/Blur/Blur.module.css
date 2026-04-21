@@ -4,13 +4,13 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: 18;
+    z-index: 80;
     background: rgba(50, 59, 75, 0.12);
     /* backdrop-filter: blur(2.5px); */
 }
 
 @media screen and (max-width: 900px) {
     .main {
-        z-index: 19;
+        z-index: 80;
     }
 }

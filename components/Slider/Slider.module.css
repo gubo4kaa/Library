@@ -4,16 +4,13 @@
 
 .card {
     position: relative;
-    display: grid;
-    grid-template-columns: minmax(300px, 0.78fr) minmax(360px, 1.22fr);
+    display: flex;
     align-items: stretch;
-    min-height: 260px;
+    min-height: 262px;
     overflow: hidden;
     border: 1px solid var(--ui-border);
     border-radius: 10px;
-    background:
-        radial-gradient(circle at 17% 28%, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0) 50%),
-        linear-gradient(180deg, #fbfbfc 0%, #f4f4f5 100%);
+    background: linear-gradient(180deg, #fbfbfc 0%, #f4f4f5 100%);
     box-shadow: var(--ui-shadow-card);
 }
 
@@ -24,24 +21,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 14px;
+    gap: 12px;
     box-sizing: border-box;
-    width: 100%;
-    padding: 36px 34px 36px 32px;
+    width: min(100%, 430px);
+    margin: 14px;
+    padding: 28px 32px;
 }
 
 .title {
-    max-width: 320px;
+    max-width: 332px;
     margin: 0;
     color: var(--ui-text);
-    font-size: clamp(38px, 4vw, 48px);
-    font-weight: 500;
-    line-height: 1.04;
+    font-size: clamp(30px, 3.7vw, 45px);
+    font-weight: 400;
+    line-height: 0.98;
     letter-spacing: -0.035em;
 }
 
 .description {
-    max-width: 284px;
+    max-width: 266px;
     margin: 0;
     color: var(--ui-description);
     font-size: 14px;
@@ -55,86 +53,92 @@
 
 .visual {
     position: relative;
-    min-height: 260px;
+    position: absolute;
+    inset: 0;
     overflow: hidden;
 }
 
 .banner {
     object-fit: cover;
-    object-position: right center;
-    transform: scale(1.02);
+    object-position: center center;
+    transform: scale(1.015);
 }
 
 @media (max-width: 1023px) {
     .card {
-        grid-template-columns: minmax(260px, 0.92fr) minmax(260px, 1.08fr);
         min-height: 236px;
     }
 
     .copy {
-        padding: 28px 24px;
+        width: min(100%, 380px);
+        margin: 12px;
+        padding: 24px 24px 22px;
     }
 
     .title {
-        max-width: 280px;
-        font-size: clamp(30px, 4.4vw, 40px);
+        max-width: 300px;
+        font-size: clamp(28px, 3.5vw, 36px);
     }
 
     .description {
-        max-width: 250px;
-    }
-
-    .visual {
-        min-height: 236px;
+        max-width: 232px;
     }
 
     .banner {
-        object-position: 66% center;
+        object-position: 58% center;
     }
 }
 
 @media (max-width: 767px) {
     .card {
-        grid-template-columns: 1fr;
-        min-height: 0;
+        min-height: 304px;
     }
 
     .copy {
-        padding: 24px 20px 0;
-        gap: 12px;
+        width: calc(100% - 24px);
+        max-width: 320px;
+        margin: 12px;
+        padding: 20px 18px;
+        justify-content: flex-start;
     }
 
     .title {
-        max-width: 100%;
-        font-size: 34px;
+        max-width: 280px;
+        font-size: 28px;
+        font-weight: 500;
+        line-height: 1.08;
     }
 
     .description {
-        max-width: 100%;
-    }
-
-    .visual {
-        min-height: 220px;
-        margin-top: 8px;
+        max-width: 220px;
+        font-size: 13px;
     }
 
     .banner {
-        object-position: 62% center;
+        object-position: 66% center;
         transform: scale(1.08);
     }
 }
 
 @media (max-width: 520px) {
-    .title {
-        font-size: 30px;
+    .card {
+        min-height: 276px;
     }
 
-    .visual {
-        min-height: 184px;
+    .title {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.12;
+    }
+
+    .copy {
+        width: calc(100% - 20px);
+        margin: 10px;
+        padding: 18px 16px;
     }
 
     .banner {
-        object-position: 63% center;
-        transform: scale(1.14);
+        object-position: 70% center;
+        transform: scale(1.12);
     }
 }

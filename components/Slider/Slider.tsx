@@ -16,8 +16,21 @@ const Slider = () => {
   return (
     <section className={styles.wrapper} aria-label="Library hero banner">
       <div className={styles.card}>
+        <div className={styles.visual} aria-hidden="true">
+          <Image
+            src="/home-hero-figma.png"
+            alt=""
+            className={styles.banner}
+            priority
+            fill
+            sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1280px) 100vw, 1120px"
+          />
+        </div>
+
         <div className={styles.copy}>
-          <h2 className={styles.title}>Ultimate resource hub for professionals</h2>
+          <h2 className={styles.title}>
+            Ultimate resource hub for professionals
+          </h2>
           <p className={styles.description}>
             A curated collection of resources for digital creators, updated
             weekly.
@@ -33,17 +46,6 @@ const Slider = () => {
           >
             Subscribe for Free
           </ButtonNew>
-        </div>
-
-        <div className={styles.visual} aria-hidden="true">
-          <Image
-            src="/home-hero-figma.png"
-            alt=""
-            className={styles.banner}
-            priority
-            fill
-            sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1280px) 58vw, 760px"
-          />
         </div>
       </div>
     </section>

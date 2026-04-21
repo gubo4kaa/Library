@@ -253,7 +253,7 @@ export default async function RootLayout({
             {/* <YMInitializer accounts={[metrikaCounterId]} version="2" /> */}
             <Ymetrica />
             <MobileMenu>
-              <Sidebar categories={category} />
+              <Sidebar categories={category} mobile />
             </MobileMenu>
             <Header category={category} className={styles.header} />
             <Sidebar categories={category} className={styles.sidebar} />

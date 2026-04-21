@@ -1,162 +1,284 @@
-'use client'
-import LibraryService from '@/services/services';
-import { useSubscribeStore } from '@/store/SubscribeStore';
-import { useBlurStore } from '@/store/storeBlur';
-import cn from 'classnames';
-import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState } from 'react';
+"use client";
+
+import LibraryService from "@/services/services";
+import { useSubscribeStore } from "@/store/SubscribeStore";
+import { useBlurStore } from "@/store/storeBlur";
+import cn from "classnames";
+import Image from "next/image";
+import { useCallback, useMemo, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
-import ButtonNew from '../ButtonNew/ButtonNew';
-import Preloader from '../Preloader/Preloader';
-import { verifyCaptcha } from '../Recap4a/Recap4a';
-import styles from './SubscribeForm.module.css';
+import ButtonNew from "../ButtonNew/ButtonNew";
+import { verifyCaptcha } from "../Recap4a/Recap4a";
+import styles from "./SubscribeForm.module.css";
 
-interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
-    
+type FormValues = {
+  email: string;
+};
+
+function NewsletterIcon() {
+  return (
+    <span className={styles.newsletterIcon} aria-hidden="true">
+      <Image
+        src="/Frame%2021313294422.png?v=2"
+        alt=""
+        width={32}
+        height={32}
+        className={styles.newsletterIconImage}
+        unoptimized
+        priority
+      />
+    </span>
+  );
 }
 
-export default function SubscribeForm({}:Props) {
+function EmailIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path
+        d="M2.667 4.667c0-1.105.895-2 2-2h6.666c1.105 0 2 .895 2 2v6.666c0 1.105-.895 2-2 2H4.667a2 2 0 0 1-2-2V4.667Z"
+        stroke="currentColor"
+        strokeWidth="1.35"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M13.333 5.333 8.687 8.74a1.167 1.167 0 0 1-1.38 0L2.667 5.333"
+        stroke="currentColor"
+        strokeWidth="1.35"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
-    const [blur, setBlur] = useBlurStore((state) => [state.blur, state.setBlur])
-    const [popapState, setPopapState] = useSubscribeStore((state) => [state.popapState, state.setPopapState])
-    
-    useEffect(()=> {
-        if(!blur) {
-            setPopapState(null)
-        }
-    }, [blur])
+function SuccessIcon() {
+  return (
+    <span className={styles.successIcon} aria-hidden="true">
+      <svg viewBox="0 0 20 20" fill="none">
+        <path
+          d="m5.833 10.417 2.917 2.916 5.417-6.25"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </span>
+  );
+}
 
-    // useEffect(()=> {
-    //     setLoadingState(false);
-    //     setPopapState(null); 
-    //     setBlur(false);
-    // }, [])
+export default function SubscribeForm() {
+  const setBlur = useBlurStore((state) => state.setBlur);
+  const [popapState, setPopapState] = useSubscribeStore((state) => [
+    state.popapState,
+    state.setPopapState,
+  ]);
+  const isOpen = popapState === "subscribe";
 
-    const { register, handleSubmit, setError, formState: { errors } } = useForm();
-    const [loadingState, setLoadingState] = useState<boolean>(false)
-    const [accessState, setAccessState] = useState<boolean>(false)
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setError,
+    clearErrors,
+    formState: { errors },
+  } = useForm<FormValues>({
+    defaultValues: {
+      email: "",
+    },
+  });
 
-    const showOff = () => {
-        setTimeout(() => {setPopapState(null); setBlur(false); setAccessState(false)}, 2000)
+  const [loadingState, setLoadingState] = useState(false);
+  const [accessState, setAccessState] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const submitRef = useRef<HTMLInputElement>(null);
+
+  const closeModal = useCallback(() => {
+    setLoadingState(false);
+    setAccessState(false);
+    setIsVerified(false);
+    reset();
+    clearErrors();
+    recaptchaRef.current?.reset();
+    setPopapState(null);
+    setBlur(false);
+  }, [clearErrors, reset, setBlur, setPopapState]);
+
+  const modalState = useMemo(() => {
+    if (loadingState) {
+      return "loading";
     }
 
-    const refButton = useRef<HTMLInputElement>(null)
-
-    const focusInput = () => {
-        refButton.current?.click();
-    };
-    
-    const recaptchaRef = useRef<ReCAPTCHA>(null)
-    const [isVerified, setIsverified] = useState<boolean>(false)
-
-    async function handleCaptchaSubmission(token: string | null) {
-        // Server function to verify captcha
-        await verifyCaptcha(token)
-        .then(() => setIsverified(true))
-        .catch(() => setIsverified(false))
+    if (accessState) {
+      return "done";
     }
 
-    const onSubmit = async (data: any) => {
-        // //console.log(data)
-        setLoadingState(true)
-        try {
-          await LibraryService.EmailService(data)
-          .then(() => {
-            setLoadingState(false);
-            setAccessState(true);
-            showOff();
-          })
-            .catch((e) => {
-                setLoadingState(false);
-                setError("email", {
-                    type: "random",
-                    message: e.response.data.err
-                });
-          });
-        } catch (error: any) {
-            setLoadingState(false)
-            setError("email", {
-                type: "random",
-                message: error.message
-            })             
-        }
-    };
-    
-    return ( popapState == 'subscribe' && (
-         <div className={cn(styles.wrapper)}>
-            <h4>
-                Subscribe Newsletter
-            </h4>
-            {
-                loadingState && !accessState && <Preloader/>
-            }
-            {
-                !loadingState && accessState && <p className={styles.access}>Great! Your resource will be added soon</p>
-            }
-            {   !loadingState && !accessState &&
-                <form onSubmit={handleSubmit(onSubmit)} method="post" className={styles.form}>
-                    <svg className={styles.searchLogo} width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g id="Inbox">
-                        <path id="Square" fillRule="evenodd" clipRule="evenodd" d="M2.29102 11C2.29102 4.58329 4.12435 3.66663 10.9998 3.66663C17.8752 3.66663 19.7077 4.58329 19.7077 11C19.7077 17.4166 17.8752 18.3333 10.9998 18.3333C4.12435 18.3333 2.29102 17.4166 2.29102 11Z" stroke="#6E7A90" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path id="Stroke 1" d="M16.5 7.78785C16.5 7.78785 12.8333 11 11 11C9.16667 11 5.5 7.79167 5.5 7.79167" stroke="#6E7A90" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                        </g>
-                    </svg>
-                    <input type="email" placeholder="email"
-                    {...register(
-                            "email", 
-                            { 
-                                pattern: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i, 
-                                required: true 
-                            }
-                        )
-                    }
-                    className={cn(styles.field, {
-                        [styles.errorField]: errors.email
-                    })}/>
-                    {
-                        errors.email && <p className={styles.errorText}>
-                            Error email
-                        </p>
-                    }
-                    {/* {errors.email && <p>This email is required</p>} */}
-                    <input ref={refButton} onClick={() => {
-                    setError("email", { type: "focus" });
-                    }} type="submit" className={cn(styles.submit)} 
-                    disabled={!isVerified} 
-                    // disabled={false}
-                    />
-                    {
-                        !isVerified &&
-                            <span className={styles.recaptcha}>
-                                <ReCAPTCHA
-                                    sitekey={`${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-                                    ref={recaptchaRef}
-                                    onChange={handleCaptchaSubmission}
-                                />
-                            </span> 
-                    }
-                    <span onClick={focusInput}>
-                        <ButtonNew 
-                        disable={!isVerified}
-                        // disable={false} 
-                        preventDefault width='max' iconPosition={'iconRight'} type='Primary' size='s'>
-                            Subscribe
-                            <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g id="Arrow Right">
-                                <path id="Vector 190" d="M18.8327 11L12.6452 17.4167M18.8327 11L12.6452 4.58337M18.8327 11L4.16602 11" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                                </g>
-                            </svg>
-                        </ButtonNew>
-                    </span>
-                    
-                </form>
-            }
-            <p>
-                No spam, only updates and releases. 
-            </p>
-            {/* <Preloader/> */}
+    return "default";
+  }, [accessState, loadingState]);
+
+  const onSubmit = async (data: FormValues) => {
+    setLoadingState(true);
+
+    try {
+      await LibraryService.EmailService(data);
+      setLoadingState(false);
+      setAccessState(true);
+    } catch (error: any) {
+      setLoadingState(false);
+      setError("email", {
+        type: "server",
+        message:
+          error?.response?.data?.err ||
+          error?.message ||
+          "Unable to subscribe right now",
+      });
+    }
+  };
+
+  const handleCaptchaSubmission = async (token: string | null) => {
+    await verifyCaptcha(token)
+      .then(() => setIsVerified(true))
+      .catch(() => setIsVerified(false));
+  };
+
+  const triggerSubmit = () => {
+    submitRef.current?.click();
+  };
+
+  if (!isOpen) {
+    return null;
+  }
+
+  return (
+    <div
+      className={cn(styles.wrapper, {
+        [styles.stateLoading]: modalState === "loading",
+        [styles.stateDone]: modalState === "done",
+      })}
+    >
+      {modalState === "default" ? (
+        <>
+          <div className={styles.header}>
+            <NewsletterIcon />
+            <div className={styles.copy}>
+              <h4 className={styles.title}>Newsletter</h4>
+              <p className={styles.subtitle}>
+                Get the latest updates on our resource collection.
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.footer}>
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              method="post"
+              className={styles.form}
+            >
+              <div
+                className={cn(styles.inputShell, {
+                  [styles.inputShellError]: errors.email,
+                })}
+              >
+                <span className={styles.inputIcon}>
+                  <EmailIcon />
+                </span>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  autoComplete="email"
+                  className={styles.field}
+                  {...register("email", {
+                    required: "Enter email",
+                    pattern: {
+                      value:
+                        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i,
+                      message: "Enter a valid email",
+                    },
+                  })}
+                />
+              </div>
+
+              {errors.email ? (
+                <p className={styles.errorText}>
+                  {String(errors.email.message)}
+                </p>
+              ) : null}
+
+              {!isVerified ? (
+                <div className={styles.recaptcha}>
+                  <ReCAPTCHA
+                    sitekey={`${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+                    ref={recaptchaRef}
+                    onChange={handleCaptchaSubmission}
+                  />
+                </div>
+              ) : null}
+
+              <div className={styles.actions}>
+                <ButtonNew
+                  type="Default Ghost"
+                  size="s"
+                  width="max"
+                  className={styles.actionButton}
+                  onClick={closeModal}
+                >
+                  Cancel
+                </ButtonNew>
+                <ButtonNew
+                  type="Primary"
+                  size="s"
+                  width="max"
+                  disable={!isVerified}
+                  className={styles.actionButton}
+                  onClick={triggerSubmit}
+                >
+                  Subscribe
+                </ButtonNew>
+              </div>
+
+              <input
+                ref={submitRef}
+                type="submit"
+                className={styles.submit}
+                tabIndex={-1}
+                aria-hidden="true"
+              />
+            </form>
+          </div>
+        </>
+      ) : null}
+
+      {modalState === "loading" ? (
+        <div className={styles.loadingState}>
+          <span className={styles.spinner} aria-hidden="true" />
+          <span className={styles.loadingText}>Loading...</span>
         </div>
-        )
-    )
-}
+      ) : null}
 
+      {modalState === "done" ? (
+        <>
+          <div className={styles.doneHeader}>
+            <SuccessIcon />
+            <div className={styles.copy}>
+              <h4 className={styles.title}>You are now subscribed.</h4>
+            </div>
+          </div>
+          <div className={styles.footer}>
+            <ButtonNew
+              type="Primary"
+              size="s"
+              width="max"
+              className={styles.actionButton}
+              onClick={closeModal}
+            >
+              Continue
+            </ButtonNew>
+          </div>
+        </>
+      ) : null}
+    </div>
+  );
+}

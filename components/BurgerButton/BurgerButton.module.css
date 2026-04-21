@@ -1,37 +1,60 @@
 .wrapper {
-    display: flex;
-    align-items: center;
-
-    padding: 9px 12px;
-    border-radius: 14px;
-
-    background: var(--Primary6);
-    box-shadow: var(--Shadow-buttons-default);
-    border: solid 1px var(--Background-color-2);
-    
-    box-sizing: border-box;
-    cursor: pointer;
-    min-width: min-content;
-    min-height: min-content;
-    height: min-content;
-}
-
-.wrapper svg {
-    box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--ui-border);
+  border-radius: 6px;
+  background: var(--ui-bg);
+  box-shadow: var(--ui-shadow-button);
+  box-sizing: border-box;
+  cursor: pointer;
+  flex: 0 0 auto;
+  appearance: none;
 }
 
 .wrapper:hover {
-    border:solid 1px var(--Background-color-1);
-    box-shadow: var(--Shadow-buttons-hover);
+  border-color: #d4d4d8;
+  background: var(--ui-bg-subtle);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .wrapper:active {
-    background: var(--Background-color-4);
-    box-shadow: var(--Shadow-buttons-default);
+  background: #ededee;
+  box-shadow: var(--ui-shadow-button);
+}
+
+.wrapper:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(36, 137, 255, 0.2),
+    var(--ui-shadow-button);
+}
+
+.iconFrame {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 16px;
+  height: 16px;
+}
+
+.line {
+  display: block;
+  width: 14px;
+  height: 1.6px;
+  border-radius: 999px;
+  background: currentColor;
 }
 
 @media screen and (min-width: 901px) {
-    .wrapper {
-        display: none;
-    }
+  .wrapper {
+    display: none;
+  }
 }

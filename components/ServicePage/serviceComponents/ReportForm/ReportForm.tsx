@@ -1,4 +1,5 @@
 'use client'
+
 import ButtonNew from "@/components/ButtonNew/ButtonNew";
 import Preloader from "@/components/Preloader/Preloader";
 import { verifyCaptcha } from "@/components/Recap4a/Recap4a";
@@ -6,140 +7,229 @@ import LibraryService from "@/services/services";
 import { useSubscribeStore } from "@/store/SubscribeStore";
 import { useBlurStore } from "@/store/storeBlur";
 import cn from 'classnames';
-import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState } from "react";
+import { DetailedHTMLProps, HTMLAttributes, useMemo, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 import styles from './ReportForm.module.css';
 
-interface Checkbox {
-  id: number;
-  label: string;
-  checked: boolean;
-}
-
-interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
+interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   idService: number;
 }
 
-const ReportForm = ({idService}:Props) => {
-  const [blur, setBlur] = useBlurStore((state) => [state.blur, state.setBlur])
+type Reason = {
+  id: string;
+  label: string;
+};
+
+type FormValues = {
+  textarea: string;
+};
+
+const reasons: Reason[] = [
+  { id: "outdated", label: "Information out of date" },
+  { id: "mismatch", label: "Information does not match the resource" },
+  { id: "link", label: "Website link not clickable" },
+  { id: "other", label: "Other" },
+];
+
+function RadioIndicator({ checked }: { checked: boolean }) {
+  return (
+    <span
+      className={cn(styles.radio, {
+        [styles.radioChecked]: checked,
+      })}
+      aria-hidden="true"
+    >
+      {checked ? <span className={styles.radioDot} /> : null}
+    </span>
+  );
+}
+
+const ReportForm = ({ idService }: Props) => {
+  const [, setBlur] = useBlurStore((state) => [state.blur, state.setBlur]);
+  const [popapState, setPopapState] = useSubscribeStore((state) => [
+    state.popapState,
+    state.setPopapState,
+  ]);
+  const isOpen = popapState === 'report';
+
+  const { register, handleSubmit, reset } = useForm<FormValues>({
+    defaultValues: {
+      textarea: "",
+    },
+  });
+
+  const [selectedReason, setSelectedReason] = useState<string>("");
+  const [isVerified, setIsVerified] = useState(false);
+  const [loadingState, setLoadingState] = useState(false);
+  const [accessState, setAccessState] = useState(false);
+  const [errorState, setErrorState] = useState(false);
+  const [valueTextarea, setValuesTextarea] = useState("");
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+
+  const isOtherSelected = selectedReason === "other";
+
+  const selectedLabel = useMemo(
+    () => reasons.find((reason) => reason.id === selectedReason)?.label ?? "",
+    [selectedReason],
+  );
+
+  const closeModal = () => {
+    setPopapState(null);
+    setBlur(false);
+    setLoadingState(false);
+    setAccessState(false);
+    setErrorState(false);
+    setIsVerified(false);
+    setSelectedReason("");
+    setValuesTextarea("");
+    reset();
+    recaptchaRef.current?.reset();
+  };
 
   const showOff = () => {
-        setTimeout(() => {setPopapState(null); setBlur(false);}, 2000)
-    }
-  const { register, handleSubmit } = useForm();
-  
-  const [isVerified, setIsVerified] = useState(false);
-  const recaptchaRef = useRef<ReCAPTCHA>(null)
-  
-  async function handleCaptchaSubmission(token: string | null) {
-    // Server function to verify captcha
-    await verifyCaptcha(token)
-    .then(() => setIsVerified(true))
-    .catch(() => setIsVerified(false))
-    }
-    
-    const [checkboxes, setCheckboxes] = useState<Checkbox[]>([
-        { id: 1, label: "Information out of date", checked: false },
-        { id: 2, label: "Information does not match the resource", checked: false },
-        { id: 3, label: "Website link not clickable", checked: false },
-        { id: 4, label: "Other", checked: false },
-    ]);
-    const buttonRef = useRef<HTMLButtonElement>(null);
-    const [valueTextarea, setValuesTextarea] = useState<string>()
-    const handleCheckboxChange = (id: number) => {
-        setCheckboxes((checkboxes) =>
-          checkboxes.map((checkbox) => (
-            checkbox.id === id ? { ...checkbox, checked: !checkbox.checked }
-              : { ...checkbox, checked: false }
-          )
-          )
-        );
-      };
-
-    useEffect(() => {
-    }, [valueTextarea])
-    
-    const onSubmit = async (data: any) => {
-      const dataNew =  {
-        "idLibraryItemModel": idService,
-        "reportText": data.textarea && checkboxes[3].checked ? data.textarea : checkboxes.filter((e) => e.checked)[0].label
-      }
-      setLoadingState(true)
-      try {
-        await LibraryService.Report(dataNew)
-        setLoadingState(false)
-        setAccessState(true)
-        showOff()
-      } catch (error) {
-        //console.log(error)
-        setLoadingState(false)
-        setErrorState(true)
-      }
-    };
-
-    const [loadingState, setLoadingState] = useState<boolean>(false)
-    const [accessState, setAccessState] = useState<boolean>(false)
-    const [errorState, setErrorState] = useState<boolean>(false)
-
-    const [popapState, setPopapState] = useSubscribeStore((state) => [state.popapState, state.setPopapState])
-    return (
-        popapState == 'report' && (
-        <div className={styles.wrapper}>
-              <h4>
-                Report a problem
-              </h4>
-            {
-                loadingState && !accessState && <Preloader/>
-            }
-            {
-                !loadingState && accessState && <p className={styles.access}>Great! We will check this resource soon!</p>
-            }
-            {  !loadingState && !accessState && <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-              {checkboxes.map((checkbox) => (
-                <label key={checkbox.id} onClick={() => handleCheckboxChange(checkbox.id)}className={cn(styles.wrapperChecked, {
-                  [styles.activeReport]:  checkbox.checked
-                })}>
-                  
-                    <span className={cn(styles.checkedCircle , {
-                      [styles.checkedCircleActive]: checkbox.checked
-                    })}>
-                      <span></span>
-                    </span>
-                  
-                    <input
-                      type="checkbox"
-                      checked={checkbox.checked}
-                      {...register(checkbox.label, {
-                        onChange: () => handleCheckboxChange(checkbox.id),
-                      })}
-                    />
-                  {checkbox.label}
-                </label>
-              ))}
-              <div className={cn(styles.textareaWrapper,{
-                [styles.vision]: checkboxes[3].checked == true
-              })}>
-                <textarea value={valueTextarea} placeholder="Enter a discription" {...register("textarea",{
-                  onChange: (value) => setValuesTextarea(value.target.value)
-                } )}></textarea>
-              </div>
-            <div className={styles.none}>
-              <button type="submit" ref={buttonRef}>Отправить</button>
-            </div>
-            {
-              !isVerified && <ReCAPTCHA
-              sitekey={`${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-              ref={recaptchaRef}
-              onChange={handleCaptchaSubmission}
-              />
-            }    
-            <ButtonNew disable={!isVerified} width="max" onClick={() => buttonRef.current?.click()}>Send a Message</ButtonNew>
-          </form>
-          }
-        </div>
-        )
-    );
+    setTimeout(() => {
+      closeModal();
+    }, 2000);
   };
+
+  async function handleCaptchaSubmission(token: string | null) {
+    await verifyCaptcha(token)
+      .then(() => setIsVerified(true))
+      .catch(() => setIsVerified(false));
+  }
+
+  const onSubmit = async (data: FormValues) => {
+    if (!selectedLabel) {
+      return;
+    }
+
+    const reportText =
+      isOtherSelected && data.textarea.trim()
+        ? data.textarea.trim()
+        : selectedLabel;
+
+    setLoadingState(true);
+    setErrorState(false);
+
+    try {
+      await LibraryService.Report({
+        idLibraryItemModel: idService,
+        reportText,
+      });
+      setLoadingState(false);
+      setAccessState(true);
+      showOff();
+    } catch (error) {
+      setLoadingState(false);
+      setErrorState(true);
+    }
+  };
+
+  const submitForm = () => {
+    void handleSubmit(onSubmit)();
+  };
+
+  if (!isOpen) {
+    return null;
+  }
+
+  return (
+    <div className={styles.wrapper}>
+      <h4>Report a problem</h4>
+
+      {loadingState && !accessState ? <Preloader /> : null}
+
+      {!loadingState && accessState ? (
+        <p className={styles.access}>Great! We will check this resource soon!</p>
+      ) : null}
+
+      {!loadingState && !accessState ? (
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            submitForm();
+          }}
+          className={styles.form}
+        >
+          <div className={styles.reasonList} role="radiogroup" aria-label="Report reason">
+            {reasons.map((reason) => {
+              const checked = selectedReason === reason.id;
+
+              return (
+                <label
+                  key={reason.id}
+                  className={cn(styles.reasonCard, {
+                    [styles.reasonCardActive]: checked,
+                  })}
+                >
+                  <input
+                    type="radio"
+                    name="reportReason"
+                    value={reason.id}
+                    checked={checked}
+                    onChange={() => setSelectedReason(reason.id)}
+                    className={styles.nativeInput}
+                  />
+                  <RadioIndicator checked={checked} />
+                  <span className={styles.reasonText}>{reason.label}</span>
+                </label>
+              );
+            })}
+          </div>
+
+          <div
+            className={cn(styles.textareaWrapper, {
+              [styles.textareaWrapperVisible]: isOtherSelected,
+            })}
+          >
+            <textarea
+              value={valueTextarea}
+              placeholder="Enter a description"
+              {...register("textarea", {
+                onChange: (value) => setValuesTextarea(value.target.value),
+              })}
+            />
+          </div>
+
+          {errorState ? (
+            <p className={styles.errorText}>Unable to send report right now.</p>
+          ) : null}
+
+          {!isVerified ? (
+            <div className={styles.recaptcha}>
+              <ReCAPTCHA
+                sitekey={`${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+                ref={recaptchaRef}
+                onChange={handleCaptchaSubmission}
+              />
+            </div>
+          ) : null}
+
+          <div className={styles.actions}>
+            <ButtonNew
+              type="Default Ghost"
+              width="max"
+              size="s"
+              className={styles.actionButton}
+              onClick={closeModal}
+            >
+              Cancel
+            </ButtonNew>
+            <ButtonNew
+              disable={!isVerified || !selectedReason || (isOtherSelected && !valueTextarea.trim())}
+              width="max"
+              size="s"
+              className={styles.actionButton}
+              onClick={submitForm}
+            >
+              Send a Message
+            </ButtonNew>
+          </div>
+        </form>
+      ) : null}
+    </div>
+  );
+};
 
 export default ReportForm;

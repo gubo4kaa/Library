@@ -18,30 +18,32 @@ interface Props extends DetailedHTMLProps<
 export default function ServiceHeader({ service, category }: Props) {
   return (
     <div className={styles.wrapper}>
-      <img
-        src={`${process.env.NEXT_PUBLIC_LIBRARY_API}${service.id}/avatar/${service.avatar}`}
-        className={styles.img}
-        height={82}
-        width={82}
-        alt={""}
-      />
-      <div className={styles.titleWrapper}>
-        <h3>{service.name}</h3>
-        <div className={styles.tagList}>
-          <CategoryBadge
-            category={category}
-            fallbackLabel="none Category"
-            className={styles.categoryBadge}
-          />
-          <span className={styles.separator}></span>
-          {service.price}
-          {service.featured && (
-            <div>
-              <span className={styles.separator}></span>
-              <Image src={FeaturedLogo} alt={""} />
-              <p className={styles.featured}>Featured</p>
-            </div>
-          )}
+      <div className={styles.identity}>
+        <img
+          src={`${process.env.NEXT_PUBLIC_LIBRARY_API}${service.id}/avatar/${service.avatar}`}
+          className={styles.img}
+          height={82}
+          width={82}
+          alt={""}
+        />
+        <div className={styles.titleWrapper}>
+          <h3>{service.name}</h3>
+          <div className={styles.tagList}>
+            <CategoryBadge
+              category={category}
+              fallbackLabel="none Category"
+              className={styles.categoryBadge}
+            />
+            <span className={styles.separator}></span>
+            <span className={styles.price}>{service.price}</span>
+            {service.featured && (
+              <div className={styles.featuredTag}>
+                <span className={styles.separator}></span>
+                <Image src={FeaturedLogo} alt={""} />
+                <p className={styles.featured}>Featured</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
       <div className={styles.buttonWrapper}>

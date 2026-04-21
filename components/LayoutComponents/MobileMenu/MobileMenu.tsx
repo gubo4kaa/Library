@@ -47,7 +47,7 @@ export default function MobileMenu({ children }: Props) {
         initial={"closed"}
         animate={menuOpen ? "open" : "closed"}
         variants={variantsBlur}
-        transition={{ ease: "easeOut", duration: 0 }}
+        transition={{ ease: "easeOut", duration: 0.18 }}
         className={styles.blur}
         onClick={() => setOpenMenu(false)}
       ></motion.div>

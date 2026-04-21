@@ -12,6 +12,7 @@ import styles from "./LibrarySidebar.module.css";
 interface Props {
   categories: ICategory[];
   className?: string;
+  mobile?: boolean;
 }
 
 const legendItems = [
@@ -182,7 +183,11 @@ function HtmlIcon({ markup }: { markup: string }) {
   );
 }
 
-export default function LibrarySidebar({ categories, className }: Props) {
+export default function LibrarySidebar({
+  categories,
+  className,
+  mobile = false,
+}: Props) {
   const pathname = usePathname();
   const [, setBlur] = useBlurStore((state) => [state.blur, state.setBlur]);
   const [, setPopapState] = useSubscribeStore((state) => [
@@ -210,9 +215,11 @@ export default function LibrarySidebar({ categories, className }: Props) {
     .map(({ item }) => item);
 
   return (
-    <aside className={cn(styles.wrapper, className)}>
-      <div className={styles.sticky}>
-        <div className={styles.scroll}>
+    <aside
+      className={cn(styles.wrapper, mobile && styles.mobileWrapper, className)}
+    >
+      <div className={cn(styles.sticky, mobile && styles.mobileSticky)}>
+        <div className={cn(styles.scroll, mobile && styles.mobileScroll)}>
           <div className={styles.main}>
             <div className={styles.section}>
               <p className={styles.sectionTitle}>Platform</p>

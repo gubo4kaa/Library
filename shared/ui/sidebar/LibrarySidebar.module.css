@@ -6,6 +6,12 @@
   background: var(--ui-bg);
 }
 
+.mobileWrapper {
+  width: min(272px, calc(100vw - 48px));
+  min-height: 100dvh;
+  height: 100dvh;
+}
+
 .sticky {
   position: sticky;
   top: 60px;
@@ -14,19 +20,34 @@
   min-height: calc(100vh - 60px);
 }
 
+.mobileSticky {
+  position: relative;
+  top: 0;
+  min-height: 100dvh;
+  height: 100dvh;
+}
+
 .scroll {
   display: flex;
   flex: 1;
+  min-height: 0;
   flex-direction: column;
   gap: 18px;
   padding: 14px 12px;
   overflow-y: auto;
 }
 
+.mobileScroll {
+  height: 100%;
+  padding: 18px 12px 14px;
+  overscroll-behavior: contain;
+}
+
 .main {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  flex-shrink: 0;
 }
 
 .section {
@@ -190,6 +211,7 @@
   flex-direction: column;
   gap: 12px;
   margin-top: auto;
+  flex-shrink: 0;
 }
 
 .promoCard {
@@ -284,5 +306,9 @@
 @media (max-width: 900px) {
   .wrapper {
     display: none;
+  }
+
+  .mobileWrapper {
+    display: flex;
   }
 }
